@@ -24,7 +24,7 @@ namespace SD_RE_James_Clifford
         }
         public Boolean CheckOwner(String name, String Address, String phone, String email)
         {
-            Boolean test;
+            Boolean test = true;
             /*Get Data from the Database and compare
              SQL
              */
@@ -56,12 +56,12 @@ namespace SD_RE_James_Clifford
                         test = false;
                     }
                 }
-            else
-            {
+                else
+                {
                 test = false;
+                }
             }
-        }
-            return test;
+        return test;
         }
         public Boolean CheckData(String Phone,String Email)
         {
