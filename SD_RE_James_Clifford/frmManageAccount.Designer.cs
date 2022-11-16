@@ -29,20 +29,22 @@ namespace SD_RE_James_Clifford
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbx = new System.Windows.Forms.ComboBox();
+            this.cbxManageAccount = new System.Windows.Forms.ComboBox();
             this.lblManageAccounts1 = new System.Windows.Forms.Label();
             this.lblManageAccounts2 = new System.Windows.Forms.Label();
             this.btnManageAccount1 = new System.Windows.Forms.Button();
             this.btnManageAccount2 = new System.Windows.Forms.Button();
+            this.btnNewAccount3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // cbx
+            // cbxManageAccount
             // 
-            this.cbx.FormattingEnabled = true;
-            this.cbx.Location = new System.Drawing.Point(156, 12);
-            this.cbx.Name = "cbx";
-            this.cbx.Size = new System.Drawing.Size(121, 21);
-            this.cbx.TabIndex = 0;
+            this.cbxManageAccount.FormattingEnabled = true;
+            this.cbxManageAccount.Location = new System.Drawing.Point(156, 12);
+            this.cbxManageAccount.Name = "cbxManageAccount";
+            this.cbxManageAccount.Size = new System.Drawing.Size(121, 21);
+            this.cbxManageAccount.TabIndex = 0;
+            this.cbxManageAccount.SelectedIndexChanged += new System.EventHandler(this.cbxManageAccount_SelectedIndexChanged);
             // 
             // lblManageAccounts1
             // 
@@ -56,10 +58,11 @@ namespace SD_RE_James_Clifford
             // lblManageAccounts2
             // 
             this.lblManageAccounts2.AutoSize = true;
-            this.lblManageAccounts2.Location = new System.Drawing.Point(12, 98);
+            this.lblManageAccounts2.Location = new System.Drawing.Point(12, 80);
             this.lblManageAccounts2.Name = "lblManageAccounts2";
-            this.lblManageAccounts2.Size = new System.Drawing.Size(0, 13);
+            this.lblManageAccounts2.Size = new System.Drawing.Size(84, 13);
             this.lblManageAccounts2.TabIndex = 2;
+            this.lblManageAccounts2.Text = "Account Display";
             // 
             // btnManageAccount1
             // 
@@ -80,18 +83,30 @@ namespace SD_RE_James_Clifford
             this.btnManageAccount2.Text = "Remove";
             this.btnManageAccount2.UseVisualStyleBackColor = true;
             // 
+            // btnNewAccount3
+            // 
+            this.btnNewAccount3.Location = new System.Drawing.Point(352, 12);
+            this.btnNewAccount3.Name = "btnNewAccount3";
+            this.btnNewAccount3.Size = new System.Drawing.Size(75, 23);
+            this.btnNewAccount3.TabIndex = 5;
+            this.btnNewAccount3.Text = "return";
+            this.btnNewAccount3.UseVisualStyleBackColor = true;
+            this.btnNewAccount3.Click += new System.EventHandler(this.btnNewAccount3_Click);
+            // 
             // frmManageAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 450);
+            this.Controls.Add(this.btnNewAccount3);
             this.Controls.Add(this.btnManageAccount2);
             this.Controls.Add(this.btnManageAccount1);
             this.Controls.Add(this.lblManageAccounts2);
             this.Controls.Add(this.lblManageAccounts1);
-            this.Controls.Add(this.cbx);
+            this.Controls.Add(this.cbxManageAccount);
             this.Name = "frmManageAccount";
             this.Text = "frmManageAccount";
+            this.Load += new System.EventHandler(this.frmManageAccount_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,10 +114,11 @@ namespace SD_RE_James_Clifford
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbx;
+        private System.Windows.Forms.ComboBox cbxManageAccount;
         private System.Windows.Forms.Label lblManageAccounts1;
         private System.Windows.Forms.Label lblManageAccounts2;
         private System.Windows.Forms.Button btnManageAccount1;
         private System.Windows.Forms.Button btnManageAccount2;
+        private System.Windows.Forms.Button btnNewAccount3;
     }
 }

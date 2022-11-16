@@ -15,7 +15,11 @@ namespace SD_RE_James_Clifford
         frmLivestockHome parent;
         public frmSetTime()
         {
-
+            InitializeComponent();
+        }
+        public frmSetTime(frmLivestockHome parent)
+        {
+            this.parent = parent;
             InitializeComponent();
         }
     }

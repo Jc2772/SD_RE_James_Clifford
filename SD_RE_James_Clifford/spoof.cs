@@ -12,25 +12,41 @@ namespace SD_RE_James_Clifford
         private string[] AccAddress1 = new string[] { "Castleisland", "Kenmare", "Waterville" };
         private string[] AccPhone = new string[] { "087 5498 719", "087 9258 761", "087 5476 349" };
         private string[] AccEmail = new string[] {"None supplied", "TomOS@Hotmail.com", "None supplied" };
-        private string getAccName(int num)
+        public string getAccName(int num)
         {
             return this.AccName[num];
         }
-        private string getAccAddress1(int num)
+        public string getAccAddress1(int num)
         {
             return this.AccAddress1[num];
         }
-        private string getAccPhone(int num)
+        public string getAccPhone(int num)
         {
             return this.AccPhone[num];
         }
-        private string getAccEmail(int num)
+        public string getAccEmail(int num)
         {
             return this.AccEmail[num];
         }
-        private void addValues(string name,string address1,string phone,string email,int num)
+        public void addValues(string name,string address1,string phone,string email)
         {
-
+            int num = AccName.Length + 1;
+            this.AccName[num] = name;
+            this.AccAddress1[num] = address1;
+            this.AccPhone[num] = phone;
+            this.AccEmail[num] = email;
+        }
+        public void updateValues(string name, string address1, string phone, string email,int id)
+        {
+            int num = id;
+            this.AccName[num] = name;
+            this.AccAddress1[num] = address1;
+            this.AccPhone[num] = phone;
+            this.AccEmail[num] = email;
+        }
+        public int getSize()
+        {
+            return this.AccName.Length;
         }
     }
 }

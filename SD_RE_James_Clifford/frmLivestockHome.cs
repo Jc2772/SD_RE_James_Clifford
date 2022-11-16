@@ -28,7 +28,7 @@ namespace SD_RE_James_Clifford
         private void btnLivestockHome2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmSetTime SetTime = new frmSetTime();
+            frmSetTime SetTime = new frmSetTime(this);
             SetTime.Show();
         }
 
@@ -49,14 +49,14 @@ namespace SD_RE_James_Clifford
         private void btnLivestockHome3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRegisterLivestock registerLivestock = new frmRegisterLivestock();
+            frmRegisterLivestock registerLivestock = new frmRegisterLivestock(this);
             registerLivestock.Show();
         }
 
         private void btnLivestockHome8_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmManageAccount ManageAccount = new frmManageAccount();
+            frmManageAccount ManageAccount = new frmManageAccount(this);
             ManageAccount.Show();
         }
     }

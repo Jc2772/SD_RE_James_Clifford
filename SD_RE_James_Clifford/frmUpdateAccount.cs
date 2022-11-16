@@ -12,8 +12,14 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmUpdateAccount : Form
     {
+        private int id;
         public frmUpdateAccount()
         {
+            InitializeComponent();
+        }
+        public frmUpdateAccount(int id)
+        {
+            this.id = id;
             InitializeComponent();
         }
 
@@ -21,17 +27,17 @@ namespace SD_RE_James_Clifford
         {
             String
                 Name = ipdUpdateName.Text,
-                Address = ipdUpdateAddress1.Text,
+                Address1 = ipdUpdateAddress1.Text,
                 Phone = ipdUpdatePhone.Text,
                 Email = ipdUpdateEmail.Text;
             frmNewAccount accountOptions = new frmNewAccount();
-            Boolean 
-                update_check1 = accountOptions.CheckData(Phone,Email),
-                update_check2 = accountOptions.CheckOwner(Name,Address,Phone,Email);
+            Boolean
+                update_check1 = accountOptions.CheckData(Phone, Email);
             if (!update_check1)
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Hide();
+                this.Close();
+                new spoof().updateValues(Name, Address1, Phone, Email, id);
             }
             else
             {
