@@ -65,7 +65,7 @@ namespace SD_RE_James_Clifford
             // imgLivestockHome
             // 
             this.imgLivestockHome.Image = ((System.Drawing.Image)(resources.GetObject("imgLivestockHome.Image")));
-            this.imgLivestockHome.Location = new System.Drawing.Point(174, 124);
+            this.imgLivestockHome.Location = new System.Drawing.Point(172, 123);
             this.imgLivestockHome.Name = "imgLivestockHome";
             this.imgLivestockHome.Size = new System.Drawing.Size(447, 273);
             this.imgLivestockHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
