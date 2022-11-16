@@ -84,6 +84,10 @@
     <Compile Include="frmRegisterLivestock.Designer.cs">
       <DependentUpon>frmRegisterLivestock.cs</DependentUpon>
     </Compile>
+    <Compile Include="spoof.cs" />
+    <EmbeddedResource Include="frmManageAccount.resx">
+      <DependentUpon>frmManageAccount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmNewAccount.resx">
       <DependentUpon>frmNewAccount.cs</DependentUpon>
     </EmbeddedResource>

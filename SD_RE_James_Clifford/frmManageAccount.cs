@@ -16,5 +16,11 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
+
+        private void btnManageAccount1_Click(object sender, EventArgs e)
+        {
+            frmUpdateAccount update = new frmUpdateAccount();
+            update.Show();
+        }
     }
 }
