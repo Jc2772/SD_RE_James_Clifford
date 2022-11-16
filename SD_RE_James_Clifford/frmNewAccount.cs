@@ -29,15 +29,22 @@ namespace SD_RE_James_Clifford
              SQL
              */
             /*The piece of code StringComparison.OrdinalIgnoreCase came from https://www.tutlane.com/tutorial/csharp/csharp-string-equals-method*/
-            if (phone.Equals("087 634 7149"))
-            {
-                if (email.Equals(""))
+            spoof item = new spoof();
+            for (int i = 0; i< item.getSize(); i++) { 
+                if (phone.Equals(item.getAccPhone(i)))
                 {
-                    if(Address.Equals("Kenmare", StringComparison.OrdinalIgnoreCase))
+                    if (email.Equals(item.getAccEmail(i)))
                     {
-                        if (name.Equals("Mike o Connor", StringComparison.OrdinalIgnoreCase))
+                        if (Address.Equals(item.getAccAddress1(i), StringComparison.OrdinalIgnoreCase))
                         {
-                            test = true;
+                            if (name.Equals(item.getAccAddress1(i), StringComparison.OrdinalIgnoreCase))
+                            {
+                                test = true;
+                            }
+                            else
+                            {
+                                test = false;
+                            }
                         }
                         else
                         {
@@ -49,15 +56,11 @@ namespace SD_RE_James_Clifford
                         test = false;
                     }
                 }
-                else
-                {
-                    test = false;
-                }
-            }
             else
             {
                 test = false;
             }
+        }
             return test;
         }
         public Boolean CheckData(String Phone,String Email)
