@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace SD_RE_James_Clifford
 {
-    public partial class frmAccountOptions : Form
+    public partial class frmNewAccount : Form
     {
         frmLivestockHome parent;
-        public frmAccountOptions(frmLivestockHome parent)
+        public frmNewAccount(frmLivestockHome parent)
         {
             this.parent = parent;
             InitializeComponent();
         }
-        public frmAccountOptions()
+        public frmNewAccount()
         {
             InitializeComponent();
         }
@@ -137,47 +137,6 @@ namespace SD_RE_James_Clifford
             {
                 /*Put Data into the database*/
                 MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        private void btnAccountUpdate_Click(object sender, EventArgs e)
-        {
-            String
-                Name = ipdAccountName.Text,
-                Address = ipdAccountAddress1.Text,
-                Phone = ipdAccountPhone.Text,
-                Email = ipdAccountEmail.Text;
-            if(!CheckData(Phone, Email))
-            {
-                MessageBox.Show("A", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (CheckOwner(Name, Address, Phone, Email))
-            {
-                /*Open Update*/
-                frmUpdateAccount updateAccount = new frmUpdateAccount();
-                updateAccount.Show();
-            }
-            else
-            {
-                MessageBox.Show("Account is Not Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void Remove_Click(object sender, EventArgs e)
-        {
-            String
-                Name = ipdAccountName.Text,
-                Address = ipdAccountAddress1.Text,
-                Phone = ipdAccountPhone.Text,
-                Email = ipdAccountEmail.Text;
-            if (CheckOwner(Name, Address, Phone, Email))
-            {
-                /*Delete Data*/
-                MessageBox.Show("Account has been deleted", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Account is not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

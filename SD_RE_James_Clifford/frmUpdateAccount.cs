@@ -24,7 +24,7 @@ namespace SD_RE_James_Clifford
                 Address = ipdUpdateAddress1.Text,
                 Phone = ipdUpdatePhone.Text,
                 Email = ipdUpdateEmail.Text;
-            frmAccountOptions accountOptions = new frmAccountOptions();
+            frmNewAccount accountOptions = new frmNewAccount();
             Boolean 
                 update_check1 = accountOptions.CheckData(Phone,Email),
                 update_check2 = accountOptions.CheckOwner(Name,Address,Phone,Email);

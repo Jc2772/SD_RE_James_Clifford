@@ -21,7 +21,7 @@ namespace SD_RE_James_Clifford
         private void btnLivestockHome1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmAccountOptions AccountOptions = new frmAccountOptions(this);
+            frmNewAccount AccountOptions = new frmNewAccount(this);
             AccountOptions.Show();
         }
 

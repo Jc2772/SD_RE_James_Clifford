@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmManageAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageAccount.Designer.cs">
+      <DependentUpon>frmManageAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSetTime.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,11 +64,11 @@
     <Compile Include="frmUpdateAccount.Designer.cs">
       <DependentUpon>frmUpdateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAccountOptions.cs">
+    <Compile Include="frmNewAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAccountOptions.Designer.cs">
-      <DependentUpon>frmAccountOptions.cs</DependentUpon>
+    <Compile Include="frmNewAccount.Designer.cs">
+      <DependentUpon>frmNewAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLivestockHome.cs">
       <SubType>Form</SubType>
@@ -78,8 +84,8 @@
     <Compile Include="frmRegisterLivestock.Designer.cs">
       <DependentUpon>frmRegisterLivestock.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAccountOptions.resx">
-      <DependentUpon>frmAccountOptions.cs</DependentUpon>
+    <EmbeddedResource Include="frmNewAccount.resx">
+      <DependentUpon>frmNewAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLivestockHome.resx">
       <DependentUpon>frmLivestockHome.cs</DependentUpon>

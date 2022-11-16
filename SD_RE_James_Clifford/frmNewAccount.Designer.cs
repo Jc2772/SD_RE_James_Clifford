@@ -1,7 +1,7 @@
 ﻿
 namespace SD_RE_James_Clifford
 {
-    partial class frmAccountOptions
+    partial class frmNewAccount
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,6 @@ namespace SD_RE_James_Clifford
         private void InitializeComponent()
         {
             this.btnAccountAdd = new System.Windows.Forms.Button();
-            this.btnAccountUpdate = new System.Windows.Forms.Button();
-            this.Remove = new System.Windows.Forms.Button();
             this.lblAccountName = new System.Windows.Forms.Label();
             this.lblAccountAddress1 = new System.Windows.Forms.Label();
             this.lblAccountPhone = new System.Windows.Forms.Label();
@@ -45,34 +43,13 @@ namespace SD_RE_James_Clifford
             // 
             // btnAccountAdd
             // 
-            this.btnAccountAdd.Location = new System.Drawing.Point(43, 366);
+            this.btnAccountAdd.Location = new System.Drawing.Point(184, 366);
             this.btnAccountAdd.Name = "btnAccountAdd";
             this.btnAccountAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAccountAdd.TabIndex = 0;
             this.btnAccountAdd.Text = "Add";
             this.btnAccountAdd.UseVisualStyleBackColor = true;
             this.btnAccountAdd.Click += new System.EventHandler(this.btnAccountAdd_Click);
-            // 
-            // btnAccountUpdate
-            // 
-            this.btnAccountUpdate.Location = new System.Drawing.Point(191, 366);
-            this.btnAccountUpdate.Name = "btnAccountUpdate";
-            this.btnAccountUpdate.Size = new System.Drawing.Size(75, 23);
-            this.btnAccountUpdate.TabIndex = 1;
-            this.btnAccountUpdate.Text = "Update";
-            this.btnAccountUpdate.UseVisualStyleBackColor = true;
-            this.btnAccountUpdate.Click += new System.EventHandler(this.btnAccountUpdate_Click);
-            // 
-            // Remove
-            // 
-            this.Remove.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Remove.Location = new System.Drawing.Point(341, 366);
-            this.Remove.Name = "Remove";
-            this.Remove.Size = new System.Drawing.Size(75, 23);
-            this.Remove.TabIndex = 2;
-            this.Remove.Text = "Remove";
-            this.Remove.UseVisualStyleBackColor = true;
-            this.Remove.Click += new System.EventHandler(this.Remove_Click);
             // 
             // lblAccountName
             // 
@@ -148,7 +125,7 @@ namespace SD_RE_James_Clifford
             this.ipdAccountEmail.Size = new System.Drawing.Size(100, 20);
             this.ipdAccountEmail.TabIndex = 11;
             // 
-            // frmAccountOptions
+            // frmNewAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -162,11 +139,9 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.lblAccountPhone);
             this.Controls.Add(this.lblAccountAddress1);
             this.Controls.Add(this.lblAccountName);
-            this.Controls.Add(this.Remove);
-            this.Controls.Add(this.btnAccountUpdate);
             this.Controls.Add(this.btnAccountAdd);
-            this.Name = "frmAccountOptions";
-            this.Text = "frmAccountOptions";
+            this.Name = "frmNewAccount";
+            this.Text = "frmNewAccount";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,8 +150,6 @@ namespace SD_RE_James_Clifford
         #endregion
 
         private System.Windows.Forms.Button btnAccountAdd;
-        private System.Windows.Forms.Button btnAccountUpdate;
-        private System.Windows.Forms.Button Remove;
         private System.Windows.Forms.Label lblAccountName;
         private System.Windows.Forms.Label lblAccountAddress1;
         private System.Windows.Forms.Label lblAccountPhone;
