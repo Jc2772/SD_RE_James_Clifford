@@ -124,7 +124,7 @@ namespace SD_RE_James_Clifford
                             livestockGender = "female";
                         }
                         new spoof_livestock().addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber);
-                        MessageBox.Show("tag number is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.;
+                        MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (FormatException)

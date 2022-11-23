@@ -39,8 +39,6 @@ namespace SD_RE_James_Clifford
             this.btnSetTime1 = new System.Windows.Forms.Button();
             this.btnSetTime2 = new System.Windows.Forms.Button();
             this.btnSetTime3 = new System.Windows.Forms.Button();
-            this.ipdSetTime3 = new System.Windows.Forms.TextBox();
-            this.lblSetTim4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +81,7 @@ namespace SD_RE_James_Clifford
             // 
             this.lblSetTime3.AutoSize = true;
             this.lblSetTime3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSetTime3.Location = new System.Drawing.Point(7, 100);
+            this.lblSetTime3.Location = new System.Drawing.Point(7, 122);
             this.lblSetTime3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSetTime3.Name = "lblSetTime3";
             this.lblSetTime3.Size = new System.Drawing.Size(79, 17);
@@ -102,7 +100,7 @@ namespace SD_RE_James_Clifford
             // 
             // ipdSetTime2
             // 
-            this.ipdSetTime2.Location = new System.Drawing.Point(82, 100);
+            this.ipdSetTime2.Location = new System.Drawing.Point(90, 122);
             this.ipdSetTime2.Margin = new System.Windows.Forms.Padding(2);
             this.ipdSetTime2.MaxLength = 5;
             this.ipdSetTime2.Name = "ipdSetTime2";
@@ -141,34 +139,11 @@ namespace SD_RE_James_Clifford
             this.btnSetTime3.Text = "Cancel";
             this.btnSetTime3.UseVisualStyleBackColor = true;
             // 
-            // ipdSetTime3
-            // 
-            this.ipdSetTime3.Location = new System.Drawing.Point(90, 127);
-            this.ipdSetTime3.Margin = new System.Windows.Forms.Padding(2);
-            this.ipdSetTime3.MaxLength = 2;
-            this.ipdSetTime3.Name = "ipdSetTime3";
-            this.ipdSetTime3.Size = new System.Drawing.Size(33, 20);
-            this.ipdSetTime3.TabIndex = 10;
-            this.ipdSetTime3.Text = "0";
-            // 
-            // lblSetTim4
-            // 
-            this.lblSetTim4.AutoSize = true;
-            this.lblSetTim4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSetTim4.Location = new System.Drawing.Point(7, 128);
-            this.lblSetTim4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSetTim4.Name = "lblSetTim4";
-            this.lblSetTim4.Size = new System.Drawing.Size(76, 17);
-            this.lblSetTim4.TabIndex = 9;
-            this.lblSetTim4.Text = "Time slots:";
-            // 
             // frmSetTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(293, 242);
-            this.Controls.Add(this.ipdSetTime3);
-            this.Controls.Add(this.lblSetTim4);
             this.Controls.Add(this.btnSetTime3);
             this.Controls.Add(this.btnSetTime2);
             this.Controls.Add(this.btnSetTime1);
@@ -180,7 +155,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.dpkSetTime);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSetTime";
-            this.Text = "frmSetTime";
+            this.Text = "Schedule Auction";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -199,7 +174,5 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.Button btnSetTime1;
         private System.Windows.Forms.Button btnSetTime2;
         private System.Windows.Forms.Button btnSetTime3;
-        private System.Windows.Forms.TextBox ipdSetTime3;
-        private System.Windows.Forms.Label lblSetTim4;
     }
 }
