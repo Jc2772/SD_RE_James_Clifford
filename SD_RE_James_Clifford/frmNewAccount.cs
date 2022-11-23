@@ -29,7 +29,7 @@ namespace SD_RE_James_Clifford
              SQL
              */
             /*The piece of code StringComparison.OrdinalIgnoreCase came from https://www.tutlane.com/tutorial/csharp/csharp-string-equals-method*/
-            spoof item = new spoof();
+            spoof_accounts item = new spoof_accounts();
             for (int i = 0; i< item.getSize(); i++) { 
                 if (phone.Equals(item.getAccPhone(i)))
                 {
@@ -138,7 +138,7 @@ namespace SD_RE_James_Clifford
             }
             else
             {
-                /*Put Data into the database*/
+                new spoof_accounts().addValues(Name,Address,Phone,Email);
                 MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

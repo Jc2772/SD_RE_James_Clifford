@@ -47,7 +47,7 @@ namespace SD_RE_James_Clifford
             // dpkSetTime
             // 
             this.dpkSetTime.Location = new System.Drawing.Point(58, 30);
-            this.dpkSetTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dpkSetTime.Margin = new System.Windows.Forms.Padding(2);
             this.dpkSetTime.Name = "dpkSetTime";
             this.dpkSetTime.Size = new System.Drawing.Size(192, 20);
             this.dpkSetTime.TabIndex = 0;
@@ -93,7 +93,7 @@ namespace SD_RE_James_Clifford
             // ipdSetTime1
             // 
             this.ipdSetTime1.Location = new System.Drawing.Point(82, 69);
-            this.ipdSetTime1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ipdSetTime1.Margin = new System.Windows.Forms.Padding(2);
             this.ipdSetTime1.MaxLength = 5;
             this.ipdSetTime1.Name = "ipdSetTime1";
             this.ipdSetTime1.Size = new System.Drawing.Size(33, 20);
@@ -103,7 +103,7 @@ namespace SD_RE_James_Clifford
             // ipdSetTime2
             // 
             this.ipdSetTime2.Location = new System.Drawing.Point(82, 100);
-            this.ipdSetTime2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ipdSetTime2.Margin = new System.Windows.Forms.Padding(2);
             this.ipdSetTime2.MaxLength = 5;
             this.ipdSetTime2.Name = "ipdSetTime2";
             this.ipdSetTime2.Size = new System.Drawing.Size(33, 20);
@@ -113,17 +113,18 @@ namespace SD_RE_James_Clifford
             // btnSetTime1
             // 
             this.btnSetTime1.Location = new System.Drawing.Point(12, 185);
-            this.btnSetTime1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSetTime1.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetTime1.Name = "btnSetTime1";
             this.btnSetTime1.Size = new System.Drawing.Size(52, 26);
             this.btnSetTime1.TabIndex = 6;
             this.btnSetTime1.Text = "Add";
             this.btnSetTime1.UseVisualStyleBackColor = true;
+            this.btnSetTime1.Click += new System.EventHandler(this.btnSetTime1_Click);
             // 
             // btnSetTime2
             // 
             this.btnSetTime2.Location = new System.Drawing.Point(220, 185);
-            this.btnSetTime2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSetTime2.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetTime2.Name = "btnSetTime2";
             this.btnSetTime2.Size = new System.Drawing.Size(64, 26);
             this.btnSetTime2.TabIndex = 7;
@@ -133,7 +134,7 @@ namespace SD_RE_James_Clifford
             // btnSetTime3
             // 
             this.btnSetTime3.Location = new System.Drawing.Point(110, 185);
-            this.btnSetTime3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSetTime3.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetTime3.Name = "btnSetTime3";
             this.btnSetTime3.Size = new System.Drawing.Size(62, 26);
             this.btnSetTime3.TabIndex = 8;
@@ -144,7 +145,7 @@ namespace SD_RE_James_Clifford
             // 
             this.ipdSetTime3.Location = new System.Drawing.Point(90, 127);
             this.ipdSetTime3.Margin = new System.Windows.Forms.Padding(2);
-            this.ipdSetTime3.MaxLength = 5;
+            this.ipdSetTime3.MaxLength = 2;
             this.ipdSetTime3.Name = "ipdSetTime3";
             this.ipdSetTime3.Size = new System.Drawing.Size(33, 20);
             this.ipdSetTime3.TabIndex = 10;
@@ -177,7 +178,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.lblSetTime2);
             this.Controls.Add(this.lblSetTime1);
             this.Controls.Add(this.dpkSetTime);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSetTime";
             this.Text = "frmSetTime";
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();

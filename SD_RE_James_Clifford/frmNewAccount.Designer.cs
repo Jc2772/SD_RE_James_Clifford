@@ -90,6 +90,7 @@ namespace SD_RE_James_Clifford
             // ipdAccountName
             // 
             this.ipdAccountName.Location = new System.Drawing.Point(89, 38);
+            this.ipdAccountName.MaxLength = 30;
             this.ipdAccountName.Name = "ipdAccountName";
             this.ipdAccountName.Size = new System.Drawing.Size(100, 20);
             this.ipdAccountName.TabIndex = 7;
@@ -107,6 +108,7 @@ namespace SD_RE_James_Clifford
             // ipdAccountAddress1
             // 
             this.ipdAccountAddress1.Location = new System.Drawing.Point(89, 78);
+            this.ipdAccountAddress1.MaxLength = 30;
             this.ipdAccountAddress1.Name = "ipdAccountAddress1";
             this.ipdAccountAddress1.Size = new System.Drawing.Size(100, 20);
             this.ipdAccountAddress1.TabIndex = 9;
@@ -114,6 +116,7 @@ namespace SD_RE_James_Clifford
             // ipdAccountPhone
             // 
             this.ipdAccountPhone.Location = new System.Drawing.Point(106, 117);
+            this.ipdAccountPhone.MaxLength = 12;
             this.ipdAccountPhone.Name = "ipdAccountPhone";
             this.ipdAccountPhone.Size = new System.Drawing.Size(127, 20);
             this.ipdAccountPhone.TabIndex = 10;
@@ -121,6 +124,7 @@ namespace SD_RE_James_Clifford
             // ipdAccountEmail
             // 
             this.ipdAccountEmail.Location = new System.Drawing.Point(89, 158);
+            this.ipdAccountEmail.MaxLength = 30;
             this.ipdAccountEmail.Name = "ipdAccountEmail";
             this.ipdAccountEmail.Size = new System.Drawing.Size(100, 20);
             this.ipdAccountEmail.TabIndex = 11;

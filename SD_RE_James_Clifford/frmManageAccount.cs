@@ -35,9 +35,9 @@ namespace SD_RE_James_Clifford
 
         private void frmManageAccount_Load(object sender, EventArgs e)
         {
-            spoof item = new spoof();
+            spoof_accounts item = new spoof_accounts();
             this.found = false;
-            int combo_num = new spoof().getSize();
+            int combo_num = new spoof_accounts().getSize();
             for(int i = 1; i <= combo_num; i++)
             {
                 cbxManageAccount.Items.Add("id-" + i + " name-" + item.getAccName(i-1));
@@ -46,7 +46,7 @@ namespace SD_RE_James_Clifford
 
         private void cbxManageAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            spoof item = new spoof();
+            spoof_accounts item = new spoof_accounts();
             string name = "", address1 = "" ,phone = "", email = "";
             for (int i = 1; i <= item.getSize();i++)
             {

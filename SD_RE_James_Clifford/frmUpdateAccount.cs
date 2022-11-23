@@ -37,7 +37,7 @@ namespace SD_RE_James_Clifford
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                new spoof().updateValues(Name, Address1, Phone, Email, id);
+                new spoof_accounts().updateValues(Name, Address1, Phone, Email, id);
             }
             else
             {

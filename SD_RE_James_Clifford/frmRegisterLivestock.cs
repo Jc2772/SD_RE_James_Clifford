@@ -104,5 +104,38 @@ namespace SD_RE_James_Clifford
                 grpRegisterLivestock.Visible = true;
             }
         }
+
+        private void btnRegisterLivestock2_Click(object sender, EventArgs e)
+        {
+            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockAge = ipdRegisterLivestock1.Text, livestockTagNumber = ipdRegisterLivestock2.Text,livestockGender;
+            try
+            {
+                Convert.ToInt32(ipdRegisterLivestock1.Text);
+                try
+                {
+                    Convert.ToInt32(ipdRegisterLivestock2.Text);
+                    if(ipdRegisterLivestock2.Text.Length == 15)
+                    {
+                        if(ckxRegisterLivestock1.Checked) {
+                            livestockGender = "male";
+                        }
+                        else
+                        {
+                            livestockGender = "female";
+                        }
+                        new spoof_livestock().addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber);
+                        MessageBox.Show("tag number is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.;
+                    }
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("tag number is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Age is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

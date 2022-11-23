@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SD_RE_James_Clifford
 {
-    class spoof
+    class spoof_accounts
     {
         private string[] AccName = new string[] {"Mike o Niell", "Thomas o Sullivan","Patrick Griffian"};
         private string[] AccAddress1 = new string[] { "Castleisland", "Kenmare", "Waterville" };

@@ -43,6 +43,7 @@ namespace SD_RE_James_Clifford
             // ipdUpdateEmail
             // 
             this.ipdUpdateEmail.Location = new System.Drawing.Point(105, 163);
+            this.ipdUpdateEmail.MaxLength = 30;
             this.ipdUpdateEmail.Name = "ipdUpdateEmail";
             this.ipdUpdateEmail.Size = new System.Drawing.Size(100, 20);
             this.ipdUpdateEmail.TabIndex = 19;
@@ -50,6 +51,7 @@ namespace SD_RE_James_Clifford
             // ipdUpdatePhone
             // 
             this.ipdUpdatePhone.Location = new System.Drawing.Point(122, 122);
+            this.ipdUpdatePhone.MaxLength = 12;
             this.ipdUpdatePhone.Name = "ipdUpdatePhone";
             this.ipdUpdatePhone.Size = new System.Drawing.Size(127, 20);
             this.ipdUpdatePhone.TabIndex = 18;
@@ -57,6 +59,7 @@ namespace SD_RE_James_Clifford
             // ipdUpdateAddress1
             // 
             this.ipdUpdateAddress1.Location = new System.Drawing.Point(105, 83);
+            this.ipdUpdateAddress1.MaxLength = 30;
             this.ipdUpdateAddress1.Name = "ipdUpdateAddress1";
             this.ipdUpdateAddress1.Size = new System.Drawing.Size(100, 20);
             this.ipdUpdateAddress1.TabIndex = 17;
@@ -64,6 +67,7 @@ namespace SD_RE_James_Clifford
             // ipdUpdateName
             // 
             this.ipdUpdateName.Location = new System.Drawing.Point(105, 43);
+            this.ipdUpdateName.MaxLength = 30;
             this.ipdUpdateName.Name = "ipdUpdateName";
             this.ipdUpdateName.Size = new System.Drawing.Size(100, 20);
             this.ipdUpdateName.TabIndex = 16;
