@@ -8,11 +8,12 @@ namespace SD_RE_James_Clifford
 {
     class spoof_livestock
     {
-        private string[] livestockType = new string[] { };
-        private string[] livestockBreed = new string[] { };
-        private string[] livestockAge = new string[] { };
-        private string[] livestockGender = new string[] { };
-        private string[] livestockTagNumber = new string[] { };
+        private string[] livestockType = new string[] {"cattle","sheep","goat" };
+        private string[] livestockBreed = new string[] { "Limousin", "Suffolk sheep", "Saanen" };
+        private string[] livestockAge = new string[] {"3", "2", "2" };
+        private string[] livestockGender = new string[] {"female", "male", "female" };
+        private string[] livestockTagNumber = new string[] { "372211234510091", "234558839456932", "645452987631487" };
+        private string[] timeslots = new string[] { "Monday 28 November 2022 09:00", "Monday 28 November 2022 09:20", "Monday 28 November 2022 09:40"};
         private int num;
         public void addValues(string livestockType,string livestockBreed,string livestockAge,string livestockGender, string livestockTagNumber)
         {

@@ -22,9 +22,9 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
-        public Boolean CheckOwner(String name, String Address, String phone, String email)
+        public bool CheckOwner(String name, String Address, String phone, String email)
         {
-            Boolean test = true;
+            bool test = true;
             /*Get Data from the Database and compare
              SQL
              */
@@ -63,7 +63,7 @@ namespace SD_RE_James_Clifford
             }
         return test;
         }
-        public Boolean CheckData(String Phone,String Email)
+        public bool CheckData(String Phone,String Email)
         {
             for(int i = 0; i < Phone.Length; i++)
             {

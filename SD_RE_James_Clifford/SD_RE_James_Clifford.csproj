@@ -85,6 +85,7 @@
       <DependentUpon>frmRegisterLivestock.cs</DependentUpon>
     </Compile>
     <Compile Include="spoof_accounts.cs" />
+    <Compile Include="spoof_auction.cs" />
     <Compile Include="spoof_livestock.cs" />
     <EmbeddedResource Include="frmManageAccount.resx">
       <DependentUpon>frmManageAccount.cs</DependentUpon>
