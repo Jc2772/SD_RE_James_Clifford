@@ -19,7 +19,16 @@ namespace SD_RE_James_Clifford
         {
             return this.timeslots.Length;
         }
-        public void addAuction()
+        public void addAuction(String auction_date)
+        {
+            int num1 = auction_date.Length + 1;
+            this.auction_date[num1] = auction_date;
+            for (int i = 1; i <= times.Length; i++) {
+                int num2 = timeslots.Length + i;
+                this.timeslots[num2] = auction_date + " " + times[i - 1];
+            }
+        }
+        public void removeAuction(String auction_date)
         {
 
         }
