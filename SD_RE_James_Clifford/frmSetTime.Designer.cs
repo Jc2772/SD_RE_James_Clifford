@@ -92,6 +92,7 @@ namespace SD_RE_James_Clifford
             this.btnSetTime3.TabIndex = 8;
             this.btnSetTime3.Text = "Cancel";
             this.btnSetTime3.UseVisualStyleBackColor = true;
+            this.btnSetTime3.Click += new System.EventHandler(this.btnSetTime3_Click);
             // 
             // frmSetTime
             // 

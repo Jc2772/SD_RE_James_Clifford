@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SD_RE_James_Clifford
 {
@@ -30,13 +31,25 @@ namespace SD_RE_James_Clifford
         }
         public void removeAuction(String auction_date)
         {
-            for(int i = 0; i < timeslots.Length; i++)
+            for (int i = 0; i < timeslots.Length; i++)
             {
                 if (timeslots[i].Contains(auction_date))
                 {
-                     delete
+                    /*date accessed 29/11/2022
+                     source:https://www.techiedelight.com/remove-element-from-a-specific-index-in-array-csharp/*/
+                    for (int j = i; j < timeslots.Length - 1; j++)
+                    {
+                        timeslots[j] = timeslots[j + 1];
+                    }
+                    Array.Resize(ref timeslots, timeslots.Length - 1);
                 }
             }
+            String str = "";
+            for (int j = 0; j < timeslots.Length; j++)
+            {
+                str += "\n" + timeslots;
+            }
+            MessageBox.Show(str, "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
