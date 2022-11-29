@@ -32,6 +32,8 @@ namespace SD_RE_James_Clifford
             this.button1 = new System.Windows.Forms.Button();
             this.cbxRegisterLivestock1 = new System.Windows.Forms.ComboBox();
             this.grpRegisterLivestock = new System.Windows.Forms.GroupBox();
+            this.lblRegisterLivestock6 = new System.Windows.Forms.Label();
+            this.cbxRegisterLivestock3 = new System.Windows.Forms.ComboBox();
             this.btnRegisterLivestock2 = new System.Windows.Forms.Button();
             this.ipdRegisterLivestock2 = new System.Windows.Forms.TextBox();
             this.lblRegisterLivestock5 = new System.Windows.Forms.Label();
@@ -69,6 +71,8 @@ namespace SD_RE_James_Clifford
             // 
             // grpRegisterLivestock
             // 
+            this.grpRegisterLivestock.Controls.Add(this.lblRegisterLivestock6);
+            this.grpRegisterLivestock.Controls.Add(this.cbxRegisterLivestock3);
             this.grpRegisterLivestock.Controls.Add(this.btnRegisterLivestock2);
             this.grpRegisterLivestock.Controls.Add(this.ipdRegisterLivestock2);
             this.grpRegisterLivestock.Controls.Add(this.lblRegisterLivestock5);
@@ -88,9 +92,26 @@ namespace SD_RE_James_Clifford
             this.grpRegisterLivestock.TabStop = false;
             this.grpRegisterLivestock.Visible = false;
             // 
+            // lblRegisterLivestock6
+            // 
+            this.lblRegisterLivestock6.AutoSize = true;
+            this.lblRegisterLivestock6.Location = new System.Drawing.Point(275, 89);
+            this.lblRegisterLivestock6.Name = "lblRegisterLivestock6";
+            this.lblRegisterLivestock6.Size = new System.Drawing.Size(47, 13);
+            this.lblRegisterLivestock6.TabIndex = 15;
+            this.lblRegisterLivestock6.Text = "timeslots";
+            // 
+            // cbxRegisterLivestock3
+            // 
+            this.cbxRegisterLivestock3.FormattingEnabled = true;
+            this.cbxRegisterLivestock3.Location = new System.Drawing.Point(335, 85);
+            this.cbxRegisterLivestock3.Name = "cbxRegisterLivestock3";
+            this.cbxRegisterLivestock3.Size = new System.Drawing.Size(197, 21);
+            this.cbxRegisterLivestock3.TabIndex = 14;
+            // 
             // btnRegisterLivestock2
             // 
-            this.btnRegisterLivestock2.Location = new System.Drawing.Point(21, 237);
+            this.btnRegisterLivestock2.Location = new System.Drawing.Point(226, 233);
             this.btnRegisterLivestock2.Name = "btnRegisterLivestock2";
             this.btnRegisterLivestock2.Size = new System.Drawing.Size(117, 23);
             this.btnRegisterLivestock2.TabIndex = 13;
@@ -100,7 +121,7 @@ namespace SD_RE_James_Clifford
             // 
             // ipdRegisterLivestock2
             // 
-            this.ipdRegisterLivestock2.Location = new System.Drawing.Point(71, 167);
+            this.ipdRegisterLivestock2.Location = new System.Drawing.Point(335, 24);
             this.ipdRegisterLivestock2.MaxLength = 15;
             this.ipdRegisterLivestock2.Name = "ipdRegisterLivestock2";
             this.ipdRegisterLivestock2.Size = new System.Drawing.Size(100, 20);
@@ -109,7 +130,7 @@ namespace SD_RE_James_Clifford
             // lblRegisterLivestock5
             // 
             this.lblRegisterLivestock5.AutoSize = true;
-            this.lblRegisterLivestock5.Location = new System.Drawing.Point(5, 167);
+            this.lblRegisterLivestock5.Location = new System.Drawing.Point(266, 27);
             this.lblRegisterLivestock5.Name = "lblRegisterLivestock5";
             this.lblRegisterLivestock5.Size = new System.Drawing.Size(60, 13);
             this.lblRegisterLivestock5.TabIndex = 11;
@@ -117,7 +138,7 @@ namespace SD_RE_James_Clifford
             // 
             // ipdRegisterLivestock1
             // 
-            this.ipdRegisterLivestock1.Location = new System.Drawing.Point(38, 121);
+            this.ipdRegisterLivestock1.Location = new System.Drawing.Point(46, 151);
             this.ipdRegisterLivestock1.MaxLength = 2;
             this.ipdRegisterLivestock1.Name = "ipdRegisterLivestock1";
             this.ipdRegisterLivestock1.Size = new System.Drawing.Size(100, 20);
@@ -126,7 +147,7 @@ namespace SD_RE_James_Clifford
             // lblRegisterLivestock4
             // 
             this.lblRegisterLivestock4.AutoSize = true;
-            this.lblRegisterLivestock4.Location = new System.Drawing.Point(3, 121);
+            this.lblRegisterLivestock4.Location = new System.Drawing.Point(7, 158);
             this.lblRegisterLivestock4.Name = "lblRegisterLivestock4";
             this.lblRegisterLivestock4.Size = new System.Drawing.Size(26, 13);
             this.lblRegisterLivestock4.TabIndex = 9;
@@ -166,7 +187,7 @@ namespace SD_RE_James_Clifford
             // lblRegisterLivestock2
             // 
             this.lblRegisterLivestock2.AutoSize = true;
-            this.lblRegisterLivestock2.Location = new System.Drawing.Point(7, 19);
+            this.lblRegisterLivestock2.Location = new System.Drawing.Point(7, 30);
             this.lblRegisterLivestock2.Name = "lblRegisterLivestock2";
             this.lblRegisterLivestock2.Size = new System.Drawing.Size(34, 13);
             this.lblRegisterLivestock2.TabIndex = 5;
@@ -175,7 +196,7 @@ namespace SD_RE_James_Clifford
             // cbxRegisterLivestock2
             // 
             this.cbxRegisterLivestock2.FormattingEnabled = true;
-            this.cbxRegisterLivestock2.Location = new System.Drawing.Point(49, 19);
+            this.cbxRegisterLivestock2.Location = new System.Drawing.Point(46, 27);
             this.cbxRegisterLivestock2.Margin = new System.Windows.Forms.Padding(2);
             this.cbxRegisterLivestock2.Name = "cbxRegisterLivestock2";
             this.cbxRegisterLivestock2.Size = new System.Drawing.Size(127, 21);
@@ -226,5 +247,7 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.Button btnRegisterLivestock2;
         private System.Windows.Forms.TextBox ipdRegisterLivestock2;
         private System.Windows.Forms.Label lblRegisterLivestock5;
+        private System.Windows.Forms.Label lblRegisterLivestock6;
+        private System.Windows.Forms.ComboBox cbxRegisterLivestock3;
     }
 }

@@ -103,11 +103,34 @@ namespace SD_RE_James_Clifford
                 cbxRegisterLivestock2.Items.Add("Anglo-Nubian");
                 grpRegisterLivestock.Visible = true;
             }
+            sortTimeslots();
+        }
+        private void sortTimeslots()
+        {
+            spoof_auction auction = new spoof_auction();
+            spoof_livestock livestock = new spoof_livestock();
+            if (auction.getSize() == livestock.getSize()) {
+                cbxRegisterLivestock3.Items.Add("Booked out");
+            }
+            else
+            {
+                for (int i = 0; i < auction.getSize(); i++)
+                {
+                    cbxRegisterLivestock3.Items.Add(auction.getTimeslot(i));
+                    for(int j = 0; j < livestock.getSize(); j++)
+                    {
+                        if (auction.getTimeslot(i).Equals(livestock.getTimeslot(j)))
+                        {
+                            cbxRegisterLivestock3.Items.Remove(auction.getTimeslot(i));
+                        }
+                    }
+                }
+            }
         }
 
         private void btnRegisterLivestock2_Click(object sender, EventArgs e)
         {
-            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockAge = ipdRegisterLivestock1.Text, livestockTagNumber = ipdRegisterLivestock2.Text,livestockGender;
+            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockAge = ipdRegisterLivestock1.Text, livestockTagNumber = ipdRegisterLivestock2.Text,livestockGender, timeslot = cbxRegisterLivestock3.Text;
             try
             {
                 Convert.ToInt32(ipdRegisterLivestock1.Text);
@@ -123,7 +146,7 @@ namespace SD_RE_James_Clifford
                         {
                             livestockGender = "female";
                         }
-                        new spoof_livestock().addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber);
+                        new spoof_livestock().addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber,timeslot);
                         MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
