@@ -30,7 +30,13 @@ namespace SD_RE_James_Clifford
         }
         public void removeAuction(String auction_date)
         {
-
+            for(int i = 0; i < timeslots.Length; i++)
+            {
+                if (timeslots[i].Contains(auction_date))
+                {
+                     delete
+                }
+            }
         }
     }
 }
