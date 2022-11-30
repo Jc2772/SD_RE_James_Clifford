@@ -13,13 +13,17 @@ namespace SD_RE_James_Clifford
     public partial class frmRegisterLivestock : Form
     {
         frmLivestockHome parent;
+        spoof_livestock livestock;
+        spoof_auction auction;
         public frmRegisterLivestock()
         {
             InitializeComponent();
         }
-        public frmRegisterLivestock(frmLivestockHome parent)
+        public frmRegisterLivestock(frmLivestockHome parent,spoof_livestock livestock,spoof_auction auction)
         {
             this.parent = parent;
+            this.livestock = livestock;
+            this.auction = auction;
             InitializeComponent();
         }
         private void ckxRegisterLivestock1_CheckedChanged(object sender, EventArgs e)
@@ -107,8 +111,6 @@ namespace SD_RE_James_Clifford
         }
         private void sortTimeslots()
         {
-            spoof_auction auction = new spoof_auction();
-            spoof_livestock livestock = new spoof_livestock();
             if (auction.getSize() == livestock.getSize()) {
                 cbxRegisterLivestock3.Items.Add("Booked out");
             }
@@ -146,7 +148,7 @@ namespace SD_RE_James_Clifford
                         {
                             livestockGender = "female";
                         }
-                        new spoof_livestock().addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber,timeslot);
+                        livestock.addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber,timeslot);
                         MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }

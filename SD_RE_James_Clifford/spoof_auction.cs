@@ -27,7 +27,7 @@ namespace SD_RE_James_Clifford
                 this.timeslots.Add(auction_date + " " + times[i]);
             }
         }
-        public void removeAuction(String auctionDate)
+        public void removeAuction(String auctionDate,spoof_livestock livestock)
         {
             for (int i = 0; i < timeslots.Count; i++)
             {
@@ -37,6 +37,7 @@ namespace SD_RE_James_Clifford
                 }
             }
             auction_date.Remove(auctionDate);
+            livestock.CancelLivestock(auctionDate);
         }
     }
 }

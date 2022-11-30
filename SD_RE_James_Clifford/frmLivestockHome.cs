@@ -12,6 +12,9 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmLivestockHome : Form
     {
+        spoof_accounts accounts = new spoof_accounts();
+        spoof_auction auction = new spoof_auction();
+        spoof_livestock livestock = new spoof_livestock();
         public frmLivestockHome()
         {
             InitializeComponent();
@@ -21,14 +24,14 @@ namespace SD_RE_James_Clifford
         private void btnLivestockHome1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmNewAccount AccountOptions = new frmNewAccount(this);
+            frmNewAccount AccountOptions = new frmNewAccount(this,accounts);
             AccountOptions.Show();
         }
 
         private void btnLivestockHome2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmSetTime SetTime = new frmSetTime(this);
+            frmSetTime SetTime = new frmSetTime(this,auction,livestock);
             SetTime.Show();
         }
 
@@ -49,14 +52,14 @@ namespace SD_RE_James_Clifford
         private void btnLivestockHome3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRegisterLivestock registerLivestock = new frmRegisterLivestock(this);
+            frmRegisterLivestock registerLivestock = new frmRegisterLivestock(this,livestock,auction);
             registerLivestock.Show();
         }
 
         private void btnLivestockHome8_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmManageAccount ManageAccount = new frmManageAccount(this);
+            frmManageAccount ManageAccount = new frmManageAccount(this,accounts);
             ManageAccount.Show();
         }
     }

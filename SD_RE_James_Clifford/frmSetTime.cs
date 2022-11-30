@@ -12,15 +12,18 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmSetTime : Form
     {
-        private spoof_auction auction = new spoof_auction();
+        spoof_auction auction;
+        spoof_livestock livestock;
         frmLivestockHome parent;
         public frmSetTime()
         {
             InitializeComponent();
         }
-        public frmSetTime(frmLivestockHome parent)
+        public frmSetTime(frmLivestockHome parent,spoof_auction auction,spoof_livestock livestock)
         {
             this.parent = parent;
+            this.auction = auction;
+            this.livestock = livestock;
             InitializeComponent();
         }
 
@@ -34,7 +37,7 @@ namespace SD_RE_James_Clifford
         private void btnSetTime3_Click(object sender, EventArgs e)
         {
             String date = dpkSetTime.Text;
-            auction.removeAuction(date);
+            auction.removeAuction(date,livestock);
             MessageBox.Show("Auction date removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 

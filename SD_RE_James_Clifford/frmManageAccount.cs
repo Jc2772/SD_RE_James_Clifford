@@ -15,20 +15,22 @@ namespace SD_RE_James_Clifford
         private Boolean found;
         private int id;
         frmLivestockHome parent;
+        spoof_accounts accounts;
         public frmManageAccount()
         {
             InitializeComponent();
         }
-        public frmManageAccount(frmLivestockHome parent)
+        public frmManageAccount(frmLivestockHome parent,spoof_accounts accounts)
         {
             this.parent = parent;
+            this.accounts = accounts;
             InitializeComponent();
         }
 
         private void btnManageAccount1_Click(object sender, EventArgs e)
         {
             if (found == true) { 
-                frmUpdateAccount update = new frmUpdateAccount(id);
+                frmUpdateAccount update = new frmUpdateAccount(id,accounts);
                 update.Show();
             }
             else
@@ -39,9 +41,9 @@ namespace SD_RE_James_Clifford
 
         private void frmManageAccount_Load(object sender, EventArgs e)
         {
-            spoof_accounts item = new spoof_accounts();
+            
             this.found = false;
-            List<string> name = item.getAccName();
+            List<string> name = accounts.getAccName();
             for(int i = 1; i <= name.Count; i++)
             {
                 cbxManageAccount.Items.Add("id-" + i + " name-" + name[i-1]);
@@ -50,8 +52,8 @@ namespace SD_RE_James_Clifford
 
         private void cbxManageAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            spoof_accounts item = new spoof_accounts();
-            List<string> name = item.getAccName(), address1 = item.getAccAddress1(), phone = item.getAccPhone(), email = item.getAccEmail();
+            
+            List<string> name = accounts.getAccName(), address1 = accounts.getAccAddress1(), phone = accounts.getAccPhone(), email = accounts.getAccEmail();
             for (int i = 1; i <= name.Count;i++)
             {
                 if (cbxManageAccount.Text.Contains(i.ToString()))
@@ -74,8 +76,7 @@ namespace SD_RE_James_Clifford
         private void btnManageAccount2_Click(object sender, EventArgs e)
         {
             if (found == true) {
-                spoof_accounts spoof = new spoof_accounts();
-                spoof.removeAccounts(id);
+                accounts.removeAccounts(id);
             }
             else
             {

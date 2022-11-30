@@ -13,9 +13,11 @@ namespace SD_RE_James_Clifford
     public partial class frmNewAccount : Form
     {
         frmLivestockHome parent;
-        public frmNewAccount(frmLivestockHome parent)
+        spoof_accounts accounts;
+        public frmNewAccount(frmLivestockHome parent,spoof_accounts accounts)
         {
             this.parent = parent;
+            this.accounts = accounts;
             InitializeComponent();
         }
         public frmNewAccount()
@@ -29,15 +31,15 @@ namespace SD_RE_James_Clifford
              SQL
              */
             /*The piece of code StringComparison.OrdinalIgnoreCase came from https://www.tutlane.com/tutorial/csharp/csharp-string-equals-method*/
-            spoof_accounts item = new spoof_accounts();
-            for (int i = 0; i< item.getSize(); i++) { 
-                if (phone.Equals(item.getAccPhone()[i]))
+            
+            for (int i = 0; i< accounts.getSize(); i++) { 
+                if (phone.Equals(accounts.getAccPhone()[i]))
                 {
-                    if (email.Equals(item.getAccEmail()[i]))
+                    if (email.Equals(accounts.getAccEmail()[i]))
                     {
-                        if (Address.Equals(item.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
+                        if (Address.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
                         {
-                            if (name.Equals(item.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
+                            if (name.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
                             {
                                 test = true;
                             }
@@ -138,7 +140,7 @@ namespace SD_RE_James_Clifford
             }
             else
             {
-                new spoof_accounts().addValues(Name,Address,Phone,Email);
+                accounts.addValues(Name,Address,Phone,Email);
                 MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }

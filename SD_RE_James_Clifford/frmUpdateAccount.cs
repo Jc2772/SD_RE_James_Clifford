@@ -13,13 +13,15 @@ namespace SD_RE_James_Clifford
     public partial class frmUpdateAccount : Form
     {
         private int id;
+        spoof_accounts accounts;
         public frmUpdateAccount()
         {
             InitializeComponent();
         }
-        public frmUpdateAccount(int id)
+        public frmUpdateAccount(int id,spoof_accounts accounts)
         {
             this.id = id;
+            this.accounts = accounts;
             InitializeComponent();
         }
 
@@ -37,7 +39,7 @@ namespace SD_RE_James_Clifford
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                new spoof_accounts().updateValues(Name, Address1, Phone, Email, id);
+                accounts.updateValues(Name, Address1, Phone, Email, id);
             }
             else
             {
