@@ -93,6 +93,7 @@
     <Compile Include="spoof_accounts.cs" />
     <Compile Include="spoof_auction.cs" />
     <Compile Include="spoof_livestock.cs" />
+    <Compile Include="spoof_sales.cs" />
     <EmbeddedResource Include="frmManageAccount.resx">
       <DependentUpon>frmManageAccount.cs</DependentUpon>
     </EmbeddedResource>
