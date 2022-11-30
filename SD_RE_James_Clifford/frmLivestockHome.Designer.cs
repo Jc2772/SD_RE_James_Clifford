@@ -30,37 +30,23 @@ namespace SD_RE_James_Clifford
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLivestockHome));
-            this.btnLivestockHome1 = new System.Windows.Forms.Button();
-            this.btnLivestockHome2 = new System.Windows.Forms.Button();
             this.imgLivestockHome = new System.Windows.Forms.PictureBox();
-            this.btnLivestockHome6 = new System.Windows.Forms.Button();
             this.btnLivestockHome7 = new System.Windows.Forms.Button();
-            this.btnLivestockHome3 = new System.Windows.Forms.Button();
-            this.btnLivestockHome4 = new System.Windows.Forms.Button();
-            this.btnLivestockHome5 = new System.Windows.Forms.Button();
-            this.btnLivestockHome8 = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.manageOwnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerOwnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatederegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manageAuctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerLivestockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registerSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queryLivestockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.scheduleAuctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewYearlyAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewLifestockSalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgLivestockHome)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnLivestockHome1
-            // 
-            this.btnLivestockHome1.Location = new System.Drawing.Point(12, 13);
-            this.btnLivestockHome1.Name = "btnLivestockHome1";
-            this.btnLivestockHome1.Size = new System.Drawing.Size(95, 23);
-            this.btnLivestockHome1.TabIndex = 0;
-            this.btnLivestockHome1.Text = "New Accounts";
-            this.btnLivestockHome1.UseVisualStyleBackColor = true;
-            this.btnLivestockHome1.Click += new System.EventHandler(this.btnLivestockHome1_Click);
-            // 
-            // btnLivestockHome2
-            // 
-            this.btnLivestockHome2.Location = new System.Drawing.Point(237, 13);
-            this.btnLivestockHome2.Name = "btnLivestockHome2";
-            this.btnLivestockHome2.Size = new System.Drawing.Size(107, 23);
-            this.btnLivestockHome2.TabIndex = 1;
-            this.btnLivestockHome2.Text = "Set Auction date";
-            this.btnLivestockHome2.UseVisualStyleBackColor = true;
-            this.btnLivestockHome2.Click += new System.EventHandler(this.btnLivestockHome2_Click);
             // 
             // imgLivestockHome
             // 
@@ -72,19 +58,9 @@ namespace SD_RE_James_Clifford
             this.imgLivestockHome.TabIndex = 4;
             this.imgLivestockHome.TabStop = false;
             // 
-            // btnLivestockHome6
-            // 
-            this.btnLivestockHome6.Location = new System.Drawing.Point(674, 12);
-            this.btnLivestockHome6.Name = "btnLivestockHome6";
-            this.btnLivestockHome6.Size = new System.Drawing.Size(78, 24);
-            this.btnLivestockHome6.TabIndex = 5;
-            this.btnLivestockHome6.Text = "Analyse Data";
-            this.btnLivestockHome6.UseVisualStyleBackColor = true;
-            this.btnLivestockHome6.Click += new System.EventHandler(this.btnLivestockHome6_Click);
-            // 
             // btnLivestockHome7
             // 
-            this.btnLivestockHome7.Location = new System.Drawing.Point(789, 13);
+            this.btnLivestockHome7.Location = new System.Drawing.Point(801, 0);
             this.btnLivestockHome7.Name = "btnLivestockHome7";
             this.btnLivestockHome7.Size = new System.Drawing.Size(35, 24);
             this.btnLivestockHome7.TabIndex = 6;
@@ -92,78 +68,135 @@ namespace SD_RE_James_Clifford
             this.btnLivestockHome7.UseVisualStyleBackColor = true;
             this.btnLivestockHome7.Click += new System.EventHandler(this.btnLivestockHome7_Click);
             // 
-            // btnLivestockHome3
+            // menuStrip1
             // 
-            this.btnLivestockHome3.Location = new System.Drawing.Point(350, 13);
-            this.btnLivestockHome3.Name = "btnLivestockHome3";
-            this.btnLivestockHome3.Size = new System.Drawing.Size(115, 24);
-            this.btnLivestockHome3.TabIndex = 7;
-            this.btnLivestockHome3.Text = "Register Livestock";
-            this.btnLivestockHome3.UseVisualStyleBackColor = true;
-            this.btnLivestockHome3.Click += new System.EventHandler(this.btnLivestockHome3_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manageOwnersToolStripMenuItem,
+            this.manageAuctionsToolStripMenuItem,
+            this.dataAnalysisToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(836, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnLivestockHome4
+            // manageOwnersToolStripMenuItem
             // 
-            this.btnLivestockHome4.Location = new System.Drawing.Point(579, 12);
-            this.btnLivestockHome4.Name = "btnLivestockHome4";
-            this.btnLivestockHome4.Size = new System.Drawing.Size(89, 24);
-            this.btnLivestockHome4.TabIndex = 8;
-            this.btnLivestockHome4.Text = "Record sale";
-            this.btnLivestockHome4.UseVisualStyleBackColor = true;
-            this.btnLivestockHome4.Click += new System.EventHandler(this.btnLivestockHome4_Click);
+            this.manageOwnersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registerOwnersToolStripMenuItem,
+            this.updatederegisterToolStripMenuItem});
+            this.manageOwnersToolStripMenuItem.Name = "manageOwnersToolStripMenuItem";
+            this.manageOwnersToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.manageOwnersToolStripMenuItem.Text = "manage owners";
             // 
-            // btnLivestockHome5
+            // registerOwnersToolStripMenuItem
             // 
-            this.btnLivestockHome5.Location = new System.Drawing.Point(471, 13);
-            this.btnLivestockHome5.Name = "btnLivestockHome5";
-            this.btnLivestockHome5.Size = new System.Drawing.Size(102, 24);
-            this.btnLivestockHome5.TabIndex = 9;
-            this.btnLivestockHome5.Text = "Query Livestock";
-            this.btnLivestockHome5.UseVisualStyleBackColor = true;
-            this.btnLivestockHome5.Click += new System.EventHandler(this.btnLivestockHome5_Click);
+            this.registerOwnersToolStripMenuItem.Name = "registerOwnersToolStripMenuItem";
+            this.registerOwnersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registerOwnersToolStripMenuItem.Text = "register owners";
+            this.registerOwnersToolStripMenuItem.Click += new System.EventHandler(this.registerOwnersToolStripMenuItem_Click);
             // 
-            // btnLivestockHome8
+            // updatederegisterToolStripMenuItem
             // 
-            this.btnLivestockHome8.Location = new System.Drawing.Point(113, 13);
-            this.btnLivestockHome8.Name = "btnLivestockHome8";
-            this.btnLivestockHome8.Size = new System.Drawing.Size(118, 23);
-            this.btnLivestockHome8.TabIndex = 10;
-            this.btnLivestockHome8.Text = "Manage Accounts";
-            this.btnLivestockHome8.UseVisualStyleBackColor = true;
-            this.btnLivestockHome8.Click += new System.EventHandler(this.btnLivestockHome8_Click);
+            this.updatederegisterToolStripMenuItem.Name = "updatederegisterToolStripMenuItem";
+            this.updatederegisterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updatederegisterToolStripMenuItem.Text = "update/deregister";
+            this.updatederegisterToolStripMenuItem.Click += new System.EventHandler(this.updatederegisterToolStripMenuItem_Click);
+            // 
+            // manageAuctionsToolStripMenuItem
+            // 
+            this.manageAuctionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registerLivestockToolStripMenuItem,
+            this.registerSaleToolStripMenuItem,
+            this.queryLivestockToolStripMenuItem,
+            this.scheduleAuctionToolStripMenuItem});
+            this.manageAuctionsToolStripMenuItem.Name = "manageAuctionsToolStripMenuItem";
+            this.manageAuctionsToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.manageAuctionsToolStripMenuItem.Text = "ManageAuctions";
+            // 
+            // registerLivestockToolStripMenuItem
+            // 
+            this.registerLivestockToolStripMenuItem.Name = "registerLivestockToolStripMenuItem";
+            this.registerLivestockToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.registerLivestockToolStripMenuItem.Text = "register livestock";
+            this.registerLivestockToolStripMenuItem.Click += new System.EventHandler(this.registerLivestockToolStripMenuItem_Click);
+            // 
+            // registerSaleToolStripMenuItem
+            // 
+            this.registerSaleToolStripMenuItem.Name = "registerSaleToolStripMenuItem";
+            this.registerSaleToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.registerSaleToolStripMenuItem.Text = "register sale";
+            this.registerSaleToolStripMenuItem.Click += new System.EventHandler(this.registerSaleToolStripMenuItem_Click);
+            // 
+            // queryLivestockToolStripMenuItem
+            // 
+            this.queryLivestockToolStripMenuItem.Name = "queryLivestockToolStripMenuItem";
+            this.queryLivestockToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.queryLivestockToolStripMenuItem.Text = "query livestock";
+            this.queryLivestockToolStripMenuItem.Click += new System.EventHandler(this.queryLivestockToolStripMenuItem_Click);
+            // 
+            // scheduleAuctionToolStripMenuItem
+            // 
+            this.scheduleAuctionToolStripMenuItem.Name = "scheduleAuctionToolStripMenuItem";
+            this.scheduleAuctionToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.scheduleAuctionToolStripMenuItem.Text = "Schedule auction";
+            this.scheduleAuctionToolStripMenuItem.Click += new System.EventHandler(this.scheduleAuctionToolStripMenuItem_Click);
+            // 
+            // dataAnalysisToolStripMenuItem
+            // 
+            this.dataAnalysisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewYearlyAnalysisToolStripMenuItem,
+            this.viewLifestockSalesToolStripMenuItem});
+            this.dataAnalysisToolStripMenuItem.Name = "dataAnalysisToolStripMenuItem";
+            this.dataAnalysisToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.dataAnalysisToolStripMenuItem.Text = "data analysis";
+            // 
+            // viewYearlyAnalysisToolStripMenuItem
+            // 
+            this.viewYearlyAnalysisToolStripMenuItem.Name = "viewYearlyAnalysisToolStripMenuItem";
+            this.viewYearlyAnalysisToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.viewYearlyAnalysisToolStripMenuItem.Text = "view yearly analysis";
+            // 
+            // viewLifestockSalesToolStripMenuItem
+            // 
+            this.viewLifestockSalesToolStripMenuItem.Name = "viewLifestockSalesToolStripMenuItem";
+            this.viewLifestockSalesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.viewLifestockSalesToolStripMenuItem.Text = "view lifestock sales";
             // 
             // frmLivestockHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 486);
-            this.Controls.Add(this.btnLivestockHome8);
-            this.Controls.Add(this.btnLivestockHome5);
-            this.Controls.Add(this.btnLivestockHome4);
-            this.Controls.Add(this.btnLivestockHome3);
             this.Controls.Add(this.btnLivestockHome7);
-            this.Controls.Add(this.btnLivestockHome6);
             this.Controls.Add(this.imgLivestockHome);
-            this.Controls.Add(this.btnLivestockHome2);
-            this.Controls.Add(this.btnLivestockHome1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmLivestockHome";
             this.Text = "Livestock auction home";
             ((System.ComponentModel.ISupportInitialize)(this.imgLivestockHome)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnLivestockHome1;
-        private System.Windows.Forms.Button btnLivestockHome2;
         private System.Windows.Forms.PictureBox imgLivestockHome;
-        private System.Windows.Forms.Button btnLivestockHome6;
         private System.Windows.Forms.Button btnLivestockHome7;
-        private System.Windows.Forms.Button btnLivestockHome3;
-        private System.Windows.Forms.Button btnLivestockHome4;
-        private System.Windows.Forms.Button btnLivestockHome5;
-        private System.Windows.Forms.Button btnLivestockHome8;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem manageOwnersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registerOwnersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updatederegisterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manageAuctionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registerLivestockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registerSaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem queryLivestockToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem scheduleAuctionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dataAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewYearlyAnalysisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewLifestockSalesToolStripMenuItem;
     }
 }
 
