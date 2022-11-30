@@ -84,6 +84,12 @@
     <Compile Include="frmRegisterLivestock.Designer.cs">
       <DependentUpon>frmRegisterLivestock.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQueryLivestock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQueryLivestock.Designer.cs">
+      <DependentUpon>frmQueryLivestock.cs</DependentUpon>
+    </Compile>
     <Compile Include="spoof_accounts.cs" />
     <Compile Include="spoof_auction.cs" />
     <Compile Include="spoof_livestock.cs" />
@@ -113,6 +119,9 @@
     </Compile>
     <EmbeddedResource Include="frmRegisterLivestock.resx">
       <DependentUpon>frmRegisterLivestock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQueryLivestock.resx">
+      <DependentUpon>frmQueryLivestock.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -62,5 +62,12 @@ namespace SD_RE_James_Clifford
             frmManageAccount ManageAccount = new frmManageAccount(this,accounts);
             ManageAccount.Show();
         }
+
+        private void btnLivestockHome5_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmQueryLivestock ManageAccount = new frmQueryLivestock(this, livestock);
+            ManageAccount.Show();
+        }
     }
 }

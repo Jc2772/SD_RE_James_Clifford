@@ -67,7 +67,7 @@ namespace SD_RE_James_Clifford
             }
         }
 
-        private void btnNewAccount3_Click(object sender, EventArgs e)
+        private void btnManageAccounts3_Click(object sender, EventArgs e)
         {
             this.Close();
             parent.Visible = true;

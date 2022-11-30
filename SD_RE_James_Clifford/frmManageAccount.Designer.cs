@@ -34,7 +34,7 @@ namespace SD_RE_James_Clifford
             this.lblManageAccounts2 = new System.Windows.Forms.Label();
             this.btnManageAccount1 = new System.Windows.Forms.Button();
             this.btnManageAccount2 = new System.Windows.Forms.Button();
-            this.btnNewAccount3 = new System.Windows.Forms.Button();
+            this.btnManageAccounts3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbxManageAccount
@@ -84,22 +84,22 @@ namespace SD_RE_James_Clifford
             this.btnManageAccount2.UseVisualStyleBackColor = true;
             this.btnManageAccount2.Click += new System.EventHandler(this.btnManageAccount2_Click);
             // 
-            // btnNewAccount3
+            // btnManageAccounts3
             // 
-            this.btnNewAccount3.Location = new System.Drawing.Point(352, 12);
-            this.btnNewAccount3.Name = "btnNewAccount3";
-            this.btnNewAccount3.Size = new System.Drawing.Size(75, 23);
-            this.btnNewAccount3.TabIndex = 5;
-            this.btnNewAccount3.Text = "return";
-            this.btnNewAccount3.UseVisualStyleBackColor = true;
-            this.btnNewAccount3.Click += new System.EventHandler(this.btnNewAccount3_Click);
+            this.btnManageAccounts3.Location = new System.Drawing.Point(352, 12);
+            this.btnManageAccounts3.Name = "btnManageAccounts3";
+            this.btnManageAccounts3.Size = new System.Drawing.Size(75, 23);
+            this.btnManageAccounts3.TabIndex = 5;
+            this.btnManageAccounts3.Text = "return";
+            this.btnManageAccounts3.UseVisualStyleBackColor = true;
+            this.btnManageAccounts3.Click += new System.EventHandler(this.btnManageAccounts3_Click);
             // 
             // frmManageAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 450);
-            this.Controls.Add(this.btnNewAccount3);
+            this.Controls.Add(this.btnManageAccounts3);
             this.Controls.Add(this.btnManageAccount2);
             this.Controls.Add(this.btnManageAccount1);
             this.Controls.Add(this.lblManageAccounts2);
@@ -120,6 +120,6 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.Label lblManageAccounts2;
         private System.Windows.Forms.Button btnManageAccount1;
         private System.Windows.Forms.Button btnManageAccount2;
-        private System.Windows.Forms.Button btnNewAccount3;
+        private System.Windows.Forms.Button btnManageAccounts3;
     }
 }

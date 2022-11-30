@@ -74,7 +74,7 @@ namespace SD_RE_James_Clifford
             // 
             // btnLivestockHome6
             // 
-            this.btnLivestockHome6.Location = new System.Drawing.Point(674, 13);
+            this.btnLivestockHome6.Location = new System.Drawing.Point(674, 12);
             this.btnLivestockHome6.Name = "btnLivestockHome6";
             this.btnLivestockHome6.Size = new System.Drawing.Size(78, 24);
             this.btnLivestockHome6.TabIndex = 5;
@@ -84,7 +84,7 @@ namespace SD_RE_James_Clifford
             // 
             // btnLivestockHome7
             // 
-            this.btnLivestockHome7.Location = new System.Drawing.Point(789, 12);
+            this.btnLivestockHome7.Location = new System.Drawing.Point(789, 13);
             this.btnLivestockHome7.Name = "btnLivestockHome7";
             this.btnLivestockHome7.Size = new System.Drawing.Size(35, 24);
             this.btnLivestockHome7.TabIndex = 6;
@@ -119,6 +119,7 @@ namespace SD_RE_James_Clifford
             this.btnLivestockHome5.TabIndex = 9;
             this.btnLivestockHome5.Text = "Query Livestock";
             this.btnLivestockHome5.UseVisualStyleBackColor = true;
+            this.btnLivestockHome5.Click += new System.EventHandler(this.btnLivestockHome5_Click);
             // 
             // btnLivestockHome8
             // 
