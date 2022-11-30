@@ -27,18 +27,19 @@ namespace SD_RE_James_Clifford
 
         private void cbxfrmQueryLivestock_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(),timeslot = livestock.getTimeslot();
+            List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(),timeslot = livestock.getTimeslot(), initial_bid = livestock.getinitialBid();
             for (int i = 1; i <= type.Count; i++)
             {
                 if (cbxfrmQueryLivestock.Text.Contains(i.ToString()))
                 {
-                    lblfrmQueryLivestock2.Text =
-                        "\nlivestock type: " + type[i-1] 
-                        + "\nbreed: " + breed[i-1]
+                    lblfrmQueryLivestock2.Text +=
+                        "\nlivestock type: " + type[i - 1]
+                        + "\nbreed: " + breed[i - 1]
                         + "\ngender: " + gender[i - 1]
                         + "\nage: " + age[i - 1]
                         + "\ntag: " + tag[i - 1]
-                        + "\ntimeslot: " + timeslot[i - 1];
+                        + "\ntimeslot: " + timeslot[i - 1]
+                        + "\ninitial bid: " + initial_bid[i - 1];
                 }
             }
         }
@@ -49,7 +50,17 @@ namespace SD_RE_James_Clifford
             for (int i = 1; i <= type.Count; i++)
             {
                 cbxfrmQueryLivestock.Items.Add("id-" + i + " name-" + type[i - 1]);
+                if (livestock.getstatus()[i - 1].Equals("s"))
+                {
+                    cbxfrmQueryLivestock.Items.Remove("id-" + i + " name-" + type[i - 1]);
+                }
             }
+        }
+
+        private void btnfrmQueryLivestock3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Parent.Visible = true;
         }
     }
 }

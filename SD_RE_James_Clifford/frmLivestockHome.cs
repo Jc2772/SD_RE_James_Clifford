@@ -15,6 +15,7 @@ namespace SD_RE_James_Clifford
         spoof_accounts accounts = new spoof_accounts();
         spoof_auction auction = new spoof_auction();
         spoof_livestock livestock = new spoof_livestock();
+        spoof_sales sales = new spoof_sales();
         public frmLivestockHome()
         {
             InitializeComponent();
@@ -24,23 +25,23 @@ namespace SD_RE_James_Clifford
         private void btnLivestockHome1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmNewAccount AccountOptions = new frmNewAccount(this,accounts);
-            AccountOptions.Show();
+            frmNewAccount enter = new frmNewAccount(this,accounts);
+            enter.Show();
         }
 
         private void btnLivestockHome2_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmSetTime SetTime = new frmSetTime(this,auction,livestock);
-            SetTime.Show();
+            frmSetTime enter = new frmSetTime(this,auction,livestock);
+            enter.Show();
         }
 
         private void btnLivestockHome6_Click(object sender, EventArgs e)
         {
             /*
             this.Hide();
-            frmShowdata show_data = new frmShowData(this);
-            ShowData.Show();
+            frmShowdata enter = new frmShowData(this);
+            enter.Show();
              */
         }
 
@@ -52,22 +53,29 @@ namespace SD_RE_James_Clifford
         private void btnLivestockHome3_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRegisterLivestock registerLivestock = new frmRegisterLivestock(this,livestock,auction);
-            registerLivestock.Show();
+            frmRegisterLivestock enter = new frmRegisterLivestock(this,livestock,auction);
+            enter.Show();
         }
 
         private void btnLivestockHome8_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmManageAccount ManageAccount = new frmManageAccount(this,accounts);
-            ManageAccount.Show();
+            frmManageAccount enter = new frmManageAccount(this,accounts);
+            enter.Show();
         }
 
         private void btnLivestockHome5_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmQueryLivestock ManageAccount = new frmQueryLivestock(this, livestock);
-            ManageAccount.Show();
+            frmQueryLivestock enter = new frmQueryLivestock(this, livestock);
+            enter.Show();
+        }
+
+        private void btnLivestockHome4_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmRegisterSale enter = new frmRegisterSale(this, sales);
+            enter.Show();
         }
     }
 }

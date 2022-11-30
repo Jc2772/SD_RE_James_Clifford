@@ -140,6 +140,10 @@ namespace SD_RE_James_Clifford
             }
             else
             {
+                if (string.IsNullOrEmpty(Email))
+                {
+                    Email = "None supplied";
+                }
                 accounts.addValues(Name,Address,Phone,Email);
                 MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

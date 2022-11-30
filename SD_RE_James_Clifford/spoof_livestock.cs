@@ -14,7 +14,9 @@ namespace SD_RE_James_Clifford
         private List<string> livestockGender = new List<string> { "female", "male", "female" };
         private List<string> livestockTagNumber = new List<string> { "372211234510091", "234558839456932", "645452987631487" };
         private List<string> timeslots = new List<string> { "Monday 28 November 2022 09:00", "Monday 28 November 2022 09:20", "Monday 28 November 2022 09:40" };
-        public void addValues(string livestockType,string livestockBreed,string livestockAge,string livestockGender, string livestockTagNumber, string timeslot)
+        private List<string> initial_bid = new List<string> { "75.00", "20.00", "30.00" };
+        private List<string> status = new List<string> { "s", "u", "u" };
+        public void addValues(string livestockType,string livestockBreed,string livestockAge,string livestockGender, string livestockTagNumber, string timeslot,string initial_bid)
         {
             this.livestockType.Add(livestockType);
             this.livestockBreed.Add(livestockBreed);
@@ -22,6 +24,8 @@ namespace SD_RE_James_Clifford
             this.livestockGender.Add(livestockGender);
             this.livestockTagNumber.Add(livestockTagNumber);
             this.timeslots.Add(timeslot);
+            this.initial_bid.Add(initial_bid);
+            this.status.Add("u");
         }
         
         public List<string> getLivestockType()
@@ -49,6 +53,14 @@ namespace SD_RE_James_Clifford
         {
             return this.timeslots;
         }
+        public List<string> getinitialBid()
+        {
+            return this.initial_bid;
+        }
+        public List<string> getstatus()
+        {
+            return status;
+        }
         public void CancelLivestock(String auctionDate)
         {
             for (int i = timeslots.Count - 1; i >= 0; i--)
@@ -61,6 +73,7 @@ namespace SD_RE_James_Clifford
                     this.livestockGender.RemoveAt(i);
                     this.livestockTagNumber.RemoveAt(i);
                     this.timeslots.RemoveAt(i);
+                    this.initial_bid.RemoveAt(i);
                 }
             }
         }

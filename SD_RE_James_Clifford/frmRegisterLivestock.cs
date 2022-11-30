@@ -134,7 +134,7 @@ namespace SD_RE_James_Clifford
 
         private void btnRegisterLivestock2_Click(object sender, EventArgs e)
         {
-            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockAge = ipdRegisterLivestock1.Text, livestockTagNumber = ipdRegisterLivestock2.Text,livestockGender, timeslot = cbxRegisterLivestock3.Text;
+            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockAge = ipdRegisterLivestock1.Text, livestockTagNumber = ipdRegisterLivestock2.Text,livestockGender, timeslot = cbxRegisterLivestock3.Text,initial_bid = ipdRegisterLivestock3.Text;
             try
             {
                 Convert.ToInt32(ipdRegisterLivestock1.Text);
@@ -150,8 +150,16 @@ namespace SD_RE_James_Clifford
                         {
                             livestockGender = "female";
                         }
-                        livestock.addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber,timeslot);
-                        MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        try
+                        {
+                            Double.Parse(initial_bid);
+                            livestock.addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber, timeslot, initial_bid);
+                            MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (FormatException)
+                        {
+                            MessageBox.Show("initial bid is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
                 catch (FormatException)

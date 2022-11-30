@@ -110,6 +110,7 @@ namespace SD_RE_James_Clifford
             this.btnLivestockHome4.TabIndex = 8;
             this.btnLivestockHome4.Text = "Record sale";
             this.btnLivestockHome4.UseVisualStyleBackColor = true;
+            this.btnLivestockHome4.Click += new System.EventHandler(this.btnLivestockHome4_Click);
             // 
             // btnLivestockHome5
             // 

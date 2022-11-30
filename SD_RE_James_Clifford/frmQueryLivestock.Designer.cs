@@ -43,6 +43,7 @@ namespace SD_RE_James_Clifford
             this.btnfrmQueryLivestock3.TabIndex = 9;
             this.btnfrmQueryLivestock3.Text = "return";
             this.btnfrmQueryLivestock3.UseVisualStyleBackColor = true;
+            this.btnfrmQueryLivestock3.Click += new System.EventHandler(this.btnfrmQueryLivestock3_Click);
             // 
             // lblfrmQueryLivestock2
             // 
@@ -75,7 +76,7 @@ namespace SD_RE_James_Clifford
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(507, 450);
+            this.ClientSize = new System.Drawing.Size(414, 289);
             this.Controls.Add(this.btnfrmQueryLivestock3);
             this.Controls.Add(this.lblfrmQueryLivestock2);
             this.Controls.Add(this.lblfrmQueryLivestock1);
