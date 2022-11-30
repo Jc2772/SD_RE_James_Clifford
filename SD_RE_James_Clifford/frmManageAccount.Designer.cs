@@ -82,6 +82,7 @@ namespace SD_RE_James_Clifford
             this.btnManageAccount2.TabIndex = 4;
             this.btnManageAccount2.Text = "Remove";
             this.btnManageAccount2.UseVisualStyleBackColor = true;
+            this.btnManageAccount2.Click += new System.EventHandler(this.btnManageAccount2_Click);
             // 
             // btnNewAccount3
             // 

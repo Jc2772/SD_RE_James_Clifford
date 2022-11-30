@@ -22,7 +22,7 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
-        public bool CheckOwner(String name, String Address, String phone, String email)
+        public bool CheckOwner(string name, string Address, string phone, string email)
         {
             bool test = true;
             /*Get Data from the Database and compare
@@ -31,13 +31,13 @@ namespace SD_RE_James_Clifford
             /*The piece of code StringComparison.OrdinalIgnoreCase came from https://www.tutlane.com/tutorial/csharp/csharp-string-equals-method*/
             spoof_accounts item = new spoof_accounts();
             for (int i = 0; i< item.getSize(); i++) { 
-                if (phone.Equals(item.getAccPhone(i)))
+                if (phone.Equals(item.getAccPhone()[i]))
                 {
-                    if (email.Equals(item.getAccEmail(i)))
+                    if (email.Equals(item.getAccEmail()[i]))
                     {
-                        if (Address.Equals(item.getAccAddress1(i), StringComparison.OrdinalIgnoreCase))
+                        if (Address.Equals(item.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
                         {
-                            if (name.Equals(item.getAccAddress1(i), StringComparison.OrdinalIgnoreCase))
+                            if (name.Equals(item.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
                             {
                                 test = true;
                             }

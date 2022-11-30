@@ -82,6 +82,7 @@ namespace SD_RE_James_Clifford
             this.btnSetTime2.TabIndex = 7;
             this.btnSetTime2.Text = "Return";
             this.btnSetTime2.UseVisualStyleBackColor = true;
+            this.btnSetTime2.Click += new System.EventHandler(this.btnSetTime2_Click);
             // 
             // btnSetTime3
             // 

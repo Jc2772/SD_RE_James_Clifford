@@ -35,6 +35,13 @@ namespace SD_RE_James_Clifford
         {
             String date = dpkSetTime.Text;
             auction.removeAuction(date);
+            MessageBox.Show("Auction date removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void btnSetTime2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Visible = true;
         }
     }
 }

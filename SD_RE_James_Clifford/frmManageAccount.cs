@@ -31,34 +31,34 @@ namespace SD_RE_James_Clifford
                 frmUpdateAccount update = new frmUpdateAccount(id);
                 update.Show();
             }
+            else
+            {
+                MessageBox.Show("you didnt pick a choice", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void frmManageAccount_Load(object sender, EventArgs e)
         {
             spoof_accounts item = new spoof_accounts();
             this.found = false;
-            int combo_num = new spoof_accounts().getSize();
-            for(int i = 1; i <= combo_num; i++)
+            List<string> name = item.getAccName();
+            for(int i = 1; i <= name.Count; i++)
             {
-                cbxManageAccount.Items.Add("id-" + i + " name-" + item.getAccName(i-1));
+                cbxManageAccount.Items.Add("id-" + i + " name-" + name[i-1]);
             }
         }
 
         private void cbxManageAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
             spoof_accounts item = new spoof_accounts();
-            string name = "", address1 = "" ,phone = "", email = "";
-            for (int i = 1; i <= item.getSize();i++)
+            List<string> name = item.getAccName(), address1 = item.getAccAddress1(), phone = item.getAccPhone(), email = item.getAccEmail();
+            for (int i = 1; i <= name.Count;i++)
             {
                 if (cbxManageAccount.Text.Contains(i.ToString()))
                 {
-                    name = item.getAccName(i - 1);
-                    address1 = item.getAccAddress1(i - 1);
-                    phone = item.getAccPhone(i - 1);
-                    email = item.getAccEmail(i - 1);
-                    lblManageAccounts2.Text = "\n\nAccount: " + name + "\n\nAddress 1: " + address1
-                        + "\n\nPhone: " + phone + "\n\nEmail: " + email;
-                    id = i;
+                    lblManageAccounts2.Text = "\n\nAccount: " + name[i-1] + "\n\nAddress 1: " + address1[i-1]
+                        + "\n\nPhone: " + phone[i-1] + "\n\nEmail: " + email[i-1];
+                    id = i - 1;
                     found = true;
                     break;
                 }
@@ -69,6 +69,18 @@ namespace SD_RE_James_Clifford
         {
             this.Close();
             parent.Visible = true;
+        }
+
+        private void btnManageAccount2_Click(object sender, EventArgs e)
+        {
+            if (found == true) {
+                spoof_accounts spoof = new spoof_accounts();
+                spoof.removeAccounts(id);
+            }
+            else
+            {
+                MessageBox.Show("you didnt pick a choice", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

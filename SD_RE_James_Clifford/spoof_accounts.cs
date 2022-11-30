@@ -3,38 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SD_RE_James_Clifford
 {
-    class spoof_accounts
+    public partial class spoof_accounts
     {
-        private string[] AccName = new string[] {"Mike o Niell", "Thomas o Sullivan","Patrick Griffian"};
-        private string[] AccAddress1 = new string[] { "Castleisland", "Kenmare", "Waterville" };
-        private string[] AccPhone = new string[] { "087 4667 264", "087 9258 761", "087 5476 349" };
-        private string[] AccEmail = new string[] {"None supplied", "TomOS@Hotmail.com", "None supplied" };
-        public string getAccName(int num)
+        private List<string> AccName = new List<string> { "Mike o Niell", "Thomas o Sullivan", "Patrick Griffian" };
+        private List<string> AccAddress1 = new List<string> { "Castleisland", "Kenmare", "Waterville" };
+        private List<string> AccPhone = new List<string> { "087 4667 264", "087 9258 761", "087 5476 349" };
+        private List<string> AccEmail = new List<string> { "None supplied", "TomOS@Hotmail.com", "None supplied" };
+        public List<string> getAccName()
         {
-            return this.AccName[num];
+            return this.AccName;
         }
-        public string getAccAddress1(int num)
+        public List<string> getAccAddress1()
         {
-            return this.AccAddress1[num];
+            return this.AccAddress1;
         }
-        public string getAccPhone(int num)
+        public List<string> getAccPhone()
         {
-            return this.AccPhone[num];
+            return this.AccPhone;
         }
-        public string getAccEmail(int num)
+        public List<string> getAccEmail()
         {
-            return this.AccEmail[num];
+            return this.AccEmail;
         }
         public void addValues(string name,string address1,string phone,string email)
         {
-            int num = AccName.Length + 1;
-            this.AccName[num] = name;
-            this.AccAddress1[num] = address1;
-            this.AccPhone[num] = phone;
-            this.AccEmail[num] = email;
+            
+            this.AccName.Add(name);
+            this.AccAddress1.Add(address1);
+            this.AccPhone.Add(phone);
+            this.AccEmail.Add(email);
+            
         }
         public void updateValues(string name, string address1, string phone, string email,int id)
         {
@@ -46,7 +48,14 @@ namespace SD_RE_James_Clifford
         }
         public int getSize()
         {
-            return this.AccName.Length;
+            return this.AccName.Count;
+        }
+        public void removeAccounts(int id)
+        {
+            this.AccName.Remove(this.AccName[id]);
+            this.AccAddress1.Remove(this.AccAddress1[id]);
+            this.AccPhone.Remove(this.AccPhone[id]);
+            this.AccEmail.Remove(this.AccEmail[id]);
         }
     }
 }
