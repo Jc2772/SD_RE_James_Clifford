@@ -35,6 +35,7 @@ namespace SD_RE_James_Clifford
             this.btnSetTime1 = new System.Windows.Forms.Button();
             this.btnSetTime2 = new System.Windows.Forms.Button();
             this.btnSetTime3 = new System.Windows.Forms.Button();
+            this.lblSetTime2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@ namespace SD_RE_James_Clifford
             this.dpkSetTime.Name = "dpkSetTime";
             this.dpkSetTime.Size = new System.Drawing.Size(192, 20);
             this.dpkSetTime.TabIndex = 0;
+            this.dpkSetTime.ValueChanged += new System.EventHandler(this.dpkSetTime_ValueChanged);
             // 
             // lblSetTime1
             // 
@@ -64,7 +66,7 @@ namespace SD_RE_James_Clifford
             // 
             // btnSetTime1
             // 
-            this.btnSetTime1.Location = new System.Drawing.Point(12, 77);
+            this.btnSetTime1.Location = new System.Drawing.Point(12, 132);
             this.btnSetTime1.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetTime1.Name = "btnSetTime1";
             this.btnSetTime1.Size = new System.Drawing.Size(52, 26);
@@ -75,7 +77,7 @@ namespace SD_RE_James_Clifford
             // 
             // btnSetTime2
             // 
-            this.btnSetTime2.Location = new System.Drawing.Point(218, 77);
+            this.btnSetTime2.Location = new System.Drawing.Point(218, 132);
             this.btnSetTime2.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetTime2.Name = "btnSetTime2";
             this.btnSetTime2.Size = new System.Drawing.Size(64, 26);
@@ -86,7 +88,7 @@ namespace SD_RE_James_Clifford
             // 
             // btnSetTime3
             // 
-            this.btnSetTime3.Location = new System.Drawing.Point(110, 77);
+            this.btnSetTime3.Location = new System.Drawing.Point(110, 132);
             this.btnSetTime3.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetTime3.Name = "btnSetTime3";
             this.btnSetTime3.Size = new System.Drawing.Size(62, 26);
@@ -95,11 +97,20 @@ namespace SD_RE_James_Clifford
             this.btnSetTime3.UseVisualStyleBackColor = true;
             this.btnSetTime3.Click += new System.EventHandler(this.btnSetTime3_Click);
             // 
+            // lblSetTime2
+            // 
+            this.lblSetTime2.AutoSize = true;
+            this.lblSetTime2.Location = new System.Drawing.Point(77, 74);
+            this.lblSetTime2.Name = "lblSetTime2";
+            this.lblSetTime2.Size = new System.Drawing.Size(0, 13);
+            this.lblSetTime2.TabIndex = 9;
+            // 
             // frmSetTime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 132);
+            this.ClientSize = new System.Drawing.Size(293, 190);
+            this.Controls.Add(this.lblSetTime2);
             this.Controls.Add(this.btnSetTime3);
             this.Controls.Add(this.btnSetTime2);
             this.Controls.Add(this.btnSetTime1);
@@ -122,5 +133,6 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.Button btnSetTime1;
         private System.Windows.Forms.Button btnSetTime2;
         private System.Windows.Forms.Button btnSetTime3;
+        private System.Windows.Forms.Label lblSetTime2;
     }
 }

@@ -23,27 +23,23 @@ namespace SD_RE_James_Clifford
             this.livestockTagNumber.Add(livestockTagNumber);
             this.timeslots.Add(timeslot);
         }
-        public string getTimeslot(int i)
+        public List<string> getTimeslot()
         {
-            return this.timeslots[i];
-        }
-        public int getSize()
-        {
-            return this.timeslots.Count;
+            return this.timeslots;
         }
         
         public void CancelLivestock(String auctionDate)
         {
-            for (int i = 0; i < timeslots.Count; i++)
+            for (int i = timeslots.Count - 1; i >= 0; i--)
             {
                 if (timeslots[i].Contains(auctionDate))
                 {
-                    livestockType.RemoveAt(i);
-                    livestockBreed.RemoveAt(i);
-                    livestockAge.RemoveAt(i);
-                    livestockGender.RemoveAt(i);
-                    livestockTagNumber.RemoveAt(i);
-                    timeslots.RemoveAt(i);
+                    this.livestockType.RemoveAt(i);
+                    this.livestockBreed.RemoveAt(i);
+                    this.livestockAge.RemoveAt(i);
+                    this.livestockGender.RemoveAt(i);
+                    this.livestockTagNumber.RemoveAt(i);
+                    this.timeslots.RemoveAt(i);
                 }
             }
         }

@@ -52,10 +52,10 @@ namespace SD_RE_James_Clifford
         }
         public void removeAccounts(int id)
         {
-            this.AccName.Remove(this.AccName[id]);
-            this.AccAddress1.Remove(this.AccAddress1[id]);
-            this.AccPhone.Remove(this.AccPhone[id]);
-            this.AccEmail.Remove(this.AccEmail[id]);
+            this.AccName.RemoveAt(id);
+            this.AccAddress1.RemoveAt(id);
+            this.AccPhone.RemoveAt(id);
+            this.AccEmail.RemoveAt(id);
         }
     }
 }

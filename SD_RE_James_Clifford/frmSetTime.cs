@@ -30,7 +30,7 @@ namespace SD_RE_James_Clifford
         private void btnSetTime1_Click(object sender, EventArgs e)
         {
             String date = dpkSetTime.Text;
-
+            auction.addAuction(date);
 
         }
 
@@ -45,6 +45,11 @@ namespace SD_RE_James_Clifford
         {
             this.Close();
             parent.Visible = true;
+        }
+
+        private void dpkSetTime_ValueChanged(object sender, EventArgs e)
+        {
+            lblSetTime2.Text = dpkSetTime.Text;
         }
     }
 }

@@ -111,19 +111,21 @@ namespace SD_RE_James_Clifford
         }
         private void sortTimeslots()
         {
-            if (auction.getSize() == livestock.getSize()) {
+            List<string> atimeslots = auction.getTimeslot();
+            List<string> ltimeslots = livestock.getTimeslot();
+            if ( atimeslots.Count == ltimeslots.Count) {
                 cbxRegisterLivestock3.Items.Add("Booked out");
             }
             else
             {
-                for (int i = 0; i < auction.getSize(); i++)
+                for (int i = 0; i < atimeslots.Count; i++)
                 {
-                    cbxRegisterLivestock3.Items.Add(auction.getTimeslot(i));
-                    for(int j = 0; j < livestock.getSize(); j++)
+                    cbxRegisterLivestock3.Items.Add(atimeslots[i]);
+                    for(int j = 0; j < ltimeslots.Count; j++)
                     {
-                        if (auction.getTimeslot(i).Equals(livestock.getTimeslot(j)))
+                        if (atimeslots[i].Equals(ltimeslots[j]))
                         {
-                            cbxRegisterLivestock3.Items.Remove(auction.getTimeslot(i));
+                            cbxRegisterLivestock3.Items.Remove(ltimeslots[j]);
                         }
                     }
                 }

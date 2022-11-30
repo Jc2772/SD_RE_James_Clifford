@@ -35,7 +35,7 @@ namespace SD_RE_James_Clifford
             frmNewAccount accountOptions = new frmNewAccount();
             Boolean
                 update_check1 = accountOptions.CheckData(Phone, Email);
-            if (!update_check1)
+            if (update_check1)
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
