@@ -77,6 +77,7 @@ namespace SD_RE_James_Clifford
         {
             if (found == true) {
                 accounts.removeAccounts(id);
+                this.Refresh();
             }
             else
             {

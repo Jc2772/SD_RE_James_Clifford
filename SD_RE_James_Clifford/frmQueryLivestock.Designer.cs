@@ -29,58 +29,58 @@ namespace SD_RE_James_Clifford
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnfrmQueryLivestock3 = new System.Windows.Forms.Button();
-            this.lblfrmQueryLivestock2 = new System.Windows.Forms.Label();
-            this.lblfrmQueryLivestock1 = new System.Windows.Forms.Label();
-            this.cbxfrmQueryLivestock = new System.Windows.Forms.ComboBox();
+            this.btnQueryLivestock3 = new System.Windows.Forms.Button();
+            this.lblQueryLivestock2 = new System.Windows.Forms.Label();
+            this.lblQueryLivestock1 = new System.Windows.Forms.Label();
+            this.cbxQueryLivestock = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // btnfrmQueryLivestock3
+            // btnQueryLivestock3
             // 
-            this.btnfrmQueryLivestock3.Location = new System.Drawing.Point(320, 13);
-            this.btnfrmQueryLivestock3.Name = "btnfrmQueryLivestock3";
-            this.btnfrmQueryLivestock3.Size = new System.Drawing.Size(75, 23);
-            this.btnfrmQueryLivestock3.TabIndex = 9;
-            this.btnfrmQueryLivestock3.Text = "return";
-            this.btnfrmQueryLivestock3.UseVisualStyleBackColor = true;
-            this.btnfrmQueryLivestock3.Click += new System.EventHandler(this.btnfrmQueryLivestock3_Click);
+            this.btnQueryLivestock3.Location = new System.Drawing.Point(320, 13);
+            this.btnQueryLivestock3.Name = "btnQueryLivestock3";
+            this.btnQueryLivestock3.Size = new System.Drawing.Size(75, 23);
+            this.btnQueryLivestock3.TabIndex = 9;
+            this.btnQueryLivestock3.Text = "return";
+            this.btnQueryLivestock3.UseVisualStyleBackColor = true;
+            this.btnQueryLivestock3.Click += new System.EventHandler(this.btnfrmQueryLivestock3_Click);
             // 
-            // lblfrmQueryLivestock2
+            // lblQueryLivestock2
             // 
-            this.lblfrmQueryLivestock2.AutoSize = true;
-            this.lblfrmQueryLivestock2.Location = new System.Drawing.Point(11, 83);
-            this.lblfrmQueryLivestock2.Name = "lblfrmQueryLivestock2";
-            this.lblfrmQueryLivestock2.Size = new System.Drawing.Size(84, 13);
-            this.lblfrmQueryLivestock2.TabIndex = 8;
-            this.lblfrmQueryLivestock2.Text = "Account Display";
+            this.lblQueryLivestock2.AutoSize = true;
+            this.lblQueryLivestock2.Location = new System.Drawing.Point(11, 83);
+            this.lblQueryLivestock2.Name = "lblQueryLivestock2";
+            this.lblQueryLivestock2.Size = new System.Drawing.Size(53, 13);
+            this.lblQueryLivestock2.TabIndex = 8;
+            this.lblQueryLivestock2.Text = "Livestock";
             // 
-            // lblfrmQueryLivestock1
+            // lblQueryLivestock1
             // 
-            this.lblfrmQueryLivestock1.AutoSize = true;
-            this.lblfrmQueryLivestock1.Location = new System.Drawing.Point(77, 18);
-            this.lblfrmQueryLivestock1.Name = "lblfrmQueryLivestock1";
-            this.lblfrmQueryLivestock1.Size = new System.Drawing.Size(39, 13);
-            this.lblfrmQueryLivestock1.TabIndex = 7;
-            this.lblfrmQueryLivestock1.Text = "search";
+            this.lblQueryLivestock1.AutoSize = true;
+            this.lblQueryLivestock1.Location = new System.Drawing.Point(77, 18);
+            this.lblQueryLivestock1.Name = "lblQueryLivestock1";
+            this.lblQueryLivestock1.Size = new System.Drawing.Size(39, 13);
+            this.lblQueryLivestock1.TabIndex = 7;
+            this.lblQueryLivestock1.Text = "search";
             // 
-            // cbxfrmQueryLivestock
+            // cbxQueryLivestock
             // 
-            this.cbxfrmQueryLivestock.FormattingEnabled = true;
-            this.cbxfrmQueryLivestock.Location = new System.Drawing.Point(155, 15);
-            this.cbxfrmQueryLivestock.Name = "cbxfrmQueryLivestock";
-            this.cbxfrmQueryLivestock.Size = new System.Drawing.Size(121, 21);
-            this.cbxfrmQueryLivestock.TabIndex = 6;
-            this.cbxfrmQueryLivestock.SelectedIndexChanged += new System.EventHandler(this.cbxfrmQueryLivestock_SelectedIndexChanged);
+            this.cbxQueryLivestock.FormattingEnabled = true;
+            this.cbxQueryLivestock.Location = new System.Drawing.Point(155, 15);
+            this.cbxQueryLivestock.Name = "cbxQueryLivestock";
+            this.cbxQueryLivestock.Size = new System.Drawing.Size(121, 21);
+            this.cbxQueryLivestock.TabIndex = 6;
+            this.cbxQueryLivestock.SelectedIndexChanged += new System.EventHandler(this.cbxQueryLivestock_SelectedIndexChanged);
             // 
             // frmQueryLivestock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(414, 289);
-            this.Controls.Add(this.btnfrmQueryLivestock3);
-            this.Controls.Add(this.lblfrmQueryLivestock2);
-            this.Controls.Add(this.lblfrmQueryLivestock1);
-            this.Controls.Add(this.cbxfrmQueryLivestock);
+            this.Controls.Add(this.btnQueryLivestock3);
+            this.Controls.Add(this.lblQueryLivestock2);
+            this.Controls.Add(this.lblQueryLivestock1);
+            this.Controls.Add(this.cbxQueryLivestock);
             this.Name = "frmQueryLivestock";
             this.Text = "frmQueryLivestock";
             this.Load += new System.EventHandler(this.frmQueryLivestock_Load);
@@ -91,9 +91,9 @@ namespace SD_RE_James_Clifford
 
         #endregion
 
-        private System.Windows.Forms.Button btnfrmQueryLivestock3;
-        private System.Windows.Forms.Label lblfrmQueryLivestock2;
-        private System.Windows.Forms.Label lblfrmQueryLivestock1;
-        private System.Windows.Forms.ComboBox cbxfrmQueryLivestock;
+        private System.Windows.Forms.Button btnQueryLivestock3;
+        private System.Windows.Forms.Label lblQueryLivestock2;
+        private System.Windows.Forms.Label lblQueryLivestock1;
+        private System.Windows.Forms.ComboBox cbxQueryLivestock;
     }
 }

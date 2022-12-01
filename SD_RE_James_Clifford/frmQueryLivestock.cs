@@ -12,7 +12,7 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmQueryLivestock : Form
     {
-        frmLivestockHome Parent;
+        frmLivestockHome parent;
         spoof_livestock livestock;
         public frmQueryLivestock()
         {
@@ -21,18 +21,19 @@ namespace SD_RE_James_Clifford
         public frmQueryLivestock(frmLivestockHome Parent,spoof_livestock livestock)
         {
             InitializeComponent();
-            this.Parent = Parent;
+            this.parent = Parent;
             this.livestock = livestock;
         }
 
-        private void cbxfrmQueryLivestock_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbxQueryLivestock_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(),timeslot = livestock.getTimeslot(), initial_bid = livestock.getinitialBid();
+            lblQueryLivestock2.Text = "Livestock";
             for (int i = 1; i <= type.Count; i++)
             {
-                if (cbxfrmQueryLivestock.Text.Contains(i.ToString()))
+                if (cbxQueryLivestock.Text.Contains(i.ToString()))
                 {
-                    lblfrmQueryLivestock2.Text +=
+                    lblQueryLivestock2.Text +=
                         "\nlivestock type: " + type[i - 1]
                         + "\nbreed: " + breed[i - 1]
                         + "\ngender: " + gender[i - 1]
@@ -49,10 +50,10 @@ namespace SD_RE_James_Clifford
             List<string> type = livestock.getLivestockType();
             for (int i = 1; i <= type.Count; i++)
             {
-                cbxfrmQueryLivestock.Items.Add("id-" + i + " name-" + type[i - 1]);
+                cbxQueryLivestock.Items.Add("id-" + i + " name-" + type[i - 1]);
                 if (livestock.getstatus()[i - 1].Equals("s"))
                 {
-                    cbxfrmQueryLivestock.Items.Remove("id-" + i + " name-" + type[i - 1]);
+                    cbxQueryLivestock.Items.Remove("id-" + i + " name-" + type[i - 1]);
                 }
             }
         }
@@ -60,7 +61,7 @@ namespace SD_RE_James_Clifford
         private void btnfrmQueryLivestock3_Click(object sender, EventArgs e)
         {
             this.Close();
-            Parent.Visible = true;
+            parent.Visible = true;
         }
     }
 }
