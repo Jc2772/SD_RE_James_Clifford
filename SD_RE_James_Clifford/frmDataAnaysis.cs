@@ -16,5 +16,10 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
+
+        private void cbxDataAnalysis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DGV
+        }
     }
 }
