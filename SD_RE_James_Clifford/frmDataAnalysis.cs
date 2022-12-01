@@ -28,5 +28,23 @@ namespace SD_RE_James_Clifford
             this.Close();
             parent.Visible = true;
         }
+
+        private void cbxDataAnalysis_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbxDataAnalysis.SelectedIndex == 1)
+            {
+                pcbViewData.Image = Image.FromFile("data1.PNG");
+            }
+            if(cbxDataAnalysis.SelectedIndex == 2)
+            {
+                pcbViewData.Image = Image.FromFile("data2.PNG");
+            }
+        }
+
+        private void frmDataAnalysis_Load(object sender, EventArgs e)
+        {
+            cbxDataAnalysis.Items.Add("Yearly revenue analysis");
+            cbxDataAnalysis.Items.Add("Yearly livestock analysis")
+        }
     }
 }

@@ -52,6 +52,7 @@ namespace SD_RE_James_Clifford
             this.cbxDataAnalysis.Name = "cbxDataAnalysis";
             this.cbxDataAnalysis.Size = new System.Drawing.Size(121, 21);
             this.cbxDataAnalysis.TabIndex = 2;
+            this.cbxDataAnalysis.SelectedIndexChanged += new System.EventHandler(this.cbxDataAnalysis_SelectedIndexChanged);
             // 
             // btnDataAnalysis
             // 
@@ -83,6 +84,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.lblDataAnalysis);
             this.Name = "frmDataAnalysis";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.frmDataAnalysis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbViewData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
