@@ -77,5 +77,14 @@ namespace SD_RE_James_Clifford
                 }
             }
         }
+        public void soldLivestock(string tag) {
+            for(int i = 0; i < livestockTagNumber.Count; i++)
+            {
+                if (livestockTagNumber[i].Equals(tag))
+                {
+                    status[i] = "s";
+                }
+            }
+        }
     }
 }

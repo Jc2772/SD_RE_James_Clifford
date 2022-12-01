@@ -135,6 +135,7 @@ namespace SD_RE_James_Clifford
             this.btnRegisterSale1.TabIndex = 10;
             this.btnRegisterSale1.Text = "Return";
             this.btnRegisterSale1.UseVisualStyleBackColor = true;
+            this.btnRegisterSale1.Click += new System.EventHandler(this.btnRegisterSale1_Click);
             // 
             // frmRegisterSale
             // 

@@ -72,6 +72,7 @@ namespace SD_RE_James_Clifford
                 {
                     Double.Parse(ipdRegisterSale3.Text);
                     sales.setsales(ipdRegisterSale1.Text, ipdRegisterSale2.Text, ipdRegisterSale3.Text,this.tag);
+
                 }
                 catch (FormatException)
                 {
@@ -82,6 +83,12 @@ namespace SD_RE_James_Clifford
             {
                 MessageBox.Show("invalid phone number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnRegisterSale1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            parent.Visible = true;
         }
     }
 }

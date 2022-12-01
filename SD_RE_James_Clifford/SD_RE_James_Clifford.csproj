@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmDataAnaysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDataAnaysis.Designer.cs">
+      <DependentUpon>frmDataAnaysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageAccount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     <Compile Include="spoof_auction.cs" />
     <Compile Include="spoof_livestock.cs" />
     <Compile Include="spoof_sales.cs" />
+    <EmbeddedResource Include="frmDataAnaysis.resx">
+      <DependentUpon>frmDataAnaysis.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManageAccount.resx">
       <DependentUpon>frmManageAccount.cs</DependentUpon>
     </EmbeddedResource>
