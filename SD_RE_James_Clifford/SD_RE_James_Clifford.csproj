@@ -135,6 +135,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="frmRegisterLivestock.resx">
       <DependentUpon>frmRegisterLivestock.cs</DependentUpon>
@@ -156,7 +157,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data1.PNG" />
+    <Content Include="data2.PNG" />
     <Content Include="livestock.png" />
+    <None Include="Resources\data2.PNG" />
+    <None Include="Resources\data1.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

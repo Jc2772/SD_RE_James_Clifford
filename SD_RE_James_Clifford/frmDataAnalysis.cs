@@ -31,20 +31,22 @@ namespace SD_RE_James_Clifford
 
         private void cbxDataAnalysis_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cbxDataAnalysis.SelectedIndex == 0)
+            {
+                string filename = "data1.PNG";
+                pcbViewData.Image = Properties.Resources.data1;
+            }
             if(cbxDataAnalysis.SelectedIndex == 1)
             {
-                pcbViewData.Image = Image.FromFile("data1.PNG");
-            }
-            if(cbxDataAnalysis.SelectedIndex == 2)
-            {
-                pcbViewData.Image = Image.FromFile("data2.PNG");
+
+                pcbViewData.Image = Properties.Resources.data2;
             }
         }
 
         private void frmDataAnalysis_Load(object sender, EventArgs e)
         {
             cbxDataAnalysis.Items.Add("Yearly revenue analysis");
-            cbxDataAnalysis.Items.Add("Yearly livestock analysis")
+            cbxDataAnalysis.Items.Add("Yearly livestock analysis");
         }
     }
 }
