@@ -142,7 +142,6 @@
     <EmbeddedResource Include="frmQueryLivestock.resx">
       <DependentUpon>frmQueryLivestock.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="livestock_records.xlsx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -152,7 +151,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="sales_records.xlsx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

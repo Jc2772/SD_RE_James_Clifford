@@ -19,7 +19,7 @@ namespace SD_RE_James_Clifford
 
         private void cbxDataAnalysis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DGV
+        
         }
     }
 }
