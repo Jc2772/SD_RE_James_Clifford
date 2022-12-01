@@ -32,7 +32,7 @@ namespace SD_RE_James_Clifford
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLivestockHome));
             this.imgLivestockHome = new System.Windows.Forms.PictureBox();
             this.btnLivestockHome7 = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mnuLivestockHome = new System.Windows.Forms.MenuStrip();
             this.manageOwnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerOwnersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updatederegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,18 +42,16 @@ namespace SD_RE_James_Clifford
             this.queryLivestockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleAuctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewYearlyAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewLifestockSalesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.imgLivestockHome)).BeginInit();
-            this.menuStrip1.SuspendLayout();
+            this.mnuLivestockHome.SuspendLayout();
             this.SuspendLayout();
             // 
             // imgLivestockHome
             // 
             this.imgLivestockHome.Image = ((System.Drawing.Image)(resources.GetObject("imgLivestockHome.Image")));
-            this.imgLivestockHome.Location = new System.Drawing.Point(172, 123);
+            this.imgLivestockHome.Location = new System.Drawing.Point(0, 27);
             this.imgLivestockHome.Name = "imgLivestockHome";
-            this.imgLivestockHome.Size = new System.Drawing.Size(447, 273);
+            this.imgLivestockHome.Size = new System.Drawing.Size(836, 460);
             this.imgLivestockHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgLivestockHome.TabIndex = 4;
             this.imgLivestockHome.TabStop = false;
@@ -68,17 +66,17 @@ namespace SD_RE_James_Clifford
             this.btnLivestockHome7.UseVisualStyleBackColor = true;
             this.btnLivestockHome7.Click += new System.EventHandler(this.btnLivestockHome7_Click);
             // 
-            // menuStrip1
+            // mnuLivestockHome
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuLivestockHome.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageOwnersToolStripMenuItem,
             this.manageAuctionsToolStripMenuItem,
             this.dataAnalysisToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(836, 24);
-            this.menuStrip1.TabIndex = 11;
-            this.menuStrip1.Text = "menuStrip1";
+            this.mnuLivestockHome.Location = new System.Drawing.Point(0, 0);
+            this.mnuLivestockHome.Name = "mnuLivestockHome";
+            this.mnuLivestockHome.Size = new System.Drawing.Size(836, 24);
+            this.mnuLivestockHome.TabIndex = 11;
+            this.mnuLivestockHome.Text = "menuStrip1";
             // 
             // manageOwnersToolStripMenuItem
             // 
@@ -92,14 +90,14 @@ namespace SD_RE_James_Clifford
             // registerOwnersToolStripMenuItem
             // 
             this.registerOwnersToolStripMenuItem.Name = "registerOwnersToolStripMenuItem";
-            this.registerOwnersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registerOwnersToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.registerOwnersToolStripMenuItem.Text = "register owners";
             this.registerOwnersToolStripMenuItem.Click += new System.EventHandler(this.registerOwnersToolStripMenuItem_Click);
             // 
             // updatederegisterToolStripMenuItem
             // 
             this.updatederegisterToolStripMenuItem.Name = "updatederegisterToolStripMenuItem";
-            this.updatederegisterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updatederegisterToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
             this.updatederegisterToolStripMenuItem.Text = "update/deregister";
             this.updatederegisterToolStripMenuItem.Click += new System.EventHandler(this.updatederegisterToolStripMenuItem_Click);
             // 
@@ -144,39 +142,26 @@ namespace SD_RE_James_Clifford
             // 
             // dataAnalysisToolStripMenuItem
             // 
-            this.dataAnalysisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewYearlyAnalysisToolStripMenuItem,
-            this.viewLifestockSalesToolStripMenuItem});
             this.dataAnalysisToolStripMenuItem.Name = "dataAnalysisToolStripMenuItem";
             this.dataAnalysisToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.dataAnalysisToolStripMenuItem.Text = "data analysis";
-            // 
-            // viewYearlyAnalysisToolStripMenuItem
-            // 
-            this.viewYearlyAnalysisToolStripMenuItem.Name = "viewYearlyAnalysisToolStripMenuItem";
-            this.viewYearlyAnalysisToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.viewYearlyAnalysisToolStripMenuItem.Text = "view yearly analysis";
-            // 
-            // viewLifestockSalesToolStripMenuItem
-            // 
-            this.viewLifestockSalesToolStripMenuItem.Name = "viewLifestockSalesToolStripMenuItem";
-            this.viewLifestockSalesToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.viewLifestockSalesToolStripMenuItem.Text = "view lifestock sales";
+            this.dataAnalysisToolStripMenuItem.Click += new System.EventHandler(this.dataAnalysisToolStripMenuItem_Click);
             // 
             // frmLivestockHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(836, 486);
+            this.ControlBox = false;
             this.Controls.Add(this.btnLivestockHome7);
             this.Controls.Add(this.imgLivestockHome);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.mnuLivestockHome);
+            this.MainMenuStrip = this.mnuLivestockHome;
             this.Name = "frmLivestockHome";
             this.Text = "Livestock auction home";
             ((System.ComponentModel.ISupportInitialize)(this.imgLivestockHome)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.mnuLivestockHome.ResumeLayout(false);
+            this.mnuLivestockHome.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,7 +170,7 @@ namespace SD_RE_James_Clifford
         #endregion
         private System.Windows.Forms.PictureBox imgLivestockHome;
         private System.Windows.Forms.Button btnLivestockHome7;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip mnuLivestockHome;
         private System.Windows.Forms.ToolStripMenuItem manageOwnersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerOwnersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem updatederegisterToolStripMenuItem;
@@ -195,8 +180,6 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.ToolStripMenuItem queryLivestockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scheduleAuctionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataAnalysisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewYearlyAnalysisToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewLifestockSalesToolStripMenuItem;
     }
 }
 

@@ -123,6 +123,7 @@ namespace SD_RE_James_Clifford
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 239);
+            this.ControlBox = false;
             this.Controls.Add(this.btnUpdateAccount);
             this.Controls.Add(this.ipdUpdateEmail);
             this.Controls.Add(this.ipdUpdatePhone);

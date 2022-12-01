@@ -86,7 +86,7 @@ namespace SD_RE_James_Clifford
             // 
             // btnManageAccounts3
             // 
-            this.btnManageAccounts3.Location = new System.Drawing.Point(352, 12);
+            this.btnManageAccounts3.Location = new System.Drawing.Point(352, 5);
             this.btnManageAccounts3.Name = "btnManageAccounts3";
             this.btnManageAccounts3.Size = new System.Drawing.Size(75, 23);
             this.btnManageAccounts3.TabIndex = 5;
@@ -99,6 +99,7 @@ namespace SD_RE_James_Clifford
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.btnManageAccounts3);
             this.Controls.Add(this.btnManageAccount2);
             this.Controls.Add(this.btnManageAccount1);

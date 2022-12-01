@@ -1,7 +1,7 @@
 ﻿
 namespace SD_RE_James_Clifford
 {
-    partial class frmDataAnaysis
+    partial class frmDataAnalysis
     {
         /// <summary>
         /// Required designer variable.
@@ -32,8 +32,8 @@ namespace SD_RE_James_Clifford
             this.lblDataAnalysis = new System.Windows.Forms.Label();
             this.cbxDataAnalysis = new System.Windows.Forms.ComboBox();
             this.btnDataAnalysis = new System.Windows.Forms.Button();
-            this.dgwDataAnalysis = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwDataAnalysis)).BeginInit();
+            this.pcbViewData = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbViewData)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDataAnalysis
@@ -52,7 +52,6 @@ namespace SD_RE_James_Clifford
             this.cbxDataAnalysis.Name = "cbxDataAnalysis";
             this.cbxDataAnalysis.Size = new System.Drawing.Size(121, 21);
             this.cbxDataAnalysis.TabIndex = 2;
-            this.cbxDataAnalysis.SelectedIndexChanged += new System.EventHandler(this.cbxDataAnalysis_SelectedIndexChanged);
             // 
             // btnDataAnalysis
             // 
@@ -62,27 +61,29 @@ namespace SD_RE_James_Clifford
             this.btnDataAnalysis.TabIndex = 3;
             this.btnDataAnalysis.Text = "button1";
             this.btnDataAnalysis.UseVisualStyleBackColor = true;
+            this.btnDataAnalysis.Click += new System.EventHandler(this.btnDataAnalysis_Click);
             // 
-            // dgwDataAnalysis
+            // pcbViewData
             // 
-            this.dgwDataAnalysis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwDataAnalysis.Location = new System.Drawing.Point(12, 84);
-            this.dgwDataAnalysis.Name = "dgwDataAnalysis";
-            this.dgwDataAnalysis.Size = new System.Drawing.Size(776, 354);
-            this.dgwDataAnalysis.TabIndex = 4;
+            this.pcbViewData.Location = new System.Drawing.Point(12, 52);
+            this.pcbViewData.Name = "pcbViewData";
+            this.pcbViewData.Size = new System.Drawing.Size(776, 386);
+            this.pcbViewData.TabIndex = 4;
+            this.pcbViewData.TabStop = false;
             // 
-            // frmDataAnaysis
+            // frmDataAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dgwDataAnalysis);
+            this.ControlBox = false;
+            this.Controls.Add(this.pcbViewData);
             this.Controls.Add(this.btnDataAnalysis);
             this.Controls.Add(this.cbxDataAnalysis);
             this.Controls.Add(this.lblDataAnalysis);
-            this.Name = "frmDataAnaysis";
+            this.Name = "frmDataAnalysis";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgwDataAnalysis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbViewData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -92,6 +93,6 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.Label lblDataAnalysis;
         private System.Windows.Forms.ComboBox cbxDataAnalysis;
         private System.Windows.Forms.Button btnDataAnalysis;
-        private System.Windows.Forms.DataGridView dgwDataAnalysis;
+        private System.Windows.Forms.PictureBox pcbViewData;
     }
 }

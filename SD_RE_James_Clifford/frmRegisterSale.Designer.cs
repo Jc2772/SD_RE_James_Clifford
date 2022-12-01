@@ -142,6 +142,7 @@ namespace SD_RE_James_Clifford
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(510, 450);
+            this.ControlBox = false;
             this.Controls.Add(this.btnRegisterSale1);
             this.Controls.Add(this.btnRegisterSale2);
             this.Controls.Add(this.lblRegisterSale5);

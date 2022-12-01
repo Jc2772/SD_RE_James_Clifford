@@ -69,5 +69,12 @@ namespace SD_RE_James_Clifford
             frmSetTime enter = new frmSetTime(this, auction, livestock);
             enter.Show();
         }
+
+        private void dataAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmDataAnalysis enter = new frmDataAnalysis(this);
+            enter.Show();
+        }
     }
 }
