@@ -30,6 +30,8 @@ namespace SD_RE_James_Clifford
             String
                 Name = ipdUpdateName.Text,
                 Address1 = ipdUpdateAddress1.Text,
+                Address2 = ipdUpdateAddress2.Text,
+                Address3 = ipdUpdateAddress3.Text,
                 Phone = ipdUpdatePhone.Text,
                 Email = ipdUpdateEmail.Text;
             frmNewAccount accountOptions = new frmNewAccount();
@@ -39,7 +41,7 @@ namespace SD_RE_James_Clifford
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                accounts.updateValues(Name, Address1, Phone, Email, id);
+                accounts.updateValues(Name, Address1, Address2, Address3, Phone, Email, id);
             }
             else
             {

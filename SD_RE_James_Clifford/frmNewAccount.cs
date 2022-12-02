@@ -124,13 +124,15 @@ namespace SD_RE_James_Clifford
 
         private void btnAccountAdd_Click(object sender, EventArgs e)
         {
-            String 
+            String
                 Name = ipdAccountName.Text,
                 Address = ipdAccountAddress1.Text,
+                town = ipdAccountAddress2.Text,
+                county = ipdAccountAddress2.Text,
                 Phone = ipdAccountPhone.Text,
                 Email = ipdAccountEmail.Text;
 
-            if (CheckOwner(Name, Address, Phone, Email))
+            if (CheckOwner(Name, Address, Phone, Email,,town,county))
             {
                 MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -144,7 +146,7 @@ namespace SD_RE_James_Clifford
                 {
                     Email = "None supplied";
                 }
-                accounts.addValues(Name,Address,Phone,Email);
+                accounts.addValues(Name,Address,town,county,Phone,Email);
                 MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
