@@ -73,7 +73,10 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock2.Items.Remove("Scottish Blackface");
             cbxRegisterLivestock2.Items.Remove("Vendéen");
             cbxRegisterLivestock2.Items.Remove("Lleyn sheep");
-            cbxRegisterLivestock2.Items.Remove("Blue Texel sheep");
+            cbxRegisterLivestock2.Items.Remove("Blue Texel sheep"); cbxRegisterLivestock2.Items.Add("Saanen");
+            cbxRegisterLivestock2.Items.Remove("British Alpine");
+            cbxRegisterLivestock2.Items.Remove("Toggenburg");
+            cbxRegisterLivestock2.Items.Remove("Anglo-Nubian");
             if (cbxRegisterLivestock1.Text.Equals("cattle"))
             {
                 cbxRegisterLivestock2.Items.Add("Limousin");
