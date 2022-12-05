@@ -23,6 +23,14 @@ namespace SD_RE_James_Clifford
         {
             return this.AccAddress1;
         }
+        public List<string> getAccAddress2()
+        {
+            return this.AccAddress2;
+        }
+        public List<string> getAccAddress3()
+        {
+            return this.AccAddress3;
+        }
         public List<string> getAccPhone()
         {
             return this.AccPhone;

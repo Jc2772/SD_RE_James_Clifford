@@ -16,7 +16,8 @@ namespace SD_RE_James_Clifford
         private List<string> timeslots = new List<string> { "Monday 28 November 2022 09:00", "Monday 28 November 2022 09:20", "Monday 28 November 2022 09:40" };
         private List<string> initial_bid = new List<string> { "75.00", "20.00", "30.00" };
         private List<string> status = new List<string> { "s", "u", "u" };
-        public void addValues(string livestockType,string livestockBreed,string livestockAge,string livestockGender, string livestockTagNumber, string timeslot,string initial_bid)
+        private List<string> status = new List<string> { "s", "u", "u" };
+        public void addValues(string livestockType,string livestockBreed,string livestockAge,string livestockGender, string livestockTagNumber, string timeslot,string initial_bid,string owner)
         {
             this.livestockType.Add(livestockType);
             this.livestockBreed.Add(livestockBreed);

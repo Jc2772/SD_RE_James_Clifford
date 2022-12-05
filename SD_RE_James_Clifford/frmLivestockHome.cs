@@ -45,7 +45,7 @@ namespace SD_RE_James_Clifford
         private void registerLivestockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRegisterLivestock enter = new frmRegisterLivestock(this, livestock, auction);
+            frmRegisterLivestock enter = new frmRegisterLivestock(this, livestock, auction,accounts);
             enter.Show();
         }
 

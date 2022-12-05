@@ -24,7 +24,7 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
-        public bool CheckOwner(string name, string Address, string phone, string email)
+        public bool CheckOwner(string name, string Address1, string phone, string email, string Address2, string Address3)
         {
             bool test = true;
             /*Get Data from the Database and compare
@@ -37,11 +37,25 @@ namespace SD_RE_James_Clifford
                 {
                     if (email.Equals(accounts.getAccEmail()[i]))
                     {
-                        if (Address.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
+                        if (Address1.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
                         {
-                            if (name.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
+                            if (Address2.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
                             {
-                                test = true;
+                                if (Address2.Equals(accounts.getAccAddress2()[i], StringComparison.OrdinalIgnoreCase))
+                                {
+                                    if (name.Equals(accounts.getAccAddress2()[i], StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        test = true;
+                                    }
+                                    else
+                                    {
+                                        test = false;
+                                    }
+                                }
+                                else
+                                {
+                                    test = false;
+                                }
                             }
                             else
                             {
@@ -132,7 +146,7 @@ namespace SD_RE_James_Clifford
                 Phone = ipdAccountPhone.Text,
                 Email = ipdAccountEmail.Text;
 
-            if (CheckOwner(Name, Address, Phone, Email,,town,county))
+            if (CheckOwner(Name, Address, Phone, Email,town,county))
             {
                 MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

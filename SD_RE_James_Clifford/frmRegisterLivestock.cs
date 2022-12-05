@@ -14,16 +14,18 @@ namespace SD_RE_James_Clifford
     {
         frmLivestockHome parent;
         spoof_livestock livestock;
+        spoof_accounts accounts;
         spoof_auction auction;
         public frmRegisterLivestock()
         {
             InitializeComponent();
         }
-        public frmRegisterLivestock(frmLivestockHome parent,spoof_livestock livestock,spoof_auction auction)
+        public frmRegisterLivestock(frmLivestockHome parent,spoof_livestock livestock,spoof_auction auction,spoof_accounts accounts)
         {
             this.parent = parent;
             this.livestock = livestock;
             this.auction = auction;
+            this.accounts = accounts;
             InitializeComponent();
         }
         private void ckxRegisterLivestock1_CheckedChanged(object sender, EventArgs e)
@@ -53,6 +55,11 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock1.Items.Add("cattle");
             cbxRegisterLivestock1.Items.Add("sheep");
             cbxRegisterLivestock1.Items.Add("goat");
+            List<string> name = accounts.getAccName();
+            for (int i = 1; i <= name.Count; i++)
+            {
+                cbxRegisterLivestock4.Items.Add("id-" + i + " name-" + name[i - 1]);
+            }
         }
 
         private void cbxRegisterLivestock1_SelectedIndexChanged(object sender, EventArgs e)
@@ -137,13 +144,13 @@ namespace SD_RE_James_Clifford
 
         private void btnRegisterLivestock2_Click(object sender, EventArgs e)
         {
-            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockAge = ipdRegisterLivestock1.Text, livestockTagNumber = ipdRegisterLivestock2.Text,livestockGender, timeslot = cbxRegisterLivestock3.Text,initial_bid = ipdRegisterLivestock3.Text;
+            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockAge = ipdRegisterLivestock1.Text, livestockTagNumber = ipdRegisterLivestock2.Text,livestockGender, timeslot = cbxRegisterLivestock3.Text,initial_bid = ipdRegisterLivestock3.Text, owner = cbxRegisterLivestock4.Text;
             try
             {
                 Convert.ToInt32(ipdRegisterLivestock1.Text);
                 try
                 {
-                    Convert.ToInt32(ipdRegisterLivestock2.Text);
+                    Convert.ToInt64(ipdRegisterLivestock2.Text);
                     if(ipdRegisterLivestock2.Text.Length == 15)
                     {
                         if(ckxRegisterLivestock1.Checked) {
@@ -156,7 +163,7 @@ namespace SD_RE_James_Clifford
                         try
                         {
                             Double.Parse(initial_bid);
-                            livestock.addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber, timeslot, initial_bid);
+                            livestock.addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber, timeslot, initial_bid,owner);
                             MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (FormatException)

@@ -33,7 +33,6 @@ namespace SD_RE_James_Clifford
         {
             if(cbxDataAnalysis.SelectedIndex == 0)
             {
-                string filename = "data1.PNG";
                 pcbViewData.Image = Properties.Resources.data1;
             }
             if(cbxDataAnalysis.SelectedIndex == 1)

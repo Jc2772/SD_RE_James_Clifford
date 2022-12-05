@@ -52,19 +52,7 @@ namespace SD_RE_James_Clifford
 
         private void cbxManageAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            List<string> name = accounts.getAccName(), address1 = accounts.getAccAddress1(), phone = accounts.getAccPhone(), email = accounts.getAccEmail();
-            for (int i = 1; i <= name.Count;i++)
-            {
-                if (cbxManageAccount.Text.Contains(i.ToString()))
-                {
-                    lblManageAccounts2.Text = "\n\nAccount: " + name[i-1] + "\n\nAddress 1: " + address1[i-1]
-                        + "\n\nPhone: " + phone[i-1] + "\n\nEmail: " + email[i-1];
-                    id = i - 1;
-                    found = true;
-                    break;
-                }
-            }
+           
         }
 
         private void btnManageAccounts3_Click(object sender, EventArgs e)
