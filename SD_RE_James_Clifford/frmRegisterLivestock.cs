@@ -56,9 +56,9 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock1.Items.Add("sheep");
             cbxRegisterLivestock1.Items.Add("goat");
             List<string> name = accounts.getAccName();
-            for (int i = 1; i <= name.Count; i++)
+            for (int i = 0; i <= name.Count; i++)
             {
-                cbxRegisterLivestock4.Items.Add("id-" + i + " name-" + name[i - 1]);
+                cbxRegisterLivestock4.Items.Add(name[i]);
             }
         }
 
@@ -162,9 +162,15 @@ namespace SD_RE_James_Clifford
                         }
                         try
                         {
-                            Double.Parse(initial_bid);
-                            livestock.addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber, timeslot, initial_bid,owner);
-                            MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (owner != null) {
+                                Double.Parse(initial_bid);
+                                livestock.addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber, timeslot, initial_bid, owner);
+                                MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("invalid owner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         catch (FormatException)
                         {

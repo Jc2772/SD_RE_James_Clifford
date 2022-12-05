@@ -16,7 +16,7 @@ namespace SD_RE_James_Clifford
         private List<string> timeslots = new List<string> { "Monday 28 November 2022 09:00", "Monday 28 November 2022 09:20", "Monday 28 November 2022 09:40" };
         private List<string> initial_bid = new List<string> { "75.00", "20.00", "30.00" };
         private List<string> status = new List<string> { "s", "u", "u" };
-        private List<string> status = new List<string> { "s", "u", "u" };
+        private List<string> names = new List<string> { "Mike o Niell", "Thomas o Sullivan", "Patrick Griffian" };
         public void addValues(string livestockType,string livestockBreed,string livestockAge,string livestockGender, string livestockTagNumber, string timeslot,string initial_bid,string owner)
         {
             this.livestockType.Add(livestockType);
@@ -27,6 +27,7 @@ namespace SD_RE_James_Clifford
             this.timeslots.Add(timeslot);
             this.initial_bid.Add(initial_bid);
             this.status.Add("u");
+            this.names.Add(owner);
         }
         
         public List<string> getLivestockType()
