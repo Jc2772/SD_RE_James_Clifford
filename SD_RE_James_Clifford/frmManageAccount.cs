@@ -30,7 +30,7 @@ namespace SD_RE_James_Clifford
         private void btnManageAccount1_Click(object sender, EventArgs e)
         {
             if (found == true) { 
-                frmUpdateAccount update = new frmUpdateAccount(id,accounts);
+                frmUpdateAccount update = new frmUpdateAccount(id,this);
                 update.Show();
             }
             else
@@ -58,6 +58,8 @@ namespace SD_RE_James_Clifford
             {
                 if (cbxManageAccount.Text.Contains(i.ToString()))
                 {
+                    this.found = true;
+                    this.id = i-1;
                     lblManageAccounts2.Text +=
                         "\nname: " + name[i - 1]
                         + "\nAddress1: " + Address1[i - 1]
@@ -85,6 +87,86 @@ namespace SD_RE_James_Clifford
             {
                 MessageBox.Show("you didnt pick a choice", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+         public void checkUpdate(String Name, String Address1, String Address2, String Address3, String Phone, String Email, int id)
+        {
+            List<string> values = new List<string> { Name, Address1, Address2, Address3, Phone, Email };
+            for (int i = 0; i < 5; i++)
+            {
+                if (string.IsNullOrEmpty(values[i]))
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Name = accounts.getAccName()[id];
+                                break;
+                            }
+                        case 1:
+                            {
+                                Address1 = accounts.getAccAddress1()[id];
+                                break;
+                            }
+                        case 2:
+                            {
+                                Address2 = accounts.getAccAddress2()[id];
+                                break;
+                            }
+                        case 3:
+                            {
+                                Address3 = accounts.getAccAddress3()[id];
+                                break;
+                            }
+                        case 4:
+                            {
+                                Phone = accounts.getAccPhone()[id];
+                                break;
+                            }
+                        case 5:
+                            {
+                                Email = accounts.getAccEmail()[id];
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            {
+                                Name = values[0];
+                                break;
+                            }
+                        case 1:
+                            {
+                                Address1 = values[1];
+                                break;
+                            }
+                        case 2:
+                            {
+                                Address2 = values[2];
+                                break;
+                            }
+                        case 3:
+                            {
+                                Address3 = values[3];
+                                break;
+                            }
+                        case 4:
+                            {
+                                Phone = values[4];
+                                break;
+                            }
+                        case 5:
+                            {
+                                Email = values[5];
+                                break;
+                            }
+                    }
+                }
+            }
+            accounts.updateValues(Name, Address1, Address2, Address3, Phone, Email ,id);
         }
     }
 }

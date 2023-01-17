@@ -13,12 +13,12 @@ namespace SD_RE_James_Clifford
     public partial class frmUpdateAccount : Form
     {
         private int id;
-        spoof_accounts accounts;
+        frmManageAccount accounts;
         public frmUpdateAccount()
         {
             InitializeComponent();
         }
-        public frmUpdateAccount(int id,spoof_accounts accounts)
+        public frmUpdateAccount(int id, frmManageAccount accounts)
         {
             this.id = id;
             this.accounts = accounts;
@@ -37,11 +37,11 @@ namespace SD_RE_James_Clifford
             frmNewAccount accountOptions = new frmNewAccount();
             Boolean
                 update_check1 = accountOptions.CheckData(Phone, Email);
-            if (update_check1)
+            if (update_check1 || (string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Phone)))
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                accounts.updateValues(Name, Address1, Address2, Address3, Phone, Email, id);
+                accounts.checkUpdate(Name, Address1, Address2, Address3, Phone, Email, id);
             }
             else
             {
