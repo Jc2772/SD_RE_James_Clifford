@@ -29,7 +29,7 @@ namespace SD_RE_James_Clifford
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRegisterLivestock1 = new System.Windows.Forms.Button();
             this.cbxRegisterLivestock1 = new System.Windows.Forms.ComboBox();
             this.grpRegisterLivestock = new System.Windows.Forms.GroupBox();
             this.lblManageAccounts1 = new System.Windows.Forms.Label();
@@ -52,16 +52,16 @@ namespace SD_RE_James_Clifford
             this.grpRegisterLivestock.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnRegisterLivestock1
             // 
-            this.button1.Location = new System.Drawing.Point(532, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 26);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "return";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRegisterLivestock1.Location = new System.Drawing.Point(532, 10);
+            this.btnRegisterLivestock1.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRegisterLivestock1.Name = "btnRegisterLivestock1";
+            this.btnRegisterLivestock1.Size = new System.Drawing.Size(59, 26);
+            this.btnRegisterLivestock1.TabIndex = 0;
+            this.btnRegisterLivestock1.Text = "return";
+            this.btnRegisterLivestock1.UseVisualStyleBackColor = true;
+            this.btnRegisterLivestock1.Click += new System.EventHandler(this.btnRegisterLivestock_Click);
             // 
             // cbxRegisterLivestock1
             // 
@@ -261,7 +261,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.lblRegisterLivestock1);
             this.Controls.Add(this.grpRegisterLivestock);
             this.Controls.Add(this.cbxRegisterLivestock1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRegisterLivestock1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmRegisterLivestock";
             this.Text = "frmRegisterLivestock";
@@ -275,7 +275,7 @@ namespace SD_RE_James_Clifford
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegisterLivestock1;
         private System.Windows.Forms.ComboBox cbxRegisterLivestock1;
         private System.Windows.Forms.GroupBox grpRegisterLivestock;
         private System.Windows.Forms.Label lblRegisterLivestock1;

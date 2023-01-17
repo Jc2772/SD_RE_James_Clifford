@@ -44,7 +44,7 @@ namespace SD_RE_James_Clifford
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegisterLivestock_Click(object sender, EventArgs e)
         {
             this.Close();
             parent.Visible = true;
@@ -56,7 +56,7 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock1.Items.Add("sheep");
             cbxRegisterLivestock1.Items.Add("goat");
             List<string> name = accounts.getAccName();
-            for (int i = 0; i <= name.Count; i++)
+            for (int i = 0; i < name.Count; i++)
             {
                 cbxRegisterLivestock4.Items.Add(name[i]);
             }

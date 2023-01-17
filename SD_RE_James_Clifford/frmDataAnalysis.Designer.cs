@@ -60,7 +60,7 @@ namespace SD_RE_James_Clifford
             this.btnDataAnalysis.Name = "btnDataAnalysis";
             this.btnDataAnalysis.Size = new System.Drawing.Size(75, 23);
             this.btnDataAnalysis.TabIndex = 3;
-            this.btnDataAnalysis.Text = "button1";
+            this.btnDataAnalysis.Text = "return";
             this.btnDataAnalysis.UseVisualStyleBackColor = true;
             this.btnDataAnalysis.Click += new System.EventHandler(this.btnDataAnalysis_Click);
             // 

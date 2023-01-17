@@ -16,7 +16,7 @@ namespace SD_RE_James_Clifford
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLivestockHome());
+            Application.Run(new frmLogin());
         }
     }
 }

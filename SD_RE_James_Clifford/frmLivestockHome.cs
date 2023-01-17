@@ -7,24 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace SD_RE_James_Clifford
 {
     public partial class frmLivestockHome : Form
     {
-        spoof_accounts accounts = new spoof_accounts();
-        spoof_auction auction = new spoof_auction();
-        spoof_livestock livestock = new spoof_livestock();
-        spoof_sales sales = new spoof_sales();
+        spoof_accounts accounts;
+        spoof_auction auction;
+        spoof_livestock livestock;
+        spoof_sales sales;
+        OracleConnection connection;
         public frmLivestockHome()
         {
             InitializeComponent();
         }
-
+        public frmLivestockHome(OracleConnection connection)
+        {
+            this.connection = connection;
+            InitializeComponent();
+            accounts = new spoof_accounts();
+            auction = new spoof_auction();
+            livestock = new spoof_livestock();
+            sales = new spoof_sales();
+        }
         /*The code in these methods are from https://stackoverflow.com/questions/5548746/c-sharp-open-a-new-form-then-close-the-current-form */
 
         private void btnLivestockHome7_Click(object sender, EventArgs e)
         {
+
+            connection.Close();
             Application.Exit();
         }
 
