@@ -32,13 +32,15 @@ namespace SD_RE_James_Clifford
             this.btnLogin = new System.Windows.Forms.Button();
             this.tbxLogin1 = new System.Windows.Forms.TextBox();
             this.tbxlogin2 = new System.Windows.Forms.TextBox();
+            this.lblLogin1 = new System.Windows.Forms.Label();
+            this.lblLogin2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(80, 141);
+            this.btnLogin.Location = new System.Drawing.Point(111, 138);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.Size = new System.Drawing.Size(116, 23);
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "btnLogin";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -46,24 +48,44 @@ namespace SD_RE_James_Clifford
             // 
             // tbxLogin1
             // 
-            this.tbxLogin1.Location = new System.Drawing.Point(70, 52);
+            this.tbxLogin1.Location = new System.Drawing.Point(101, 49);
             this.tbxLogin1.Name = "tbxLogin1";
-            this.tbxLogin1.Size = new System.Drawing.Size(100, 20);
+            this.tbxLogin1.Size = new System.Drawing.Size(141, 20);
             this.tbxLogin1.TabIndex = 1;
             // 
             // tbxlogin2
             // 
-            this.tbxlogin2.Location = new System.Drawing.Point(70, 87);
+            this.tbxlogin2.Location = new System.Drawing.Point(101, 84);
             this.tbxlogin2.Name = "tbxlogin2";
             this.tbxlogin2.PasswordChar = '*';
-            this.tbxlogin2.Size = new System.Drawing.Size(100, 20);
+            this.tbxlogin2.Size = new System.Drawing.Size(141, 20);
             this.tbxlogin2.TabIndex = 2;
+            // 
+            // lblLogin1
+            // 
+            this.lblLogin1.AutoSize = true;
+            this.lblLogin1.Location = new System.Drawing.Point(42, 49);
+            this.lblLogin1.Name = "lblLogin1";
+            this.lblLogin1.Size = new System.Drawing.Size(53, 13);
+            this.lblLogin1.TabIndex = 3;
+            this.lblLogin1.Text = "username";
+            // 
+            // lblLogin2
+            // 
+            this.lblLogin2.AutoSize = true;
+            this.lblLogin2.Location = new System.Drawing.Point(43, 84);
+            this.lblLogin2.Name = "lblLogin2";
+            this.lblLogin2.Size = new System.Drawing.Size(52, 13);
+            this.lblLogin2.TabIndex = 4;
+            this.lblLogin2.Text = "password";
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(241, 176);
+            this.ClientSize = new System.Drawing.Size(333, 206);
+            this.Controls.Add(this.lblLogin2);
+            this.Controls.Add(this.lblLogin1);
             this.Controls.Add(this.tbxlogin2);
             this.Controls.Add(this.tbxLogin1);
             this.Controls.Add(this.btnLogin);
@@ -79,5 +101,7 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox tbxLogin1;
         private System.Windows.Forms.TextBox tbxlogin2;
+        private System.Windows.Forms.Label lblLogin1;
+        private System.Windows.Forms.Label lblLogin2;
     }
 }
