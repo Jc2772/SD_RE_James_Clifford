@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.ManagedDataAccess.Client;
 
 namespace SD_RE_James_Clifford
 {
     public partial class spoof_livestock
     {
+        OracleConnection connection;
+        public spoof_livestock(OracleConnection connection)
+        {
+            this.connection = connection;
+        }
         private List<string> livestockType = new List<string> { "cattle","sheep","goat" };
         private List<string> livestockBreed = new List<string> { "Limousin", "Suffolk sheep", "Saanen" };
         private List<string> livestockAge = new List<string> { "3", "2", "2" };

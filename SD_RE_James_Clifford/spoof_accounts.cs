@@ -4,11 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Oracle.ManagedDataAccess.Client;
 
 namespace SD_RE_James_Clifford
 {
     public partial class spoof_accounts
     {
+        OracleConnection connection;
+        public spoof_accounts(OracleConnection connection)
+        {
+            this.connection = connection;
+        }
         private List<string> AccName = new List<string> { "Mike o Niell", "Thomas o Sullivan", "Patrick Griffian" };
         private List<string> AccAddress1 = new List<string> { "BallyHea", "Lisbabe", "Baslicon" };
         private List<string> AccAddress2 = new List<string> { "Castleisland", "Kenmare", "Waterville" };
@@ -41,7 +47,15 @@ namespace SD_RE_James_Clifford
         }
         public void addValues(string name,string address1, string address2, string address3, string phone,string email)
         {
-            
+            String query = "INSERT INTO Owners VALUES (1,'"
+                + name + "','" +
+                address1 + "','" +
+                address2 + "','" +
+                address3 + "','" +
+                phone + "','" +
+                email + "')";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
             this.AccName.Add(name);
             this.AccAddress1.Add(address1);
             this.AccAddress2.Add(address2);

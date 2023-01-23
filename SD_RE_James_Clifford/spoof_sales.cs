@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Oracle.ManagedDataAccess.Client;
 
 namespace SD_RE_James_Clifford
 {
     public partial class spoof_sales
     {
+        OracleConnection connection;
+        public spoof_sales(OracleConnection connection)
+        {
+            this.connection = connection;
+        }
         private List<string> buyer_name = new List<string> {"bull McCabe"};
         private List<string> final_price = new List<string> { "80.00" };
         private List<string> buyer_contact = new List<string> {"087 219 1990" };

@@ -26,10 +26,10 @@ namespace SD_RE_James_Clifford
         {
             this.connection = connection;
             InitializeComponent();
-            accounts = new spoof_accounts();
-            auction = new spoof_auction();
-            livestock = new spoof_livestock();
-            sales = new spoof_sales();
+            accounts = new spoof_accounts(connection);
+            auction = new spoof_auction(connection);
+            livestock = new spoof_livestock(connection);
+            sales = new spoof_sales(connection);
         }
         /*The code in these methods are from https://stackoverflow.com/questions/5548746/c-sharp-open-a-new-form-then-close-the-current-form */
 
