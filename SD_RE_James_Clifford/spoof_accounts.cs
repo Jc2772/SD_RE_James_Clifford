@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+using System.Data;
 
 namespace SD_RE_James_Clifford
 {
@@ -15,7 +16,7 @@ namespace SD_RE_James_Clifford
         {
             this.connection = connection;
         }
-        private List<string> AccName = new List<string> { "Mike o Niell", "Thomas o Sullivan", "Patrick Griffian" };
+        //private List<string> AccName = new List<string> { "Mike o Niell", "Thomas o Sullivan", "Patrick Griffian" };
         private List<string> AccAddress1 = new List<string> { "BallyHea", "Lisbabe", "Baslicon" };
         private List<string> AccAddress2 = new List<string> { "Castleisland", "Kenmare", "Waterville" };
         private List<string> AccAddress3 = new List<string> { "Kerry", "Kerry", "Kerry" };
@@ -23,7 +24,14 @@ namespace SD_RE_James_Clifford
         private List<string> AccEmail = new List<string> { "None supplied", "TomOS@Hotmail.com", "None supplied" };
         public List<string> getAccName()
         {
-            return this.AccName;
+            String query = "SELECT OwnerName FROM OWNERS";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> AccName = new List<string>();
+            DataTable dataTable = new DataTable();
+            dataAdapter.Fill(dataTable);
+            AccName = dataTable.AsEnumerable().Select(r => r.Field<string>("0wnerName")).ToList();
+            return AccName;
         }
         public List<string> getAccAddress1()
         {
