@@ -85,7 +85,7 @@ namespace SD_RE_James_Clifford
         }
         public void addValues(string name,string address1, string address2, string address3, string phone,string email)
         {
-            String query = "INSERT INTO Owners VALUES (1,'"
+            String query = "INSERT INTO Owners VALUES ('"
                 + name + "','" +
                 address1 + "','" +
                 address2 + "','" +
