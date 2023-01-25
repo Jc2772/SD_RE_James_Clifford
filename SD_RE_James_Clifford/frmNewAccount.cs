@@ -26,58 +26,40 @@ namespace SD_RE_James_Clifford
         }
         public bool CheckOwner(string name, string Address1, string phone, string email, string Address2, string Address3)
         {
-            bool test = true;
-            /*Get Data from the Database and compare
-             SQL
-             */
+            
             /*The piece of code StringComparison.OrdinalIgnoreCase came from https://www.tutlane.com/tutorial/csharp/csharp-string-equals-method*/
             
-            for (int i = 0; i< accounts.getSize(); i++) { 
+            for (int i = 0; i< accounts.getAccPhone().Count; i++) { 
                 if (phone.Equals(accounts.getAccPhone()[i]))
                 {
-                    if (email.Equals(accounts.getAccEmail()[i]))
-                    {
-                        if (Address1.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
-                        {
-                            if (Address2.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
-                            {
-                                if (Address2.Equals(accounts.getAccAddress2()[i], StringComparison.OrdinalIgnoreCase))
-                                {
-                                    if (name.Equals(accounts.getAccAddress2()[i], StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        test = true;
-                                    }
-                                    else
-                                    {
-                                        test = false;
-                                    }
-                                }
-                                else
-                                {
-                                    test = false;
-                                }
-                            }
-                            else
-                            {
-                                test = false;
-                            }
-                        }
-                        else
-                        {
-                            test = false;
-                        }
-                    }
-                    else
-                    {
-                        test = false;
-                    }
+                    return true;
                 }
-                else
+                else if (email.Equals(accounts.getAccEmail()[i]))
                 {
-                test = false;
+                    return true;
+                }
+                else if (Address1.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                else if (Address2.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                else if (Address2.Equals(accounts.getAccAddress2()[i], StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                else if (Address3.Equals(accounts.getAccAddress3()[i], StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+                else if(name.Equals(accounts.getAccName()[i], StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
                 }
             }
-        return test;
+        return false;
         }
         public bool CheckData(String Phone,String Email)
         {
