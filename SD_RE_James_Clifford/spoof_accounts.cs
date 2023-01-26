@@ -22,66 +22,77 @@ namespace SD_RE_James_Clifford
             String query = "SELECT OwnerName FROM OWNERS";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<string> AccName = new List<string>();
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            AccName = dataTable.AsEnumerable().Select(r => r.Field<string>("OwnerName")).ToList();
-            return AccName;
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccAddress1()
         {
             String query = "SELECT Area FROM OWNERS";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<string> AccName = new List<string>();
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            AccName = dataTable.AsEnumerable().Select(r => r.Field<string>("Area")).ToList();
-            return AccName;
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccAddress2()
         {
             String query = "SELECT Town FROM OWNERS";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<string> AccName = new List<string>();
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            AccName = dataTable.AsEnumerable().Select(r => r.Field<string>("Town")).ToList();
-            return AccName;
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccAddress3()
         {
             String query = "SELECT County FROM OWNERS";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<string> AccName = new List<string>();
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            AccName = dataTable.AsEnumerable().Select(r => r.Field<string>("County")).ToList();
-            return AccName;
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccPhone()
         {
             String query = "SELECT PhoneNo FROM OWNERS";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<string> AccName = new List<string>();
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            AccName = dataTable.AsEnumerable().Select(r => r.Field<string>("PhoneNo")).ToList();
-            return AccName;
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccEmail()
         {
             String query = "SELECT Email FROM OWNERS";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<string> AccName = new List<string>();
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            AccName = dataTable.AsEnumerable().Select(r => r.Field<string>("Email")).ToList();
-            return AccName;
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
+        }
+        public List<int> getId()
+        {
+            String query = "SELECT OwnerId FROM OWNERS";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<int> list = new List<int>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<int>(0)).ToList();
+            return list;
         }
         public void addValues(string name,string address1, string address2, string address3, string phone,string email)
         {
@@ -97,6 +108,15 @@ namespace SD_RE_James_Clifford
         }
         public void updateValues(string name, string address1, string address2, string address3, string phone, string email,int id)
         {
+            String query = "INSERT INTO Owners(OwnerName,Area,Town,County,PhoneNo,Email) VALUES ('"
+                + name + "','" +
+                address1 + "','" +
+                address2 + "','" +
+                address3 + "','" +
+                phone + "','" +
+                email + "')";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
         }
         public void removeAccounts(int id)
         {

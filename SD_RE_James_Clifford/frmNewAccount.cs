@@ -130,6 +130,7 @@ namespace SD_RE_James_Clifford
 
             if (CheckOwner(Name, Address, Phone, Email,town,county))
             {
+                //add yes no text box
                 MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (!CheckData(Phone, Email))
