@@ -124,7 +124,7 @@ namespace SD_RE_James_Clifford
                 Name = ipdAccountName.Text,
                 Address = ipdAccountAddress1.Text,
                 town = ipdAccountAddress2.Text,
-                county = ipdAccountAddress2.Text,
+                county = ipdAccountAddress3.Text,
                 Phone = ipdAccountPhone.Text,
                 Email = ipdAccountEmail.Text;
 
