@@ -28,7 +28,7 @@ namespace SD_RE_James_Clifford
 
         private void btnManageAccount1_Click(object sender, EventArgs e)
         {
-            if (cbxManageAccount_SelectedIndexChanged == true) { 
+            if (cbxManageAccount.SelectedIndex > -1) { 
                 frmUpdateAccount update = new frmUpdateAccount(id,this);
                 update.Show();
             }
@@ -79,7 +79,7 @@ namespace SD_RE_James_Clifford
 
         private void btnManageAccount2_Click(object sender, EventArgs e)
         {
-            if () {
+            if (cbxManageAccount.SelectedIndex > -1) {
                 accounts.removeAccounts(id);
                 this.Refresh();
             }
@@ -125,42 +125,6 @@ namespace SD_RE_James_Clifford
                         case 5:
                             {
                                 Email = accounts.getAccEmail()[id];
-                                break;
-                            }
-                    }
-                }
-                else
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            {
-                                Name = values[0];
-                                break;
-                            }
-                        case 1:
-                            {
-                                Address1 = values[1];
-                                break;
-                            }
-                        case 2:
-                            {
-                                Address2 = values[2];
-                                break;
-                            }
-                        case 3:
-                            {
-                                Address3 = values[3];
-                                break;
-                            }
-                        case 4:
-                            {
-                                Phone = values[4];
-                                break;
-                            }
-                        case 5:
-                            {
-                                Email = values[5];
                                 break;
                             }
                     }

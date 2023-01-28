@@ -19,7 +19,7 @@ namespace SD_RE_James_Clifford
         
         public List<string> getAccName()
         {
-            String query = "SELECT OwnerName FROM OWNERS";
+            String query = "SELECT OwnerName FROM OWNERS WHERE STATUS = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -30,7 +30,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccAddress1()
         {
-            String query = "SELECT Area FROM OWNERS";
+            String query = "SELECT Area FROM OWNERS WHERE STATUS = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -41,7 +41,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccAddress2()
         {
-            String query = "SELECT Town FROM OWNERS";
+            String query = "SELECT Town FROM OWNERS WHERE STATUS = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -52,7 +52,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccAddress3()
         {
-            String query = "SELECT County FROM OWNERS";
+            String query = "SELECT County FROM OWNERS WHERE STATUS = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -63,7 +63,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccPhone()
         {
-            String query = "SELECT PhoneNo FROM OWNERS";
+            String query = "SELECT PhoneNo FROM OWNERS WHERE STATUS = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -74,7 +74,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccEmail()
         {
-            String query = "SELECT Email FROM OWNERS";
+            String query = "SELECT Email FROM OWNERS WHERE STATUS = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -85,7 +85,7 @@ namespace SD_RE_James_Clifford
         }
         public List<int> getId()
         {
-            String query = "SELECT OwnerId FROM OWNERS";
+            String query = "SELECT OwnerId FROM OWNERS WHERE STATUS = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<int> list = new List<int>();
@@ -108,18 +108,16 @@ namespace SD_RE_James_Clifford
         }
         public void updateValues(string name, string address1, string address2, string address3, string phone, string email,int id)
         {
-            String query = "INSERT INTO Owners(OwnerName,Area,Town,County,PhoneNo,Email) VALUES ('"
-                + name + "','" +
-                address1 + "','" +
-                address2 + "','" +
-                address3 + "','" +
-                phone + "','" +
-                email + "')";
+            String query = "UPDATE Owners Set OwnerName = " + name + ",Area = " + address1 + ",Town = " + address2 + ",County = " + address3 + ",PhoneNo = " + phone + ",Email = " + email + ",WHERE " + id + " := OwnerId" ;
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         public void removeAccounts(int id)
         {
+            String query = "UPDATE Owners Set Status := 'D'"; 
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
         }
+    }
     }
 }
