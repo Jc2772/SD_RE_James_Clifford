@@ -29,10 +29,15 @@ namespace SD_RE_James_Clifford
                 frmLivestockHome MainMenu = new frmLivestockHome(conn);
                 MainMenu.Show();
             }
-            catch(Oracle.ManagedDataAccess.Client.OracleException OraEx)
+            catch(Oracle.ManagedDataAccess.Client.OracleException)
             {
                 MessageBox.Show("Invalid Login", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
