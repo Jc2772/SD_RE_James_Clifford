@@ -25,7 +25,10 @@ namespace SD_RE_James_Clifford
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
             return list;
         }
         public List<string> getAccAddress1()
@@ -36,7 +39,10 @@ namespace SD_RE_James_Clifford
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
             return list;
         }
         public List<string> getAccAddress2()
@@ -47,7 +53,10 @@ namespace SD_RE_James_Clifford
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
             return list;
         }
         public List<string> getAccAddress3()
@@ -58,7 +67,10 @@ namespace SD_RE_James_Clifford
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
             return list;
         }
         public List<string> getAccPhone()
@@ -69,7 +81,10 @@ namespace SD_RE_James_Clifford
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
             return list;
         }
         public List<string> getAccEmail()
@@ -80,7 +95,10 @@ namespace SD_RE_James_Clifford
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
             return list;
         }
         public List<int> getId()
@@ -91,7 +109,10 @@ namespace SD_RE_James_Clifford
             List<int> list = new List<int>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<int>(0)).ToList();
+            foreach(DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(Convert.ToInt32(row[0]));
+            }
             return list;
         }
         public void addValues(string name,string address1, string address2, string address3, string phone,string email)
@@ -115,19 +136,19 @@ namespace SD_RE_James_Clifford
         }
         public void removeAccounts(int id)
         {
-            String query = "UPDATE Owners Set Status := 'D' WHERE OwnerId :=" + id + ";"; 
+            String query = "UPDATE Owners SET Status = 'D' WHERE OwnerId = " + id + ";"; 
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         public void reinstateAccount(String Phone)
         {
-            String query = "UPDATE Owners Set Status := 'R' WHERE Email :=" + Phone + ";";
+            String query = "UPDATE Owners Set Status := 'R' WHERE Email =" + Phone + ";";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         public string getUserStatus(String Phone)
         {
-            String query = "SELECT Status FROM OWNERS WHERE PhoneNo := '" +  Phone + "';";
+            String query = "SELECT Status FROM OWNERS WHERE PhoneNo = '" +  Phone + "';";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             DataSet dataset = new DataSet();

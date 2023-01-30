@@ -40,10 +40,10 @@ namespace SD_RE_James_Clifford
 
         private void frmManageAccount_Load(object sender, EventArgs e)
         {
-            List<int> id = accounts.getId();
             List<string> name = accounts.getAccName();
+            List<int> id = accounts.getId();
 
-            for (int i = 0; i <= name.Count; i++)
+            for (int i = 0; i < name.Count; i++)
             {
                 cbxManageAccount.Items.Add(id[i] + " name-" + name[i]);
             }
@@ -52,16 +52,16 @@ namespace SD_RE_James_Clifford
         private void cbxManageAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> name = accounts.getAccName(), Address1 = accounts.getAccAddress1(), Address2 = accounts.getAccAddress2(),Address3 = accounts.getAccAddress3(),Phone = accounts.getAccPhone(),Email = accounts.getAccEmail();
-            lblManageAccounts2.Text = "";
             List<int> id = accounts.getId();
-            for (int i = 0; i <= name.Count; i++)
+            for (int i = 0; i < name.Count; i++)
             {
-                if (cbxManageAccount.Text.Contains(i.ToString()))
+                if (cbxManageAccount.Text.Contains(name[i]))
                 {
+                    lblManageAccounts2.Text = "Account Display";
                     this.id = id[i];
                     lblManageAccounts2.Text +=
                         "\nname: " + name[i]
-                        +"" + id[i]
+                        +"\nid: " + id[i]
                         + "\nAddress1: " + Address1[i]
                         + "\nAddress2: " + Address2[i]
                         + "\nAddress3: " + Address3[i]

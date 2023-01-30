@@ -128,7 +128,7 @@ namespace SD_RE_James_Clifford
 
         private void btnAccountAdd_Click(object sender, EventArgs e)
         {
-            String
+            string
                 Name = ipdAccountName.Text,
                 Address = ipdAccountAddress1.Text,
                 town = ipdAccountAddress2.Text,
@@ -138,7 +138,7 @@ namespace SD_RE_James_Clifford
 
             if (CheckOwner(Phone, Email))
             {
-                String status = spoof_accounts.getUserStatus(Phone);
+                String status = this.accounts.getUserStatus(Phone);
                 DialogResult dialogResult = MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if(dialogResult == DialogResult.Yes)
                 {
