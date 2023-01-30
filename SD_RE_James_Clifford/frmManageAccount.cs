@@ -99,32 +99,32 @@ namespace SD_RE_James_Clifford
                     {
                         case 0:
                             {
-                                Name = accounts.getAccName()[id];
+                                Name = accounts.getAccName()[id-1];
                                 break;
                             }
                         case 1:
                             {
-                                Address1 = accounts.getAccAddress1()[id];
+                                Address1 = accounts.getAccAddress1()[id - 1];
                                 break;
                             }
                         case 2:
                             {
-                                Address2 = accounts.getAccAddress2()[id];
+                                Address2 = accounts.getAccAddress2()[id - 1];
                                 break;
                             }
                         case 3:
                             {
-                                Address3 = accounts.getAccAddress3()[id];
+                                Address3 = accounts.getAccAddress3()[id - 1];
                                 break;
                             }
                         case 4:
                             {
-                                Phone = accounts.getAccPhone()[id];
+                                Phone = accounts.getAccPhone()[id - 1];
                                 break;
                             }
                         case 5:
                             {
-                                Email = accounts.getAccEmail()[id];
+                                Email = accounts.getAccEmail()[id - 1];
                                 break;
                             }
                     }
