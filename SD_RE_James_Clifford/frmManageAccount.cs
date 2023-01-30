@@ -12,9 +12,8 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmManageAccount : Form
     {
-        private Boolean found;
-        private int id;
         frmLivestockHome parent;
+        private int id;
         spoof_accounts accounts;
         public frmManageAccount()
         {
@@ -29,7 +28,7 @@ namespace SD_RE_James_Clifford
 
         private void btnManageAccount1_Click(object sender, EventArgs e)
         {
-            if (found == true) { 
+            if (cbxManageAccount.SelectedIndex > -1) { 
                 frmUpdateAccount update = new frmUpdateAccount(id,this);
                 update.Show();
             }
@@ -41,32 +40,33 @@ namespace SD_RE_James_Clifford
 
         private void frmManageAccount_Load(object sender, EventArgs e)
         {
-            
-            this.found = false;
+            List<int> id = accounts.getId();
             List<string> name = accounts.getAccName();
-            for(int i = 1; i <= name.Count; i++)
+
+            for (int i = 0; i <= name.Count; i++)
             {
-                cbxManageAccount.Items.Add("id-" + i + " name-" + name[i-1]);
+                cbxManageAccount.Items.Add(id[i] + " name-" + name[i]);
             }
         }
 
         private void cbxManageAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> name = accounts.getAccName(), Address1 = accounts.getAccAddress1(), Address2 = accounts.getAccAddress2(),Address3 = accounts.getAccAddress3(),Phone = accounts.getAccPhone(),Email = accounts.getAccEmail();
-            lblManageAccounts2.Text = "Livestock";
-            for (int i = 1; i <= name.Count; i++)
+            lblManageAccounts2.Text = "";
+            List<int> id = accounts.getId();
+            for (int i = 0; i <= name.Count; i++)
             {
                 if (cbxManageAccount.Text.Contains(i.ToString()))
                 {
-                    this.found = true;
-                    this.id = i-1;
+                    this.id = id[i];
                     lblManageAccounts2.Text +=
-                        "\nname: " + name[i - 1]
-                        + "\nAddress1: " + Address1[i - 1]
-                        + "\nAddress2: " + Address2[i - 1]
-                        + "\nAddress3: " + Address3[i - 1]
-                        + "\nPhone: " + Phone[i - 1]
-                        + "\nEmail: " + Email[i - 1];
+                        "\nname: " + name[i]
+                        +"" + id[i]
+                        + "\nAddress1: " + Address1[i]
+                        + "\nAddress2: " + Address2[i]
+                        + "\nAddress3: " + Address3[i]
+                        + "\nPhone: " + Phone[i]
+                        + "\nEmail: " + Email[i];
                 }
             }
         }
@@ -79,7 +79,7 @@ namespace SD_RE_James_Clifford
 
         private void btnManageAccount2_Click(object sender, EventArgs e)
         {
-            if (found == true) {
+            if (cbxManageAccount.SelectedIndex > -1) {
                 accounts.removeAccounts(id);
                 this.Refresh();
             }
@@ -125,42 +125,6 @@ namespace SD_RE_James_Clifford
                         case 5:
                             {
                                 Email = accounts.getAccEmail()[id];
-                                break;
-                            }
-                    }
-                }
-                else
-                {
-                    switch (i)
-                    {
-                        case 0:
-                            {
-                                Name = values[0];
-                                break;
-                            }
-                        case 1:
-                            {
-                                Address1 = values[1];
-                                break;
-                            }
-                        case 2:
-                            {
-                                Address2 = values[2];
-                                break;
-                            }
-                        case 3:
-                            {
-                                Address3 = values[3];
-                                break;
-                            }
-                        case 4:
-                            {
-                                Phone = values[4];
-                                break;
-                            }
-                        case 5:
-                            {
-                                Email = values[5];
                                 break;
                             }
                     }

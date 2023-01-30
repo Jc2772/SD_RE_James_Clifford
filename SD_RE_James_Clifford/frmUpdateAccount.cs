@@ -36,16 +36,21 @@ namespace SD_RE_James_Clifford
                 Email = ipdUpdateEmail.Text;
             frmNewAccount accountOptions = new frmNewAccount();
             Boolean
-                update_check1 = accountOptions.CheckData(Phone, Email);
-            if (update_check1 || (string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Phone)))
+                update_check1 = accountOptions.CheckPhone(Phone),
+                update_check2 = accountOptions.CheckEmail(Email); ;
+            if ((update_check1 && update_check2) || (string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Phone)))
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 accounts.checkUpdate(Name, Address1, Address2, Address3, Phone, Email, id);
             }
-            else
+            else if(!update_check1)
             {
                 MessageBox.Show("Data is invalid","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            else if (!update_check2)
+            {
+                MessageBox.Show("Email is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

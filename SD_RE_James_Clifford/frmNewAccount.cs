@@ -14,7 +14,7 @@ namespace SD_RE_James_Clifford
     {
         frmLivestockHome parent;
         spoof_accounts accounts;
-        public frmNewAccount(frmLivestockHome parent,spoof_accounts accounts)
+        public frmNewAccount(frmLivestockHome parent, spoof_accounts accounts)
         {
             this.parent = parent;
             this.accounts = accounts;
@@ -24,64 +24,50 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
-        public bool CheckOwner(string name, string Address1, string phone, string email, string Address2, string Address3)
+        public Boolean checkNull(String Name,String Address,String Town,String County,String Phone)
         {
-            bool test = true;
-            /*Get Data from the Database and compare
-             SQL
-             */
+            if (String.IsNullOrEmpty(Name))
+            {
+                return true;
+            }
+            else if (String.IsNullOrEmpty(Address))
+            {
+                return true;
+            }
+            else if (String.IsNullOrEmpty(Town))
+            {
+                return true;
+            }
+            else if (String.IsNullOrEmpty(County))
+            {
+                return true;
+            }
+            else if (String.IsNullOrEmpty(Phone))
+            {
+                return true;
+            }
+            return false;
+        }
+        public bool CheckOwner(string phone, string email)
+        {
+
             /*The piece of code StringComparison.OrdinalIgnoreCase came from https://www.tutlane.com/tutorial/csharp/csharp-string-equals-method*/
-            
-            for (int i = 0; i< accounts.getSize(); i++) { 
+            List<Boolean> test = new List<Boolean> { };
+            for (int i = 0; i < accounts.getAccPhone().Count; i++) {
                 if (phone.Equals(accounts.getAccPhone()[i]))
                 {
-                    if (email.Equals(accounts.getAccEmail()[i]))
-                    {
-                        if (Address1.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
-                        {
-                            if (Address2.Equals(accounts.getAccAddress1()[i], StringComparison.OrdinalIgnoreCase))
-                            {
-                                if (Address2.Equals(accounts.getAccAddress2()[i], StringComparison.OrdinalIgnoreCase))
-                                {
-                                    if (name.Equals(accounts.getAccAddress2()[i], StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        test = true;
-                                    }
-                                    else
-                                    {
-                                        test = false;
-                                    }
-                                }
-                                else
-                                {
-                                    test = false;
-                                }
-                            }
-                            else
-                            {
-                                test = false;
-                            }
-                        }
-                        else
-                        {
-                            test = false;
-                        }
-                    }
-                    else
-                    {
-                        test = false;
-                    }
+                    return true;
                 }
-                else
+                else if (email.Equals(accounts.getAccEmail()[i]))
                 {
-                test = false;
+                    return true;
                 }
             }
-        return test;
+            return false;
         }
-        public bool CheckData(String Phone,String Email)
+        public bool CheckPhone(String Phone)
         {
-            for(int i = 0; i < Phone.Length; i++)
+            for (int i = 0; i < Phone.Length; i++)
             {
                 String num = Phone[i].ToString();
                 /* i got variable[i] from https://stackoverflow.com/questions/3581741/c-sharp-equivalent-to-javas-charat*/
@@ -90,8 +76,8 @@ namespace SD_RE_James_Clifford
                 {
                     if (!Char.IsWhiteSpace(Phone, 3) || !Char.IsWhiteSpace(Phone, 7))
                     {
-                        return false;
-                    } 
+                        return true;
+                    }
                 }
                 else
                 {
@@ -112,11 +98,15 @@ namespace SD_RE_James_Clifford
                             }
                         default:
                             {
-                                return false;
+                                return true;
                             }
                     }
                 }
             }
+            return true;
+        }
+        public Boolean CheckEmail(String Email)
+        { 
             /*i got String.IsNullOrEmpty form https://www.geeksforgeeks.org/c-sharp-isnullorempty-method/#:~:text=In%20C%23%2C%20IsNullOrEmpty()%20is,is%20assigned%20%E2%80%9C%E2%80%9D%20or%20String.*/
             if (Email.Contains("@gmail.com") || Email.Contains("@outlook.com") ||
                 Email.Contains("@yahoo.com") || Email.Contains("@hotmail.com") ||
@@ -142,17 +132,33 @@ namespace SD_RE_James_Clifford
                 Name = ipdAccountName.Text,
                 Address = ipdAccountAddress1.Text,
                 town = ipdAccountAddress2.Text,
-                county = ipdAccountAddress2.Text,
+                county = ipdAccountAddress3.Text,
                 Phone = ipdAccountPhone.Text,
                 Email = ipdAccountEmail.Text;
 
-            if (CheckOwner(Name, Address, Phone, Email,town,county))
+            if (CheckOwner(Phone, Email))
             {
-                MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                String status = spoof_accounts.getUserStatus(Phone);
+                DialogResult dialogResult = MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                if(dialogResult == DialogResult.Yes)
+                {
+
+                }
+                else{
+
+                }
             }
-            else if (!CheckData(Phone, Email))
+            else if (checkNull(Name, Address, town, county, Phone))
             {
-                MessageBox.Show("Data is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Values are empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!CheckPhone(Phone))
+            {
+                MessageBox.Show("Phone number is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!CheckEmail(Email))
+            {
+                MessageBox.Show("Email is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

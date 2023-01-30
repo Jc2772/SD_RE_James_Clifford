@@ -66,7 +66,7 @@ namespace SD_RE_James_Clifford
 
         private void btnRegisterSale2_Click(object sender, EventArgs e)
         {
-            if (val.CheckData(ipdRegisterSale2.Text, ""))
+            if (val.CheckPhone(ipdRegisterSale2.Text))
             {
                 try
                 {

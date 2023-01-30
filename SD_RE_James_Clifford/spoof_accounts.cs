@@ -16,46 +16,88 @@ namespace SD_RE_James_Clifford
         {
             this.connection = connection;
         }
-        //private List<string> AccName = new List<string> { "Mike o Niell", "Thomas o Sullivan", "Patrick Griffian" };
-        private List<string> AccAddress1 = new List<string> { "BallyHea", "Lisbabe", "Baslicon" };
-        private List<string> AccAddress2 = new List<string> { "Castleisland", "Kenmare", "Waterville" };
-        private List<string> AccAddress3 = new List<string> { "Kerry", "Kerry", "Kerry" };
-        private List<string> AccPhone = new List<string> { "087 4667 264", "087 9258 761", "087 5476 349" };
-        private List<string> AccEmail = new List<string> { "None supplied", "TomOS@Hotmail.com", "None supplied" };
+        
         public List<string> getAccName()
         {
-            String query = "SELECT OwnerName FROM OWNERS";
+            String query = "SELECT OwnerName FROM OWNERS WHERE STATUS = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<string> AccName = new List<string>();
-            DataTable dataTable = new DataTable();
-            dataAdapter.Fill(dataTable);
-            AccName = dataTable.AsEnumerable().Select(r => r.Field<string>("0wnerName")).ToList();
-            return AccName;
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccAddress1()
         {
-            return this.AccAddress1;
+            String query = "SELECT Area FROM OWNERS WHERE STATUS = 'R'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccAddress2()
         {
-            return this.AccAddress2;
+            String query = "SELECT Town FROM OWNERS WHERE STATUS = 'R'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccAddress3()
         {
-            return this.AccAddress3;
+            String query = "SELECT County FROM OWNERS WHERE STATUS = 'R'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccPhone()
         {
-            return this.AccPhone;
+            String query = "SELECT PhoneNo FROM OWNERS WHERE STATUS = 'R'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
         }
         public List<string> getAccEmail()
         {
-            return this.AccEmail;
+            String query = "SELECT Email FROM OWNERS WHERE STATUS = 'R'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<string>(0)).ToList();
+            return list;
+        }
+        public List<int> getId()
+        {
+            String query = "SELECT OwnerId FROM OWNERS WHERE STATUS = 'R'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<int> list = new List<int>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            list = dataset.Tables[0].AsEnumerable().Select(r => r.Field<int>(0)).ToList();
+            return list;
         }
         public void addValues(string name,string address1, string address2, string address3, string phone,string email)
         {
-            String query = "INSERT INTO Owners VALUES (1,'"
+            
+                String query = "INSERT INTO Owners(OwnerName,Area,Town,County,PhoneNo,Email) VALUES ('"
                 + name + "','" +
                 address1 + "','" +
                 address2 + "','" +
@@ -64,36 +106,34 @@ namespace SD_RE_James_Clifford
                 email + "')";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
-            this.AccName.Add(name);
-            this.AccAddress1.Add(address1);
-            this.AccAddress2.Add(address2);
-            this.AccAddress3.Add(address3);
-            this.AccPhone.Add(phone);
-            this.AccEmail.Add(email);
-            
         }
         public void updateValues(string name, string address1, string address2, string address3, string phone, string email,int id)
         {
-            int num = id;
-            this.AccName[num] = name;
-            this.AccAddress1[num] = address1;
-            this.AccAddress2[num] = address2;
-            this.AccAddress3[num] = address3;
-            this.AccPhone[num] = phone;
-            this.AccEmail[num] = email;
-        }
-        public int getSize()
-        {
-            return this.AccName.Count;
+            String query = "UPDATE Owners Set OwnerName = '" + name + "',Area = '" + address1 + "',Town = '" + address2 + ",County = '" + address3 + "',PhoneNo = '" + phone + "',Email = " + email + ",WHERE " + id + " := OwnerId" ;
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
         }
         public void removeAccounts(int id)
         {
-            this.AccName.RemoveAt(id);
-            this.AccAddress1.RemoveAt(id);
-            this.AccAddress2.RemoveAt(id);
-            this.AccAddress3.RemoveAt(id);
-            this.AccPhone.RemoveAt(id);
-            this.AccEmail.RemoveAt(id);
+            String query = "UPDATE Owners Set Status := 'D' WHERE OwnerId :=" + id + ";"; 
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+        public void reinstateAccount(String Phone)
+        {
+            String query = "UPDATE Owners Set Status := 'R' WHERE Email :=" + Phone + ";";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
+        }
+        public string getUserStatus(String Phone)
+        {
+            String query = "SELECT Status FROM OWNERS WHERE PhoneNo := '" +  Phone + "';";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
+            return status;
         }
     }
 }
