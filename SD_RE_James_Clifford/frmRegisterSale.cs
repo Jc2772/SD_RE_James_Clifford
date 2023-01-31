@@ -13,11 +13,11 @@ namespace SD_RE_James_Clifford
     public partial class frmRegisterSale : Form
     {
         frmLivestockHome parent;
-        spoof_sales sales;
-        spoof_livestock livestock;
+        sales sales;
+        livestock livestock;
         frmNewAccount val = new frmNewAccount();
         private string tag;
-        public frmRegisterSale(frmLivestockHome parent, spoof_sales sales,spoof_livestock livestock)
+        public frmRegisterSale(frmLivestockHome parent, sales sales,livestock livestock)
         {
             InitializeComponent();
             this.parent = parent;

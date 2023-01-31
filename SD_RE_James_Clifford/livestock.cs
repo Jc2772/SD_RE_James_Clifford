@@ -7,10 +7,10 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SD_RE_James_Clifford
 {
-    public partial class spoof_livestock
+    public partial class livestock
     {
         OracleConnection connection;
-        public spoof_livestock(OracleConnection connection)
+        public livestock(OracleConnection connection)
         {
             this.connection = connection;
         }

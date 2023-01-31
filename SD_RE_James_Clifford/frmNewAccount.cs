@@ -13,8 +13,8 @@ namespace SD_RE_James_Clifford
     public partial class frmNewAccount : Form
     {
         frmLivestockHome parent;
-        spoof_accounts accounts;
-        public frmNewAccount(frmLivestockHome parent, spoof_accounts accounts)
+        accounts accounts;
+        public frmNewAccount(frmLivestockHome parent, accounts accounts)
         {
             this.parent = parent;
             this.accounts = accounts;
@@ -140,12 +140,18 @@ namespace SD_RE_James_Clifford
             {
                 String status = this.accounts.getUserStatus(Phone);
                 DialogResult dialogResult = MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                if(dialogResult == DialogResult.Yes)
-                {
-
+                if (status.Equals("D")) {
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        accounts.reinstateAccount(Phone);
+                    }
+                    else {
+                        MessageBox.Show("User was not registered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else{
-
+                else
+                {
+                    MessageBox.Show("User was not registered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (checkNull(Name, Address, town, county, Phone))

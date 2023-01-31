@@ -13,10 +13,10 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmLivestockHome : Form
     {
-        spoof_accounts accounts;
-        spoof_auction auction;
-        spoof_livestock livestock;
-        spoof_sales sales;
+        accounts accounts;
+        auction auction;
+        livestock livestock;
+        sales sales;
         OracleConnection connection;
         public frmLivestockHome()
         {
@@ -26,10 +26,10 @@ namespace SD_RE_James_Clifford
         {
             this.connection = connection;
             InitializeComponent();
-            accounts = new spoof_accounts(connection);
-            auction = new spoof_auction(connection);
-            livestock = new spoof_livestock(connection);
-            sales = new spoof_sales(connection);
+            accounts = new accounts(connection);
+            auction = new auction(connection);
+            livestock = new livestock(connection);
+            sales = new sales(connection);
         }
         /*The code in these methods are from https://stackoverflow.com/questions/5548746/c-sharp-open-a-new-form-then-close-the-current-form */
 

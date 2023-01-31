@@ -7,10 +7,10 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace SD_RE_James_Clifford
 {
-    public partial class spoof_auction
+    public partial class auction
     {
         OracleConnection connection;
-        public spoof_auction(OracleConnection connection)
+        public auction(OracleConnection connection)
         {
             this.connection = connection;
         }
@@ -29,7 +29,7 @@ namespace SD_RE_James_Clifford
                 this.timeslots.Add(auction_date + " " + times[i]);
             }
         }
-        public void removeAuction(String auctionDate,spoof_livestock livestock)
+        public void removeAuction(String auctionDate,livestock livestock)
         {
             for (int i = timeslots.Count- 1 ; i >= 0; i--)
             {

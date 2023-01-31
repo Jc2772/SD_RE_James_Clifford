@@ -141,10 +141,10 @@
     <Compile Include="frmQueryLivestock.Designer.cs">
       <DependentUpon>frmQueryLivestock.cs</DependentUpon>
     </Compile>
-    <Compile Include="spoof_accounts.cs" />
-    <Compile Include="spoof_auction.cs" />
-    <Compile Include="spoof_livestock.cs" />
-    <Compile Include="spoof_sales.cs" />
+    <Compile Include="accounts.cs" />
+    <Compile Include="auction.cs" />
+    <Compile Include="livestock.cs" />
+    <Compile Include="sales.cs" />
     <EmbeddedResource Include="frmDataAnalysis.resx">
       <DependentUpon>frmDataAnalysis.cs</DependentUpon>
     </EmbeddedResource>

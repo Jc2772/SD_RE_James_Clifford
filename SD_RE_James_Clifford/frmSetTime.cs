@@ -12,14 +12,14 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmSetTime : Form
     {
-        spoof_auction auction;
-        spoof_livestock livestock;
+        auction auction;
+        livestock livestock;
         frmLivestockHome parent;
         public frmSetTime()
         {
             InitializeComponent();
         }
-        public frmSetTime(frmLivestockHome parent,spoof_auction auction,spoof_livestock livestock)
+        public frmSetTime(frmLivestockHome parent,auction auction,livestock livestock)
         {
             this.parent = parent;
             this.auction = auction;

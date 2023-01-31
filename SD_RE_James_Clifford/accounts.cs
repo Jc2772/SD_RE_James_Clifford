@@ -9,10 +9,10 @@ using System.Data;
 
 namespace SD_RE_James_Clifford
 {
-    public partial class spoof_accounts
+    public partial class accounts
     {
         OracleConnection connection;
-        public spoof_accounts(OracleConnection connection)
+        public accounts(OracleConnection connection)
         {
             this.connection = connection;
         }

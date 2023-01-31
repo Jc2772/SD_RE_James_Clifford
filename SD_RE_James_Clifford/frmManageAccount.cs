@@ -14,12 +14,12 @@ namespace SD_RE_James_Clifford
     {
         frmLivestockHome parent;
         private int id;
-        spoof_accounts accounts;
+        accounts accounts;
         public frmManageAccount()
         {
             InitializeComponent();
         }
-        public frmManageAccount(frmLivestockHome parent,spoof_accounts accounts)
+        public frmManageAccount(frmLivestockHome parent,accounts accounts)
         {
             this.parent = parent;
             this.accounts = accounts;
