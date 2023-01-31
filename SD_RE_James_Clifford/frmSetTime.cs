@@ -29,7 +29,7 @@ namespace SD_RE_James_Clifford
 
         private void btnSetTime1_Click(object sender, EventArgs e)
         {
-            String date = dpkSetTime.Text;
+            DateTime date = dpkSetTime.Value;
             auction.addAuction(date);
 
         }
