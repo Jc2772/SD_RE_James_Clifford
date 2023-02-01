@@ -117,9 +117,9 @@ namespace SD_RE_James_Clifford
                 cbxRegisterLivestock2.Items.Add("Anglo-Nubian");
                 grpRegisterLivestock.Visible = true;
             }
-            sortTimeslots();
+            //sortTimeslots();
         }
-        private void sortTimeslots()
+        /*private void sortTimeslots()
         {
             List<string> atimeslots = auction.getTimeslot();
             List<string> ltimeslots = livestock.getTimeslot();
@@ -140,7 +140,7 @@ namespace SD_RE_James_Clifford
                     }
                 }
             }
-        }
+        }*/
 
         private void btnRegisterLivestock2_Click(object sender, EventArgs e)
         {

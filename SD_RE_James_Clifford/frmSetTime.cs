@@ -37,7 +37,7 @@ namespace SD_RE_James_Clifford
         private void btnSetTime3_Click(object sender, EventArgs e)
         {
             String date = dpkSetTime.Text;
-            auction.removeAuction(date,livestock);
+            //auction.removeAuction(date,livestock);
             MessageBox.Show("Auction date removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 

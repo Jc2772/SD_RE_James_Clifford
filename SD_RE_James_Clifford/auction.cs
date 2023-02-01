@@ -18,9 +18,10 @@ namespace SD_RE_James_Clifford
         
         public void addAuction(DateTime auction_date)
         {
+            
             for (int i = 0; i < times.Count; i++) {
-                String query = "INSERT INTO Auctions() VALUES ('"
-                + auction_date + "','" 
+                String query = "INSERT INTO Auctions(Auction_time,Auction_date) VALUES ('"
+                + auction_date.Date.ToString("dd-MM-yyy") + "','" 
                 + times[i]+ "')";
                 OracleCommand cmd = new OracleCommand(query, connection);
                 cmd.ExecuteNonQuery();
@@ -37,6 +38,6 @@ namespace SD_RE_James_Clifford
             }
             auction_date.Remove(auctionDate);
             livestock.CancelLivestock(auctionDate);
-        }
-    }*/
+        }*/
+    }
 }
