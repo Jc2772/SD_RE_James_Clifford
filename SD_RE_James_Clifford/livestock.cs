@@ -69,7 +69,7 @@ namespace SD_RE_James_Clifford
         {
             return status;
         }
-        public void CancelLivestock(String auctionDate)
+        /*public void CancelLivestock(String auctionDate)
         {
             for (int i = timeslots.Count - 1; i >= 0; i--)
             {
@@ -84,7 +84,7 @@ namespace SD_RE_James_Clifford
                     this.initial_bid.RemoveAt(i);
                 }
             }
-        }
+        }*/
         public void soldLivestock(string tag) {
             for(int i = 0; i < livestockTagNumber.Count; i++)
             {
