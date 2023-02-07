@@ -81,7 +81,6 @@ namespace SD_RE_James_Clifford
         {
             if (cbxManageAccount.SelectedIndex > -1) {
                 accounts.removeAccounts(id);
-                this.Refresh();
             }
             else
             {
@@ -139,6 +138,19 @@ namespace SD_RE_James_Clifford
                 }
             }
             accounts.updateValues(Name, Address1, Address2, Address3, Phone, Email ,id);
+            UpdateForm();
+        }
+        public void UpdateForm()
+        {
+            lblManageAccounts2.Text = "";
+            cbxManageAccount.Items.Clear();
+            List<string> name = accounts.getAccName();
+            List<int> id = accounts.getId();
+
+            for (int i = 0; i < name.Count; i++)
+            {
+                cbxManageAccount.Items.Add(id[i] + " name-" + name[i]);
+            }
         }
     }
 }
