@@ -19,7 +19,7 @@ namespace SD_RE_James_Clifford
         
         public List<string> getAccName()
         {
-            String query = "SELECT OwnerName FROM OWNERS WHERE STATUS = 'R'";
+            String query = "SELECT OwnerName FROM OWNERS WHERE Owner_Status = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -33,7 +33,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccAddress1()
         {
-            String query = "SELECT Area FROM OWNERS WHERE STATUS = 'R'";
+            String query = "SELECT Area FROM OWNERS WHERE Owner_Status = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -47,7 +47,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccAddress2()
         {
-            String query = "SELECT Town FROM OWNERS WHERE STATUS = 'R'";
+            String query = "SELECT Town FROM OWNERS WHERE Owner_Status = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -61,7 +61,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccAddress3()
         {
-            String query = "SELECT County FROM OWNERS WHERE STATUS = 'R'";
+            String query = "SELECT County FROM OWNERS WHERE Owner_Status = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -75,7 +75,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccPhone()
         {
-            String query = "SELECT PhoneNo FROM OWNERS WHERE STATUS = 'R'";
+            String query = "SELECT PhoneNo FROM OWNERS WHERE Owner_Status = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -89,7 +89,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getAccEmail()
         {
-            String query = "SELECT Email FROM OWNERS WHERE STATUS = 'R'";
+            String query = "SELECT Email FROM OWNERS WHERE Owner_Status = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -103,7 +103,7 @@ namespace SD_RE_James_Clifford
         }
         public List<int> getId()
         {
-            String query = "SELECT OwnerId FROM OWNERS WHERE STATUS = 'R'";
+            String query = "SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<int> list = new List<int>();
@@ -136,19 +136,19 @@ namespace SD_RE_James_Clifford
         }
         public void removeAccounts(int id)
         {
-            String query = "UPDATE Owners SET Status = 'D' WHERE OwnerId = " + id; 
+            String query = "UPDATE Owners SET Owner_Status = 'D' WHERE OwnerId = " + id; 
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         public void reinstateAccount(String Phone)
         {
-            String query = "UPDATE Owners Set Status := 'R' WHERE PhoneNo ='" + Phone + "'";
+            String query = "UPDATE Owners Set Owner_Status := 'R' WHERE PhoneNo ='" + Phone + "'";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         public string getUserStatus(String Phone)
         {
-            String query = "SELECT Status FROM OWNERS WHERE PhoneNo = '" +  Phone + "'";
+            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" +  Phone + "'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             DataSet dataset = new DataSet();
