@@ -130,7 +130,13 @@ namespace SD_RE_James_Clifford
         }
         public void updateValues(string name, string address1, string address2, string address3, string phone, string email,int id)
         {
-            String query = "UPDATE Owners Set OwnerName = '" + name + "',Area = '" + address1 + "',Town = '" + address2 + "',County = '" + address3 + "',PhoneNo = '" + phone + "',Email = '" + email + "'WHERE " + id + " = OwnerId" ;
+            String query = "UPDATE Owners Set OwnerName = '" + name 
+                + "',Area = '" + address1 
+                + "',Town = '" + address2 
+                + "',County = '" + address3 
+                + "',PhoneNo = '" + phone 
+                + "',Email = '" + email 
+                + "'WHERE " + id + " = OwnerId";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }

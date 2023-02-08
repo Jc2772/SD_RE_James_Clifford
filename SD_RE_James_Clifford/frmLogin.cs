@@ -34,10 +34,5 @@ namespace SD_RE_James_Clifford
                 MessageBox.Show("Invalid Login", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
