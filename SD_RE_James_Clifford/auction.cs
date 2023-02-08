@@ -57,17 +57,23 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
-        public void ReRegisterTimeSlot(String date,String time)
+        public void ReRegisterTimeSlot(DateTime date)
         {
-            String query = "UPDATE TimeSlot SET TimeSlot_Status = 'U' WHERE TimeSlot_Date = " + date + "AND TimeSlot_Time = " + time;
-            OracleCommand cmd = new OracleCommand(query, connection);
-            cmd.ExecuteNonQuery();
+            for (int i = 0; i < times.Count; i++)
+            {
+                String query = "UPDATE TimeSlot SET TimeSlot_Status = 'A' WHERE TimeSlot_Date = " + date;
+                OracleCommand cmd = new OracleCommand(query, connection);
+                cmd.ExecuteNonQuery();
+            }
         }
-        public void DeRegisterTimeSlot(String date, String time)
+        public void DeRegisterTimeSlot(DateTime date)
         {
-            String query = "UPDATE TimeSlot SET TimeSlot_Status = 'R' WHERE TimeSlot_Date = " + date + "AND TimeSlot_Time = " + time;
-            OracleCommand cmd = new OracleCommand(query, connection);
-            cmd.ExecuteNonQuery();
+            for (int i = 0; i < times.Count; i++)
+            {
+                String query = "UPDATE TimeSlot SET TimeSlot_Status = 'R' WHERE TimeSlot_Date = " + date ;
+                OracleCommand cmd = new OracleCommand(query, connection);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

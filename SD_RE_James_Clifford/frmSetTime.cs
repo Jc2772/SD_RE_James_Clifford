@@ -30,14 +30,29 @@ namespace SD_RE_James_Clifford
         private void btnSetTime1_Click(object sender, EventArgs e)
         {
             DateTime date = dpkSetTime.Value;
-            auction.addAuction(date);
-
+            //got this line from https://stackoverflow.com/questions/6817266/how-to-get-the-current-date-without-the-time
+            DateTime today = DateTime.Today;
+            if (DateTime.Compare(date,today) <= 0)
+            {
+                MessageBox.Show("invalid date","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            else {
+                auction.addAuction(date);
+            }
         }
 
         private void btnSetTime3_Click(object sender, EventArgs e)
         {
-            String date = dpkSetTime.Text;
-            //auction.removeAuction(date,livestock);
+            DateTime date = dpkSetTime.Value;
+            DateTime today = DateTime.Today;
+            if (DateTime.Compare(date, today) <= 0)
+            {
+                MessageBox.Show("invalid date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                auction.DeRegisterTimeSlot
+            }
             MessageBox.Show("Auction date removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
