@@ -51,9 +51,9 @@ namespace SD_RE_James_Clifford
             }
             else
             {
-                auction.DeRegisterTimeSlot
+                auction.DeRegisterTimeSlot(date);
+                MessageBox.Show("Auction date removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            MessageBox.Show("Auction date removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void btnSetTime2_Click(object sender, EventArgs e)
