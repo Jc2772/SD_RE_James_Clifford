@@ -31,6 +31,7 @@ namespace SD_RE_James_Clifford
             if (cbxManageAccount.SelectedIndex > -1) { 
                 frmUpdateAccount update = new frmUpdateAccount(id,this);
                 update.Show();
+                MessageBox.Show("Account has been updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -81,6 +82,7 @@ namespace SD_RE_James_Clifford
         {
             if (cbxManageAccount.SelectedIndex > -1) {
                 accounts.removeAccounts(id);
+                MessageBox.Show("Account has been Removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -146,7 +148,7 @@ namespace SD_RE_James_Clifford
             cbxManageAccount.Items.Clear();
             List<string> name = accounts.getAccName();
             List<int> id = accounts.getId();
-
+            cbxManageAccount.SelectedIndex = -1;
             for (int i = 0; i < name.Count; i++)
             {
                 cbxManageAccount.Items.Add(id[i] + " name-" + name[i]);

@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Oracle.ManagedDataAccess.Client;
 using System.Data;
-using System.Windows.Forms;
 
 namespace SD_RE_James_Clifford
 {
@@ -20,12 +19,12 @@ namespace SD_RE_James_Clifford
 
         public void addAuction(DateTime auction_date)
         {
-            List<string> dateList = getAllDates();
+            List<DateTime> dateList = getAllDates();
             bool checkDate = false;
             string dateAsStr = auction_date.Date.ToString("dd-MMM-yyy");
             for (int i = 0;i < dateList.Count; i++)
             {
-                if (dateAsStr.Equals(dateList[i]))
+                if (dateAsStr.Equals(dateList[i].Date.ToString("dd-MMM-yyy")))
                 {
                     checkDate = true;
                 }
@@ -37,18 +36,10 @@ namespace SD_RE_James_Clifford
                 OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
                 DataSet dataset = new DataSet();
                 dataAdapter.Fill(dataset);
-                String status = dataset.Tables[0].Rows[0]["Status"].ToString();
-                DialogResult result = MessageBox.Show("", "", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                        String query2 = "UPDATE TimeSlots SET TimeSlot_Status = 'A' WHERE TimeSlot_Date = '" + dateAsStr + "'";
-                        OracleCommand cmd2 = new OracleCommand(query2, connection);
-                        cmd2.ExecuteNonQuery();
-                }
-                else
-                {
-                    MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                String status = dataset.Tables[0].Rows[0].ToString();
+                String query2 = "UPDATE TimeSlots SET TimeSlot_Status = 'A' WHERE TimeSlot_Date = '" + dateAsStr + "'";
+                OracleCommand cmd2 = new OracleCommand(query2, connection);
+                cmd2.ExecuteNonQuery();
             }
             else
             {
@@ -100,17 +91,17 @@ namespace SD_RE_James_Clifford
                 cmd.ExecuteNonQuery();
             }
         }
-        public List<string> getAllDates()
+        public List<DateTime> getAllDates()
         {
             String query = "SELECT TIMESLOT_DATE FROM TIMESLOTS";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<string> list = new List<string>();
+            List<DateTime> list = new List<DateTime>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
             foreach (DataRow row in dataset.Tables[0].Rows)
             {
-                list.Add(row[0].ToString());
+                list.Add(DateTime.Parse(row[0].ToString()));
             }
             return list;
         }

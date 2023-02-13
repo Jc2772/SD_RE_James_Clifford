@@ -38,6 +38,7 @@ namespace SD_RE_James_Clifford
             }
             else {
                 auction.addAuction(date);
+                MessageBox.Show("Auction date was added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
