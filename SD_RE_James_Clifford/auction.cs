@@ -22,6 +22,21 @@ namespace SD_RE_James_Clifford
 
             for (int i = 0; i < times.Count; i++)
             {
+                if ()
+                {
+                    if ()
+                    {
+
+                    }
+                    else
+                    {
+                        String query = "INSERT INTO TIMESLOTS(TIMESLOT_date,TIMESLOT_time) VALUES ('"
+                        + auction_date.Date.ToString("dd-MMM-yyy") + "','"
+                        + times[i] + "')";
+                        OracleCommand cmd = new OracleCommand(query, connection);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
                 String query = "INSERT INTO TIMESLOTS(TIMESLOT_date,TIMESLOT_time) VALUES ('"
                 + auction_date.Date.ToString("dd-MMM-yyy") + "','"
                 + times[i] + "')";
@@ -57,15 +72,7 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
-        public void ReRegisterTimeSlot(DateTime date)
-        {
-            for (int i = 0; i < times.Count; i++)
-            {
-                String query = "UPDATE TimeSlot SET TimeSlot_Status = 'A' WHERE TimeSlot_Date = " + date;
-                OracleCommand cmd = new OracleCommand(query, connection);
-                cmd.ExecuteNonQuery();
-            }
-        }
+        
         public void DeRegisterTimeSlot(DateTime date)
         {
             for (int i = 0; i < times.Count; i++)
