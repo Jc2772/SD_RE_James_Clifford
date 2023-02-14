@@ -39,12 +39,16 @@ namespace SD_RE_James_Clifford
             // 
             // cbxManageAccount
             // 
+            this.cbxManageAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxManageAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxManageAccount.FormattingEnabled = true;
             this.cbxManageAccount.Location = new System.Drawing.Point(156, 12);
             this.cbxManageAccount.Name = "cbxManageAccount";
             this.cbxManageAccount.Size = new System.Drawing.Size(121, 21);
             this.cbxManageAccount.TabIndex = 0;
+            this.cbxManageAccount.DropDown += new System.EventHandler(this.cbxManageAccount_DropDown);
             this.cbxManageAccount.SelectedIndexChanged += new System.EventHandler(this.cbxManageAccount_SelectedIndexChanged);
+            this.cbxManageAccount.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.cbxManageAccount_PreviewKeyDown);
             // 
             // lblManageAccounts1
             // 
