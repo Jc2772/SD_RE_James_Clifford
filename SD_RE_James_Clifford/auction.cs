@@ -37,9 +37,15 @@ namespace SD_RE_James_Clifford
                 DataSet dataset = new DataSet();
                 dataAdapter.Fill(dataset);
                 String status = dataset.Tables[0].Rows[0].ToString();
-                String query2 = "UPDATE TimeSlots SET TimeSlot_Status = 'A' WHERE TimeSlot_Date = '" + dateAsStr + "'";
-                OracleCommand cmd2 = new OracleCommand(query2, connection);
-                cmd2.ExecuteNonQuery();
+                if (!status.Equals("A",StringComparison.OrdinalIgnoreCase)){
+                    String query2 = "UPDATE TimeSlots SET TimeSlot_Status = 'A' WHERE TimeSlot_Date = '" + dateAsStr + "'";
+                    OracleCommand cmd2 = new OracleCommand(query2, connection);
+                    cmd2.ExecuteNonQuery();
+                }
+                else
+                {
+                    return;
+                }
             }
             else
             {
