@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,99 +15,121 @@ namespace SD_RE_James_Clifford
         {
             this.connection = connection;
         }
-        public void addValues(string livestockType,string livestockBreed,string livestockAge,string livestockGender, string livestockTagNumber, DateTime auction_date, string auction_time,string initial_bid,string owner)
+        public void addValues(string livestockType,string livestockBreed,int livestockAge,string livestockGender, string livestockTagNumber, DateTime auction_date, string auction_time,double startingPrice, int OwnerId)
         {
-            String query = "INSERT INTO Owners(OwnerName,Area,Town,County,PhoneNo,Email) VALUES ('"
-            + name + "','" +
-            address1 + "','" +
-            address2 + "','" +
-            address3 + "','" +
-            phone + "','" +
-            email + "')";
+            String query = "INSERT INTO Livestock(Livestock_tag,OwnerId,Type,Breed,Age,Gender,Starting_price,TimeSlot_Time,TimeSlot_Date) VALUES('" 
+                + livestockTagNumber 
+                + "'," + OwnerId 
+                + "," + livestockType 
+                + ",'" + livestockBreed 
+                + "'," + livestockAge 
+                + ",'" + livestockGender 
+                + "'," + startingPrice 
+                + ",'" + auction_time 
+                + ",'" + auction_date.Date.ToString("dd-MMM-yyy") 
+                + "')";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         
         public List<string> getLivestockType()
         {
-            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'";
+            String query = "SELECT Type FROM Livestock WHERE Livestock_Status = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
-            return status;
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
         public List<string> getLivestockBreed()
         {
-            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'";
+            String query = "SELECT Breed FROM Livestock WHERE Livestock_Status = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
-            return status;
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
         public List<string> getLivestockAge()
         {
-            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'";
+            String query = "SELECT Age FROM Livestock WHERE Livestock_Status = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
-            return status;
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
         public List<string> getLivestockGender()
         {
-            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'";
+            String query = "SELECT Gender FROM Livestock WHERE Livestock_Status = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
-            return status;
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
         
         public List<string> getLivestockTagNumber()
         {
-            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'";
+            String query = "SELECT Livestock_tag FROM Livestock WHERE Livestock_Status = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
-            return status;
-        }
-        public List<string> getTimeslot()
-        {
-            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'";
-            OracleCommand cmd = new OracleCommand(query, connection);
-            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            DataSet dataset = new DataSet();
-            dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
-            return status;
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
         public List<string> getinitialBid()
         {
-            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'";
+            String query = "SELECT Starting_price FROM Livestock WHERE Livestock_Status = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
-            return status;
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
         public List<string> getstatus()
         {
-            String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'";
+            String query = "SELECT Livestock_Status FROM Livestock WHERE Livestock_Status = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
-            return status;
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
     }
 }
