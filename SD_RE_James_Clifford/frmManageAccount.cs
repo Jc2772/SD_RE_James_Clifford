@@ -81,6 +81,7 @@ namespace SD_RE_James_Clifford
         {
             if (cbxManageAccount.SelectedIndex > -1) {
                 accounts.removeAccounts(id);
+                UpdateForm();
                 MessageBox.Show("Account has been Removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else

@@ -16,6 +16,8 @@ namespace SD_RE_James_Clifford
         livestock livestock;
         accounts accounts;
         auction auction;
+        List<string> times;
+        List<DateTime> dates;
         public frmRegisterLivestock()
         {
             InitializeComponent();
@@ -80,7 +82,8 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock2.Items.Remove("Scottish Blackface");
             cbxRegisterLivestock2.Items.Remove("Vendéen");
             cbxRegisterLivestock2.Items.Remove("Lleyn sheep");
-            cbxRegisterLivestock2.Items.Remove("Blue Texel sheep"); cbxRegisterLivestock2.Items.Add("Saanen");
+            cbxRegisterLivestock2.Items.Remove("Blue Texel sheep"); 
+            cbxRegisterLivestock2.Items.Add("Saanen");
             cbxRegisterLivestock2.Items.Remove("British Alpine");
             cbxRegisterLivestock2.Items.Remove("Toggenburg");
             cbxRegisterLivestock2.Items.Remove("Anglo-Nubian");
@@ -117,75 +120,47 @@ namespace SD_RE_James_Clifford
                 cbxRegisterLivestock2.Items.Add("Anglo-Nubian");
                 grpRegisterLivestock.Visible = true;
             }
-            //sortTimeslots();
+            sortTimeslots();
         }
-        /*private void sortTimeslots()
+        private void sortTimeslots()
         {
-            List<string> atimeslots = auction.getTimeslot();
-            List<string> ltimeslots = livestock.getTimeslot();
-            if ( atimeslots.Count == ltimeslots.Count) {
-                cbxRegisterLivestock3.Items.Add("Booked out");
-            }
-            else
+            dates = auction.getAuctionDate();
+            times = auction.getAuctionTime();   
+            for(int i = 0; i < dates.Count; i++)
             {
-                for (int i = 0; i < atimeslots.Count; i++)
-                {
-                    cbxRegisterLivestock3.Items.Add(atimeslots[i]);
-                    for(int j = 0; j < ltimeslots.Count; j++)
-                    {
-                        if (atimeslots[i].Equals(ltimeslots[j]))
-                        {
-                            cbxRegisterLivestock3.Items.Remove(ltimeslots[j]);
-                        }
-                    }
-                }
+                cbxRegisterLivestock3.Items.Add(times[i]+ dates[i].Date.ToString("dd-MMM-yyy"));
             }
-        }*/
+        }
 
         private void btnRegisterLivestock2_Click(object sender, EventArgs e)
         {
-            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockAge = ipdRegisterLivestock1.Text, livestockTagNumber = ipdRegisterLivestock2.Text,livestockGender, timeslot = cbxRegisterLivestock3.Text,initial_bid = ipdRegisterLivestock3.Text, owner = cbxRegisterLivestock4.Text;
-            try
+            string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockTagNumber = ipdRegisterLivestock2.Text, livestockGender, timeslot = cbxRegisterLivestock3.Text;
             {
-                Convert.ToInt32(ipdRegisterLivestock1.Text);
-                try
-                {
-                    Convert.ToInt64(ipdRegisterLivestock2.Text);
-                    if(ipdRegisterLivestock2.Text.Length == 15)
+                int age = Convert.ToInt32(ipdRegisterLivestock1.Text);
+                Double bid = Convert.ToDouble(ipdRegisterLivestock2.Text);
+                owner = Convert.ToInt32(ip)
+                 if(ipdRegisterLivestock2.Text.Length == 15)
                     {
                         if(ckxRegisterLivestock1.Checked) {
-                            livestockGender = "male";
+                            livestockGender = "M";
                         }
                         else
                         {
-                            livestockGender = "female";
+                            livestockGender = "F";
                         }
-                        try
+                        if (owner != null) {
+                            livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber,dates[cbxRegisterLivestock3.SelectedIndex],times[cbxRegisterLivestock3.SelectedIndex], bid, owner);
+                            MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
                         {
-                            if (owner != null) {
-                                Double.Parse(initial_bid);
-                                livestock.addValues(livestockType, livestockBreed, livestockAge, livestockGender, livestockTagNumber, timeslot, initial_bid, owner);
-                                MessageBox.Show("tag number is invalid", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
                                 MessageBox.Show("invalid owner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                        }
-                        catch (FormatException)
-                        {
-                            MessageBox.Show("initial bid is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("tag number is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
-            catch (FormatException)
+            catch (Exception)
             {
-                MessageBox.Show("Age is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
