@@ -36,16 +36,13 @@ namespace SD_RE_James_Clifford
             for (int i = 1; i <= type.Count; i++)
             {
                 cbxRegisterSale1.Items.Add("id-" + i + " name-" + type[i - 1]);
-                if (livestock.getstatus()[i - 1].Equals("s"))
-                {
-                    cbxRegisterSale1.Items.Remove("id-" + i + " name-" + type[i - 1]);
-                }
             }
         }
 
         private void cbxRegisterSale1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(), timeslot = livestock.getTimeslot(), initial_bid = livestock.getinitialBid();
+            List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(), timeslot = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
+            List<DateTime> dates = livestock.GetDates();
             lblRegisterSale2.Text = "Livestock";
             for (int i = 1; i <= type.Count; i++)
             {

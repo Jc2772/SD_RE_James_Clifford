@@ -49,8 +49,6 @@ namespace SD_RE_James_Clifford
             this.lblRegisterLivestock2 = new System.Windows.Forms.Label();
             this.cbxRegisterLivestock2 = new System.Windows.Forms.ComboBox();
             this.lblRegisterLivestock1 = new System.Windows.Forms.Label();
-            this.cbxRegisterLivestock = new System.Windows.Forms.ComboBox();
-            this.lblRegisterLivestock9 = new System.Windows.Forms.Label();
             this.grpRegisterLivestock.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,8 +75,6 @@ namespace SD_RE_James_Clifford
             // 
             // grpRegisterLivestock
             // 
-            this.grpRegisterLivestock.Controls.Add(this.lblRegisterLivestock9);
-            this.grpRegisterLivestock.Controls.Add(this.cbxRegisterLivestock);
             this.grpRegisterLivestock.Controls.Add(this.lblManageAccounts1);
             this.grpRegisterLivestock.Controls.Add(this.cbxRegisterLivestock4);
             this.grpRegisterLivestock.Controls.Add(this.ipdRegisterLivestock3);
@@ -107,16 +103,16 @@ namespace SD_RE_James_Clifford
             // lblManageAccounts1
             // 
             this.lblManageAccounts1.AutoSize = true;
-            this.lblManageAccounts1.Location = new System.Drawing.Point(283, 207);
+            this.lblManageAccounts1.Location = new System.Drawing.Point(127, 207);
             this.lblManageAccounts1.Name = "lblManageAccounts1";
-            this.lblManageAccounts1.Size = new System.Drawing.Size(39, 13);
+            this.lblManageAccounts1.Size = new System.Drawing.Size(76, 13);
             this.lblManageAccounts1.TabIndex = 19;
-            this.lblManageAccounts1.Text = "search";
+            this.lblManageAccounts1.Text = "search owners";
             // 
             // cbxRegisterLivestock4
             // 
             this.cbxRegisterLivestock4.FormattingEnabled = true;
-            this.cbxRegisterLivestock4.Location = new System.Drawing.Point(335, 204);
+            this.cbxRegisterLivestock4.Location = new System.Drawing.Point(209, 204);
             this.cbxRegisterLivestock4.Name = "cbxRegisterLivestock4";
             this.cbxRegisterLivestock4.Size = new System.Drawing.Size(121, 21);
             this.cbxRegisterLivestock4.TabIndex = 18;
@@ -256,23 +252,6 @@ namespace SD_RE_James_Clifford
             this.lblRegisterLivestock1.TabIndex = 3;
             this.lblRegisterLivestock1.Text = "animal";
             // 
-            // cbxRegisterLivestock
-            // 
-            this.cbxRegisterLivestock.FormattingEnabled = true;
-            this.cbxRegisterLivestock.Location = new System.Drawing.Point(55, 199);
-            this.cbxRegisterLivestock.Name = "cbxRegisterLivestock";
-            this.cbxRegisterLivestock.Size = new System.Drawing.Size(100, 21);
-            this.cbxRegisterLivestock.TabIndex = 20;
-            // 
-            // lblRegisterLivestock9
-            // 
-            this.lblRegisterLivestock9.AutoSize = true;
-            this.lblRegisterLivestock9.Location = new System.Drawing.Point(6, 207);
-            this.lblRegisterLivestock9.Name = "lblRegisterLivestock9";
-            this.lblRegisterLivestock9.Size = new System.Drawing.Size(43, 13);
-            this.lblRegisterLivestock9.TabIndex = 21;
-            this.lblRegisterLivestock9.Text = "Owners";
-            // 
             // frmRegisterLivestock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,7 +295,5 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.Label lblRegisterLivestock7;
         private System.Windows.Forms.Label lblManageAccounts1;
         private System.Windows.Forms.ComboBox cbxRegisterLivestock4;
-        private System.Windows.Forms.Label lblRegisterLivestock9;
-        private System.Windows.Forms.ComboBox cbxRegisterLivestock;
     }
 }

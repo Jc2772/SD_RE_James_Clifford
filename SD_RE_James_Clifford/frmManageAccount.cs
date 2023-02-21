@@ -42,10 +42,10 @@ namespace SD_RE_James_Clifford
         private void frmManageAccount_Load(object sender, EventArgs e)
         {
             List<string> name = accounts.getAccName();
-
+            List<int> id = accounts.getId();
             for (int i = 0; i < name.Count; i++)
             {
-                cbxManageAccount.Items.Add(name[i]);
+                cbxManageAccount.Items.Add(name[i] + "-" + id[i]);
             }
         }
 
@@ -151,7 +151,7 @@ namespace SD_RE_James_Clifford
             cbxManageAccount.SelectedIndex = -1;
             for (int i = 0; i < name.Count; i++)
             {
-                cbxManageAccount.Items.Add(id[i] + " name-" + name[i]);
+                cbxManageAccount.Items.Add(name[i] + "-" + id[i]);
             }
         }
 

@@ -27,7 +27,8 @@ namespace SD_RE_James_Clifford
 
         private void cbxQueryLivestock_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(),timeslot = livestock.getTimeslot(), initial_bid = livestock.getinitialBid();
+            List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(),time = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
+            List<DateTime> dates = livestock.GetDates();
             lblQueryLivestock2.Text = "Livestock";
             for (int i = 1; i <= type.Count; i++)
             {
@@ -39,7 +40,7 @@ namespace SD_RE_James_Clifford
                         + "\ngender: " + gender[i - 1]
                         + "\nage: " + age[i - 1]
                         + "\ntag: " + tag[i - 1]
-                        + "\ntimeslot: " + timeslot[i - 1]
+                        + "\ntimeslot: " + time[i - 1] + " " + dates[i - 1]
                         + "\ninitial bid: " + initial_bid[i - 1];
                 }
             }
@@ -51,10 +52,6 @@ namespace SD_RE_James_Clifford
             for (int i = 1; i <= type.Count; i++)
             {
                 cbxQueryLivestock.Items.Add("id-" + i + " name-" + type[i - 1]);
-                if (livestock.getstatus()[i - 1].Equals("s"))
-                {
-                    cbxQueryLivestock.Items.Remove("id-" + i + " name-" + type[i - 1]);
-                }
             }
         }
 

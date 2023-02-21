@@ -17,16 +17,16 @@ namespace SD_RE_James_Clifford
         }
         public void addValues(string livestockType,string livestockBreed,int livestockAge,string livestockGender, string livestockTagNumber, DateTime auction_date, string auction_time,double startingPrice, int OwnerId)
         {
-            String query = "INSERT INTO Livestock(Livestock_tag,OwnerId,Type,Breed,Age,Gender,Starting_price,TimeSlot_Time,TimeSlot_Date) VALUES('" 
+            String query = "INSERT INTO Livestock(Livestock_tag,OwnerId,Livestock_Type,Breed,Age,Gender,Starting_price,TimeSlot_Time,TimeSlot_Date) VALUES('"
                 + livestockTagNumber 
                 + "'," + OwnerId 
-                + "," + livestockType 
-                + ",'" + livestockBreed 
+                + ",'" + livestockType 
+                + "','" + livestockBreed 
                 + "'," + livestockAge 
                 + ",'" + livestockGender 
                 + "'," + startingPrice 
                 + ",'" + auction_time 
-                + ",'" + auction_date.Date.ToString("dd-MMM-yyy") 
+                + "','" + auction_date.Date.ToString("dd-MMM-yyy") 
                 + "')";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -106,6 +106,34 @@ namespace SD_RE_James_Clifford
         public List<string> getinitialBid()
         {
             String query = "SELECT Starting_price FROM Livestock WHERE Livestock_Status = 'U'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
+        }
+        public List<DateTime> GetDates()
+        {
+            String query = "SELECT TimeSlot_Date FROM Livestock WHERE TimeSlot_Status = 'U'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<DateTime> list = new List<DateTime>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(DateTime.Parse(row[0].ToString()));
+            }
+            return list;
+        }
+        public List<String> GetTimes()
+        {
+            String query = "SELECT TimeSlot_Time FROM Livestock WHERE TimeSlot_Status = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
