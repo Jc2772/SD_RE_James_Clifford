@@ -17,7 +17,7 @@ namespace SD_RE_James_Clifford
         }
         public void addValues(string livestockType,string livestockBreed,int livestockAge,string livestockGender, string livestockTagNumber, DateTime auction_date, string auction_time,double startingPrice, int OwnerId)
         {
-            String query = "INSERT INTO Livestock(Livestock_tag,OwnerId,Livestock_Type,Breed,Age,Gender,Starting_price,TimeSlot_Time,TimeSlot_Date) VALUES('"
+            String query = "INSERT INTO Livestock(Livestock_tag,OwnerId,LivestockType,Breed,Age,Gender,Starting_price,TimeSlot_Time,TimeSlot_Date) VALUES('"
                 + livestockTagNumber 
                 + "'," + OwnerId 
                 + ",'" + livestockType 
