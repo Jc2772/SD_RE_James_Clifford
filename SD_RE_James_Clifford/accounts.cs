@@ -147,7 +147,7 @@ namespace SD_RE_James_Clifford
         }
         public void reinstateAccount(String Phone)
         {
-            String query = "UPDATE Owners Set Owner_Status := 'R' WHERE PhoneNo ='" + Phone + "'";
+            String query = "UPDATE Owners Set Owner_Status = 'R' WHERE PhoneNo ='" + Phone + "'";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
