@@ -30,28 +30,29 @@ namespace SD_RE_James_Clifford
             List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(),time = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
             List<DateTime> dates = livestock.GetDates();
             lblQueryLivestock2.Text = "Livestock";
-            for (int i = 1; i <= type.Count; i++)
+            for (int i = 0; i < type.Count; i++)
             {
-                if (cbxQueryLivestock.Text.Contains(i.ToString()))
+                if (cbxQueryLivestock.SelectedIndex == i)
                 {
                     lblQueryLivestock2.Text +=
-                        "\nlivestock type: " + type[i - 1]
-                        + "\nbreed: " + breed[i - 1]
-                        + "\ngender: " + gender[i - 1]
-                        + "\nage: " + age[i - 1]
-                        + "\ntag: " + tag[i - 1]
-                        + "\ntimeslot: " + time[i - 1] + " " + dates[i - 1]
-                        + "\ninitial bid: " + initial_bid[i - 1];
+                        "\nlivestock type: " + type[i]
+                        + "\nbreed: " + breed[i]
+                        + "\ngender: " + gender[i]
+                        + "\nage: " + age[i]
+                        + "\ntag: " + tag[i]
+                        + "\ntimeslot: " + time[i] + " " + dates[i].ToString("dd-MMM-yyy")
+                        + "\ninitial bid: " + initial_bid[i];
                 }
             }
         }
 
         private void frmQueryLivestock_Load(object sender, EventArgs e)
         {
-            List<string> type = livestock.getLivestockType();
-            for (int i = 1; i <= type.Count; i++)
+            List<string> breed = livestock.getLivestockBreed();
+            List<string> bid = livestock.getinitialBid();
+            for (int i = 0; i < breed.Count; i++)
             {
-                cbxQueryLivestock.Items.Add("id-" + i + " name-" + type[i - 1]);
+                cbxQueryLivestock.Items.Add(breed[i] + "-" + bid[i]);
             }
         }
 

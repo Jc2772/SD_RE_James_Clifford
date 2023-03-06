@@ -31,14 +31,14 @@ namespace SD_RE_James_Clifford
             }
             if (checkDate)
             {
-                String query = "SELECT TimeSlot_Status FROM TimeSlots WHERE TimeSlot_Date = '" + dateAsStr + "'";
+                String query = "SELECT TimeSlotStatus FROM TimeSlots WHERE TimeSlotDate = '" + dateAsStr + "'";
                 OracleCommand cmd = new OracleCommand(query, connection);
                 OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
                 DataSet dataset = new DataSet();
                 dataAdapter.Fill(dataset);
                 String status = dataset.Tables[0].Rows[0].ToString();
                 if (!status.Equals("A",StringComparison.OrdinalIgnoreCase)){
-                    String query2 = "UPDATE TimeSlots SET TimeSlot_Status = 'A' WHERE TimeSlot_Date = '" + dateAsStr + "'";
+                    String query2 = "UPDATE TimeSlots SET TimeSlotStatus = 'A' WHERE TimeSlotDate = '" + dateAsStr + "'";
                     OracleCommand cmd2 = new OracleCommand(query2, connection);
                     cmd2.ExecuteNonQuery();
                 }
@@ -51,7 +51,7 @@ namespace SD_RE_James_Clifford
             {
                 for (int i = 0; i < times.Count; i++)
                 {
-                    String query = "INSERT INTO TIMESLOTS(TIMESLOT_date,TIMESLOT_time) VALUES ('"
+                    String query = "INSERT INTO TIMESLOTS(TIMESLOTdate,TIMESLOTtime) VALUES ('"
                     + dateAsStr + "','"
                     + times[i] + "')";
                     OracleCommand cmd = new OracleCommand(query, connection);
@@ -61,7 +61,7 @@ namespace SD_RE_James_Clifford
         }
         public List<DateTime> getDates()
         {
-            String query = "SELECT TIMESLOT_DATE FROM TIMESLOTS";
+            String query = "SELECT TIMESLOTDATE FROM TIMESLOTS";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<DateTime> list = new List<DateTime>();
@@ -75,7 +75,7 @@ namespace SD_RE_James_Clifford
         }
         public List<DateTime> getAuctionDate()
         {
-            String query = "SELECT TIMESLOT_DATE FROM TIMESLOTS WHERE TimeSlot_Status = 'A'";
+            String query = "SELECT TIMESLOTDATE FROM TIMESLOTS WHERE TimeSlotStatus = 'A'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<DateTime> list = new List<DateTime>();
@@ -89,7 +89,7 @@ namespace SD_RE_James_Clifford
         }
         public List<String> getAuctionTime()
         {
-            String query = "SELECT TimeSlot_Time FROM TimeSlots WHERE TimeSlot_Status = 'A'";
+            String query = "SELECT TimeSlotTime FROM TimeSlots WHERE TimeSlotStatus = 'A'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -106,7 +106,7 @@ namespace SD_RE_James_Clifford
         {
             for (int i = 0; i < times.Count; i++)
             {
-                String query = "UPDATE TimeSlots SET TimeSlot_Status = 'R' WHERE TimeSlot_Date = '" + date.Date.ToString("dd-MMM-yyy") + "'";
+                String query = "UPDATE TimeSlots SET TimeSlotStatus = 'R' WHERE TimeSlotDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
                 OracleCommand cmd = new OracleCommand(query, connection);
                 cmd.ExecuteNonQuery();
             }

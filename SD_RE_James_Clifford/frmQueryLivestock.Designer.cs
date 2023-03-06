@@ -57,7 +57,7 @@ namespace SD_RE_James_Clifford
             // lblQueryLivestock1
             // 
             this.lblQueryLivestock1.AutoSize = true;
-            this.lblQueryLivestock1.Location = new System.Drawing.Point(77, 18);
+            this.lblQueryLivestock1.Location = new System.Drawing.Point(25, 18);
             this.lblQueryLivestock1.Name = "lblQueryLivestock1";
             this.lblQueryLivestock1.Size = new System.Drawing.Size(39, 13);
             this.lblQueryLivestock1.TabIndex = 7;
@@ -66,9 +66,9 @@ namespace SD_RE_James_Clifford
             // cbxQueryLivestock
             // 
             this.cbxQueryLivestock.FormattingEnabled = true;
-            this.cbxQueryLivestock.Location = new System.Drawing.Point(155, 15);
+            this.cbxQueryLivestock.Location = new System.Drawing.Point(81, 15);
             this.cbxQueryLivestock.Name = "cbxQueryLivestock";
-            this.cbxQueryLivestock.Size = new System.Drawing.Size(121, 21);
+            this.cbxQueryLivestock.Size = new System.Drawing.Size(195, 21);
             this.cbxQueryLivestock.TabIndex = 6;
             this.cbxQueryLivestock.SelectedIndexChanged += new System.EventHandler(this.cbxQueryLivestock_SelectedIndexChanged);
             // 
