@@ -33,9 +33,10 @@ namespace SD_RE_James_Clifford
         private void frmRegisterSale_Load(object sender, EventArgs e)
         {
             List<string> type = livestock.getLivestockType();
+            List<string> initial_bid = livestock.getinitialBid();
             for (int i = 1; i <= type.Count; i++)
             {
-                cbxRegisterSale1.Items.Add("id-" + i + " name-" + type[i - 1]);
+                cbxRegisterSale1.Items.Add(type[i - 1] + "-" + initial_bid);
             }
         }
 
@@ -44,19 +45,19 @@ namespace SD_RE_James_Clifford
             List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(), timeslot = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
             List<DateTime> dates = livestock.GetDates();
             lblRegisterSale2.Text = "Livestock";
-            for (int i = 1; i <= type.Count; i++)
+            for (int i = 0; i < type.Count; i++)
             {
                 if (cbxRegisterSale1.Text.Contains(i.ToString()))
                 {
                     lblRegisterSale2.Text +=
-                        "\nlivestock type: " + type[i - 1]
-                        + "\nbreed: " + breed[i - 1]
-                        + "\ngender: " + gender[i - 1]
-                        + "\nage: " + age[i - 1]
-                        + "\ntag: " + tag[i - 1]
-                        + "\ntimeslot: " + timeslot[i - 1]
-                        + "\ninitial bid: " + initial_bid[i - 1];
-                    this.tag = tag[i - 1];
+                        "\nlivestock type: " + type[i]
+                        + "\nbreed: " + breed[i]
+                        + "\ngender: " + gender[i]
+                        + "\nage: " + age[i]
+                        + "\ntag: " + tag[i]
+                        + "\ntimeslot: " + timeslot[i] + " " + livestock.GetDates()
+                        + "\ninitial bid: " + initial_bid[i];
+                    this.tag = tag[i];
                 }
             }
         }
@@ -67,8 +68,8 @@ namespace SD_RE_James_Clifford
             {
                 try
                 {
-                    Double.Parse(ipdRegisterSale3.Text);
-                    sales.setsales(ipdRegisterSale1.Text, ipdRegisterSale2.Text, ipdRegisterSale3.Text,this.tag);
+                    Double price = Double.Parse(ipdRegisterSale3.Text);
+                    sales.setsales(ipdRegisterSale1.Text, ipdRegisterSale2.Text, price,this.tag);
 
                 }
                 catch (FormatException)

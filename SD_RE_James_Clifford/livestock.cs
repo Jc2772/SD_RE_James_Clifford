@@ -145,5 +145,14 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
+        public DataTable AnalyseLiveStock()
+        {
+            String query = "SELECT Breed FROM Livestock WHERE LivestockStatus = 'U'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            DataTable dataset = new DataTable();
+            dataAdapter.Fill(dataset);
+            return dataset;
+        }
     }
 }

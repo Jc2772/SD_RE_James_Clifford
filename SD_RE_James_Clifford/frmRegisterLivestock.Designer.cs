@@ -236,6 +236,8 @@ namespace SD_RE_James_Clifford
             // 
             // cbxRegisterLivestock2
             // 
+            this.cbxRegisterLivestock2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxRegisterLivestock2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxRegisterLivestock2.FormattingEnabled = true;
             this.cbxRegisterLivestock2.Location = new System.Drawing.Point(46, 27);
             this.cbxRegisterLivestock2.Margin = new System.Windows.Forms.Padding(2);

@@ -65,6 +65,8 @@ namespace SD_RE_James_Clifford
             // 
             // cbxQueryLivestock
             // 
+            this.cbxQueryLivestock.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxQueryLivestock.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxQueryLivestock.FormattingEnabled = true;
             this.cbxQueryLivestock.Location = new System.Drawing.Point(81, 15);
             this.cbxQueryLivestock.Name = "cbxQueryLivestock";

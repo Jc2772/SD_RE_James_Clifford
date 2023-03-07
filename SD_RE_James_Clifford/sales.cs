@@ -14,17 +14,20 @@ namespace SD_RE_James_Clifford
         {
             this.connection = connection;
         }
-        private List<string> buyer_name = new List<string> {"bull McCabe"};
-        private List<string> final_price = new List<string> { "80.00" };
-        private List<string> buyer_contact = new List<string> {"087 219 1990" };
-        private List<string> tag = new List<string> { "372211234510091"};
 
-        public void setsales(string name,string final_price,string phone,string tag)
+        public void setsales(string name, string phone,double final_price,string tag)
         {
-            this.buyer_name.Add(name);
-            this.buyer_contact.Add(phone);
-            this.final_price.Add(final_price);
-            this.tag.Add(tag);
+            String query = "INSERT INTO Sales(BuyerName,BuyerPhoneNo,FinalPrice,LivestockTag) VALUES ('"
+                + name + "','" 
+                + phone + "'," 
+                + final_price + ",'" 
+                + tag + "')";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
+
+            query = "UPDATE Livestock SET LivestockStatus = 'S' WHERE LivestockTag = '" + tag + "'";
+            cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
         }
     }
 }

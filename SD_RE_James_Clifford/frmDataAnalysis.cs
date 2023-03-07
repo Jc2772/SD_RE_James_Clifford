@@ -7,20 +7,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace SD_RE_James_Clifford
 {
     public partial class frmDataAnalysis : Form
     {
         frmLivestockHome parent;
+        auction auction;
+        livestock livestock;
         public frmDataAnalysis()
         {
             InitializeComponent();
         }
-        public frmDataAnalysis(frmLivestockHome parent)
+        public frmDataAnalysis(frmLivestockHome parent,auction auction,livestock livestock)
         {
             InitializeComponent();
             this.parent = parent;
+            this.auction = auction;
+            this.livestock = livestock;
         }
 
         private void btnDataAnalysis_Click(object sender, EventArgs e)
@@ -33,12 +38,10 @@ namespace SD_RE_James_Clifford
         {
             if(cbxDataAnalysis.SelectedIndex == 0)
             {
-                pcbViewData.Image = Properties.Resources.data1;
             }
-            if(cbxDataAnalysis.SelectedIndex == 1)
+            if (cbxDataAnalysis.SelectedIndex == 1)
             {
-
-                pcbViewData.Image = Properties.Resources.data2;
+                
             }
         }
 

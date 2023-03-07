@@ -44,6 +44,8 @@ namespace SD_RE_James_Clifford
             // 
             // cbxRegisterSale1
             // 
+            this.cbxRegisterSale1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxRegisterSale1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxRegisterSale1.FormattingEnabled = true;
             this.cbxRegisterSale1.Location = new System.Drawing.Point(67, 19);
             this.cbxRegisterSale1.Name = "cbxRegisterSale1";
