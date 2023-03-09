@@ -104,15 +104,12 @@ namespace SD_RE_James_Clifford
         
         public void DeRegisterTimeSlot(DateTime date)
         {
-            for (int i = 0; i < times.Count; i++)
-            {
                 String query = "UPDATE TimeSlots SET TimeSlotStatus = 'R' WHERE TimeSlotDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
                 OracleCommand cmd = new OracleCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 query = "DELETE FROM Livestock WHERE TimeSlotDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
                 cmd = new OracleCommand(query, connection);
                 cmd.ExecuteNonQuery();
-            }
         }
     }
 }
