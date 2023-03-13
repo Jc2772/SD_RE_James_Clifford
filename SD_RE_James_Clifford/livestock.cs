@@ -145,14 +145,19 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
-        public DataTable AnalyseLiveStock()
+        public List<string> AnalyseLiveStock()
         {
-            String query = "SELECT Breed FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT LivestockType FROM Livestock WHERE LivestockStatus = 'S'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            DataTable dataset = new DataTable();
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            return dataset;
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
     }
 }

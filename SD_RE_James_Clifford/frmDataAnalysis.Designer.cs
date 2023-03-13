@@ -75,7 +75,7 @@ namespace SD_RE_James_Clifford
             this.crtDataAnalysis.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.crtDataAnalysis.Legends.Add(legend1);
-            this.crtDataAnalysis.Location = new System.Drawing.Point(213, 101);
+            this.crtDataAnalysis.Location = new System.Drawing.Point(216, 104);
             this.crtDataAnalysis.Name = "crtDataAnalysis";
             this.crtDataAnalysis.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "ChartArea1";
@@ -84,6 +84,7 @@ namespace SD_RE_James_Clifford
             this.crtDataAnalysis.Series.Add(series1);
             this.crtDataAnalysis.Size = new System.Drawing.Size(377, 300);
             this.crtDataAnalysis.TabIndex = 4;
+            this.crtDataAnalysis.Visible = false;
             // 
             // frmDataAnalysis
             // 
@@ -96,7 +97,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.cbxDataAnalysis);
             this.Controls.Add(this.lblDataAnalysis);
             this.Name = "frmDataAnalysis";
-            this.Text = "Form1";
+            this.Text = "ite";
             this.Load += new System.EventHandler(this.frmDataAnalysis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis)).EndInit();
             this.ResumeLayout(false);

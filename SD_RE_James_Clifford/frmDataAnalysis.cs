@@ -14,18 +14,18 @@ namespace SD_RE_James_Clifford
     public partial class frmDataAnalysis : Form
     {
         frmLivestockHome parent;
-        auction auction;
+        sales sale;
         livestock livestock;
         public frmDataAnalysis()
         {
             InitializeComponent();
         }
-        public frmDataAnalysis(frmLivestockHome parent,auction auction,livestock livestock)
+        public frmDataAnalysis(frmLivestockHome parent,sales sale,livestock livestock)
         {
             InitializeComponent();
             this.parent = parent;
-            this.auction = auction;
             this.livestock = livestock;
+            this.sale = sale;
         }
 
         private void btnDataAnalysis_Click(object sender, EventArgs e)
@@ -38,10 +38,31 @@ namespace SD_RE_James_Clifford
         {
             if(cbxDataAnalysis.SelectedIndex == 0)
             {
+                crtDataAnalysis.Series[0].Points.Clear();
+                crtDataAnalysis.Visible = true;
             }
             if (cbxDataAnalysis.SelectedIndex == 1)
             {
-                
+                crtDataAnalysis.Series[0].Points.Clear();
+                crtDataAnalysis.Visible = true;
+                List<String> Type = livestock.AnalyseLiveStock();
+                String[] types = new String[] { "cattle", "sheep", "goat" };
+                Series series = crtDataAnalysis.Series[0];
+                series.ChartType = SeriesChartType.Pie;
+                for(int i = 0; i< 3; i++)
+                {
+                    int count = 0;
+                    foreach(String item in Type)
+                    {
+                        if (item.Equals(types[i])){
+                            count++;
+                        }
+                    }
+                    if (count > 0)
+                    {
+                        series.Points.AddXY(types[i], count);
+                    }
+                }
             }
         }
 

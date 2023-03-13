@@ -85,7 +85,7 @@ namespace SD_RE_James_Clifford
         private void dataAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmDataAnalysis enter = new frmDataAnalysis(this, auction, livestock);
+            frmDataAnalysis enter = new frmDataAnalysis(this,sales, livestock);
             enter.Show();
         }
     }
