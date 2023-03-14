@@ -34,9 +34,10 @@ namespace SD_RE_James_Clifford
         {
             List<string> type = livestock.getLivestockType();
             List<string> initial_bid = livestock.getinitialBid();
-            for (int i = 1; i <= type.Count; i++)
+            
+            for (int i = 0; i < type.Count; i++)
             {
-                cbxRegisterSale1.Items.Add(type[i - 1] + "-" + initial_bid);
+                cbxRegisterSale1.Items.Add(type[i] + "-" + initial_bid[i]);
             }
         }
 
@@ -47,7 +48,7 @@ namespace SD_RE_James_Clifford
             lblRegisterSale2.Text = "Livestock";
             for (int i = 0; i < type.Count; i++)
             {
-                if (cbxRegisterSale1.Text.Contains(i.ToString()))
+                if (cbxRegisterSale1.SelectedIndex == i)
                 {
                     lblRegisterSale2.Text +=
                         "\nlivestock type: " + type[i]

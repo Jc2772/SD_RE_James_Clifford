@@ -49,7 +49,7 @@ namespace SD_RE_James_Clifford
             this.cbxRegisterSale1.FormattingEnabled = true;
             this.cbxRegisterSale1.Location = new System.Drawing.Point(67, 19);
             this.cbxRegisterSale1.Name = "cbxRegisterSale1";
-            this.cbxRegisterSale1.Size = new System.Drawing.Size(121, 21);
+            this.cbxRegisterSale1.Size = new System.Drawing.Size(336, 21);
             this.cbxRegisterSale1.TabIndex = 0;
             this.cbxRegisterSale1.SelectedIndexChanged += new System.EventHandler(this.cbxRegisterSale1_SelectedIndexChanged);
             // 
