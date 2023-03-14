@@ -107,7 +107,7 @@ namespace SD_RE_James_Clifford
             String query = "DELETE FROM Livestock WHERE TimeSlotDate = '" + date.Date.ToString("dd-MMM-yyy") + "' AND LIVESTOCKSTATUS = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                query = "UPDATE TimeSlots SET TimeSlotStatus = 'R' WHERE TimeSlotDate = '" + date.Date.ToString("dd-MMM-yyy") + "' AND TIMESLOTSTATUS = 'A'";
+                query = "UPDATE TimeSlots SET TimeSlotStatus = 'R' WHERE TimeSlotDate = '" + date.Date.ToString("dd-MMM-yyy") + "' AND TIMESLOTSTATUS != S";
                 cmd = new OracleCommand(query, connection);
                 cmd.ExecuteNonQuery();
         }
