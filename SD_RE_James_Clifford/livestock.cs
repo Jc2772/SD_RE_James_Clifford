@@ -30,6 +30,9 @@ namespace SD_RE_James_Clifford
                 + "')";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
+            query = "UPDATE TimeSlots Set TimeSlotStatus = 'U' WHERE TIMESLOTDATE = '" + auction_date.Date.ToString("dd-MMM-yyy") + "' AND TIMESLOTTIME = '" + auction_time + "'";
+            cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
         }
         
         public List<string> getLivestockType()
