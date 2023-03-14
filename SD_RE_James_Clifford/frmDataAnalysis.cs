@@ -40,6 +40,7 @@ namespace SD_RE_James_Clifford
             {
                 crtDataAnalysis.Series[0].Points.Clear();
                 crtDataAnalysis.Visible = true;
+
             }
             if (cbxDataAnalysis.SelectedIndex == 1)
             {
