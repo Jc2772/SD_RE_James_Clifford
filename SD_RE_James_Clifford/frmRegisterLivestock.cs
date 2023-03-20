@@ -16,7 +16,7 @@ namespace SD_RE_James_Clifford
         livestock livestock;
         accounts accounts;
         auction auction;
-        List<string> times;
+        List<string> times = new List<string> { "09:00", "09:20", "09:40", "10:00", "10:20", "10:40", "12:00", "12:20", "12:40", "13:00", "13:20", "13:40" };
         List<DateTime> dates;
         List<int> id;
         public frmRegisterLivestock()
@@ -150,7 +150,7 @@ namespace SD_RE_James_Clifford
                        }
                        if (cbxRegisterLivestock3.SelectedIndex > -1) {
                             livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber,id[cbxRegisterLivestock4.SelectedIndex]);
-                        auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid,times[cbxRegisterLivestock3.SelectedIndex]);  
+                        auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid,times[cbxRegisterLivestock3.SelectedIndex],dates[cbxRegisterLivestock3.SelectedIndex]);  
                             MessageBox.Show("Livestock has been added", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                        }
                        else
