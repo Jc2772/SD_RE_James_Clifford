@@ -149,7 +149,8 @@ namespace SD_RE_James_Clifford
                             livestockGender = "F";
                        }
                        if (cbxRegisterLivestock3.SelectedIndex > -1) {
-                            livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber,dates[cbxRegisterLivestock3.SelectedIndex],times[cbxRegisterLivestock3.SelectedIndex], bid, id[cbxRegisterLivestock4.SelectedIndex]);
+                            livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber,id[cbxRegisterLivestock4.SelectedIndex]);
+                        auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid,times[cbxRegisterLivestock3.SelectedIndex]);  
                             MessageBox.Show("Livestock has been added", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                        }
                        else

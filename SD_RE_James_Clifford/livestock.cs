@@ -15,33 +15,24 @@ namespace SD_RE_James_Clifford
         {
             this.connection = connection;
         }
-        public void addValues(string livestockType,string livestockBreed,int livestockAge,string livestockGender, string livestockTagNumber, DateTime auction_date, string auction_time,double startingPrice, int OwnerId)
+        public void addValues(string livestockType,string livestockBreed,int livestockAge,string livestockGender, string livestockTagNumber,int id )
         {
             if (!tagCheck(livestockTagNumber)) {
-                String query = "INSERT INTO Livestock(LivestockTag,OwnerId,LivestockType,Breed,Age,Gender,Startingprice,TimeslotTime,TimeslotDate) VALUES('"
+                String query = "INSERT INTO Livestock(LivestockTag,ownerid,LivestockType,Breed,Age,Gender,) VALUES('"
                     + livestockTagNumber
-                    + "'," + OwnerId
+                    + "," + id
                     + ",'" + livestockType
                     + "','" + livestockBreed
                     + "'," + livestockAge
                     + ",'" + livestockGender
-                    + "'," + startingPrice
-                    + ",'" + auction_time
-                    + "','" + auction_date.Date.ToString("dd-MMM-yyy")
                     + "')";
                 OracleCommand cmd = new OracleCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                query = "UPDATE TimeSlots Set TimeSlotStatus = 'U' WHERE TIMESLOTDATE = '" + auction_date.Date.ToString("dd-MMM-yyy") + "' AND TIMESLOTTIME = '" + auction_time + "'";
-                cmd = new OracleCommand(query, connection);
                 cmd.ExecuteNonQuery();
             }
             else
             {
-                String query = "UPDATE Livestock Set Age = " + livestockAge + ", OwnerId = " + OwnerId + "Where LivestockTag = '" + livestockTagNumber + "'";
+                String query = "UPDATE Livestock Set Age = " + livestockAge + ", OwnerId = " + id + "Where LivestockTag = '" + livestockTagNumber + "'";
                 OracleCommand cmd = new OracleCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                query = "UPDATE TimeSlots Set TimeSlotStatus = 'U' WHERE TIMESLOTDATE = '" + auction_date.Date.ToString("dd-MMM-yyy") + "' AND TIMESLOTTIME = '" + auction_time + "'";
-                cmd = new OracleCommand(query, connection);
                 cmd.ExecuteNonQuery();
             }
         }

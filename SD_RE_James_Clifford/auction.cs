@@ -23,13 +23,16 @@ namespace SD_RE_James_Clifford
         }
         public void removeAuction(DateTime date)
         {
-            String query = "update Auctions set auctionstatus = 'C' where AuctionDate = '" + date.ToString("yyy-MMM-ddd") + "'";
+            String query = "DELETE FROM where AuctionDate = '" + date.ToString("yyy-MMM-ddd") + "'";
             OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
+            query = "DELETE FROM where AuctionDate = '" + date.ToString("yyy-MMM-ddd") + "'";
+            cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         public List<DateTime> GetDates()
         {
-            String query = "SELECT Gender FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT AuctionDate FROM Auction";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<DateTime> list = new List<DateTime>();
@@ -38,6 +41,20 @@ namespace SD_RE_James_Clifford
             foreach (DataRow row in dataset.Tables[0].Rows)
             {
                 list.Add(DateTime.Parse(row[0].ToString()));
+            }
+            return list;
+        }
+        public List<int> GetAuctionId()
+        {
+            String query = "SELECT AuctionDate FROM Auction";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<int> list = new List<int>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(Convert.ToInt32(row[0]));
             }
             return list;
         }
@@ -58,6 +75,12 @@ namespace SD_RE_James_Clifford
             {
                 return data.GetInt32(0) + 1;
             }
+        }
+        public void addBooking(int id, double price,string timeslot)
+        {
+            String query = "INSERT INTO Bookings(BookingId,AuctionId,timeslot,OwnerId,StartingPrice) Values(" + nextBookingId() + "," + GetAuctionId() + ",'" + timeslot  + "'," + id + "," + price + ")";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            cmd.ExecuteNonQuery();
         }
         private int nextBookingId()
         {
