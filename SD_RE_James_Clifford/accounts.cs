@@ -117,8 +117,9 @@ namespace SD_RE_James_Clifford
         }
         public void addValues(string name,string address1, string address2, string address3, string phone,string email)
         {
-                String query = "INSERT INTO Owners(OwnerName,Area,Town,County,PhoneNo,Email) VALUES ('"
-                + name + "','" +
+                String query = "INSERT INTO Owners(OwnerID,OwnerName,Area,Town,County,PhoneNo,Email) VALUES (" + 
+                nextId() + "'" +
+                name + "','" +
                 address1 + "','" +
                 address2 + "','" +
                 address3 + "','" +
@@ -169,6 +170,23 @@ namespace SD_RE_James_Clifford
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
             return dataset;
+        }
+        private int nextId()
+        {
+            String query = "Select MAX(OwnerId) from Owners";
+
+            OracleCommand cmd = new OracleCommand(query, connection);
+
+            OracleDataReader data = cmd.ExecuteReader();
+
+            if (data.IsDBNull(0))
+            {
+                return 1;
+            }
+            else
+            {
+                return data.GetInt32(0) + 1;
+            }
         }
     }
 }

@@ -125,8 +125,7 @@ namespace SD_RE_James_Clifford
         }
         private void sortTimeslots()
         {
-            dates = auction.getAuctionDate();
-            times = auction.getAuctionTime();   
+            dates = auction.GetDates(); 
             for(int i = 0; i < dates.Count; i++)
             {
                 cbxRegisterLivestock3.Items.Add(times[i]+ " - "+ dates[i].Date.ToString("dd-MMM-yyy"));

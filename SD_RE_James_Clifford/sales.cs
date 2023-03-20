@@ -45,5 +45,22 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
+        private int nextSaleId()
+        {
+            String query = "Select MAX(SaleId) from Sales";
+
+            OracleCommand cmd = new OracleCommand(query, connection);
+
+            OracleDataReader data = cmd.ExecuteReader();
+
+            if (data.IsDBNull(0))
+            {
+                return 1;
+            }
+            else
+            {
+                return data.GetInt32(0) + 1;
+            }
+        }
     }
 }
