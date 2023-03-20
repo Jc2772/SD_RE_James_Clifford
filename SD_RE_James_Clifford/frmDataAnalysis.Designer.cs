@@ -36,6 +36,7 @@ namespace SD_RE_James_Clifford
             this.cbxDataAnalysis = new System.Windows.Forms.ComboBox();
             this.btnDataAnalysis = new System.Windows.Forms.Button();
             this.crtDataAnalysis = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.cboYear = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,12 +87,21 @@ namespace SD_RE_James_Clifford
             this.crtDataAnalysis.TabIndex = 4;
             this.crtDataAnalysis.Visible = false;
             // 
+            // cboYear
+            // 
+            this.cboYear.FormattingEnabled = true;
+            this.cboYear.Location = new System.Drawing.Point(159, 25);
+            this.cboYear.Name = "cboYear";
+            this.cboYear.Size = new System.Drawing.Size(104, 21);
+            this.cboYear.TabIndex = 5;
+            // 
             // frmDataAnalysis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.cboYear);
             this.Controls.Add(this.crtDataAnalysis);
             this.Controls.Add(this.btnDataAnalysis);
             this.Controls.Add(this.cbxDataAnalysis);
@@ -110,5 +120,6 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.ComboBox cbxDataAnalysis;
         private System.Windows.Forms.Button btnDataAnalysis;
         private System.Windows.Forms.DataVisualization.Charting.Chart crtDataAnalysis;
+        private System.Windows.Forms.ComboBox cboYear;
     }
 }

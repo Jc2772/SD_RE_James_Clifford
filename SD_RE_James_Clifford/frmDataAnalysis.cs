@@ -20,7 +20,7 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
-        public frmDataAnalysis(frmLivestockHome parent,sales sale,livestock livestock)
+        public frmDataAnalysis(frmLivestockHome parent, sales sale, livestock livestock)
         {
             InitializeComponent();
             this.parent = parent;
@@ -36,10 +36,28 @@ namespace SD_RE_James_Clifford
 
         private void cbxDataAnalysis_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbxDataAnalysis.SelectedIndex == 0)
+            /*if(cbxDataAnalysis.SelectedIndex == 0)
             {
+                List<String> 
                 crtDataAnalysis.Series[0].Points.Clear();
                 crtDataAnalysis.Visible = true;
+                Series series = crtDataAnalysis.Series[0];
+                series.ChartType = SeriesChartType.Bar;
+                for (int i = 0; i < 3; i++)
+                {
+                    int count = 0;
+                    foreach (String item in Type)
+                    {
+                        if (item.Equals(types[i]))
+                        {
+                            count++;
+                        }
+                    }
+                    if (count > 0)
+                    {
+                        series.Points.AddXY(types[i], );
+                    }
+                }
 
             }
             if (cbxDataAnalysis.SelectedIndex == 1)
@@ -64,13 +82,26 @@ namespace SD_RE_James_Clifford
                         series.Points.AddXY(types[i], count);
                     }
                 }
-            }
+            }*/
         }
 
         private void frmDataAnalysis_Load(object sender, EventArgs e)
         {
-            cbxDataAnalysis.Items.Add("Yearly revenue analysis");
-            cbxDataAnalysis.Items.Add("Yearly livestock analysis");
+            loadYears();
+
+            // cbxDataAnalysis.Items.Add("Yearly revenue analysis");
+            //cbxDataAnalysis.Items.Add("Yearly livestock analysis");
+        }
+
+        public void loadYears()
+        {
+            int year = DateTime.Today.Year;
+
+            for (int i = 0; i < 4; i++)
+            {
+                cboYear.Items.Add(year.ToString());
+                year--;
+            }
         }
     }
 }

@@ -32,7 +32,7 @@ namespace SD_RE_James_Clifford
         }
         public List<Double> getProfits()
         {
-            String query = "SELECT FinalPrice * 0.15 FROM sales";
+            String query = "SELECT FinalPrice * 0.15, ";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<double> list = new List<double>();
