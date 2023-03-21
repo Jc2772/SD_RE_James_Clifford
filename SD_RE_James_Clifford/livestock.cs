@@ -39,7 +39,7 @@ namespace SD_RE_James_Clifford
         
         public List<string> getLivestockType()
         {
-            String query = "SELECT LivestockType FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT Livestock.LivestockType FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -53,7 +53,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getLivestockBreed()
         {
-            String query = "SELECT Breed FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT Livestock.Breed FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -67,7 +67,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getLivestockAge()
         {
-            String query = "SELECT Age FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT Livestock.Age FROM Livestock FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -81,7 +81,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getLivestockGender()
         {
-            String query = "SELECT Gender FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT Livestock.Gender FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -96,7 +96,7 @@ namespace SD_RE_James_Clifford
         
         public List<string> getLivestockTagNumber()
         {
-            String query = "SELECT LivestockTag FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT LivestockTag FROM Bookings Where BookingStatus =  'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -110,7 +110,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getinitialBid()
         {
-            String query = "SELECT Startingprice FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT StartingPrice From Bookings Where BookingStatus =  'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -124,7 +124,7 @@ namespace SD_RE_James_Clifford
         }
         public List<DateTime> GetDates()
         {
-            String query = "SELECT TimeSlotDate FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT Auctions.AuctionDate FROM ((Bookings INNER JOIN Booking.TagNo = Livestock.TagNo) INNER JOIN (Bookings.AuctionId = Auction.AuctionId) Where BookingStatus = 'U'  ";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<DateTime> list = new List<DateTime>();
@@ -138,7 +138,7 @@ namespace SD_RE_James_Clifford
         }
         public List<String> GetTimes()
         {
-            String query = "SELECT TimeSlotTime FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT TimeSlot From Bookings Where BookingStatus =  'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -152,7 +152,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> AnalyseLiveStock()
         {
-            String query = "SELECT LivestockType FROM Livestock WHERE LivestockStatus = 'S'";
+            String query = "SELECT Livestock.LivestockType FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -166,7 +166,7 @@ namespace SD_RE_James_Clifford
         }
         public Boolean tagCheck(string tagNumber)
         {
-            String query = "SELECT LivestockTag FROM Livestock WHERE LivestockStatus = 'U'";
+            String query = "SELECT livestock.LivestockTag FROM Bookings WHERE BookingStatus = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> taglist = new List<string>();
