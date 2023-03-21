@@ -18,9 +18,9 @@ namespace SD_RE_James_Clifford
         public void addValues(string livestockType,string livestockBreed,int livestockAge,string livestockGender, string livestockTagNumber,int id )
         {
             if (!tagCheck(livestockTagNumber)) {
-                String query = "INSERT INTO Livestock(LivestockTag,ownerid,LivestockType,Breed,Age,Gender,) VALUES('"
+                String query = "INSERT INTO Livestock(TagNo,ownerid,LivestockType,Breed,Age,Gender) VALUES('"
                     + livestockTagNumber
-                    + "," + id
+                    + "'," + id
                     + ",'" + livestockType
                     + "','" + livestockBreed
                     + "'," + livestockAge
@@ -166,7 +166,7 @@ namespace SD_RE_James_Clifford
         }
         public Boolean tagCheck(string tagNumber)
         {
-            String query = "SELECT livestock.LivestockTag FROM Bookings WHERE BookingStatus = 'U'";
+            String query = "SELECT TagNo FROM Bookings WHERE BookingStatus = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> taglist = new List<string>();

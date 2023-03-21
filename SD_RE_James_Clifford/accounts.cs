@@ -118,7 +118,7 @@ namespace SD_RE_James_Clifford
         public void addValues(string name,string address1, string address2, string address3, string phone,string email)
         {
                 String query = "INSERT INTO Owners(OwnerID,OwnerName,Area,Town,County,PhoneNo,Email) VALUES (" + 
-                nextId() + "'" +
+                nextId() + ",'" +
                 name + "','" +
                 address1 + "','" +
                 address2 + "','" +
@@ -178,7 +178,7 @@ namespace SD_RE_James_Clifford
             OracleCommand cmd = new OracleCommand(query, connection);
 
             OracleDataReader data = cmd.ExecuteReader();
-
+            data.Read();
             if (data.IsDBNull(0))
             {
                 return 1;

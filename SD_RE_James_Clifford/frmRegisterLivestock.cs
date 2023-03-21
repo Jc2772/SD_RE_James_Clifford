@@ -58,11 +58,6 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock1.Items.Add("cattle");
             cbxRegisterLivestock1.Items.Add("sheep");
             cbxRegisterLivestock1.Items.Add("goat");
-            id = accounts.getId();
-            for (int i = 0; i < id.Count; i++)
-            {
-                cbxRegisterLivestock4.Items.Add(accounts.getAccName()[i]);
-            }
         }
 
         private void cbxRegisterLivestock1_SelectedIndexChanged(object sender, EventArgs e)
@@ -121,6 +116,11 @@ namespace SD_RE_James_Clifford
                 cbxRegisterLivestock2.Items.Add("Anglo-Nubian");
                 grpRegisterLivestock.Visible = true;
             }
+            id = accounts.getId();
+            for (int i = 0; i < id.Count; i++)
+            {
+                cbxRegisterLivestock4.Items.Add(accounts.getAccName()[i]);
+            }
             sortTimeslots();
         }
         private void sortTimeslots()
@@ -128,15 +128,19 @@ namespace SD_RE_James_Clifford
             dates = auction.GetDates(); 
             for(int i = 0; i < dates.Count; i++)
             {
-                cbxRegisterLivestock3.Items.Add(times[i]+ " - "+ dates[i].Date.ToString("dd-MMM-yyy"));
+                id = accounts.getId();
+                for (int j = 0; j < times.Count; j++)
+                {
+                    cbxRegisterLivestock3.Items.Add(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
+                }
             }
         }
 
         private void btnRegisterLivestock2_Click(object sender, EventArgs e)
         {
             string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockTagNumber = ipdRegisterLivestock2.Text, livestockGender;
-            try
-            { 
+            /*try
+            { */
                 int age = Convert.ToInt32(ipdRegisterLivestock1.Text);
                 Double bid = Convert.ToDouble(ipdRegisterLivestock3.Text);
                 if(ipdRegisterLivestock2.Text.Length == 15)
@@ -162,11 +166,11 @@ namespace SD_RE_James_Clifford
                 {
                     MessageBox.Show("invalid tag number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
+            /*}
             catch (Exception)
             {
                 MessageBox.Show("Invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
         }
     }
 }

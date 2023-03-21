@@ -17,22 +17,23 @@ namespace SD_RE_James_Clifford
         }
         public void addAuction(DateTime date)
         {
-            String query = "INSERT INTO Auctions(AuctionId,AuctionDate) Values(" + nextAuctionId() + ",'" + date.ToString("yyy-MMM-ddd") + "')";
+            string auctionDate = date.Date.ToString("dd-MMM-yyy");
+            string query = "INSERT INTO Auctions(AuctionId,AuctionDate) Values(" + nextAuctionId() + ",'" + auctionDate + "')";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         public void removeAuction(DateTime date)
         {
-            String query = "DELETE FROM where AuctionDate = '" + date.ToString("yyy-MMM-ddd") + "'";
+            string query = "DELETE FROM where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
-            query = "DELETE FROM where AuctionDate = '" + date.ToString("yyy-MMM-ddd") + "'";
+            query = "DELETE FROM where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
             cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         public List<DateTime> GetDates()
         {
-            String query = "SELECT AuctionDate FROM Auction";
+            string query = "SELECT AuctionDate FROM Auctions";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<DateTime> list = new List<DateTime>();
@@ -46,7 +47,7 @@ namespace SD_RE_James_Clifford
         }
         public List<int> GetAuctionId(DateTime auctiondate)
         {
-            String query = "SELECT AuctionId FROM Auction where auctiondate = " + auctiondate.ToString("yyy-MM-ddd") ;
+            string query = "SELECT AuctionId FROM Auctions where auctiondate = " + auctiondate.Date.ToString("dd-MMM-yyy") ;
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<int> list = new List<int>();
@@ -61,12 +62,12 @@ namespace SD_RE_James_Clifford
 
         private int nextAuctionId()
         {
-            String query = "Select MAX(AuctionId) from auctions";
+            string query = "Select MAX(AuctionId) from auctions";
 
             OracleCommand cmd = new OracleCommand(query, connection);
 
             OracleDataReader data = cmd.ExecuteReader();
-
+            data.Read();
             if (data.IsDBNull(0))
             {
                 return 1;
@@ -78,18 +79,18 @@ namespace SD_RE_James_Clifford
         }
         public void addBooking(int id, double price,string timeslot,DateTime date)
         {
-            String query = "INSERT INTO Bookings(BookingId,AuctionId,timeslot,OwnerId,StartingPrice) Values(" + nextBookingId() + "," + GetAuctionId(date) + ",'" + timeslot  + "'," + id + "," + price + ")";
+            string query = "INSERT INTO Bookings(BookingId,AuctionId,timeslot,OwnerId,StartingPrice) Values(" + nextBookingId() + "," + GetAuctionId(date) + ",'" + timeslot  + "'," + id + "," + price + ")";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
         private int nextBookingId()
         {
-            String query = "Select MAX(BookingId) from Bookings";
+            string query = "Select MAX(BookingId) from Bookings";
 
             OracleCommand cmd = new OracleCommand(query, connection);
 
             OracleDataReader data = cmd.ExecuteReader();
-
+            data.Read();
             if (data.IsDBNull(0))
             {
                 return 1;
