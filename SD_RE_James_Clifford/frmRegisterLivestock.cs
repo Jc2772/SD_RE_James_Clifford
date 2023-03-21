@@ -126,6 +126,7 @@ namespace SD_RE_James_Clifford
         private void sortTimeslots()
         {
             dates = auction.GetDates(); 
+
             for(int i = 0; i < dates.Count; i++)
             {
                 id = accounts.getId();
@@ -134,6 +135,7 @@ namespace SD_RE_James_Clifford
                     cbxRegisterLivestock3.Items.Add(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
                 }
             }
+            verifytime();
         }
 
         private void btnRegisterLivestock2_Click(object sender, EventArgs e)
@@ -171,6 +173,22 @@ namespace SD_RE_James_Clifford
             {
                 MessageBox.Show("Invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }*/
+        }
+        public void verifytime()
+        {
+            List<string> time = auction.getTimes();
+            List<DateTime> date = auction.GetAuctionDates();
+            for(int i = 0; i < cbxRegisterLivestock3.Items.Count; i++)
+            {
+                for(int j = 0; j < time.Count; j++)
+                {
+                    String value = cbxRegisterLivestock3.Items[i].ToString();
+                    if (value.Contains(time[j])&& value.Contains(date[j].ToString()))
+                    {
+                        cbxRegisterLivestock3.Items.RemoveAt(i);
+                    }
+                }
+            }
         }
     }
 }

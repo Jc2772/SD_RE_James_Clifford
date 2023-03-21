@@ -45,21 +45,30 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
-        public List<int> GetAuctionId(DateTime auctiondate)
+        public int GetAuctionId(DateTime auctiondate)
         {
-            string query = "SELECT AuctionId FROM Auctions where auctiondate = " + auctiondate.Date.ToString("dd-MMM-yyy") ;
+            string query = "SELECT AuctionId FROM Auctions where auctiondate = '" + auctiondate.Date.ToString("dd-MMM-yyy") + "'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<int> list = new List<int>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            int id = Convert.ToInt32(dataset.Tables[0].Rows[0].ToString());
+            return id ;
+        }
+        public List<DateTime> GetAuctionDates()
+        {
+            string query = "SELECT auctions.AuctionDate FROM (Bookings inner join Auctions on bookings.auctionid = auctions.auctionid) where bookingstatus = 'U'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<DateTime> list = new List<DateTime>();
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
             foreach (DataRow row in dataset.Tables[0].Rows)
             {
-                list.Add(Convert.ToInt32(row[0]));
+                list.Add(DateTime.Parse(row[0].ToString()));
             }
             return list;
         }
-
         private int nextAuctionId()
         {
             string query = "Select MAX(AuctionId) from auctions";
@@ -83,6 +92,21 @@ namespace SD_RE_James_Clifford
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
+        public List<string> getTimes()
+        {
+            string query = "SELECT TimeSlot FROM Bookings where BookingStatus = 'U'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
+        }
+
         private int nextBookingId()
         {
             string query = "Select MAX(BookingId) from Bookings";
