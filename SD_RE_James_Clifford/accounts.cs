@@ -159,7 +159,7 @@ namespace SD_RE_James_Clifford
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0]["Status"].ToString(); ;
+            String status = dataset.Tables[0].Rows[0].ToString(); ;
             return status;
         }
         public DataSet GetData(int id)

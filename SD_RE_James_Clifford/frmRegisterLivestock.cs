@@ -156,7 +156,7 @@ namespace SD_RE_James_Clifford
                        }
                        if (cbxRegisterLivestock3.SelectedIndex > -1) {
                             livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber,id[cbxRegisterLivestock4.SelectedIndex]);
-                        auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid,times[cbxRegisterLivestock3.SelectedIndex],dates[cbxRegisterLivestock3.SelectedIndex]);  
+                        auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid,times[cbxRegisterLivestock3.SelectedIndex],GetDate(), livestockTagNumber);  
                             MessageBox.Show("Livestock has been added", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                        }
                        else
@@ -189,6 +189,16 @@ namespace SD_RE_James_Clifford
                     }
                 }
             }
+        }
+        public DateTime GetDate()
+        {
+            foreach(DateTime date in dates)
+            {
+                if (cbxRegisterLivestock3.Items[cbxRegisterLivestock3.SelectedIndex].ToString().Contains(date.ToString())){
+                    return date;
+                }
+            }
+            return dates[0];
         }
     }
 }

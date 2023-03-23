@@ -139,8 +139,8 @@ namespace SD_RE_James_Clifford
             if (CheckOwner(Phone, Email))
             {
                 String status = this.accounts.getUserStatus(Phone);
-                DialogResult dialogResult = MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 if (status.Equals("D")) {
+                    DialogResult dialogResult = MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Yes)
                     {
                         accounts.reinstateAccount(Phone);
@@ -151,7 +151,7 @@ namespace SD_RE_James_Clifford
                 }
                 else
                 {
-                    MessageBox.Show("User was not registered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("User is in the system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else if (checkNull(Name, Address, town, county, Phone))

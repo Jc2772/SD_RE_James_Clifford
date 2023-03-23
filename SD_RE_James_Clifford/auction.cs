@@ -24,7 +24,7 @@ namespace SD_RE_James_Clifford
         }
         public void removeAuction(DateTime date)
         {
-            string query = "DELETE FROM where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
+            string query = "DELETE FROM Auctions where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
             query = "DELETE FROM where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
@@ -52,7 +52,7 @@ namespace SD_RE_James_Clifford
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            int id = Convert.ToInt32(dataset.Tables[0].Rows[0].ToString());
+            int id = Convert.ToInt32(dataset.Tables[0].Rows[0][0].ToString());
             return id ;
         }
         public List<DateTime> GetAuctionDates()
@@ -86,9 +86,9 @@ namespace SD_RE_James_Clifford
                 return data.GetInt32(0) + 1;
             }
         }
-        public void addBooking(int id, double price,string timeslot,DateTime date)
+        public void addBooking(int id, double price,string timeslot,DateTime date,String TagNo)
         {
-            string query = "INSERT INTO Bookings(BookingId,AuctionId,timeslot,OwnerId,StartingPrice) Values(" + nextBookingId() + "," + GetAuctionId(date) + ",'" + timeslot  + "'," + id + "," + price + ")";
+            string query = "INSERT INTO Bookings(BookingId,AuctionId,timeslot,OwnerId,StartingPrice,TagNo) Values(" + nextBookingId() + "," + GetAuctionId(date) + ",'" + timeslot  + "'," + id + "," + price +"," + TagNo  + ")";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
