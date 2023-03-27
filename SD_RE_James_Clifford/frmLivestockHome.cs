@@ -64,14 +64,14 @@ namespace SD_RE_James_Clifford
         private void registerSaleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRegisterSale enter = new frmRegisterSale(this, sales,livestock);
+            frmRegisterSale enter = new frmRegisterSale(this, sales,livestock,auction);
             enter.Show();
         }
 
         private void queryLivestockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmQueryLivestock enter = new frmQueryLivestock(this, livestock);
+            frmQueryLivestock enter = new frmQueryLivestock(this, livestock,auction);
             enter.Show();
         }
 

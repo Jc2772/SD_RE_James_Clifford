@@ -14,21 +14,23 @@ namespace SD_RE_James_Clifford
     {
         frmLivestockHome parent;
         livestock livestock;
+        auction auction;
         public frmQueryLivestock()
         {
             InitializeComponent();
         }
-        public frmQueryLivestock(frmLivestockHome Parent,livestock livestock)
+        public frmQueryLivestock(frmLivestockHome Parent,livestock livestock, auction auction)
         {
             InitializeComponent();
             this.parent = Parent;
             this.livestock = livestock;
+            this.auction = auction;
         }
 
         private void cbxQueryLivestock_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(),time = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
-            List<DateTime> dates = livestock.GetDates();
+            List<DateTime> dates = auction.GetAuctionDates();
             lblQueryLivestock2.Text = "Livestock";
             for (int i = 0; i < type.Count; i++)
             {

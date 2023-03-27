@@ -16,17 +16,16 @@ namespace SD_RE_James_Clifford
             this.connection = connection;
         }
 
-        public void setsales(string name, string phone,double final_price,string tag)
+        public void setsales(double final_price,int BookingId)
         {
-            String query = "INSERT INTO Sales(BuyerName,BuyerPhoneNo,FinalPrice,LivestockTag) VALUES ('"
-                + name + "','" 
-                + phone + "'," 
-                + final_price + ",'" 
-                + tag + "')";
+            String query = "INSERT INTO Sales(saleid,FinalPrice,BookingId) VALUES (" 
+                + nextSaleId() + ",'"
+                + final_price + "," 
+                + BookingId + ")";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
 
-            query = "UPDATE Livestock SET LivestockStatus = 'S' WHERE LivestockTag = '" + tag + "'";
+            query = "UPDATE Bookings SET BookingStatus = 'S' WHERE BookingId = " + BookingId;
             cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
@@ -52,7 +51,7 @@ namespace SD_RE_James_Clifford
             OracleCommand cmd = new OracleCommand(query, connection);
 
             OracleDataReader data = cmd.ExecuteReader();
-
+            data.Read();
             if (data.IsDBNull(0))
             {
                 return 1;

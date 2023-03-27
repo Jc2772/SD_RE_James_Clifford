@@ -67,7 +67,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> getLivestockAge()
         {
-            String query = "SELECT Livestock.Age FROM Livestock FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'";
+            String query = "SELECT Livestock.Age FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -96,7 +96,7 @@ namespace SD_RE_James_Clifford
         
         public List<string> getLivestockTagNumber()
         {
-            String query = "SELECT LivestockTag FROM Bookings Where BookingStatus =  'U'";
+            String query = "SELECT TagNo FROM Bookings Where BookingStatus =  'U'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
@@ -122,20 +122,6 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
-        public List<DateTime> GetDates()
-        {
-            String query = "SELECT Auctions.AuctionDate FROM ((Bookings INNER JOIN Booking.TagNo = Livestock.TagNo) INNER JOIN (Bookings.AuctionId = Auction.AuctionId) Where BookingStatus = 'U'  ";
-            OracleCommand cmd = new OracleCommand(query, connection);
-            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
-            List<DateTime> list = new List<DateTime>();
-            DataSet dataset = new DataSet();
-            dataAdapter.Fill(dataset);
-            foreach (DataRow row in dataset.Tables[0].Rows)
-            {
-                list.Add(DateTime.Parse(row[0].ToString()));
-            }
-            return list;
-        }
         public List<String> GetTimes()
         {
             String query = "SELECT TimeSlot From Bookings Where BookingStatus =  'U'";
@@ -152,7 +138,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> AnalyseLiveStock()
         {
-            String query = "SELECT Livestock.LivestockType FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'";
+            String query = "SELECT Livestock.LivestockType FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'S'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();

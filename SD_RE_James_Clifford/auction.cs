@@ -106,6 +106,16 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
+        public int getBookingId(string TagNo)
+        {
+            string query = "SELECT BookingId FROM Bookings where TagNo = '" + TagNo + "'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            int id = Convert.ToInt32(dataset.Tables[0].Rows[0][0].ToString());
+            return id;
+        }
 
         private int nextBookingId()
         {

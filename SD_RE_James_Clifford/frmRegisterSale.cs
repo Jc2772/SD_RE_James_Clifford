@@ -15,14 +15,16 @@ namespace SD_RE_James_Clifford
         frmLivestockHome parent;
         sales sales;
         livestock livestock;
+        auction auction;
         frmNewAccount val = new frmNewAccount();
-        private string tag;
-        public frmRegisterSale(frmLivestockHome parent, sales sales,livestock livestock)
+        private int BookingId;
+        public frmRegisterSale(frmLivestockHome parent, sales sales,livestock livestock,auction auction)
         {
             InitializeComponent();
             this.parent = parent;
             this.sales = sales;
             this.livestock = livestock;
+            this.auction = auction;
         }
 
         public frmRegisterSale()
@@ -32,19 +34,19 @@ namespace SD_RE_James_Clifford
 
         private void frmRegisterSale_Load(object sender, EventArgs e)
         {
-            List<string> type = livestock.getLivestockType();
+            List<string> Breed = livestock.getLivestockBreed();
             List<string> initial_bid = livestock.getinitialBid();
             
-            for (int i = 0; i < type.Count; i++)
+            for (int i = 0; i < Breed.Count; i++)
             {
-                cbxRegisterSale1.Items.Add(type[i] + "-" + initial_bid[i]);
+                cbxRegisterSale1.Items.Add(Breed[i] + "-" + initial_bid[i]);
             }
         }
 
         private void cbxRegisterSale1_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(), timeslot = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
-            List<DateTime> dates = livestock.GetDates();
+            List<DateTime> dates = auction.GetAuctionDates();
             lblRegisterSale2.Text = "Livestock";
             for (int i = 0; i < type.Count; i++)
             {
@@ -56,33 +58,26 @@ namespace SD_RE_James_Clifford
                         + "\ngender: " + gender[i]
                         + "\nage: " + age[i]
                         + "\ntag: " + tag[i]
-                        + "\ntimeslot: " + timeslot[i] + " " + livestock.GetDates()
+                        + "\ntimeslot: " + timeslot[i] + " " + dates[i]
                         + "\ninitial bid: " + initial_bid[i];
-                    this.tag = tag[i];
+                    BookingId = auction.getBookingId(tag[i]);
                 }
             }
         }
 
         private void btnRegisterSale2_Click(object sender, EventArgs e)
         {
-            if (val.CheckPhone(ipdRegisterSale2.Text))
-            {
                 try
                 {
-                    Double price = Double.Parse(ipdRegisterSale3.Text);
-                    sales.setsales(ipdRegisterSale1.Text, ipdRegisterSale2.Text, price,this.tag);
-
+                    Double price = Double.Parse(ipdRegisterSale1.Text);
+                    sales.setsales(price,BookingId);
                 }
                 catch (FormatException)
                 {
                     MessageBox.Show("invalid price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                MessageBox.Show("invalid phone number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+           
 
         private void btnRegisterSale1_Click(object sender, EventArgs e)
         {
