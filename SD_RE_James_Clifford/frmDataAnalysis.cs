@@ -37,33 +37,13 @@ namespace SD_RE_James_Clifford
         private void cbxDataAnalysis_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cbxDataAnalysis.SelectedIndex == 0)
-            {/*
-                List<String> 
-                crtDataAnalysis.Series[0].Points.Clear();
-                crtDataAnalysis.Visible = true;
-                Series series = crtDataAnalysis.Series[0];
-                series.ChartType = SeriesChartType.Bar;
-                for (int i = 0; i < 3; i++)
-                {
-                    int count = 0;
-                    foreach (String item in Type)
-                    {
-                        if (item.Equals(types[i]))
-                        {
-                            count++;
-                        }
-                    }
-                    if (count > 0)
-                    {
-                        series.Points.AddXY(types[i], );
-                    }
-                }
-            */
+            { 
             }
             if (cbxDataAnalysis.SelectedIndex == 1)
             {
                 crtDataAnalysis.Series[0].Points.Clear();
                 crtDataAnalysis.Visible = true;
+                cbxDataAnalysis2.Visible = false;
                 List<String> Type = livestock.AnalyseLiveStock();
                 String[] types = new String[] { "cattle", "sheep", "goat" };
                 Series series = crtDataAnalysis.Series[0];
@@ -99,7 +79,7 @@ namespace SD_RE_James_Clifford
 
             for (int i = 0; i < 4; i++)
             {
-                cboYear.Items.Add(year.ToString());
+                cbxDataAnalysis2.Items.Add(year.ToString());
                 year--;
             }
         }

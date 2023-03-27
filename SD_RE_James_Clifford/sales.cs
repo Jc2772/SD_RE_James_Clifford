@@ -29,9 +29,10 @@ namespace SD_RE_James_Clifford
             cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
-        public List<Double> getProfits()
+        public List<Double> getProfits(string year)
         {
-            String query = "SELECT FinalPrice * 0.15, ";
+            
+            String query = "SELECT salesFinalPrice * 0.15, From ((Bookings Inner Join Auctions on Bookings.AuctionId = Auctions.AuctionId) Inner Join Sales on Bookings.BookingId = Sales.BookingId) Where 'AuctionDate'  BETWEEN '" + year + "-01-01' AND '" + year + "-12-31'" ;
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<double> list = new List<double>();
