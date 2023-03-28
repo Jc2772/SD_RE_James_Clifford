@@ -37,7 +37,10 @@ namespace SD_RE_James_Clifford
         private void cbxDataAnalysis_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cbxDataAnalysis.SelectedIndex == 0)
-            { 
+            {
+                crtDataAnalysis.Series[0].Points.Clear();
+                crtDataAnalysis.Visible = false;
+                cbxDataAnalysis2.Visible = true;
             }
             if (cbxDataAnalysis.SelectedIndex == 1)
             {
@@ -81,6 +84,19 @@ namespace SD_RE_James_Clifford
             {
                 cbxDataAnalysis2.Items.Add(year.ToString());
                 year--;
+            }
+        }
+
+        private void cbxDataAnalysis2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            crtDataAnalysis.Visible = true;
+            Series series = crtDataAnalysis.Series[0];
+            series.ChartType = SeriesChartType.Bar;
+            List<double> money = sale.getProfits(cbxDataAnalysis2.SelectedItem.ToString());
+            List<DateTime> dates = sale.getProfitDates(cbxDataAnalysis2.SelectedItem.ToString());
+            for (int i = 0; i < money.Count; i++)
+            {
+                series.Points.AddXY(dates[i].ToString("MMMM"),money[i]);
             }
         }
     }

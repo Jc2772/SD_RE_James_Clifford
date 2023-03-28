@@ -95,6 +95,7 @@ namespace SD_RE_James_Clifford
             this.cbxDataAnalysis2.Size = new System.Drawing.Size(104, 21);
             this.cbxDataAnalysis2.TabIndex = 5;
             this.cbxDataAnalysis2.Visible = false;
+            this.cbxDataAnalysis2.SelectedIndexChanged += new System.EventHandler(this.cbxDataAnalysis2_SelectedIndexChanged);
             // 
             // frmDataAnalysis
             // 
