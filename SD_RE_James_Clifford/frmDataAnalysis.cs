@@ -92,12 +92,24 @@ namespace SD_RE_James_Clifford
             crtDataAnalysis.Visible = true;
             Series series = crtDataAnalysis.Series[0];
             series.ChartType = SeriesChartType.Bar;
-            List<double> money = sale.getProfits(cbxDataAnalysis2.SelectedItem.ToString());
+            List<Double> money = sale.getProfits(cbxDataAnalysis2.SelectedItem.ToString());
             List<DateTime> dates = sale.getProfitDates(cbxDataAnalysis2.SelectedItem.ToString());
-            for (int i = 0; i < money.Count; i++)
+            String[] types = new String[] { "Jan", "Feb", "Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+            Double[] MonthlyProfits = new Double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            for (int i = 0; i < types.Length; i++)
             {
-                series.Points.AddXY(dates[i].ToString("MMMM"),money[i]);
+                double count = 0;
+                for(int j = 0; j < dates.Count;j++)
+                {
+                    if (dates[j].ToString("MMM").Equals(types[i]))
+                    {
+                        MonthlyProfits[i] += money[j];
+                    }
+                }
             }
+            crtDataAnalysis.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
+            crtDataAnalysis.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
+            series.Points.DataBindXY(types, MonthlyProfits);
         }
     }
 }

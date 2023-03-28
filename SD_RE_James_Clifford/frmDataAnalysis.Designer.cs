@@ -76,14 +76,14 @@ namespace SD_RE_James_Clifford
             this.crtDataAnalysis.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.crtDataAnalysis.Legends.Add(legend1);
-            this.crtDataAnalysis.Location = new System.Drawing.Point(216, 104);
+            this.crtDataAnalysis.Location = new System.Drawing.Point(12, 66);
             this.crtDataAnalysis.Name = "crtDataAnalysis";
             this.crtDataAnalysis.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.crtDataAnalysis.Series.Add(series1);
-            this.crtDataAnalysis.Size = new System.Drawing.Size(377, 300);
+            this.crtDataAnalysis.Size = new System.Drawing.Size(776, 338);
             this.crtDataAnalysis.TabIndex = 4;
             this.crtDataAnalysis.Visible = false;
             // 

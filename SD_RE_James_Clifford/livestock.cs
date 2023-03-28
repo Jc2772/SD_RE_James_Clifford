@@ -138,7 +138,7 @@ namespace SD_RE_James_Clifford
         }
         public List<string> AnalyseLiveStock()
         {
-            String query = "SELECT Livestock.LivestockType FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'S'";
+            String query = "SELECT Livestock.LivestockType FROM Bookings inner join Livestock on Bookings.TagNo = Livestock.TagNo WHERE BookingStatus = 'S'";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
