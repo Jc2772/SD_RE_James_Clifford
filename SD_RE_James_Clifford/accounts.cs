@@ -115,11 +115,12 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
-        public void addValues(string name,string address1, string address2, string address3, string phone,string email)
+        public void addValues(string forename,string surname,string address1, string address2, string address3, string phone,string email)
         {
-                String query = "INSERT INTO Owners(OwnerID,OwnerName,Area,Town,County,PhoneNo,Email) VALUES (" + 
+                String query = "INSERT INTO Owners(OwnerID,ForeName,Surname,Area,Town,County,PhoneNo,Email) VALUES (" + 
                 nextId() + ",'" +
-                name + "','" +
+                forename + "','" +
+                surname + "','" +
                 address1 + "','" +
                 address2 + "','" +
                 address3 + "','" +
@@ -128,9 +129,10 @@ namespace SD_RE_James_Clifford
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
         }
-        public void updateValues(string name, string address1, string address2, string address3, string phone, string email,int id)
+        public void updateValues(string name, string surname, string address1, string address2, string address3, string phone, string email,int id)
         {
-            String query = "UPDATE Owners Set OwnerName = '" + name 
+            String query = "UPDATE Owners Set OwnerName = '" + name
+                + "',Surname = '" + surname
                 + "',Area = '" + address1 
                 + "',Town = '" + address2 
                 + "',County = '" + address3 

@@ -24,9 +24,13 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
-        public Boolean checkNull(String Name,String Address,String Town,String County,String Phone)
+        public Boolean checkNull(String Forename,String Surname,String Address,String Town,String County,String Phone)
         {
-            if (String.IsNullOrEmpty(Name))
+            if (String.IsNullOrEmpty(Forename))
+            {
+                return true;
+            }
+            else if (String.IsNullOrEmpty(Surname))
             {
                 return true;
             }
@@ -129,12 +133,13 @@ namespace SD_RE_James_Clifford
         private void btnAccountAdd_Click(object sender, EventArgs e)
         {
             string
-                Name = ipdAccountName.Text,
-                Address = ipdAccountAddress1.Text,
-                town = ipdAccountAddress2.Text,
-                county = ipdAccountAddress3.Text,
-                Phone = ipdAccountPhone.Text,
-                Email = ipdAccountEmail.Text;
+                foreame = ipdNewAccount1.Text,
+                surname = ipdNewAccount2.Text,
+                Address = ipdNewAccount3.Text,
+                town = ipdNewAccount4.Text,
+                county = ipdNewAccount5.Text,
+                Phone = ipdNewAccount6.Text,
+                Email = ipdNewAccount7.Text;
 
             if (CheckOwner(Phone, Email))
             {
@@ -144,6 +149,7 @@ namespace SD_RE_James_Clifford
                     if (dialogResult == DialogResult.Yes)
                     {
                         accounts.reinstateAccount(Phone);
+                        resetform();
                     }
                     else {
                         MessageBox.Show("User was not registered", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -154,7 +160,7 @@ namespace SD_RE_James_Clifford
                     MessageBox.Show("User is in the system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (checkNull(Name, Address, town, county, Phone))
+            else if (checkNull(Name,surname, Address, town, county, Phone))
             {
                 MessageBox.Show("Values are empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -172,9 +178,20 @@ namespace SD_RE_James_Clifford
                 {
                     Email = "None supplied";
                 }
-                accounts.addValues(Name,Address,town,county,Phone,Email);
+                accounts.addValues(Name,surname,Address,town,county,Phone,Email);
                 MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                resetform();
             }
+        }
+        public void resetform()
+        {
+            ipdNewAccount1.Refresh();
+            ipdNewAccount2.Refresh();
+            ipdNewAccount3.Refresh();
+            ipdNewAccount4.Refresh();
+            ipdNewAccount5.Refresh();
+            ipdNewAccount6.Refresh();
+            ipdNewAccount7.Refresh();
         }
     }
 }

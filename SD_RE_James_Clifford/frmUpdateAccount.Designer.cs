@@ -46,7 +46,7 @@ namespace SD_RE_James_Clifford
             // 
             // ipdUpdateEmail
             // 
-            this.ipdUpdateEmail.Location = new System.Drawing.Point(76, 204);
+            this.ipdUpdateEmail.Location = new System.Drawing.Point(80, 232);
             this.ipdUpdateEmail.MaxLength = 30;
             this.ipdUpdateEmail.Name = "ipdUpdateEmail";
             this.ipdUpdateEmail.Size = new System.Drawing.Size(100, 20);
@@ -54,7 +54,7 @@ namespace SD_RE_James_Clifford
             // 
             // ipdUpdatePhone
             // 
-            this.ipdUpdatePhone.Location = new System.Drawing.Point(122, 173);
+            this.ipdUpdatePhone.Location = new System.Drawing.Point(105, 200);
             this.ipdUpdatePhone.MaxLength = 12;
             this.ipdUpdatePhone.Name = "ipdUpdatePhone";
             this.ipdUpdatePhone.Size = new System.Drawing.Size(127, 20);
@@ -62,7 +62,7 @@ namespace SD_RE_James_Clifford
             // 
             // ipdUpdateAddress1
             // 
-            this.ipdUpdateAddress1.Location = new System.Drawing.Point(105, 83);
+            this.ipdUpdateAddress1.Location = new System.Drawing.Point(105, 113);
             this.ipdUpdateAddress1.MaxLength = 30;
             this.ipdUpdateAddress1.Name = "ipdUpdateAddress1";
             this.ipdUpdateAddress1.Size = new System.Drawing.Size(100, 20);
@@ -79,7 +79,7 @@ namespace SD_RE_James_Clifford
             // lblUpdateEmail
             // 
             this.lblUpdateEmail.AutoSize = true;
-            this.lblUpdateEmail.Location = new System.Drawing.Point(38, 207);
+            this.lblUpdateEmail.Location = new System.Drawing.Point(38, 232);
             this.lblUpdateEmail.Name = "lblUpdateEmail";
             this.lblUpdateEmail.Size = new System.Drawing.Size(32, 13);
             this.lblUpdateEmail.TabIndex = 15;
@@ -88,7 +88,7 @@ namespace SD_RE_James_Clifford
             // lblUpdatePhone
             // 
             this.lblUpdatePhone.AutoSize = true;
-            this.lblUpdatePhone.Location = new System.Drawing.Point(38, 176);
+            this.lblUpdatePhone.Location = new System.Drawing.Point(23, 203);
             this.lblUpdatePhone.Name = "lblUpdatePhone";
             this.lblUpdatePhone.Size = new System.Drawing.Size(78, 13);
             this.lblUpdatePhone.TabIndex = 14;
@@ -97,7 +97,7 @@ namespace SD_RE_James_Clifford
             // lblUpdateAddress1
             // 
             this.lblUpdateAddress1.AutoSize = true;
-            this.lblUpdateAddress1.Location = new System.Drawing.Point(38, 83);
+            this.lblUpdateAddress1.Location = new System.Drawing.Point(38, 113);
             this.lblUpdateAddress1.Name = "lblUpdateAddress1";
             this.lblUpdateAddress1.Size = new System.Drawing.Size(45, 13);
             this.lblUpdateAddress1.TabIndex = 13;
@@ -124,7 +124,7 @@ namespace SD_RE_James_Clifford
             // 
             // ipdUpdateAddress2
             // 
-            this.ipdUpdateAddress2.Location = new System.Drawing.Point(105, 121);
+            this.ipdUpdateAddress2.Location = new System.Drawing.Point(105, 148);
             this.ipdUpdateAddress2.MaxLength = 30;
             this.ipdUpdateAddress2.Name = "ipdUpdateAddress2";
             this.ipdUpdateAddress2.Size = new System.Drawing.Size(100, 20);
@@ -133,7 +133,7 @@ namespace SD_RE_James_Clifford
             // lblUpdateAccount5
             // 
             this.lblUpdateAccount5.AutoSize = true;
-            this.lblUpdateAccount5.Location = new System.Drawing.Point(38, 121);
+            this.lblUpdateAccount5.Location = new System.Drawing.Point(38, 148);
             this.lblUpdateAccount5.Name = "lblUpdateAccount5";
             this.lblUpdateAccount5.Size = new System.Drawing.Size(34, 13);
             this.lblUpdateAccount5.TabIndex = 21;
@@ -141,7 +141,7 @@ namespace SD_RE_James_Clifford
             // 
             // ipdUpdateAddress3
             // 
-            this.ipdUpdateAddress3.Location = new System.Drawing.Point(105, 147);
+            this.ipdUpdateAddress3.Location = new System.Drawing.Point(105, 174);
             this.ipdUpdateAddress3.MaxLength = 30;
             this.ipdUpdateAddress3.Name = "ipdUpdateAddress3";
             this.ipdUpdateAddress3.Size = new System.Drawing.Size(100, 20);
@@ -150,7 +150,7 @@ namespace SD_RE_James_Clifford
             // lblUpdateAccount6
             // 
             this.lblUpdateAccount6.AutoSize = true;
-            this.lblUpdateAccount6.Location = new System.Drawing.Point(38, 147);
+            this.lblUpdateAccount6.Location = new System.Drawing.Point(33, 177);
             this.lblUpdateAccount6.Name = "lblUpdateAccount6";
             this.lblUpdateAccount6.Size = new System.Drawing.Size(40, 13);
             this.lblUpdateAccount6.TabIndex = 23;
@@ -160,6 +160,7 @@ namespace SD_RE_James_Clifford
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.ClientSize = new System.Drawing.Size(350, 394);
             this.ControlBox = false;
             this.Controls.Add(this.ipdUpdateAddress3);

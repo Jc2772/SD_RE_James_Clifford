@@ -30,74 +30,76 @@ namespace SD_RE_James_Clifford
         private void InitializeComponent()
         {
             this.btnAccountAdd = new System.Windows.Forms.Button();
-            this.lblAccountName = new System.Windows.Forms.Label();
-            this.lblAccountAddress1 = new System.Windows.Forms.Label();
-            this.lblAccountPhone = new System.Windows.Forms.Label();
-            this.lblAccountEmail = new System.Windows.Forms.Label();
-            this.ipdAccountName = new System.Windows.Forms.TextBox();
+            this.lblNewAccount = new System.Windows.Forms.Label();
+            this.lblNewAccount3 = new System.Windows.Forms.Label();
+            this.lblNewAccount6 = new System.Windows.Forms.Label();
+            this.lblNewAccount7 = new System.Windows.Forms.Label();
+            this.ipdNewAccount1 = new System.Windows.Forms.TextBox();
             this.btnAccountReturn = new System.Windows.Forms.Button();
-            this.ipdAccountAddress1 = new System.Windows.Forms.TextBox();
-            this.ipdAccountPhone = new System.Windows.Forms.TextBox();
-            this.ipdAccountEmail = new System.Windows.Forms.TextBox();
-            this.ipdAccountAddress3 = new System.Windows.Forms.TextBox();
-            this.lblAccountAddress3 = new System.Windows.Forms.Label();
-            this.ipdAccountAddress2 = new System.Windows.Forms.TextBox();
-            this.lblAccountAddress2 = new System.Windows.Forms.Label();
+            this.ipdNewAccount3 = new System.Windows.Forms.TextBox();
+            this.ipdNewAccount6 = new System.Windows.Forms.TextBox();
+            this.ipdNewAccount7 = new System.Windows.Forms.TextBox();
+            this.ipdNewAccount5 = new System.Windows.Forms.TextBox();
+            this.lblNewAccount5 = new System.Windows.Forms.Label();
+            this.ipdNewAccount4 = new System.Windows.Forms.TextBox();
+            this.lblNewAccount4 = new System.Windows.Forms.Label();
+            this.ipdNewAccount2 = new System.Windows.Forms.TextBox();
+            this.lblNewAccount2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnAccountAdd
             // 
-            this.btnAccountAdd.Location = new System.Drawing.Point(185, 313);
+            this.btnAccountAdd.Location = new System.Drawing.Point(178, 337);
             this.btnAccountAdd.Name = "btnAccountAdd";
-            this.btnAccountAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAccountAdd.Size = new System.Drawing.Size(75, 28);
             this.btnAccountAdd.TabIndex = 0;
             this.btnAccountAdd.Text = "Add";
             this.btnAccountAdd.UseVisualStyleBackColor = true;
             this.btnAccountAdd.Click += new System.EventHandler(this.btnAccountAdd_Click);
             // 
-            // lblAccountName
+            // lblNewAccount
             // 
-            this.lblAccountName.AutoSize = true;
-            this.lblAccountName.Location = new System.Drawing.Point(22, 41);
-            this.lblAccountName.Name = "lblAccountName";
-            this.lblAccountName.Size = new System.Drawing.Size(35, 13);
-            this.lblAccountName.TabIndex = 3;
-            this.lblAccountName.Text = "Name";
+            this.lblNewAccount.AutoSize = true;
+            this.lblNewAccount.Location = new System.Drawing.Point(19, 41);
+            this.lblNewAccount.Name = "lblNewAccount";
+            this.lblNewAccount.Size = new System.Drawing.Size(51, 13);
+            this.lblNewAccount.TabIndex = 3;
+            this.lblNewAccount.Text = "forename";
             // 
-            // lblAccountAddress1
+            // lblNewAccount3
             // 
-            this.lblAccountAddress1.AutoSize = true;
-            this.lblAccountAddress1.Location = new System.Drawing.Point(22, 78);
-            this.lblAccountAddress1.Name = "lblAccountAddress1";
-            this.lblAccountAddress1.Size = new System.Drawing.Size(45, 13);
-            this.lblAccountAddress1.TabIndex = 4;
-            this.lblAccountAddress1.Text = "Address";
+            this.lblNewAccount3.AutoSize = true;
+            this.lblNewAccount3.Location = new System.Drawing.Point(22, 138);
+            this.lblNewAccount3.Name = "lblNewAccount3";
+            this.lblNewAccount3.Size = new System.Drawing.Size(45, 13);
+            this.lblNewAccount3.TabIndex = 4;
+            this.lblNewAccount3.Text = "Address";
             // 
-            // lblAccountPhone
+            // lblNewAccount6
             // 
-            this.lblAccountPhone.AutoSize = true;
-            this.lblAccountPhone.Location = new System.Drawing.Point(5, 209);
-            this.lblAccountPhone.Name = "lblAccountPhone";
-            this.lblAccountPhone.Size = new System.Drawing.Size(78, 13);
-            this.lblAccountPhone.TabIndex = 5;
-            this.lblAccountPhone.Text = "Phone Number";
+            this.lblNewAccount6.AutoSize = true;
+            this.lblNewAccount6.Location = new System.Drawing.Point(12, 273);
+            this.lblNewAccount6.Name = "lblNewAccount6";
+            this.lblNewAccount6.Size = new System.Drawing.Size(78, 13);
+            this.lblNewAccount6.TabIndex = 5;
+            this.lblNewAccount6.Text = "Phone Number";
             // 
-            // lblAccountEmail
+            // lblNewAccount7
             // 
-            this.lblAccountEmail.AutoSize = true;
-            this.lblAccountEmail.Location = new System.Drawing.Point(22, 267);
-            this.lblAccountEmail.Name = "lblAccountEmail";
-            this.lblAccountEmail.Size = new System.Drawing.Size(32, 13);
-            this.lblAccountEmail.TabIndex = 6;
-            this.lblAccountEmail.Text = "Email";
+            this.lblNewAccount7.AutoSize = true;
+            this.lblNewAccount7.Location = new System.Drawing.Point(22, 314);
+            this.lblNewAccount7.Name = "lblNewAccount7";
+            this.lblNewAccount7.Size = new System.Drawing.Size(32, 13);
+            this.lblNewAccount7.TabIndex = 6;
+            this.lblNewAccount7.Text = "Email";
             // 
-            // ipdAccountName
+            // ipdNewAccount1
             // 
-            this.ipdAccountName.Location = new System.Drawing.Point(89, 38);
-            this.ipdAccountName.MaxLength = 30;
-            this.ipdAccountName.Name = "ipdAccountName";
-            this.ipdAccountName.Size = new System.Drawing.Size(100, 20);
-            this.ipdAccountName.TabIndex = 7;
+            this.ipdNewAccount1.Location = new System.Drawing.Point(89, 38);
+            this.ipdNewAccount1.MaxLength = 30;
+            this.ipdNewAccount1.Name = "ipdNewAccount1";
+            this.ipdNewAccount1.Size = new System.Drawing.Size(100, 20);
+            this.ipdNewAccount1.TabIndex = 7;
             // 
             // btnAccountReturn
             // 
@@ -109,63 +111,79 @@ namespace SD_RE_James_Clifford
             this.btnAccountReturn.UseVisualStyleBackColor = true;
             this.btnAccountReturn.Click += new System.EventHandler(this.btnAccountReturn_Click);
             // 
-            // ipdAccountAddress1
+            // ipdNewAccount3
             // 
-            this.ipdAccountAddress1.Location = new System.Drawing.Point(89, 78);
-            this.ipdAccountAddress1.MaxLength = 30;
-            this.ipdAccountAddress1.Name = "ipdAccountAddress1";
-            this.ipdAccountAddress1.Size = new System.Drawing.Size(100, 20);
-            this.ipdAccountAddress1.TabIndex = 9;
+            this.ipdNewAccount3.Location = new System.Drawing.Point(89, 131);
+            this.ipdNewAccount3.MaxLength = 30;
+            this.ipdNewAccount3.Name = "ipdNewAccount3";
+            this.ipdNewAccount3.Size = new System.Drawing.Size(100, 20);
+            this.ipdNewAccount3.TabIndex = 9;
             // 
-            // ipdAccountPhone
+            // ipdNewAccount6
             // 
-            this.ipdAccountPhone.Location = new System.Drawing.Point(89, 209);
-            this.ipdAccountPhone.MaxLength = 12;
-            this.ipdAccountPhone.Name = "ipdAccountPhone";
-            this.ipdAccountPhone.Size = new System.Drawing.Size(127, 20);
-            this.ipdAccountPhone.TabIndex = 10;
+            this.ipdNewAccount6.Location = new System.Drawing.Point(96, 266);
+            this.ipdNewAccount6.MaxLength = 12;
+            this.ipdNewAccount6.Name = "ipdNewAccount6";
+            this.ipdNewAccount6.Size = new System.Drawing.Size(127, 20);
+            this.ipdNewAccount6.TabIndex = 10;
             // 
-            // ipdAccountEmail
+            // ipdNewAccount7
             // 
-            this.ipdAccountEmail.Location = new System.Drawing.Point(89, 264);
-            this.ipdAccountEmail.MaxLength = 30;
-            this.ipdAccountEmail.Name = "ipdAccountEmail";
-            this.ipdAccountEmail.Size = new System.Drawing.Size(100, 20);
-            this.ipdAccountEmail.TabIndex = 11;
+            this.ipdNewAccount7.Location = new System.Drawing.Point(89, 311);
+            this.ipdNewAccount7.MaxLength = 30;
+            this.ipdNewAccount7.Name = "ipdNewAccount7";
+            this.ipdNewAccount7.Size = new System.Drawing.Size(100, 20);
+            this.ipdNewAccount7.TabIndex = 11;
             // 
-            // ipdAccountAddress3
+            // ipdNewAccount5
             // 
-            this.ipdAccountAddress3.Location = new System.Drawing.Point(89, 167);
-            this.ipdAccountAddress3.MaxLength = 30;
-            this.ipdAccountAddress3.Name = "ipdAccountAddress3";
-            this.ipdAccountAddress3.Size = new System.Drawing.Size(100, 20);
-            this.ipdAccountAddress3.TabIndex = 13;
+            this.ipdNewAccount5.Location = new System.Drawing.Point(96, 224);
+            this.ipdNewAccount5.MaxLength = 30;
+            this.ipdNewAccount5.Name = "ipdNewAccount5";
+            this.ipdNewAccount5.Size = new System.Drawing.Size(100, 20);
+            this.ipdNewAccount5.TabIndex = 13;
             // 
-            // lblAccountAddress3
+            // lblNewAccount5
             // 
-            this.lblAccountAddress3.AutoSize = true;
-            this.lblAccountAddress3.Location = new System.Drawing.Point(22, 170);
-            this.lblAccountAddress3.Name = "lblAccountAddress3";
-            this.lblAccountAddress3.Size = new System.Drawing.Size(40, 13);
-            this.lblAccountAddress3.TabIndex = 12;
-            this.lblAccountAddress3.Text = "County";
+            this.lblNewAccount5.AutoSize = true;
+            this.lblNewAccount5.Location = new System.Drawing.Point(22, 227);
+            this.lblNewAccount5.Name = "lblNewAccount5";
+            this.lblNewAccount5.Size = new System.Drawing.Size(40, 13);
+            this.lblNewAccount5.TabIndex = 12;
+            this.lblNewAccount5.Text = "County";
             // 
-            // ipdAccountAddress2
+            // ipdNewAccount4
             // 
-            this.ipdAccountAddress2.Location = new System.Drawing.Point(89, 125);
-            this.ipdAccountAddress2.MaxLength = 30;
-            this.ipdAccountAddress2.Name = "ipdAccountAddress2";
-            this.ipdAccountAddress2.Size = new System.Drawing.Size(100, 20);
-            this.ipdAccountAddress2.TabIndex = 15;
+            this.ipdNewAccount4.Location = new System.Drawing.Point(89, 177);
+            this.ipdNewAccount4.MaxLength = 30;
+            this.ipdNewAccount4.Name = "ipdNewAccount4";
+            this.ipdNewAccount4.Size = new System.Drawing.Size(100, 20);
+            this.ipdNewAccount4.TabIndex = 15;
             // 
-            // lblAccountAddress2
+            // lblNewAccount4
             // 
-            this.lblAccountAddress2.AutoSize = true;
-            this.lblAccountAddress2.Location = new System.Drawing.Point(22, 125);
-            this.lblAccountAddress2.Name = "lblAccountAddress2";
-            this.lblAccountAddress2.Size = new System.Drawing.Size(30, 13);
-            this.lblAccountAddress2.TabIndex = 14;
-            this.lblAccountAddress2.Text = "town";
+            this.lblNewAccount4.AutoSize = true;
+            this.lblNewAccount4.Location = new System.Drawing.Point(24, 180);
+            this.lblNewAccount4.Name = "lblNewAccount4";
+            this.lblNewAccount4.Size = new System.Drawing.Size(30, 13);
+            this.lblNewAccount4.TabIndex = 14;
+            this.lblNewAccount4.Text = "town";
+            // 
+            // ipdNewAccount2
+            // 
+            this.ipdNewAccount2.Location = new System.Drawing.Point(89, 84);
+            this.ipdNewAccount2.Name = "ipdNewAccount2";
+            this.ipdNewAccount2.Size = new System.Drawing.Size(100, 20);
+            this.ipdNewAccount2.TabIndex = 16;
+            // 
+            // lblNewAccount2
+            // 
+            this.lblNewAccount2.AutoSize = true;
+            this.lblNewAccount2.Location = new System.Drawing.Point(19, 87);
+            this.lblNewAccount2.Name = "lblNewAccount2";
+            this.lblNewAccount2.Size = new System.Drawing.Size(47, 13);
+            this.lblNewAccount2.TabIndex = 17;
+            this.lblNewAccount2.Text = "surname";
             // 
             // frmNewAccount
             // 
@@ -173,19 +191,21 @@ namespace SD_RE_James_Clifford
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 377);
             this.ControlBox = false;
-            this.Controls.Add(this.ipdAccountAddress2);
-            this.Controls.Add(this.lblAccountAddress2);
-            this.Controls.Add(this.ipdAccountAddress3);
-            this.Controls.Add(this.lblAccountAddress3);
-            this.Controls.Add(this.ipdAccountEmail);
-            this.Controls.Add(this.ipdAccountPhone);
-            this.Controls.Add(this.ipdAccountAddress1);
+            this.Controls.Add(this.lblNewAccount2);
+            this.Controls.Add(this.ipdNewAccount2);
+            this.Controls.Add(this.ipdNewAccount4);
+            this.Controls.Add(this.lblNewAccount4);
+            this.Controls.Add(this.ipdNewAccount5);
+            this.Controls.Add(this.lblNewAccount5);
+            this.Controls.Add(this.ipdNewAccount7);
+            this.Controls.Add(this.ipdNewAccount6);
+            this.Controls.Add(this.ipdNewAccount3);
             this.Controls.Add(this.btnAccountReturn);
-            this.Controls.Add(this.ipdAccountName);
-            this.Controls.Add(this.lblAccountEmail);
-            this.Controls.Add(this.lblAccountPhone);
-            this.Controls.Add(this.lblAccountAddress1);
-            this.Controls.Add(this.lblAccountName);
+            this.Controls.Add(this.ipdNewAccount1);
+            this.Controls.Add(this.lblNewAccount7);
+            this.Controls.Add(this.lblNewAccount6);
+            this.Controls.Add(this.lblNewAccount3);
+            this.Controls.Add(this.lblNewAccount);
             this.Controls.Add(this.btnAccountAdd);
             this.Name = "frmNewAccount";
             this.Text = "frmNewAccount";
@@ -197,18 +217,20 @@ namespace SD_RE_James_Clifford
         #endregion
 
         private System.Windows.Forms.Button btnAccountAdd;
-        private System.Windows.Forms.Label lblAccountName;
-        private System.Windows.Forms.Label lblAccountAddress1;
-        private System.Windows.Forms.Label lblAccountPhone;
-        private System.Windows.Forms.Label lblAccountEmail;
-        private System.Windows.Forms.TextBox ipdAccountName;
+        private System.Windows.Forms.Label lblNewAccount;
+        private System.Windows.Forms.Label lblNewAccount3;
+        private System.Windows.Forms.Label lblNewAccount6;
+        private System.Windows.Forms.Label lblNewAccount7;
+        private System.Windows.Forms.TextBox ipdNewAccount1;
         private System.Windows.Forms.Button btnAccountReturn;
-        private System.Windows.Forms.TextBox ipdAccountAddress1;
-        private System.Windows.Forms.TextBox ipdAccountPhone;
-        private System.Windows.Forms.TextBox ipdAccountEmail;
-        private System.Windows.Forms.TextBox ipdAccountAddress3;
-        private System.Windows.Forms.Label lblAccountAddress3;
-        private System.Windows.Forms.TextBox ipdAccountAddress2;
-        private System.Windows.Forms.Label lblAccountAddress2;
+        private System.Windows.Forms.TextBox ipdNewAccount3;
+        private System.Windows.Forms.TextBox ipdNewAccount6;
+        private System.Windows.Forms.TextBox ipdNewAccount7;
+        private System.Windows.Forms.TextBox ipdNewAccount5;
+        private System.Windows.Forms.Label lblNewAccount5;
+        private System.Windows.Forms.TextBox ipdNewAccount4;
+        private System.Windows.Forms.Label lblNewAccount4;
+        private System.Windows.Forms.TextBox ipdNewAccount2;
+        private System.Windows.Forms.Label lblNewAccount2;
     }
 }
