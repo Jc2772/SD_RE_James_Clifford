@@ -141,39 +141,45 @@ namespace SD_RE_James_Clifford
         private void btnRegisterLivestock2_Click(object sender, EventArgs e)
         {
             string livestockType = cbxRegisterLivestock1.Text, livestockBreed = cbxRegisterLivestock2.Text, livestockTagNumber = ipdRegisterLivestock2.Text, livestockGender;
-            /*try
-            {*/
+            try
+            {
                 int age = Convert.ToInt32(ipdRegisterLivestock1.Text);
                 Double bid = Convert.ToDouble(ipdRegisterLivestock3.Text);
-                if(ipdRegisterLivestock2.Text.Length == 15)
-                   {
-                       if(ckxRegisterLivestock1.Checked) {
+                if (checkMoney(ipdRegisterLivestock3.Text)) {
+                    if (ipdRegisterLivestock2.Text.Length == 15)
+                    {
+                        if (ckxRegisterLivestock1.Checked) {
                             livestockGender = "M";
-                       }
-                       else
-                       {
+                        }
+                        else
+                        {
                             livestockGender = "F";
-                       }
-                       if (cbxRegisterLivestock3.SelectedIndex > -1) {
-                            livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber,id[cbxRegisterLivestock4.SelectedIndex]);
-                            auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid,times[cbxRegisterLivestock3.SelectedIndex],GetDate(), livestockTagNumber);  
+                        }
+                        if (cbxRegisterLivestock3.SelectedIndex > -1) {
+                            livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber, id[cbxRegisterLivestock4.SelectedIndex]);
+                            auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid, times[cbxRegisterLivestock3.SelectedIndex], GetDate(), livestockTagNumber);
                             MessageBox.Show("Livestock has been added", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             updateform();
-                       }
-                       else
-                       {
+                        }
+                        else
+                        {
                             MessageBox.Show("invalid owner", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                       }
+                        }
                     }
+                    else
+                    {
+                        MessageBox.Show("invalid tag number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } 
+                }
                 else
                 {
-                    MessageBox.Show("invalid tag number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("invald money", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            /*}
+            }
             catch (Exception)
             {
                 MessageBox.Show("Invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
         }
         public void verifytime()
         {
@@ -212,6 +218,24 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock2.SelectedIndex = -1;
             cbxRegisterLivestock3.SelectedIndex = -1;
             cbxRegisterLivestock4.SelectedIndex = -1;
+        }
+        public Boolean checkMoney(String bid)
+        {
+            if(bid.Length > 7)
+            {
+                if(bid[7] == '.')
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
