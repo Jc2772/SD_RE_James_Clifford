@@ -51,6 +51,7 @@ namespace SD_RE_James_Clifford
             connection.Close();
             return list;
         }
+        // open and close is in addBookings
         public int GetAuctionId(DateTime auctiondate)
         {
             string query = "SELECT AuctionId FROM Auctions where auctiondate = '" + auctiondate.Date.ToString("dd-MMM-yyy") + "'";
