@@ -31,13 +31,14 @@ namespace SD_RE_James_Clifford
         {
             List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(),time = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
             List<DateTime> dates = auction.GetAuctionDates();
-            lblQueryLivestock2.Text = "Livestock";
+            lblQueryLivestock2.Text = "";
             for (int i = 0; i < type.Count; i++)
             {
                 if (cbxQueryLivestock.SelectedIndex == i)
                 {
                     lblQueryLivestock2.Text +=
-                        "\nlivestock type: " + type[i]
+                        "Livestock"
+                        +"\nlivestock type: " + type[i]
                         + "\nbreed: " + breed[i]
                         + "\ngender: " + gender[i]
                         + "\nage: " + age[i]

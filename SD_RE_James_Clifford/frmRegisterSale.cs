@@ -47,22 +47,17 @@ namespace SD_RE_James_Clifford
         {
             List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(), timeslot = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
             List<DateTime> dates = auction.GetAuctionDates();
-            lblRegisterSale2.Text = "Livestock";
-            for (int i = 0; i < type.Count; i++)
-            {
-                if (cbxRegisterSale1.SelectedIndex == i)
-                {
-                    lblRegisterSale2.Text +=
-                        "\nlivestock type: " + type[i]
-                        + "\nbreed: " + breed[i]
-                        + "\ngender: " + gender[i]
-                        + "\nage: " + age[i]
-                        + "\ntag: " + tag[i]
-                        + "\ntimeslot: " + timeslot[i] + " " + dates[i]
-                        + "\ninitial bid: " + initial_bid[i];
-                    BookingId = auction.getBookingId(tag[i]);
-                }
-            }
+            lblRegisterSale2.Text = "";
+            int i = cbxRegisterSale1.SelectedIndex;
+            lblRegisterSale2.Text += "Livestock"
+            + "\nlivestock type: " + type[i]
+            + "\nbreed: " + breed[i]
+            + "\ngender: " + gender[i]
+            + "\nage: " + age[i]
+            + "\ntag: " + tag[i]
+            + "\ntimeslot: " + timeslot[i] + " " + dates[i]
+            + "\ninitial bid: " + initial_bid[i];
+            BookingId = auction.getBookingId(tag[i]);
         }
 
         private void btnRegisterSale2_Click(object sender, EventArgs e)
@@ -71,6 +66,8 @@ namespace SD_RE_James_Clifford
                 {
                     Double price = Double.Parse(ipdRegisterSale1.Text);
                     sales.setsales(price,BookingId);
+                    MessageBox.Show("Livestock Has Been Sold", "Sold", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateForm();
                 }
                 catch (FormatException)
                 {
@@ -83,6 +80,21 @@ namespace SD_RE_James_Clifford
         {
             this.Close();
             parent.Visible = true;
+        }
+
+        public void UpdateForm()
+        {
+            lblRegisterSale2.Text = "";
+            cbxRegisterSale1.Items.Clear();
+            cbxRegisterSale1.SelectedIndex = -1;
+            cbxRegisterSale1.Text = "";
+            List<string> Breed = livestock.getLivestockBreed();
+            List<string> initial_bid = livestock.getinitialBid();
+
+            for (int i = 0; i < Breed.Count; i++)
+            {
+                cbxRegisterSale1.Items.Add(Breed[i] + "-" + initial_bid[i]);
+            }
         }
     }
 }
