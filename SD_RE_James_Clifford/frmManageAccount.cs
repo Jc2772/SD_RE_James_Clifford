@@ -52,22 +52,17 @@ namespace SD_RE_James_Clifford
         {
             List<string> name = accounts.getAccName(), Address1 = accounts.getAccAddress1(), Address2 = accounts.getAccAddress2(),Address3 = accounts.getAccAddress3(),Phone = accounts.getAccPhone(),Email = accounts.getAccEmail();
             List<int> id = accounts.getId();
-            for (int i = 0; i < name.Count; i++)
-            {
-                if (cbxManageAccount.Text.Contains(name[i]))
-                {
-                    lblManageAccounts2.Text = "Account Display";
-                    this.id = id[i];
-                    lblManageAccounts2.Text +=
-                        "\nname: " + name[i]
-                        +"\nid: " + id[i]
-                        + "\nAddress1: " + Address1[i]
-                        + "\nAddress2: " + Address2[i]
-                        + "\nAddress3: " + Address3[i]
-                        + "\nPhone: " + Phone[i]
-                        + "\nEmail: " + Email[i];
-                }
-            }
+            lblManageAccounts2.Text = "Account Display";
+            int i = cbxManageAccount.SelectedIndex;
+            this.id = id[i];
+            lblManageAccounts2.Text +=
+            "\nname: " + name[i]
+            +"\nid: " + id[i]
+            + "\nAddress1: " + Address1[i]
+            + "\nAddress2: " + Address2[i]
+            + "\nAddress3: " + Address3[i]
+            + "\nPhone: " + Phone[i]
+            + "\nEmail: " + Email[i];
         }
 
         private void btnManageAccounts3_Click(object sender, EventArgs e)
@@ -153,6 +148,7 @@ namespace SD_RE_James_Clifford
             List<string> name = accounts.getAccName();
             List<int> id = accounts.getId();
             cbxManageAccount.SelectedIndex = -1;
+            cbxManageAccount.Text = "";
             for (int i = 0; i < name.Count; i++)
             {
                 cbxManageAccount.Items.Add(name[i] + "-" + id[i]);
