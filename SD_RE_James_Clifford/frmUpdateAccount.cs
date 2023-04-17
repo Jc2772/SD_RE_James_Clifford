@@ -10,15 +10,15 @@ using System.Windows.Forms;
 
 namespace SD_RE_James_Clifford
 {
-    public partial class frmUpdateAccount : Form
+    public partial class frmUpdateAccount7 : Form
     {
         private int id;
         frmManageAccount accounts;
-        public frmUpdateAccount()
+        public frmUpdateAccount7()
         {
             InitializeComponent();
         }
-        public frmUpdateAccount(int id, frmManageAccount accounts)
+        public frmUpdateAccount7(int id, frmManageAccount accounts)
         {
             this.id = id;
             this.accounts = accounts;
@@ -28,12 +28,13 @@ namespace SD_RE_James_Clifford
         private void btnUpdateAccount_Click(object sender, EventArgs e)
         {
             String
-                Name = ipdUpdateName.Text,
-                Address1 = ipdUpdateAddress1.Text,
-                Address2 = ipdUpdateAddress2.Text,
-                Address3 = ipdUpdateAddress3.Text,
-                Phone = ipdUpdatePhone.Text,
-                Email = ipdUpdateEmail.Text;
+                ForeName = ipdUpdateAccount1.Text,
+                Surname = ipdUpdateAccount3.Text,
+                Address1 = ipdUpdateAccount3.Text,
+                Address2 = ipdUpdateAccount4.Text,
+                Address3 = ipdUpdateAccount5.Text,
+                Phone = ipdUpdateAccount6.Text,
+                Email = ipdUpdateAccount7.Text;
             frmNewAccount accountOptions = new frmNewAccount();
             Boolean
                 update_check1 = accountOptions.CheckPhone(Phone),
@@ -42,7 +43,7 @@ namespace SD_RE_James_Clifford
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-                accounts.checkUpdate(Name, Address1, Address2, Address3, Phone, Email, id);
+                accounts.checkUpdate(ForeName,Surname, Address1, Address2, Address3, Phone, Email, id);
             }
             else if(!update_check1)
             {

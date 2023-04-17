@@ -76,34 +76,25 @@ namespace SD_RE_James_Clifford
                 String num = Phone[i].ToString();
                 /* i got variable[i] from https://stackoverflow.com/questions/3581741/c-sharp-equivalent-to-javas-charat*/
                 /*i got Character.IsWhitespace https://stackoverflow.com/questions/19478780/how-to-check-if-string-character-is-a-space*/
-                if (i == 3 || i == 7)
+                
+                switch (Phone[i])
                 {
-                    if (!Char.IsWhiteSpace(Phone, 3) || !Char.IsWhiteSpace(Phone, 7))
+                    case '0':
+                    case '1':
+                    case '2':
+                    case '3':
+                    case '4':
+                    case '5':
+                    case '6':
+                    case '7':
+                    case '8':
+                    case '9':
                     {
-                        return true;
+                        break;
                     }
-                }
-                else
-                {
-                    switch (Phone[i])
+                    default:
                     {
-                        case '0':
-                        case '1':
-                        case '2':
-                        case '3':
-                        case '4':
-                        case '5':
-                        case '6':
-                        case '7':
-                        case '8':
-                        case '9':
-                            {
-                                break;
-                            }
-                        default:
-                            {
-                                return true;
-                            }
+                        return false;
                     }
                 }
             }
@@ -133,7 +124,7 @@ namespace SD_RE_James_Clifford
         private void btnAccountAdd_Click(object sender, EventArgs e)
         {
             string
-                foreame = ipdNewAccount1.Text,
+                forename = ipdNewAccount1.Text,
                 surname = ipdNewAccount2.Text,
                 Address = ipdNewAccount3.Text,
                 town = ipdNewAccount4.Text,
@@ -160,7 +151,7 @@ namespace SD_RE_James_Clifford
                     MessageBox.Show("User is in the system", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            else if (checkNull(Name,surname, Address, town, county, Phone))
+            else if (checkNull(forename, surname, Address, town, county, Phone))
             {
                 MessageBox.Show("Values are empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -178,7 +169,7 @@ namespace SD_RE_James_Clifford
                 {
                     Email = "None supplied";
                 }
-                accounts.addValues(Name,surname,Address,town,county,Phone,Email);
+                accounts.addValues(forename,surname,Address,town,county,Phone,Email);
                 MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 resetform();
             }

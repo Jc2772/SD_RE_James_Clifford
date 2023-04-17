@@ -32,12 +32,16 @@ namespace SD_RE_James_Clifford
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.lblDataAnalysis = new System.Windows.Forms.Label();
-            this.cbxDataAnalysis = new System.Windows.Forms.ComboBox();
             this.btnDataAnalysis = new System.Windows.Forms.Button();
-            this.crtDataAnalysis = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.crtDataAnalysis1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.cbxDataAnalysis2 = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis)).BeginInit();
+            this.crtDataAnalysis2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDataAnalysis
@@ -49,17 +53,6 @@ namespace SD_RE_James_Clifford
             this.lblDataAnalysis.TabIndex = 1;
             this.lblDataAnalysis.Text = "view data";
             // 
-            // cbxDataAnalysis
-            // 
-            this.cbxDataAnalysis.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbxDataAnalysis.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbxDataAnalysis.FormattingEnabled = true;
-            this.cbxDataAnalysis.Location = new System.Drawing.Point(12, 25);
-            this.cbxDataAnalysis.Name = "cbxDataAnalysis";
-            this.cbxDataAnalysis.Size = new System.Drawing.Size(121, 21);
-            this.cbxDataAnalysis.TabIndex = 2;
-            this.cbxDataAnalysis.SelectedIndexChanged += new System.EventHandler(this.cbxDataAnalysis_SelectedIndexChanged);
-            // 
             // btnDataAnalysis
             // 
             this.btnDataAnalysis.Location = new System.Drawing.Point(713, 12);
@@ -70,32 +63,48 @@ namespace SD_RE_James_Clifford
             this.btnDataAnalysis.UseVisualStyleBackColor = true;
             this.btnDataAnalysis.Click += new System.EventHandler(this.btnDataAnalysis_Click);
             // 
-            // crtDataAnalysis
+            // crtDataAnalysis1
             // 
             chartArea1.Name = "ChartArea1";
-            this.crtDataAnalysis.ChartAreas.Add(chartArea1);
+            this.crtDataAnalysis1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.crtDataAnalysis.Legends.Add(legend1);
-            this.crtDataAnalysis.Location = new System.Drawing.Point(12, 66);
-            this.crtDataAnalysis.Name = "crtDataAnalysis";
-            this.crtDataAnalysis.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
+            this.crtDataAnalysis1.Legends.Add(legend1);
+            this.crtDataAnalysis1.Location = new System.Drawing.Point(12, 66);
+            this.crtDataAnalysis1.Name = "crtDataAnalysis1";
+            this.crtDataAnalysis1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SemiTransparent;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.crtDataAnalysis.Series.Add(series1);
-            this.crtDataAnalysis.Size = new System.Drawing.Size(776, 338);
-            this.crtDataAnalysis.TabIndex = 4;
-            this.crtDataAnalysis.Visible = false;
+            this.crtDataAnalysis1.Series.Add(series1);
+            this.crtDataAnalysis1.Size = new System.Drawing.Size(331, 338);
+            this.crtDataAnalysis1.TabIndex = 4;
+            this.crtDataAnalysis1.Visible = false;
             // 
             // cbxDataAnalysis2
             // 
             this.cbxDataAnalysis2.FormattingEnabled = true;
-            this.cbxDataAnalysis2.Location = new System.Drawing.Point(159, 25);
+            this.cbxDataAnalysis2.Location = new System.Drawing.Point(12, 25);
             this.cbxDataAnalysis2.Name = "cbxDataAnalysis2";
             this.cbxDataAnalysis2.Size = new System.Drawing.Size(104, 21);
             this.cbxDataAnalysis2.TabIndex = 5;
-            this.cbxDataAnalysis2.Visible = false;
             this.cbxDataAnalysis2.SelectedIndexChanged += new System.EventHandler(this.cbxDataAnalysis2_SelectedIndexChanged);
+            // 
+            // crtDataAnalysis2
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.crtDataAnalysis2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.crtDataAnalysis2.Legends.Add(legend2);
+            this.crtDataAnalysis2.Location = new System.Drawing.Point(349, 66);
+            this.crtDataAnalysis2.Name = "crtDataAnalysis2";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.crtDataAnalysis2.Series.Add(series2);
+            this.crtDataAnalysis2.Size = new System.Drawing.Size(327, 338);
+            this.crtDataAnalysis2.TabIndex = 6;
+            this.crtDataAnalysis2.Text = "chart1";
+            this.crtDataAnalysis2.Visible = false;
             // 
             // frmDataAnalysis
             // 
@@ -103,15 +112,16 @@ namespace SD_RE_James_Clifford
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.crtDataAnalysis2);
             this.Controls.Add(this.cbxDataAnalysis2);
-            this.Controls.Add(this.crtDataAnalysis);
+            this.Controls.Add(this.crtDataAnalysis1);
             this.Controls.Add(this.btnDataAnalysis);
-            this.Controls.Add(this.cbxDataAnalysis);
             this.Controls.Add(this.lblDataAnalysis);
             this.Name = "frmDataAnalysis";
             this.Text = "ite";
             this.Load += new System.EventHandler(this.frmDataAnalysis_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,9 +129,9 @@ namespace SD_RE_James_Clifford
 
         #endregion
         private System.Windows.Forms.Label lblDataAnalysis;
-        private System.Windows.Forms.ComboBox cbxDataAnalysis;
         private System.Windows.Forms.Button btnDataAnalysis;
-        private System.Windows.Forms.DataVisualization.Charting.Chart crtDataAnalysis;
+        private System.Windows.Forms.DataVisualization.Charting.Chart crtDataAnalysis1;
         private System.Windows.Forms.ComboBox cbxDataAnalysis2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart crtDataAnalysis2;
     }
 }

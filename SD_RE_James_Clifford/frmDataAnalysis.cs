@@ -34,46 +34,9 @@ namespace SD_RE_James_Clifford
             parent.Visible = true;
         }
 
-        private void cbxDataAnalysis_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cbxDataAnalysis.SelectedIndex == 0)
-            {
-                crtDataAnalysis.Series[0].Points.Clear();
-                crtDataAnalysis.Visible = false;
-                cbxDataAnalysis2.Visible = true;
-            }
-            if (cbxDataAnalysis.SelectedIndex == 1)
-            {
-                crtDataAnalysis.Series[0].Points.Clear();
-                crtDataAnalysis.Visible = true;
-                cbxDataAnalysis2.Visible = false;
-                List<String> Type = livestock.AnalyseLiveStock();
-                String[] types = new String[] { "cattle", "sheep", "goat" };
-                Series series = crtDataAnalysis.Series[0];
-                series.ChartType = SeriesChartType.Pie;
-                for(int i = 0; i< 3; i++)
-                {
-                    int count = 0;
-                    foreach(String item in Type)
-                    {
-                        if (item.Equals(types[i])){
-                            count++;
-                        }
-                    }
-                    if (count > 0)
-                    {
-                        series.Points.AddXY(types[i], count);
-                    }
-                }
-            }
-        }
-
         private void frmDataAnalysis_Load(object sender, EventArgs e)
         {
             loadYears();
-
-            cbxDataAnalysis.Items.Add("Yearly revenue analysis");
-            cbxDataAnalysis.Items.Add("Yearly livestock analysis");
         }
 
         public void loadYears()
@@ -89,27 +52,52 @@ namespace SD_RE_James_Clifford
 
         private void cbxDataAnalysis2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            crtDataAnalysis.Visible = true;
-            Series series = crtDataAnalysis.Series[0];
-            series.ChartType = SeriesChartType.Bar;
+            crtDataAnalysis1.Visible = true;
+            Series series1 = crtDataAnalysis1.Series[0];
+            series1.ChartType = SeriesChartType.Bar;
             List<Double> money = sale.getProfits(cbxDataAnalysis2.SelectedItem.ToString());
             List<DateTime> dates = sale.getProfitDates(cbxDataAnalysis2.SelectedItem.ToString());
-            String[] types = new String[] { "Jan", "Feb", "Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+            String[] date = new String[] { "Jan", "Feb", "Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
             Double[] MonthlyProfits = new Double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            for (int i = 0; i < types.Length; i++)
+            for (int i = 0; i < date.Length; i++)
             {
-                double count = 0;
                 for(int j = 0; j < dates.Count;j++)
                 {
-                    if (dates[j].ToString("MMM").Equals(types[i]))
+                    if (dates[j].ToString("MMM").Equals(date[i]))
                     {
                         MonthlyProfits[i] += money[j];
                     }
                 }
             }
-            crtDataAnalysis.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
-            crtDataAnalysis.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
-            series.Points.DataBindXY(types, MonthlyProfits);
+            crtDataAnalysis1.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
+            crtDataAnalysis1.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
+            for(int i = 0; i< date.Length; i++)
+            {
+                series1.Points.AddXY(date[i], MonthlyProfits[i]);
+                series1.Points[i].LegendText = date[i];
+            }
+
+            crtDataAnalysis2.Series[0].Points.Clear();
+            crtDataAnalysis2.Visible = true;
+            List<String> Type = livestock.AnalyseLiveStock(cbxDataAnalysis2.SelectedItem.ToString());
+            String[] types = new String[] { "cattle", "sheep", "goat" };
+            Series series2 = crtDataAnalysis2.Series[0];
+            series2.ChartType = SeriesChartType.Pie;
+            for (int i = 0; i < 3; i++)
+            {
+                int count = 0;
+                foreach (String item in Type)
+                {
+                    if (item.Equals(types[i]))
+                    {
+                        count++;
+                    }
+                }
+                if (count > 0)
+                {
+                    series2.Points.AddXY(types[i], count);
+                }
+            }
         }
     }
 }

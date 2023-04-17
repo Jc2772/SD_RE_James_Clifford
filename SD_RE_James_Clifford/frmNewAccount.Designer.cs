@@ -96,7 +96,7 @@ namespace SD_RE_James_Clifford
             // ipdNewAccount1
             // 
             this.ipdNewAccount1.Location = new System.Drawing.Point(89, 38);
-            this.ipdNewAccount1.MaxLength = 30;
+            this.ipdNewAccount1.MaxLength = 20;
             this.ipdNewAccount1.Name = "ipdNewAccount1";
             this.ipdNewAccount1.Size = new System.Drawing.Size(100, 20);
             this.ipdNewAccount1.TabIndex = 7;
@@ -114,7 +114,7 @@ namespace SD_RE_James_Clifford
             // ipdNewAccount3
             // 
             this.ipdNewAccount3.Location = new System.Drawing.Point(89, 131);
-            this.ipdNewAccount3.MaxLength = 30;
+            this.ipdNewAccount3.MaxLength = 15;
             this.ipdNewAccount3.Name = "ipdNewAccount3";
             this.ipdNewAccount3.Size = new System.Drawing.Size(100, 20);
             this.ipdNewAccount3.TabIndex = 9;
@@ -122,7 +122,7 @@ namespace SD_RE_James_Clifford
             // ipdNewAccount6
             // 
             this.ipdNewAccount6.Location = new System.Drawing.Point(96, 266);
-            this.ipdNewAccount6.MaxLength = 12;
+            this.ipdNewAccount6.MaxLength = 10;
             this.ipdNewAccount6.Name = "ipdNewAccount6";
             this.ipdNewAccount6.Size = new System.Drawing.Size(127, 20);
             this.ipdNewAccount6.TabIndex = 10;
@@ -138,7 +138,7 @@ namespace SD_RE_James_Clifford
             // ipdNewAccount5
             // 
             this.ipdNewAccount5.Location = new System.Drawing.Point(96, 224);
-            this.ipdNewAccount5.MaxLength = 30;
+            this.ipdNewAccount5.MaxLength = 10;
             this.ipdNewAccount5.Name = "ipdNewAccount5";
             this.ipdNewAccount5.Size = new System.Drawing.Size(100, 20);
             this.ipdNewAccount5.TabIndex = 13;
@@ -155,7 +155,7 @@ namespace SD_RE_James_Clifford
             // ipdNewAccount4
             // 
             this.ipdNewAccount4.Location = new System.Drawing.Point(89, 177);
-            this.ipdNewAccount4.MaxLength = 30;
+            this.ipdNewAccount4.MaxLength = 15;
             this.ipdNewAccount4.Name = "ipdNewAccount4";
             this.ipdNewAccount4.Size = new System.Drawing.Size(100, 20);
             this.ipdNewAccount4.TabIndex = 15;
@@ -172,6 +172,7 @@ namespace SD_RE_James_Clifford
             // ipdNewAccount2
             // 
             this.ipdNewAccount2.Location = new System.Drawing.Point(89, 84);
+            this.ipdNewAccount2.MaxLength = 20;
             this.ipdNewAccount2.Name = "ipdNewAccount2";
             this.ipdNewAccount2.Size = new System.Drawing.Size(100, 20);
             this.ipdNewAccount2.TabIndex = 16;

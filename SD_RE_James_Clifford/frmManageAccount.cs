@@ -29,9 +29,8 @@ namespace SD_RE_James_Clifford
         private void btnManageAccount1_Click(object sender, EventArgs e)
         {
             if (cbxManageAccount.SelectedIndex > -1) { 
-                frmUpdateAccount update = new frmUpdateAccount(id,this);
+                frmUpdateAccount7 update = new frmUpdateAccount7(id,this);
                 update.Show();
-                MessageBox.Show("Account has been updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -89,46 +88,51 @@ namespace SD_RE_James_Clifford
                 MessageBox.Show("you didnt pick a choice", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-         public void checkUpdate(String Name, String Address1, String Address2, String Address3, String Phone, String Email, int id)
+         public void checkUpdate(String ForeName,String Surname, String Address1, String Address2, String Address3, String Phone, String Email, int id)
         {
-            List<string> values = new List<string> { Name, Address1, Address2, Address3, Phone, Email };
+            List<string> values = new List<string> { ForeName,Surname, Address1, Address2, Address3, Phone, Email };
             DataSet dataset = accounts.GetData(id);
             foreach (DataRow row in dataset.Tables[0].Rows)
             {
                 int Counts = 0;
                 foreach (DataColumn column in dataset.Tables[0].Columns)
                 {
-                    if(Counts >= 1 && Counts <= 6)
+                    if(Counts >= 1 && Counts <= 7)
                     {
                         if (String.IsNullOrEmpty(values[Counts - 1])){
                             switch (Counts)
                             {
                                 case 1:
                                     {
-                                        Name = row[column].ToString();
+                                        ForeName = row[column].ToString();
                                         break;
                                     }
                                 case 2:
                                     {
-                                        Address1 = row[column].ToString();
+                                        Surname = row[column].ToString();
                                         break;
                                     }
                                 case 3:
                                     {
-                                        Address2 = row[column].ToString();
+                                        Address1 = row[column].ToString();
                                         break;
                                     }
                                 case 4:
                                     {
-                                        Address3 = row[column].ToString();
+                                        Address2 = row[column].ToString();
                                         break;
                                     }
                                 case 5:
                                     {
-                                        Phone = row[column].ToString();
+                                        Address3 = row[column].ToString();
                                         break;
                                     }
                                 case 6:
+                                    {
+                                        Phone = row[column].ToString();
+                                        break;
+                                    }
+                                case 7:
                                     {
                                         Email = row[column].ToString();
                                         break;
@@ -139,7 +143,7 @@ namespace SD_RE_James_Clifford
                     Counts++;
                 }
             }
-            accounts.updateValues(Name, Address1, Address2, Address3, Phone, Email ,id);
+            accounts.updateValues(ForeName,Surname, Address1, Address2, Address3, Phone, Email ,id);
             UpdateForm();
         }
         public void UpdateForm()

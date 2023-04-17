@@ -12,15 +12,17 @@ namespace SD_RE_James_Clifford
     public partial class accounts
     {
         OracleConnection connection;
-        public accounts(OracleConnection connection)
+        public accounts(String login)
         {
-            this.connection = connection;
+            this.connection = new OracleConnection(login);
         }
-        
+
         public List<string> getAccName()
         {
-            String query = "SELECT OwnerName FROM OWNERS WHERE Owner_Status = 'R'";
+            String query = "SELECT ForeName FROM OWNERS WHERE Owner_Status = 'R'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
@@ -29,12 +31,25 @@ namespace SD_RE_James_Clifford
             {
                 list.Add(row[0].ToString());
             }
+            query = "SELECT SurName FROM OWNERS WHERE Owner_Status = 'R'";
+            connection.Open();
+            cmd = new OracleCommand(query, connection);
+            connection.Close();
+            dataAdapter = new OracleDataAdapter(cmd);
+            dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            for(int i = 0; i < list.Count; i++)
+            {
+                list[i] = list[i] + " " + dataset.Tables[0].Rows[i][0];
+            }
             return list;
         }
         public List<string> getAccAddress1()
         {
             String query = "SELECT Area FROM OWNERS WHERE Owner_Status = 'R'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
@@ -48,7 +63,9 @@ namespace SD_RE_James_Clifford
         public List<string> getAccAddress2()
         {
             String query = "SELECT Town FROM OWNERS WHERE Owner_Status = 'R'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
@@ -62,7 +79,9 @@ namespace SD_RE_James_Clifford
         public List<string> getAccAddress3()
         {
             String query = "SELECT County FROM OWNERS WHERE Owner_Status = 'R'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
@@ -76,7 +95,9 @@ namespace SD_RE_James_Clifford
         public List<string> getAccPhone()
         {
             String query = "SELECT PhoneNo FROM OWNERS WHERE Owner_Status = 'R'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
@@ -90,7 +111,9 @@ namespace SD_RE_James_Clifford
         public List<string> getAccEmail()
         {
             String query = "SELECT Email FROM OWNERS WHERE Owner_Status = 'R'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> list = new List<string>();
             DataSet dataset = new DataSet();
@@ -104,7 +127,9 @@ namespace SD_RE_James_Clifford
         public List<int> getId()
         {
             String query = "SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<int> list = new List<int>();
             DataSet dataset = new DataSet();
@@ -117,7 +142,8 @@ namespace SD_RE_James_Clifford
         }
         public void addValues(string forename,string surname,string address1, string address2, string address3, string phone,string email)
         {
-                String query = "INSERT INTO Owners(OwnerID,ForeName,Surname,Area,Town,County,PhoneNo,Email) VALUES (" + 
+            connection.Open();
+            String query = "INSERT INTO Owners(OwnerID,ForeName,Surname,Area,Town,County,PhoneNo,Email) VALUES (" + 
                 nextId() + ",'" +
                 forename + "','" +
                 surname + "','" +
@@ -128,10 +154,11 @@ namespace SD_RE_James_Clifford
                 email + "')";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
+            connection.Close();
         }
         public void updateValues(string name, string surname, string address1, string address2, string address3, string phone, string email,int id)
         {
-            String query = "UPDATE Owners Set OwnerName = '" + name
+            String query = "UPDATE Owners Set ForeName = '" + name
                 + "',Surname = '" + surname
                 + "',Area = '" + address1 
                 + "',Town = '" + address2 
@@ -139,50 +166,61 @@ namespace SD_RE_James_Clifford
                 + "',PhoneNo = '" + phone 
                 + "',Email = '" + email 
                 + "'WHERE " + id + " = OwnerId";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
+            connection.Close();
         }
         public void removeAccounts(int id)
         {
-            String query = "UPDATE Owners SET Owner_Status = 'D' WHERE OwnerId = " + id; 
+            String query = "UPDATE Owners SET Owner_Status = 'D' WHERE OwnerId = " + id;
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
+            connection.Close();
         }
         public void reinstateAccount(String Phone)
         {
             String query = "UPDATE Owners Set Owner_Status = 'R' WHERE PhoneNo ='" + Phone + "'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
+            connection.Close();
         }
         public string getUserStatus(String Phone)
         {
             String query = "SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" +  Phone + "'";
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            String status = dataset.Tables[0].Rows[0].ToString(); ;
+            String status = dataset.Tables[0].Rows[0].ToString();
+            connection.Close();
             return status;
         }
         public DataSet GetData(int id)
         {
             String query = "SELECT * FROM OWNERS WHERE OwnerId = " + id;
+            connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
+            connection.Close();
             return dataset;
         }
         private int nextId()
         {
             String query = "Select MAX(OwnerId) from Owners";
-
             OracleCommand cmd = new OracleCommand(query, connection);
-
             OracleDataReader data = cmd.ExecuteReader();
             data.Read();
             if (data.IsDBNull(0))
             {
+
+                
                 return 1;
             }
             else

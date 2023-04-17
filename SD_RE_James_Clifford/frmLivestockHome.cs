@@ -17,12 +17,12 @@ namespace SD_RE_James_Clifford
         auction auction;
         livestock livestock;
         sales sales;
-        OracleConnection connection;
+        String connection;
         public frmLivestockHome()
         {
             InitializeComponent();
         }
-        public frmLivestockHome(OracleConnection connection)
+        public frmLivestockHome(String connection)
         {
             this.connection = connection;
             InitializeComponent();
@@ -35,8 +35,6 @@ namespace SD_RE_James_Clifford
 
         private void btnLivestockHome7_Click(object sender, EventArgs e)
         {
-
-            connection.Close();
             Application.Exit();
         }
 

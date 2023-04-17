@@ -25,8 +25,9 @@ namespace SD_RE_James_Clifford
             {
                 OracleConnection conn = new OracleConnection(oradb);
                 conn.Open();
+                conn.Close();
                 this.Hide();
-                frmLivestockHome MainMenu = new frmLivestockHome(conn);
+                frmLivestockHome MainMenu = new frmLivestockHome(oradb);
                 MainMenu.Show();
             }
             catch(Oracle.ManagedDataAccess.Client.OracleException)
