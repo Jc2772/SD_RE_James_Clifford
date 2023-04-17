@@ -124,6 +124,7 @@ namespace SD_RE_James_Clifford
             }
             return list;
         }
+        //connection is open in addvalues()
         public List<int> getId()
         {
             String query = "SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'";

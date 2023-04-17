@@ -130,7 +130,7 @@ namespace SD_RE_James_Clifford
             int id = Convert.ToInt32(dataset.Tables[0].Rows[0][0].ToString());
             return id;
         }
-
+        //connection is open in addbookings()
         private int nextBookingId()
         {
             string query = "Select MAX(BookingId) from Bookings";

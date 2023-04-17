@@ -171,6 +171,7 @@ namespace SD_RE_James_Clifford
             connection.Close();
             return list;
         }
+        //connection is open in addvalues()
         public Boolean tagCheck(string tagNumber)
         {
             String query = "SELECT TagNo FROM Bookings";
@@ -192,7 +193,7 @@ namespace SD_RE_James_Clifford
             }
             return false;
         }
-
+        //connection is open in addvalues()
         public Boolean isSold(string tagNumber)
         {
             String query = "SELECT TagNo FROM Bookings Where BookingStatus = 'S'";

@@ -25,7 +25,6 @@ namespace SD_RE_James_Clifford
                 + BookingId + ")";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
-
             query = "UPDATE Bookings SET BookingStatus = 'S' WHERE BookingId = " + BookingId;
             cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
@@ -67,6 +66,7 @@ namespace SD_RE_James_Clifford
             connection.Close();
             return list;
         }
+        //conection is open in setsales()
         private int nextSaleId()
         {
             String query = "Select MAX(SaleId) from Sales";
