@@ -55,7 +55,7 @@ namespace SD_RE_James_Clifford
             // 
             // btnDataAnalysis
             // 
-            this.btnDataAnalysis.Location = new System.Drawing.Point(713, 12);
+            this.btnDataAnalysis.Location = new System.Drawing.Point(601, 12);
             this.btnDataAnalysis.Name = "btnDataAnalysis";
             this.btnDataAnalysis.Size = new System.Drawing.Size(75, 23);
             this.btnDataAnalysis.TabIndex = 3;
@@ -65,6 +65,10 @@ namespace SD_RE_James_Clifford
             // 
             // crtDataAnalysis1
             // 
+            this.crtDataAnalysis1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.crtDataAnalysis1.BackImageTransparentColor = System.Drawing.SystemColors.ActiveCaption;
+            this.crtDataAnalysis1.BackSecondaryColor = System.Drawing.SystemColors.ActiveCaption;
+            this.crtDataAnalysis1.BorderlineColor = System.Drawing.SystemColors.ActiveCaption;
             chartArea1.Name = "ChartArea1";
             this.crtDataAnalysis1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
@@ -91,6 +95,7 @@ namespace SD_RE_James_Clifford
             // 
             // crtDataAnalysis2
             // 
+            this.crtDataAnalysis2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             chartArea2.Name = "ChartArea1";
             this.crtDataAnalysis2.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
@@ -110,7 +115,8 @@ namespace SD_RE_James_Clifford
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(688, 450);
             this.ControlBox = false;
             this.Controls.Add(this.crtDataAnalysis2);
             this.Controls.Add(this.cbxDataAnalysis2);

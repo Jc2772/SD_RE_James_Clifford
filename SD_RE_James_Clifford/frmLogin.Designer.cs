@@ -38,12 +38,13 @@ namespace SD_RE_James_Clifford
             // 
             // btnLogin
             // 
+            this.btnLogin.BackColor = System.Drawing.SystemColors.Control;
             this.btnLogin.Location = new System.Drawing.Point(111, 138);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(116, 23);
             this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "btnLogin";
-            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // tbxLogin1
@@ -83,6 +84,7 @@ namespace SD_RE_James_Clifford
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(333, 206);
             this.Controls.Add(this.lblLogin2);
             this.Controls.Add(this.lblLogin1);

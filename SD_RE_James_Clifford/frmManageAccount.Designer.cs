@@ -62,7 +62,7 @@ namespace SD_RE_James_Clifford
             // lblManageAccounts2
             // 
             this.lblManageAccounts2.AutoSize = true;
-            this.lblManageAccounts2.Location = new System.Drawing.Point(12, 80);
+            this.lblManageAccounts2.Location = new System.Drawing.Point(12, 70);
             this.lblManageAccounts2.Name = "lblManageAccounts2";
             this.lblManageAccounts2.Size = new System.Drawing.Size(84, 13);
             this.lblManageAccounts2.TabIndex = 2;
@@ -102,6 +102,7 @@ namespace SD_RE_James_Clifford
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(439, 450);
             this.ControlBox = false;
             this.Controls.Add(this.btnManageAccounts3);

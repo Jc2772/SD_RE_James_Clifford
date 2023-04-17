@@ -53,6 +53,7 @@ namespace SD_RE_James_Clifford
         private void cbxDataAnalysis2_SelectedIndexChanged(object sender, EventArgs e)
         {
             crtDataAnalysis1.Visible = true;
+            crtDataAnalysis1.Titles.Add("Yearly Revenue");
             Series series1 = crtDataAnalysis1.Series[0];
             series1.ChartType = SeriesChartType.Bar;
             List<Double> money = sale.getProfits(cbxDataAnalysis2.SelectedItem.ToString());
@@ -74,11 +75,12 @@ namespace SD_RE_James_Clifford
             for(int i = 0; i< date.Length; i++)
             {
                 series1.Points.AddXY(date[i], MonthlyProfits[i]);
-                series1.Points[i].LegendText = date[i];
+                series1.LegendText = "Monthly Revenue";
             }
 
             crtDataAnalysis2.Series[0].Points.Clear();
             crtDataAnalysis2.Visible = true;
+            crtDataAnalysis2.Titles.Add("Livestock Analysis");
             List<String> Type = livestock.AnalyseLiveStock(cbxDataAnalysis2.SelectedItem.ToString());
             String[] types = new String[] { "cattle", "sheep", "goat" };
             Series series2 = crtDataAnalysis2.Series[0];

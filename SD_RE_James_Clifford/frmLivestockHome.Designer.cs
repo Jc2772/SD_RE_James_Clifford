@@ -68,6 +68,7 @@ namespace SD_RE_James_Clifford
             // 
             // mnuLivestockHome
             // 
+            this.mnuLivestockHome.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.mnuLivestockHome.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.manageOwnersToolStripMenuItem,
             this.manageAuctionsToolStripMenuItem,
@@ -90,14 +91,14 @@ namespace SD_RE_James_Clifford
             // registerOwnersToolStripMenuItem
             // 
             this.registerOwnersToolStripMenuItem.Name = "registerOwnersToolStripMenuItem";
-            this.registerOwnersToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.registerOwnersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registerOwnersToolStripMenuItem.Text = "register owners";
             this.registerOwnersToolStripMenuItem.Click += new System.EventHandler(this.registerOwnersToolStripMenuItem_Click);
             // 
             // updatederegisterToolStripMenuItem
             // 
             this.updatederegisterToolStripMenuItem.Name = "updatederegisterToolStripMenuItem";
-            this.updatederegisterToolStripMenuItem.Size = new System.Drawing.Size(168, 22);
+            this.updatederegisterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.updatederegisterToolStripMenuItem.Text = "update/deregister";
             this.updatederegisterToolStripMenuItem.Click += new System.EventHandler(this.updatederegisterToolStripMenuItem_Click);
             // 
@@ -115,28 +116,28 @@ namespace SD_RE_James_Clifford
             // registerLivestockToolStripMenuItem
             // 
             this.registerLivestockToolStripMenuItem.Name = "registerLivestockToolStripMenuItem";
-            this.registerLivestockToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.registerLivestockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registerLivestockToolStripMenuItem.Text = "register livestock";
             this.registerLivestockToolStripMenuItem.Click += new System.EventHandler(this.registerLivestockToolStripMenuItem_Click);
             // 
             // registerSaleToolStripMenuItem
             // 
             this.registerSaleToolStripMenuItem.Name = "registerSaleToolStripMenuItem";
-            this.registerSaleToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.registerSaleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.registerSaleToolStripMenuItem.Text = "register sale";
             this.registerSaleToolStripMenuItem.Click += new System.EventHandler(this.registerSaleToolStripMenuItem_Click);
             // 
             // queryLivestockToolStripMenuItem
             // 
             this.queryLivestockToolStripMenuItem.Name = "queryLivestockToolStripMenuItem";
-            this.queryLivestockToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.queryLivestockToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.queryLivestockToolStripMenuItem.Text = "query livestock";
             this.queryLivestockToolStripMenuItem.Click += new System.EventHandler(this.queryLivestockToolStripMenuItem_Click);
             // 
             // scheduleAuctionToolStripMenuItem
             // 
             this.scheduleAuctionToolStripMenuItem.Name = "scheduleAuctionToolStripMenuItem";
-            this.scheduleAuctionToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.scheduleAuctionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.scheduleAuctionToolStripMenuItem.Text = "Schedule auction";
             this.scheduleAuctionToolStripMenuItem.Click += new System.EventHandler(this.scheduleAuctionToolStripMenuItem_Click);
             // 
@@ -151,14 +152,15 @@ namespace SD_RE_James_Clifford
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(836, 486);
-            this.ControlBox = false;
             this.Controls.Add(this.btnLivestockHome7);
             this.Controls.Add(this.imgLivestockHome);
             this.Controls.Add(this.mnuLivestockHome);
             this.MainMenuStrip = this.mnuLivestockHome;
             this.Name = "frmLivestockHome";
             this.Text = "Livestock auction home";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLivestockHome_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.imgLivestockHome)).EndInit();
             this.mnuLivestockHome.ResumeLayout(false);
             this.mnuLivestockHome.PerformLayout();

@@ -86,5 +86,10 @@ namespace SD_RE_James_Clifford
             frmDataAnalysis enter = new frmDataAnalysis(this,sales, livestock);
             enter.Show();
         }
+
+        private void frmLivestockHome_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
