@@ -120,7 +120,7 @@ namespace SD_RE_James_Clifford
             // ipdRegisterLivestock3
             // 
             this.ipdRegisterLivestock3.Location = new System.Drawing.Point(335, 148);
-            this.ipdRegisterLivestock3.MaxLength = 7;
+            this.ipdRegisterLivestock3.MaxLength = 8;
             this.ipdRegisterLivestock3.Name = "ipdRegisterLivestock3";
             this.ipdRegisterLivestock3.Size = new System.Drawing.Size(79, 20);
             this.ipdRegisterLivestock3.TabIndex = 17;

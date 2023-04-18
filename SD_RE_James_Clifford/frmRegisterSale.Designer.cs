@@ -70,6 +70,7 @@ namespace SD_RE_James_Clifford
             // ipdRegisterSale1
             // 
             this.ipdRegisterSale1.Location = new System.Drawing.Point(398, 84);
+            this.ipdRegisterSale1.MaxLength = 8;
             this.ipdRegisterSale1.Name = "ipdRegisterSale1";
             this.ipdRegisterSale1.Size = new System.Drawing.Size(100, 20);
             this.ipdRegisterSale1.TabIndex = 5;

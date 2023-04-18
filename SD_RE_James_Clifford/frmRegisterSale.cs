@@ -62,18 +62,18 @@ namespace SD_RE_James_Clifford
 
         private void btnRegisterSale2_Click(object sender, EventArgs e)
         {
-                try
-                {
-                    Double price = Double.Parse(ipdRegisterSale1.Text);
-                    sales.setsales(price,BookingId);
-                    MessageBox.Show("Livestock Has Been Sold", "Sold", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    UpdateForm();
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("invalid price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            try
+            {
+                Double price = Double.Parse(ipdRegisterSale1.Text);
+                sales.setsales(price, BookingId);
+                MessageBox.Show("Livestock Has Been Sold", "Sold", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UpdateForm();
             }
+            catch (FormatException)
+            {
+                MessageBox.Show("invalid price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
            
 
         private void btnRegisterSale1_Click(object sender, EventArgs e)
@@ -88,6 +88,7 @@ namespace SD_RE_James_Clifford
             cbxRegisterSale1.Items.Clear();
             cbxRegisterSale1.SelectedIndex = -1;
             cbxRegisterSale1.Text = "";
+            ipdRegisterSale1.Clear();
             List<string> Breed = livestock.getLivestockBreed();
             List<string> initial_bid = livestock.getinitialBid();
 

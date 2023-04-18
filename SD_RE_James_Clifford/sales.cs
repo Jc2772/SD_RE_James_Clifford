@@ -20,7 +20,7 @@ namespace SD_RE_James_Clifford
         {
             connection.Open();
             String query = "INSERT INTO Sales(saleid,FinalPrice,BookingId) VALUES (" 
-                + nextSaleId() + ",'"
+                + nextSaleId() + ","
                 + final_price + "," 
                 + BookingId + ")";
             OracleCommand cmd = new OracleCommand(query, connection);
