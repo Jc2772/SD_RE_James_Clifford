@@ -80,7 +80,7 @@ namespace SD_RE_James_Clifford
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.crtDataAnalysis1.Series.Add(series1);
-            this.crtDataAnalysis1.Size = new System.Drawing.Size(331, 338);
+            this.crtDataAnalysis1.Size = new System.Drawing.Size(331, 581);
             this.crtDataAnalysis1.TabIndex = 4;
             this.crtDataAnalysis1.Visible = false;
             // 
@@ -106,7 +106,7 @@ namespace SD_RE_James_Clifford
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.crtDataAnalysis2.Series.Add(series2);
-            this.crtDataAnalysis2.Size = new System.Drawing.Size(327, 338);
+            this.crtDataAnalysis2.Size = new System.Drawing.Size(327, 581);
             this.crtDataAnalysis2.TabIndex = 6;
             this.crtDataAnalysis2.Text = "chart1";
             this.crtDataAnalysis2.Visible = false;
@@ -116,7 +116,7 @@ namespace SD_RE_James_Clifford
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(688, 450);
+            this.ClientSize = new System.Drawing.Size(688, 659);
             this.ControlBox = false;
             this.Controls.Add(this.crtDataAnalysis2);
             this.Controls.Add(this.cbxDataAnalysis2);

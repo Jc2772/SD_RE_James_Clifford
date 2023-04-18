@@ -52,17 +52,24 @@ namespace SD_RE_James_Clifford
 
         private void cbxDataAnalysis2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            setchart1();
+            setchart2();
+        }
+        public void setchart1()
+        {
+            crtDataAnalysis1.Series[0].Points.Clear();
+            crtDataAnalysis1.Titles.Clear();
             crtDataAnalysis1.Visible = true;
             crtDataAnalysis1.Titles.Add("Yearly Revenue");
             Series series1 = crtDataAnalysis1.Series[0];
             series1.ChartType = SeriesChartType.Bar;
             List<Double> money = sale.getProfits(cbxDataAnalysis2.SelectedItem.ToString());
             List<DateTime> dates = sale.getProfitDates(cbxDataAnalysis2.SelectedItem.ToString());
-            String[] date = new String[] { "Jan", "Feb", "Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+            String[] date = new String[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
             Double[] MonthlyProfits = new Double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             for (int i = 0; i < date.Length; i++)
             {
-                for(int j = 0; j < dates.Count;j++)
+                for (int j = 0; j < dates.Count; j++)
                 {
                     if (dates[j].ToString("MMM").Equals(date[i]))
                     {
@@ -72,13 +79,16 @@ namespace SD_RE_James_Clifford
             }
             crtDataAnalysis1.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
             crtDataAnalysis1.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
-            for(int i = 0; i< date.Length; i++)
+            for (int i = 0; i < date.Length; i++)
             {
-                series1.Points.AddXY(date[i], MonthlyProfits[i]);
+                series1.Points.DataBindXY(date, MonthlyProfits);
                 series1.LegendText = "Monthly Revenue";
             }
-
+        }
+        public void setchart2()
+        {
             crtDataAnalysis2.Series[0].Points.Clear();
+            crtDataAnalysis2.Titles.Clear();
             crtDataAnalysis2.Visible = true;
             crtDataAnalysis2.Titles.Add("Livestock Analysis");
             List<String> Type = livestock.AnalyseLiveStock(cbxDataAnalysis2.SelectedItem.ToString());
