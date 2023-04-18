@@ -164,12 +164,22 @@ namespace SD_RE_James_Clifford
         public void verifytime()
         {
             List<string> time = auction.getTimes();
-            List<DateTime> date = auction.GetAuctionDates();
-            for(int i = 0; i < date.Count; i++)
+            DateTime today = DateTime.Today;
+            for (int i = 0; i < dates.Count; i++)
             {
-                for(int j = 0; j < time.Count; j++)
+                if (DateTime.Compare(dates[i], today) <= 0)
                 {
-                    cbxRegisterLivestock3.Items.Remove(time[j] + " - " + date[i].Date.ToString("dd-MMM-yyy"));
+                    for (int j = 0; j < times.Count; j++)
+                    {
+                        cbxRegisterLivestock3.Items.Remove(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < time.Count; j++)
+                    {
+                        cbxRegisterLivestock3.Items.Remove(time[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
+                    }
                 }
             }
         }
@@ -185,9 +195,9 @@ namespace SD_RE_James_Clifford
         }
         public void updateform()
         {
-            ipdRegisterLivestock1.Refresh();
-            ipdRegisterLivestock2.Refresh();
-            ipdRegisterLivestock3.Refresh();
+            ipdRegisterLivestock1.Clear();
+            ipdRegisterLivestock2.Clear();
+            ipdRegisterLivestock3.Clear();
             ckxRegisterLivestock1.Checked = false;
             ckxRegisterLivestock2.Checked = false;
             cbxRegisterLivestock1.SelectedIndex = -1;
