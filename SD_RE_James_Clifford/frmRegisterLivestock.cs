@@ -62,27 +62,7 @@ namespace SD_RE_James_Clifford
 
         private void cbxRegisterLivestock1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbxRegisterLivestock2.Items.Remove("Limousin");
-            cbxRegisterLivestock2.Items.Remove("Charolais");
-            cbxRegisterLivestock2.Items.Remove("Aberdeen Angus");
-            cbxRegisterLivestock2.Items.Remove("Charolais");
-            cbxRegisterLivestock2.Items.Remove("Hereford");
-            cbxRegisterLivestock2.Items.Remove("Simmental");
-            cbxRegisterLivestock2.Items.Remove("Belgian Blue");
-            cbxRegisterLivestock2.Items.Remove("Jersey");
-            cbxRegisterLivestock2.Items.Remove("Salers");
-            cbxRegisterLivestock2.Items.Remove("Shorthorn");
-            cbxRegisterLivestock2.Items.Remove("Suffolk sheep");
-            cbxRegisterLivestock2.Items.Remove("Texel sheep");
-            cbxRegisterLivestock2.Items.Remove("Charollais sheep");
-            cbxRegisterLivestock2.Items.Remove("Scottish Blackface");
-            cbxRegisterLivestock2.Items.Remove("Vendéen");
-            cbxRegisterLivestock2.Items.Remove("Lleyn sheep");
-            cbxRegisterLivestock2.Items.Remove("Blue Texel sheep"); 
-            cbxRegisterLivestock2.Items.Remove("Saanen");
-            cbxRegisterLivestock2.Items.Remove("British Alpine");
-            cbxRegisterLivestock2.Items.Remove("Toggenburg");
-            cbxRegisterLivestock2.Items.Remove("Anglo-Nubian");
+            
             if (cbxRegisterLivestock1.Text.Equals("cattle"))
             {
                 cbxRegisterLivestock2.Items.Add("Limousin");
@@ -214,6 +194,29 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock2.SelectedIndex = -1;
             cbxRegisterLivestock3.SelectedIndex = -1;
             cbxRegisterLivestock4.SelectedIndex = -1;
+            verifytime();
+            resetcbx2();
+        }
+        public Boolean checkMoney(String bid)
+        {
+            if(bid.Length > 5)
+            {
+                if(bid[5] == '.')
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public void resetcbx2() {
+
             cbxRegisterLivestock2.Items.Remove("Limousin");
             cbxRegisterLivestock2.Items.Remove("Charolais");
             cbxRegisterLivestock2.Items.Remove("Aberdeen Angus");
@@ -235,24 +238,6 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock2.Items.Remove("British Alpine");
             cbxRegisterLivestock2.Items.Remove("Toggenburg");
             cbxRegisterLivestock2.Items.Remove("Anglo-Nubian");
-        }
-        public Boolean checkMoney(String bid)
-        {
-            if(bid.Length > 5)
-            {
-                if(bid[5] == '.')
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return true;
-            }
         }
     }
 }
