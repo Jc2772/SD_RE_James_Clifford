@@ -30,9 +30,6 @@ namespace SD_RE_James_Clifford
             connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
-            query = "DELETE FROM where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
-            cmd = new OracleCommand(query, connection);
-            cmd.ExecuteNonQuery();
             connection.Close();
         }
         public List<DateTime> GetDates()

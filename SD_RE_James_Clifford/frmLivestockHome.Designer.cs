@@ -38,7 +38,7 @@ namespace SD_RE_James_Clifford
             this.updatederegisterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manageAuctionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registerLivestockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registerSaleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ManageLivestockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queryLivestockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.scheduleAuctionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -106,7 +106,7 @@ namespace SD_RE_James_Clifford
             // 
             this.manageAuctionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registerLivestockToolStripMenuItem,
-            this.registerSaleToolStripMenuItem,
+            this.ManageLivestockToolStripMenuItem,
             this.queryLivestockToolStripMenuItem,
             this.scheduleAuctionToolStripMenuItem});
             this.manageAuctionsToolStripMenuItem.Name = "manageAuctionsToolStripMenuItem";
@@ -120,12 +120,12 @@ namespace SD_RE_James_Clifford
             this.registerLivestockToolStripMenuItem.Text = "register livestock";
             this.registerLivestockToolStripMenuItem.Click += new System.EventHandler(this.registerLivestockToolStripMenuItem_Click);
             // 
-            // registerSaleToolStripMenuItem
+            // ManageLivestockToolStripMenuItem
             // 
-            this.registerSaleToolStripMenuItem.Name = "registerSaleToolStripMenuItem";
-            this.registerSaleToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.registerSaleToolStripMenuItem.Text = "register sale";
-            this.registerSaleToolStripMenuItem.Click += new System.EventHandler(this.registerSaleToolStripMenuItem_Click);
+            this.ManageLivestockToolStripMenuItem.Name = "ManageLivestockToolStripMenuItem";
+            this.ManageLivestockToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.ManageLivestockToolStripMenuItem.Text = "register sale";
+            this.ManageLivestockToolStripMenuItem.Click += new System.EventHandler(this.ManageLivestockToolStripMenuItem_Click);
             // 
             // queryLivestockToolStripMenuItem
             // 
@@ -178,7 +178,7 @@ namespace SD_RE_James_Clifford
         private System.Windows.Forms.ToolStripMenuItem updatederegisterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manageAuctionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem registerLivestockToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registerSaleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ManageLivestockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem queryLivestockToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem scheduleAuctionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dataAnalysisToolStripMenuItem;

@@ -59,10 +59,10 @@ namespace SD_RE_James_Clifford
             enter.Show();
         }
 
-        private void registerSaleToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ManageLivestockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmRegisterSale enter = new frmRegisterSale(this, sales,livestock,auction);
+            frmManageLivestock enter = new frmManageLivestock(this, sales,livestock,auction);
             enter.Show();
         }
 

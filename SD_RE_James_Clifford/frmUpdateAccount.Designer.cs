@@ -51,7 +51,7 @@ namespace SD_RE_James_Clifford
             this.ipdUpdateAccount7.Location = new System.Drawing.Point(80, 232);
             this.ipdUpdateAccount7.MaxLength = 30;
             this.ipdUpdateAccount7.Name = "ipdUpdateAccount7";
-            this.ipdUpdateAccount7.Size = new System.Drawing.Size(100, 20);
+            this.ipdUpdateAccount7.Size = new System.Drawing.Size(199, 20);
             this.ipdUpdateAccount7.TabIndex = 19;
             // 
             // ipdUpdateAccount6
@@ -59,7 +59,7 @@ namespace SD_RE_James_Clifford
             this.ipdUpdateAccount6.Location = new System.Drawing.Point(105, 200);
             this.ipdUpdateAccount6.MaxLength = 10;
             this.ipdUpdateAccount6.Name = "ipdUpdateAccount6";
-            this.ipdUpdateAccount6.Size = new System.Drawing.Size(127, 20);
+            this.ipdUpdateAccount6.Size = new System.Drawing.Size(174, 20);
             this.ipdUpdateAccount6.TabIndex = 18;
             // 
             // ipdUpdateAccount3
@@ -67,7 +67,7 @@ namespace SD_RE_James_Clifford
             this.ipdUpdateAccount3.Location = new System.Drawing.Point(105, 113);
             this.ipdUpdateAccount3.MaxLength = 15;
             this.ipdUpdateAccount3.Name = "ipdUpdateAccount3";
-            this.ipdUpdateAccount3.Size = new System.Drawing.Size(100, 20);
+            this.ipdUpdateAccount3.Size = new System.Drawing.Size(174, 20);
             this.ipdUpdateAccount3.TabIndex = 17;
             // 
             // ipdUpdateAccount1
@@ -75,7 +75,7 @@ namespace SD_RE_James_Clifford
             this.ipdUpdateAccount1.Location = new System.Drawing.Point(105, 43);
             this.ipdUpdateAccount1.MaxLength = 20;
             this.ipdUpdateAccount1.Name = "ipdUpdateAccount1";
-            this.ipdUpdateAccount1.Size = new System.Drawing.Size(100, 20);
+            this.ipdUpdateAccount1.Size = new System.Drawing.Size(174, 20);
             this.ipdUpdateAccount1.TabIndex = 16;
             // 
             // lblUpdateAccount7
@@ -129,7 +129,7 @@ namespace SD_RE_James_Clifford
             this.ipdUpdateAccount4.Location = new System.Drawing.Point(105, 148);
             this.ipdUpdateAccount4.MaxLength = 15;
             this.ipdUpdateAccount4.Name = "ipdUpdateAccount4";
-            this.ipdUpdateAccount4.Size = new System.Drawing.Size(100, 20);
+            this.ipdUpdateAccount4.Size = new System.Drawing.Size(174, 20);
             this.ipdUpdateAccount4.TabIndex = 22;
             // 
             // lblUpdateAccount4
@@ -146,7 +146,7 @@ namespace SD_RE_James_Clifford
             this.ipdUpdateAccount5.Location = new System.Drawing.Point(105, 174);
             this.ipdUpdateAccount5.MaxLength = 10;
             this.ipdUpdateAccount5.Name = "ipdUpdateAccount5";
-            this.ipdUpdateAccount5.Size = new System.Drawing.Size(100, 20);
+            this.ipdUpdateAccount5.Size = new System.Drawing.Size(174, 20);
             this.ipdUpdateAccount5.TabIndex = 24;
             // 
             // lblUpdateAccount5
@@ -172,7 +172,7 @@ namespace SD_RE_James_Clifford
             this.ipdUpdateAccount2.Location = new System.Drawing.Point(105, 74);
             this.ipdUpdateAccount2.MaxLength = 20;
             this.ipdUpdateAccount2.Name = "ipdUpdateAccount2";
-            this.ipdUpdateAccount2.Size = new System.Drawing.Size(100, 20);
+            this.ipdUpdateAccount2.Size = new System.Drawing.Size(174, 20);
             this.ipdUpdateAccount2.TabIndex = 26;
             // 
             // frmUpdateAccount7

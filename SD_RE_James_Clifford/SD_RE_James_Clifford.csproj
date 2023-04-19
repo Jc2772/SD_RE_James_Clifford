@@ -98,11 +98,11 @@
     <Compile Include="frmManageAccount.Designer.cs">
       <DependentUpon>frmManageAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegisterSale.cs">
+    <Compile Include="frmManageLivestock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegisterSale.Designer.cs">
-      <DependentUpon>frmRegisterSale.cs</DependentUpon>
+    <Compile Include="frmManageLivestock.Designer.cs">
+      <DependentUpon>frmManageLivestock.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSetTime.cs">
       <SubType>Form</SubType>
@@ -161,8 +161,8 @@
     <EmbeddedResource Include="frmLivestockHome.resx">
       <DependentUpon>frmLivestockHome.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegisterSale.resx">
-      <DependentUpon>frmRegisterSale.cs</DependentUpon>
+    <EmbeddedResource Include="frmManageLivestock.resx">
+      <DependentUpon>frmManageLivestock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSetTime.resx">
       <DependentUpon>frmSetTime.cs</DependentUpon>
