@@ -101,16 +101,24 @@ namespace SD_RE_James_Clifford
             return true;
         }
         public Boolean CheckEmail(String Email)
-        { 
+        {
+            String[] emails = new String[] { "@gmail.com" , "@outlook.com" , "@yahoo.com", "@hotmail.com" };
             /*i got String.IsNullOrEmpty form https://www.geeksforgeeks.org/c-sharp-isnullorempty-method/#:~:text=In%20C%23%2C%20IsNullOrEmpty()%20is,is%20assigned%20%E2%80%9C%E2%80%9D%20or%20String.*/
-            if (Email.Contains("@gmail.com") || Email.Contains("@outlook.com") ||
-                Email.Contains("@yahoo.com") || Email.Contains("@hotmail.com") ||
-                Email.Contains("@icloud.com") || string.IsNullOrEmpty(Email))
+
+
+            if (string.IsNullOrEmpty(Email))
             {
                 return true;
             }
             else
             {
+                for (int i = 0; i < emails.Length; i++)
+                {
+                    if(Email.Substring(Email.Length - emails[i].Length, Email.Length -1).Contains(emails[i]))
+                    {
+                        return true;
+                    }
+                }
                 return false;
             }
         }
@@ -169,9 +177,15 @@ namespace SD_RE_James_Clifford
                 {
                     Email = "None supplied";
                 }
-                accounts.addValues(forename,surname,Address,town,county,Phone,Email);
-                MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                resetform();
+                try{
+                    accounts.addValues(forename, surname, Address, town, county, Phone, Email);
+                    MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    resetform();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         public void resetform()
