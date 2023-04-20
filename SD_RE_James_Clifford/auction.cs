@@ -57,7 +57,8 @@ namespace SD_RE_James_Clifford
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             DataSet dataset = new DataSet();
             dataAdapter.Fill(dataset);
-            int id = Convert.ToInt32(dataset.Tables[0].Rows[0][0].ToString());
+            int v = Convert.ToInt32(dataset.Tables[0].Rows[0][0].ToString());
+            int id = v;
             return id ;
         }
         public List<DateTime> GetAuctionDates()
@@ -146,7 +147,7 @@ namespace SD_RE_James_Clifford
         private void removebooking(DateTime auctiondate)
         {
             connection.Open();
-            String query = "SELECT BookingId FROM Bookings Inner Join Auctions on Bookings.AuctionId = Auctions.AuctionId Where auctiondate = '" + auctiondate.Date.ToString("dd-MMM-yyy") + "'";
+            String query = "SELECT BookingId FROM Bookings where auctionid = " + GetAuctionId(auctiondate);
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
             List<string> bookingid = new List<string>();

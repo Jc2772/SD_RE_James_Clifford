@@ -29,6 +29,7 @@ namespace SD_RE_James_Clifford
             this.livestock = livestock;
             this.auction = auction;
             this.accounts = accounts;
+            this.dates = auction.GetDates();
             InitializeComponent();
         }
         private void ckxRegisterLivestock1_CheckedChanged(object sender, EventArgs e)
@@ -62,7 +63,7 @@ namespace SD_RE_James_Clifford
 
         private void cbxRegisterLivestock1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updateform();
+            resetcbx();
             if (cbxRegisterLivestock1.Text.Equals("cattle"))
             {
                 cbxRegisterLivestock2.Items.Add("Limousin");
@@ -105,8 +106,6 @@ namespace SD_RE_James_Clifford
         }
         private void sortTimeslots()
         {
-            dates = auction.GetDates(); 
-
             for(int i = 0; i < dates.Count; i++)
             {
                 id = accounts.getId();
@@ -136,10 +135,16 @@ namespace SD_RE_James_Clifford
                             livestockGender = "F";
                         }
                         if (cbxRegisterLivestock3.SelectedIndex > -1 && cbxRegisterLivestock2.SelectedIndex > -1 && cbxRegisterLivestock4.SelectedIndex > -1) {
-                            livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber, id[cbxRegisterLivestock4.SelectedIndex]);
-                            auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid, times[cbxRegisterLivestock3.SelectedIndex], GetDate(), livestockTagNumber);
-                            MessageBox.Show("Livestock has been added", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            updateform();
+                            if (age > 0 && bid > 0) {
+                                livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber, id[cbxRegisterLivestock4.SelectedIndex]);
+                                auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid, times[cbxRegisterLivestock3.SelectedIndex], GetDate(), livestockTagNumber);
+                                MessageBox.Show("Livestock has been added", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                updateform();
+                            }
+                            else
+                            {
+                                MessageBox.Show("invalid numbers", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
                         }
                         else
                         {
@@ -196,16 +201,10 @@ namespace SD_RE_James_Clifford
         public void updateform()
         {
             ipdRegisterLivestock1.Clear();
-            ipdRegisterLivestock2.Clear();
-            ipdRegisterLivestock3.Clear();
             ckxRegisterLivestock1.Checked = false;
             ckxRegisterLivestock2.Checked = false;
-            cbxRegisterLivestock1.SelectedIndex = -1;
-            cbxRegisterLivestock2.SelectedIndex = -1;
-            cbxRegisterLivestock3.SelectedIndex = -1;
-            cbxRegisterLivestock4.SelectedIndex = -1;
             verifytime();
-            resetcbx2();
+            resetcbx();
         }
         public Boolean checkMoney(String bid)
         {
@@ -225,29 +224,14 @@ namespace SD_RE_James_Clifford
                 return true;
             }
         }
-        public void resetcbx2() {
-
-            cbxRegisterLivestock2.Items.Remove("Limousin");
-            cbxRegisterLivestock2.Items.Remove("Charolais");
-            cbxRegisterLivestock2.Items.Remove("Aberdeen Angus");
-            cbxRegisterLivestock2.Items.Remove("Charolais");
-            cbxRegisterLivestock2.Items.Remove("Hereford");
-            cbxRegisterLivestock2.Items.Remove("Simmental");
-            cbxRegisterLivestock2.Items.Remove("Belgian Blue");
-            cbxRegisterLivestock2.Items.Remove("Jersey");
-            cbxRegisterLivestock2.Items.Remove("Salers");
-            cbxRegisterLivestock2.Items.Remove("Shorthorn");
-            cbxRegisterLivestock2.Items.Remove("Suffolk sheep");
-            cbxRegisterLivestock2.Items.Remove("Texel sheep");
-            cbxRegisterLivestock2.Items.Remove("Charollais sheep");
-            cbxRegisterLivestock2.Items.Remove("Scottish Blackface");
-            cbxRegisterLivestock2.Items.Remove("Vendéen");
-            cbxRegisterLivestock2.Items.Remove("Lleyn sheep");
-            cbxRegisterLivestock2.Items.Remove("Blue Texel sheep");
-            cbxRegisterLivestock2.Items.Remove("Saanen");
-            cbxRegisterLivestock2.Items.Remove("British Alpine");
-            cbxRegisterLivestock2.Items.Remove("Toggenburg");
-            cbxRegisterLivestock2.Items.Remove("Anglo-Nubian");
+        public void resetcbx() {
+            cbxRegisterLivestock2.Items.Clear();
+            cbxRegisterLivestock3.Items.Clear();
+            cbxRegisterLivestock4.Items.Clear();
+            cbxRegisterLivestock1.SelectedIndex = -1;
+            cbxRegisterLivestock2.SelectedIndex = -1;
+            cbxRegisterLivestock3.SelectedIndex = -1;
+            cbxRegisterLivestock4.SelectedIndex = -1;
         }
     }
 }

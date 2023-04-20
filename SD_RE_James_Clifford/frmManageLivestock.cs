@@ -16,7 +16,6 @@ namespace SD_RE_James_Clifford
         sales sales;
         livestock livestock;
         auction auction;
-        frmNewAccount val = new frmNewAccount();
         private int BookingId;
         private string tagno;
         public frmManageLivestock(frmLivestockHome parent, sales sales,livestock livestock,auction auction)

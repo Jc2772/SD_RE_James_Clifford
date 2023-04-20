@@ -37,8 +37,15 @@ namespace SD_RE_James_Clifford
                 MessageBox.Show("invalid date","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else {
-                auction.addAuction(date);
-                MessageBox.Show("Auction date was added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                if (checkdates(date)) 
+                {
+                    MessageBox.Show("invalid date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else 
+                { 
+                    auction.addAuction(date);
+                    MessageBox.Show("Auction date was added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
 
@@ -65,6 +72,21 @@ namespace SD_RE_James_Clifford
         private void dpkSetTime_ValueChanged(object sender, EventArgs e)
         {
             lblSetTime2.Text = dpkSetTime.Text;
+        }
+        private Boolean checkdates(DateTime date)
+        {
+            List<DateTime> lod = auction.GetAuctionDates();
+            for(int i = 0; i < lod.Count; i++)
+            {
+                if (date.Equals(lod[i]))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
         }
     }
 }
