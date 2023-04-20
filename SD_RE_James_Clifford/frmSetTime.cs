@@ -82,11 +82,8 @@ namespace SD_RE_James_Clifford
                 {
                     return true;
                 }
-                else
-                {
-                    return false;
-                }
             }
+            return false;
         }
     }
 }

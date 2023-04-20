@@ -203,6 +203,10 @@ namespace SD_RE_James_Clifford
             ipdRegisterLivestock1.Clear();
             ckxRegisterLivestock1.Checked = false;
             ckxRegisterLivestock2.Checked = false;
+            cbxRegisterLivestock1.SelectedIndex = -1;
+            cbxRegisterLivestock2.SelectedIndex = -1;
+            cbxRegisterLivestock3.SelectedIndex = -1;
+            cbxRegisterLivestock4.SelectedIndex = -1;
             verifytime();
             resetcbx();
         }
@@ -228,10 +232,6 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock2.Items.Clear();
             cbxRegisterLivestock3.Items.Clear();
             cbxRegisterLivestock4.Items.Clear();
-            cbxRegisterLivestock1.SelectedIndex = -1;
-            cbxRegisterLivestock2.SelectedIndex = -1;
-            cbxRegisterLivestock3.SelectedIndex = -1;
-            cbxRegisterLivestock4.SelectedIndex = -1;
         }
     }
 }
