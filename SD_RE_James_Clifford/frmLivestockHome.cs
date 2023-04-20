@@ -91,5 +91,16 @@ namespace SD_RE_James_Clifford
         {
             Application.Exit();
         }
+        public Boolean checkifbreaks(String word)
+        {
+            if (word.Contains("'"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
