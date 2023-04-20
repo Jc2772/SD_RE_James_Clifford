@@ -46,15 +46,8 @@ namespace SD_RE_James_Clifford
         {
             DateTime date = dpkSetTime.Value;
             DateTime today = DateTime.Today;
-            if (DateTime.Compare(date, today) <= 0)
-            {
-                if (DateTime.Compare(date,today) <= 0)
-                {
-                    MessageBox.Show("invalid date","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                   }
-                else{
-                    MessageBox.Show("invalid date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            if (DateTime.Compare(date, today) <= 0){ 
+                MessageBox.Show("invalid date","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             else
             {

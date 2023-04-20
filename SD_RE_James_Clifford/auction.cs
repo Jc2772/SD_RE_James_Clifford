@@ -19,13 +19,14 @@ namespace SD_RE_James_Clifford
         {
             connection.Open();
             string auctionDate = date.Date.ToString("dd-MMM-yyy");
-            string query = "INSERT INTO Auctions(AuctionId,AuctionDate) Values(" + nextAuctionId() + ",'" + auctionDate + "')";
+            string query = "insert into auctions(auctionid,auctiondate) values(" + nextAuctionId() + ",'" + auctionDate + "')";
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
             connection.Close();
         }
         public void removeAuction(DateTime date)
         {
+            removebooking(date);
             string query = "DELETE FROM Auctions where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
             connection.Open();
             OracleCommand cmd = new OracleCommand(query, connection);
@@ -141,6 +142,51 @@ namespace SD_RE_James_Clifford
             {
                 return data.GetInt32(0) + 1;
             }
+        }
+        private void removebooking(DateTime auctiondate)
+        {
+            connection.Open();
+            String query = "SELECT BookingId FROM Bookings Inner Join Auctions on Bookings.AuctionId = Auctions.AuctionId Where auctiondate = '" + auctiondate.Date.ToString("dd-MMM-yyy") + "'";
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> bookingid = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                bookingid.Add(row[0].ToString());
+            }
+            for (int i = 0; i < bookingid.Count; i++) {
+                List<string> tagno = getTagNo(bookingid[i]);
+                query = "DELETE FROM Bookings where BookingId = " + bookingid[i];
+                cmd = new OracleCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                Removelivestock(tagno);
+            }
+            connection.Close();
+        }
+        private void Removelivestock(List<string> list)
+        {
+            for(int i = 0; i < list.Count; i++)
+            {
+                String query = "DELETE FROM Livestock where TagNo = '" + list[i] + "'";
+                OracleCommand cmd = new OracleCommand(query, connection);
+                cmd.ExecuteNonQuery();
+            }
+        }
+        private List<string> getTagNo(string bookingid)
+        {
+            String query = "SELECT TagNo FROM Bookings Where BookingId = " + bookingid;
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<string> list = new List<string>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(row[0].ToString());
+            }
+            return list;
         }
     }
 }

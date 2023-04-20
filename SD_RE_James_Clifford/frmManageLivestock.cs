@@ -83,7 +83,7 @@ namespace SD_RE_James_Clifford
                     MessageBox.Show("invalid livestock selection", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 MessageBox.Show("invalid price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

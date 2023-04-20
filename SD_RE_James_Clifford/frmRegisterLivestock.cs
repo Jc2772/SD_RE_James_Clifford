@@ -62,7 +62,7 @@ namespace SD_RE_James_Clifford
 
         private void cbxRegisterLivestock1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            updateform();
             if (cbxRegisterLivestock1.Text.Equals("cattle"))
             {
                 cbxRegisterLivestock2.Items.Add("Limousin");

@@ -114,7 +114,8 @@ namespace SD_RE_James_Clifford
             {
                 for (int i = 0; i < emails.Length; i++)
                 {
-                    if(Email.Substring(Email.Length - emails[i].Length, Email.Length -1).Contains(emails[i]))
+                    int cut = Email.Length - emails[i].Length;
+                    if (Email.Substring(cut).Contains(emails[i]))
                     {
                         return true;
                     }
@@ -190,13 +191,13 @@ namespace SD_RE_James_Clifford
         }
         public void resetform()
         {
-            ipdNewAccount1.Refresh();
-            ipdNewAccount2.Refresh();
-            ipdNewAccount3.Refresh();
-            ipdNewAccount4.Refresh();
-            ipdNewAccount5.Refresh();
-            ipdNewAccount6.Refresh();
-            ipdNewAccount7.Refresh();
+            ipdNewAccount1.Clear();
+            ipdNewAccount2.Clear();
+            ipdNewAccount3.Clear();
+            ipdNewAccount4.Clear();
+            ipdNewAccount5.Clear();
+            ipdNewAccount6.Clear();
+            ipdNewAccount7.Clear();
         }
     }
 }
