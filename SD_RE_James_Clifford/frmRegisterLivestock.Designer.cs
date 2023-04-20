@@ -111,6 +111,8 @@ namespace SD_RE_James_Clifford
             // 
             // cbxRegisterLivestock4
             // 
+            this.cbxRegisterLivestock4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbxRegisterLivestock4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbxRegisterLivestock4.FormattingEnabled = true;
             this.cbxRegisterLivestock4.Location = new System.Drawing.Point(209, 204);
             this.cbxRegisterLivestock4.Name = "cbxRegisterLivestock4";

@@ -116,6 +116,7 @@ namespace SD_RE_James_Clifford
             if (cbxManageLivestock1.SelectedIndex > -1)
             {
                 livestock.removebooking(tagno,BookingId);
+                MessageBox.Show("Booking Has Been Removed", "Booking removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

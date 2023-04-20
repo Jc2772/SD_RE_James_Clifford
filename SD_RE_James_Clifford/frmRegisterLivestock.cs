@@ -201,6 +201,8 @@ namespace SD_RE_James_Clifford
         public void updateform()
         {
             ipdRegisterLivestock1.Clear();
+            ipdRegisterLivestock2.Clear();
+            ipdRegisterLivestock3.Clear();
             ckxRegisterLivestock1.Checked = false;
             ckxRegisterLivestock2.Checked = false;
             cbxRegisterLivestock1.SelectedIndex = -1;
@@ -209,6 +211,7 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock4.SelectedIndex = -1;
             verifytime();
             resetcbx();
+            grpRegisterLivestock.Visible = false;
         }
         public Boolean checkMoney(String bid)
         {
@@ -232,6 +235,9 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock2.Items.Clear();
             cbxRegisterLivestock3.Items.Clear();
             cbxRegisterLivestock4.Items.Clear();
+            cbxRegisterLivestock2.Text = "";
+            cbxRegisterLivestock3.Text = "";
+            cbxRegisterLivestock4.Text = "";
         }
     }
 }
