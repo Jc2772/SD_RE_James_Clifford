@@ -131,7 +131,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.lblManageLivestock1);
             this.Controls.Add(this.cbxManageLivestock1);
             this.Name = "frmManageLivestock";
-            this.Text = "frmManageLivestock";
+            this.Text = "Manage Livestock";
             this.Load += new System.EventHandler(this.frmManageLivestock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

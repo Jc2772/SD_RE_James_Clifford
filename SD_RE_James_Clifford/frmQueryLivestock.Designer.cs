@@ -86,7 +86,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.lblQueryLivestock1);
             this.Controls.Add(this.cbxQueryLivestock);
             this.Name = "frmQueryLivestock";
-            this.Text = "frmQueryLivestock";
+            this.Text = "Livestock search";
             this.Load += new System.EventHandler(this.frmQueryLivestock_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

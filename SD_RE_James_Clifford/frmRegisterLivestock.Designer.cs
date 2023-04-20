@@ -270,7 +270,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.btnRegisterLivestock1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmRegisterLivestock";
-            this.Text = "frmRegisterLivestock";
+            this.Text = "Register Livestock";
             this.Load += new System.EventHandler(this.frmRegisterLivestock_Load);
             this.grpRegisterLivestock.ResumeLayout(false);
             this.grpRegisterLivestock.PerformLayout();

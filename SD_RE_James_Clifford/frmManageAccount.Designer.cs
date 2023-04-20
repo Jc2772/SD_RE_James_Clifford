@@ -112,7 +112,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.lblManageAccounts1);
             this.Controls.Add(this.cbxManageAccount);
             this.Name = "frmManageAccount";
-            this.Text = "frmManageAccount";
+            this.Text = "Manage Account";
             this.Load += new System.EventHandler(this.frmManageAccount_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

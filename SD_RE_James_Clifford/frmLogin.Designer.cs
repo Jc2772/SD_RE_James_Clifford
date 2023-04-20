@@ -92,7 +92,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.tbxLogin1);
             this.Controls.Add(this.btnLogin);
             this.Name = "frmLogin";
-            this.Text = "frmLogin";
+            this.Text = "login";
             this.ResumeLayout(false);
             this.PerformLayout();
 

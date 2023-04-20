@@ -210,7 +210,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.lblNewAccount);
             this.Controls.Add(this.btnAccountAdd);
             this.Name = "frmNewAccount";
-            this.Text = "frmNewAccount";
+            this.Text = "Register Owner";
             this.ResumeLayout(false);
             this.PerformLayout();
 

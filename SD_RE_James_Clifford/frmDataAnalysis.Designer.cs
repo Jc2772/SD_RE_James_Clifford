@@ -124,7 +124,7 @@ namespace SD_RE_James_Clifford
             this.Controls.Add(this.btnDataAnalysis);
             this.Controls.Add(this.lblDataAnalysis);
             this.Name = "frmDataAnalysis";
-            this.Text = "ite";
+            this.Text = "Data Analysis";
             this.Load += new System.EventHandler(this.frmDataAnalysis_Load);
             ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.crtDataAnalysis2)).EndInit();
