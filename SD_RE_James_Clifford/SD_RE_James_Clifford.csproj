@@ -80,6 +80,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="sql.cs" />
     <Compile Include="frmDataAnalysis.cs">
       <SubType>Form</SubType>
     </Compile>

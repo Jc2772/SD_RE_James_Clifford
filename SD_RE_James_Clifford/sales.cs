@@ -69,6 +69,7 @@ namespace SD_RE_James_Clifford
         //conection is open in setsales()
         private int nextSaleId()
         {
+            connection.Open();
             String query = "Select MAX(SaleId) from Sales";
             OracleCommand cmd = new OracleCommand(query, connection);
             OracleDataReader data = cmd.ExecuteReader();
