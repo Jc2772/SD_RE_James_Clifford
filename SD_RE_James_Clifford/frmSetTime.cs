@@ -12,18 +12,16 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmSetTime : Form
     {
-        auction auction;
-        livestock livestock;
+        sql sql;
         frmLivestockHome parent;
         public frmSetTime()
         {
             InitializeComponent();
         }
-        public frmSetTime(frmLivestockHome parent,auction auction,livestock livestock)
+        public frmSetTime(frmLivestockHome parent,sql sql)
         {
             this.parent = parent;
-            this.auction = auction;
-            this.livestock = livestock;
+            this.sql = sql;
             InitializeComponent();
         }
 
@@ -43,7 +41,7 @@ namespace SD_RE_James_Clifford
                 }
                 else 
                 { 
-                    auction.addAuction(date);
+                    sql.NonQuery("insert into auctions(auctionid,auctiondate) values(" + sql.NextAuctionId() + ",'" + date + "')");
                     MessageBox.Show("Auction date was added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
@@ -58,7 +56,7 @@ namespace SD_RE_James_Clifford
             }
             else
             {
-                auction.removeAuction(date);
+                sql.NonQuery("DELETE FROM Auctions where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'");
                 MessageBox.Show("Auction removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
@@ -75,10 +73,10 @@ namespace SD_RE_James_Clifford
         }
         private Boolean checkdates(DateTime date)
         {
-            List<DateTime> lod = auction.GetAuctionDates();
+            List<DateTime> lod = sql.GetDateValues("SELECT auctions.AuctionDate FROM (Bookings inner join Auctions on bookings.auctionid = auctions.auctionid) where bookingstatus = 'U'");
             for(int i = 0; i < lod.Count; i++)
             {
-                if (date.Equals(lod[i]))
+                if (DateTime.Compare(date,lod[i]) == 0)
                 {
                     return true;
                 }
