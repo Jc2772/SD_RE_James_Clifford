@@ -14,15 +14,15 @@ namespace SD_RE_James_Clifford
     {
         frmLivestockHome parent;
         private int id;
-        accounts accounts;
+        sql sql;
         public frmManageAccount()
         {
             InitializeComponent();
         }
-        public frmManageAccount(frmLivestockHome parent,accounts accounts)
+        public frmManageAccount(frmLivestockHome parent,sql sql)
         {
             this.parent = parent;
-            this.accounts = accounts;
+            this.sql = sql;
             InitializeComponent();
         }
 
@@ -40,23 +40,31 @@ namespace SD_RE_James_Clifford
 
         private void frmManageAccount_Load(object sender, EventArgs e)
         {
-            List<string> name = accounts.getAccName();
-            List<int> id = accounts.getId();
+            List<string> name = sql.GetStrValues("SELECT ForeName FROM OWNERS WHERE Owner_Status = 'R'"),
+            surname = sql.GetStrValues("SELECT SurName FROM OWNERS WHERE Owner_Status = 'R'");
+            List<int> id = sql.GetIntValues("SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'");
             for (int i = 0; i < name.Count; i++)
             {
-                cbxManageAccount.Items.Add(name[i] + "-" + id[i]);
+                cbxManageAccount.Items.Add(name[i]+ " " + surname[i] + "-" + id[i]);
             }
         }
 
         private void cbxManageAccount_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> name = accounts.getAccName(), Address1 = accounts.getAccAddress1(), Address2 = accounts.getAccAddress2(),Address3 = accounts.getAccAddress3(),Phone = accounts.getAccPhone(),Email = accounts.getAccEmail();
-            List<int> id = accounts.getId();
+            List<string> 
+                name = sql.GetStrValues("SELECT ForeName FROM OWNERS WHERE Owner_Status = 'R'"),
+                surname = sql.GetStrValues("SELECT SurName FROM OWNERS WHERE Owner_Status = 'R'"),
+                Address1 = sql.GetStrValues("SELECT Area FROM OWNERS WHERE Owner_Status = 'R'"), 
+                Address2 = sql.GetStrValues("SELECT Town FROM OWNERS WHERE Owner_Status = 'R'"),
+                Address3 = sql.GetStrValues("SELECT County FROM OWNERS WHERE Owner_Status = 'R'"),
+                Phone = sql.GetStrValues("SELECT PhoneNo FROM OWNERS WHERE Owner_Status = 'R'"),
+                Email = sql.GetStrValues("SELECT Email FROM OWNERS WHERE Owner_Status = 'R'");
+            List<int> id = sql.GetIntValues("SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'");
             lblManageAccounts2.Text = "Account Display";
             int i = cbxManageAccount.SelectedIndex;
             this.id = id[i];
             lblManageAccounts2.Text +=
-            "\nname: " + name[i]
+            "\nname: " + name[i] + " " +surname
             +"\nid: " + id[i]
             + "\nAddress1: " + Address1[i]
             + "\nAddress2: " + Address2[i]
@@ -74,7 +82,7 @@ namespace SD_RE_James_Clifford
         private void btnManageAccount2_Click(object sender, EventArgs e)
         {
             if (cbxManageAccount.SelectedIndex > -1) {
-                accounts.removeAccounts(id);
+                sql.NonQuery("UPDATE Owners SET Owner_Status = 'D' WHERE OwnerId = " + id);
                 UpdateForm();
                 MessageBox.Show("Account has been Removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -86,7 +94,7 @@ namespace SD_RE_James_Clifford
          public void checkUpdate(String ForeName,String Surname, String Address1, String Address2, String Address3, String Phone, String Email, int id)
         {
             List<string> values = new List<string> { ForeName,Surname, Address1, Address2, Address3, Phone, Email };
-            DataSet dataset = accounts.GetData(id);
+            DataSet dataset = sql.GetAllData("SELECT * FROM OWNERS WHERE OwnerId = " + id);
             foreach (DataRow row in dataset.Tables[0].Rows)
             {
                 int Counts = 0;
@@ -138,20 +146,29 @@ namespace SD_RE_James_Clifford
                     Counts++;
                 }
             }
-            accounts.updateValues(ForeName,Surname, Address1, Address2, Address3, Phone, Email ,id);
+            sql.NonQuery(
+                "UPDATE Owners Set ForeName = '" + ForeName
+                + "',Surname = '" + Surname
+                + "',Area = '" + Address1
+                + "',Town = '" + Address2
+                + "',County = '" + Address3
+                + "',PhoneNo = '" + Phone
+                + "',Email = '" + Email
+                + "'WHERE " + id + " = OwnerId");
             UpdateForm();
         }
         public void UpdateForm()
         {
             lblManageAccounts2.Text = "";
             cbxManageAccount.Items.Clear();
-            List<string> name = accounts.getAccName();
-            List<int> id = accounts.getId();
+            List<string> name = sql.GetStrValues("SELECT ForeName FROM OWNERS WHERE Owner_Status = 'R'"),
+            surname = sql.GetStrValues("SELECT SurName FROM OWNERS WHERE Owner_Status = 'R'");
+            List<int> id = sql.GetIntValues("SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'");
             cbxManageAccount.SelectedIndex = -1;
             cbxManageAccount.Text = "";
             for (int i = 0; i < name.Count; i++)
             {
-                cbxManageAccount.Items.Add(name[i] + "-" + id[i]);
+                cbxManageAccount.Items.Add(name[i] + " " + surname[i] + "-" + id[i]);
             }
         }
 

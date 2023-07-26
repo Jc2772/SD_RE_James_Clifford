@@ -143,7 +143,6 @@
     <Compile Include="frmQueryLivestock.Designer.cs">
       <DependentUpon>frmQueryLivestock.cs</DependentUpon>
     </Compile>
-    <Compile Include="accounts.cs" />
     <Compile Include="auction.cs" />
     <Compile Include="livestock.cs" />
     <Compile Include="sales.cs" />
@@ -208,7 +207,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="livestock.png" />
     <None Include="Resources\data2.PNG" />
     <None Include="Resources\data1.PNG" />
   </ItemGroup>

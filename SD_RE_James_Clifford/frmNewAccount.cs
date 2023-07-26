@@ -13,11 +13,11 @@ namespace SD_RE_James_Clifford
     public partial class frmNewAccount : Form
     {
         frmLivestockHome parent;
-        accounts accounts;
-        public frmNewAccount(frmLivestockHome parent, accounts accounts)
+        sql sql;
+        public frmNewAccount(frmLivestockHome parent, sql sql)
         {
             this.parent = parent;
-            this.accounts = accounts;
+            this.sql = sql;
             InitializeComponent();
         }
         public frmNewAccount()
@@ -54,15 +54,14 @@ namespace SD_RE_James_Clifford
         }
         public bool CheckOwner(string phone, string email)
         {
-
-            /*The piece of code StringComparison.OrdinalIgnoreCase came from https://www.tutlane.com/tutorial/csharp/csharp-string-equals-method*/
-            List<Boolean> test = new List<Boolean> { };
-            for (int i = 0; i < accounts.getAccPhone().Count; i++) {
-                if (phone.Equals(accounts.getAccPhone()[i]))
+            List<string> phonecheck = sql.GetStrValues("SELECT PhoneNo FROM OWNERS WHERE Owner_Status = 'R'");
+            List<string> emailcheck = sql.GetStrValues("SELECT Email FROM OWNERS WHERE Owner_Status = 'R'");
+            for (int i = 0; i < phonecheck.Count; i++) {
+                if (phone.Equals(phonecheck[i]))
                 {
                     return true;
                 }
-                else if (email.Equals(accounts.getAccEmail()[i]))
+                else if (email.Equals(emailcheck[i]))
                 {
                     return true;
                 }
@@ -143,12 +142,12 @@ namespace SD_RE_James_Clifford
 
             if (CheckOwner(Phone, Email))
             {
-                String status = this.accounts.getUserStatus(Phone);
+                String status = sql.GetStrValue("SELECT Owner_Status FROM OWNERS WHERE PhoneNo = '" + Phone + "'");
                 if (status.Equals("D")) {
                     DialogResult dialogResult = MessageBox.Show("Account is already in the System", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        accounts.reinstateAccount(Phone);
+                        sql.NonQuery("UPDATE Owners Set Owner_Status = 'R' WHERE PhoneNo ='" + Phone + "'");
                         resetform();
                     }
                     else {
@@ -179,7 +178,17 @@ namespace SD_RE_James_Clifford
                     Email = "None supplied";
                 }
                 try{
-                    accounts.addValues(forename, surname, Address, town, county, Phone, Email);
+                    sql.NonQuery(
+                        "INSERT INTO Owners(OwnerID,ForeName,Surname,Area,Town,County,PhoneNo,Email) VALUES (" +
+                    sql.NextId() + ",'" +
+                    forename + "','" +
+                    surname + "','" +
+                    Address + "','" +
+                    town + "','" +
+                    county + "','" +
+                    Phone + "','" +
+                    Email + "')"
+                    );
                     MessageBox.Show("Account has been added", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     resetform();
                 }

@@ -13,9 +13,7 @@ namespace SD_RE_James_Clifford
     public partial class frmRegisterLivestock : Form
     {
         frmLivestockHome parent;
-        livestock livestock;
-        accounts accounts;
-        auction auction;
+        sql sql;
         List<string> times = new List<string> { "09:00", "09:20", "09:40", "10:00", "10:20", "10:40", "12:00", "12:20", "12:40", "13:00", "13:20", "13:40" };
         List<DateTime> dates;
         List<int> id;
@@ -23,13 +21,10 @@ namespace SD_RE_James_Clifford
         {
             InitializeComponent();
         }
-        public frmRegisterLivestock(frmLivestockHome parent,livestock livestock,auction auction,accounts accounts)
+        public frmRegisterLivestock(frmLivestockHome parent,sql sql)
         {
+            this.sql = sql;
             this.parent = parent;
-            this.livestock = livestock;
-            this.auction = auction;
-            this.accounts = accounts;
-            this.dates = auction.GetDates();
             InitializeComponent();
         }
         private void ckxRegisterLivestock1_CheckedChanged(object sender, EventArgs e)
@@ -97,10 +92,14 @@ namespace SD_RE_James_Clifford
                 cbxRegisterLivestock2.Items.Add("Anglo-Nubian");
                 grpRegisterLivestock.Visible = true;
             }
-            id = accounts.getId();
+            id = sql.GetIntValues("SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'");
+
+            List<string> 
+            name = sql.GetStrValues("SELECT ForeName FROM OWNERS WHERE Owner_Status = 'R'"),
+            surname = sql.GetStrValues("SELECT SurName FROM OWNERS WHERE Owner_Status = 'R'");
             for (int i = 0; i < id.Count; i++)
             {
-                cbxRegisterLivestock4.Items.Add(accounts.getAccName()[i]);
+                cbxRegisterLivestock4.Items.Add(name[i] + " " + surname[i]);
             }
             sortTimeslots();
         }
@@ -108,7 +107,7 @@ namespace SD_RE_James_Clifford
         {
             for(int i = 0; i < dates.Count; i++)
             {
-                id = accounts.getId();
+                id = sql.GetIntValues("SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'");
                 for (int j = 0; j < times.Count; j++)
                 {
                     cbxRegisterLivestock3.Items.Add(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));

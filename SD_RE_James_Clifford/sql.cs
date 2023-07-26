@@ -68,6 +68,26 @@ namespace SD_RE_James_Clifford
             cmd.ExecuteNonQuery();
             connection.Close();
         }
+        public String GetStrValue(string query)
+        {
+            connection.Open();
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            String status = dataset.Tables[0].Rows[0].ToString();
+            connection.Close();
+            return status;
+        }
+        /*public int GetIntValue()
+        {
+
+        }
+        public DateTime GetDateValue()
+        {
+
+        }
+         */
         public DataSet GetAllData(string query)
         {
             connection.Open();
@@ -80,7 +100,7 @@ namespace SD_RE_James_Clifford
             return dataset;
         }
         // generate id
-        private int nextId()
+        public int NextId()
         {
             connection.Open();
             String query = "Select MAX(OwnerId) from Owners";
@@ -98,7 +118,7 @@ namespace SD_RE_James_Clifford
             }
         }
 
-        private int nextAuctionId()
+        public int NextAuctionId()
         {
             connection.Open();
             string query = "Select MAX(AuctionId) from auctions";
@@ -116,7 +136,7 @@ namespace SD_RE_James_Clifford
             }
         }
 
-        private int nextBookingId()
+        public int NextBookingId()
         {
             connection.Open();
             string query = "Select MAX(BookingId) from Bookings";
@@ -133,7 +153,7 @@ namespace SD_RE_James_Clifford
                 return data.GetInt32(0) + 1;
             }
         }
-        private int nextSaleId()
+        public int NextSaleId()
         {
             connection.Open();
             String query = "Select MAX(SaleId) from Sales";
