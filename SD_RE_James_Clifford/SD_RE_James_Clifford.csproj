@@ -143,7 +143,6 @@
     <Compile Include="frmQueryLivestock.Designer.cs">
       <DependentUpon>frmQueryLivestock.cs</DependentUpon>
     </Compile>
-    <Compile Include="auction.cs" />
     <Compile Include="livestock.cs" />
     <Compile Include="sales.cs" />
     <EmbeddedResource Include="frmDataAnalysis.resx">
