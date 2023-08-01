@@ -135,8 +135,11 @@ namespace SD_RE_James_Clifford
                         }
                         if (cbxRegisterLivestock3.SelectedIndex > -1 && cbxRegisterLivestock2.SelectedIndex > -1 && cbxRegisterLivestock4.SelectedIndex > -1) {
                             if (age > 0 && bid > 0) {
+                                string query;
                                 livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber, id[cbxRegisterLivestock4.SelectedIndex]);
-                                auction.addBooking(id[cbxRegisterLivestock4.SelectedIndex], bid, times[cbxRegisterLivestock3.SelectedIndex], GetDate(), livestockTagNumber);
+                                string idquery = "SELECT AuctionId FROM Auctions where auctiondate = '" + GetDate() + "'";
+                                query = "INSERT INTO Bookings(BookingId, AuctionId, timeslot, OwnerId, StartingPrice, TagNo) Values(" + sql.NextBookingId() + ", " + sql.GetIntValue(idquery) + ", '" + GetTime() + "', " + id + ", " + bid + ", " + livestockTagNumber + ")";
+                                sql.NonQuery(query);
                                 MessageBox.Show("Livestock has been added", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 updateform();
                             }
@@ -167,7 +170,7 @@ namespace SD_RE_James_Clifford
         }
         public void verifytime()
         {
-            List<string> time = auction.getTimes();
+            List<string> time = sql.GetStrValues("SELECT TimeSlot FROM Bookings where BookingStatus = 'U'");
             DateTime today = DateTime.Today;
             for (int i = 0; i < dates.Count; i++)
             {
@@ -176,13 +179,6 @@ namespace SD_RE_James_Clifford
                     for (int j = 0; j < times.Count; j++)
                     {
                         cbxRegisterLivestock3.Items.Remove(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j < time.Count; j++)
-                    {
-                        cbxRegisterLivestock3.Items.Remove(time[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
                     }
                 }
             }
@@ -196,6 +192,18 @@ namespace SD_RE_James_Clifford
                 }
             }
             return dates[0];
+        }
+
+        public string GetTime()
+        {
+            foreach (string time in times)
+            {
+                if (cbxRegisterLivestock3.Items[cbxRegisterLivestock3.SelectedIndex].ToString().Contains(time))
+                {
+                    return time;
+                }
+            }
+            return times[0];
         }
         public void updateform()
         {

@@ -79,10 +79,19 @@ namespace SD_RE_James_Clifford
             connection.Close();
             return status;
         }
-        /*public int GetIntValue()
+        public int GetIntValue(string query)
         {
-
+            connection.Open();
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            int v = Convert.ToInt32(dataset.Tables[0].Rows[0][0].ToString());
+            int id = v;
+            connection.Close();
+            return id;
         }
+        /*
         public DateTime GetDateValue()
         {
 
