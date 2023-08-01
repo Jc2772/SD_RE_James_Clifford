@@ -24,6 +24,7 @@ namespace SD_RE_James_Clifford
         public frmRegisterLivestock(frmLivestockHome parent,sql sql)
         {
             this.sql = sql;
+            this.dates = sql.GetDateValues("SELECT AuctionDate FROM Auctions");
             this.parent = parent;
             InitializeComponent();
         }
@@ -135,8 +136,15 @@ namespace SD_RE_James_Clifford
                         }
                         if (cbxRegisterLivestock3.SelectedIndex > -1 && cbxRegisterLivestock2.SelectedIndex > -1 && cbxRegisterLivestock4.SelectedIndex > -1) {
                             if (age > 0 && bid > 0) {
-                                string query;
-                                livestock.addValues(livestockType, livestockBreed, age, livestockGender, livestockTagNumber, id[cbxRegisterLivestock4.SelectedIndex]);
+                                string query = "INSERT INTO Livestock(TagNo,ownerid,LivestockType,Breed,Age,Gender) VALUES('"
+                                    + livestockTagNumber
+                                    + "'," + id[cbxRegisterLivestock4.SelectedIndex]
+                                    + ",'" + livestockType
+                                    + "','" + livestockBreed
+                                    + "'," + age
+                                    + ",'" + livestockGender
+                                    + "')"; ;
+                                sql.NonQuery(query);
                                 string idquery = "SELECT AuctionId FROM Auctions where auctiondate = '" + GetDate() + "'";
                                 query = "INSERT INTO Bookings(BookingId, AuctionId, timeslot, OwnerId, StartingPrice, TagNo) Values(" + sql.NextBookingId() + ", " + sql.GetIntValue(idquery) + ", '" + GetTime() + "', " + id + ", " + bid + ", " + livestockTagNumber + ")";
                                 sql.NonQuery(query);
@@ -174,11 +182,20 @@ namespace SD_RE_James_Clifford
             DateTime today = DateTime.Today;
             for (int i = 0; i < dates.Count; i++)
             {
+               
                 if (DateTime.Compare(dates[i], today) <= 0)
                 {
                     for (int j = 0; j < times.Count; j++)
                     {
                         cbxRegisterLivestock3.Items.Remove(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
+                    }
+                }
+                else
+                {
+                   for(int j = 0; j < time.Count; j++)
+                    {
+                        string timeslot = time[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy")
+                        cbxRegisterLivestock3.Items.Remove(times[])
                     }
                 }
             }
