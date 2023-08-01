@@ -108,7 +108,6 @@ namespace SD_RE_James_Clifford
         {
             for(int i = 0; i < dates.Count; i++)
             {
-                id = sql.GetIntValues("SELECT OwnerId FROM OWNERS WHERE Owner_Status = 'R'");
                 for (int j = 0; j < times.Count; j++)
                 {
                     cbxRegisterLivestock3.Items.Add(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
@@ -146,7 +145,14 @@ namespace SD_RE_James_Clifford
                                     + "')"; ;
                                 sql.NonQuery(query);
                                 string idquery = "SELECT AuctionId FROM Auctions where auctiondate = '" + GetDate() + "'";
-                                query = "INSERT INTO Bookings(BookingId, AuctionId, timeslot, OwnerId, StartingPrice, TagNo) Values(" + sql.NextBookingId() + ", " + sql.GetIntValue(idquery) + ", '" + GetTime() + "', " + id + ", " + bid + ", " + livestockTagNumber + ")";
+                                query = "INSERT INTO Bookings(BookingId, AuctionId, timeslot, OwnerId, StartingPrice, TagNo) Values(" 
+                                    + sql.NextBookingId() 
+                                    + ", " + sql.GetIntValue(idquery) 
+                                    + ", '" + GetTime() + "', " 
+                                    + id + ", " 
+                                    + bid + ", " 
+                                    + livestockTagNumber 
+                                    + ")";
                                 sql.NonQuery(query);
                                 MessageBox.Show("Livestock has been added", "confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 updateform();
@@ -180,6 +186,7 @@ namespace SD_RE_James_Clifford
         {
             List<string> time = sql.GetStrValues("SELECT TimeSlot FROM Bookings where BookingStatus = 'U'");
             DateTime today = DateTime.Today;
+            List<DateTime> rmdate = new List<DateTime>();
             for (int i = 0; i < dates.Count; i++)
             {
                
@@ -188,16 +195,21 @@ namespace SD_RE_James_Clifford
                     for (int j = 0; j < times.Count; j++)
                     {
                         cbxRegisterLivestock3.Items.Remove(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
+                        rmdate.Add(dates[i]);
                     }
                 }
                 else
                 {
                    for(int j = 0; j < time.Count; j++)
                     {
-                        string timeslot = time[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy")
-                        cbxRegisterLivestock3.Items.Remove(times[])
+                        string timeslot = time[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy");
+                        cbxRegisterLivestock3.Items.Remove(timeslot);
                     }
                 }
+            }
+            for(int i = 0; i < rmdate.Count; i++)
+            {
+                dates.Remove(rmdate[i]);
             }
         }
         public DateTime GetDate()

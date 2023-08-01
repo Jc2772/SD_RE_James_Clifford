@@ -56,6 +56,20 @@ namespace SD_RE_James_Clifford
             }
             else
             {
+                string query = "SELECT TagNo FROM (Bookings inner join Auctions on bookings.auctionid = auctions.auctionid) where auctiondate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
+                List<string> tag = sql.GetStrValues(query);
+                for(int i = 0; i< tag.Count; i++)
+                {
+                    query = "DELETE FROM Livestock where TagNo = '" + tag[i] + "'";
+                    sql.NonQuery(query);
+                }
+                query = "SELECT BookingId FROM (Bookings inner join Auctions on bookings.auctionid = auctions.auctionid) where auctiondate = '" + date.Date.ToString("dd-MMM-yyy") + "'";
+                List<int> bkgids = sql.GetIntValues(query);
+                for(int i = 0; i < bkgids.Count; i++)
+                {
+                    query = "DELETE FROM Bookings where BookingId = '" + bkgids[i] + "'";
+                    sql.NonQuery(query);
+                }
                 sql.NonQuery("DELETE FROM Auctions where AuctionDate = '" + date.Date.ToString("dd-MMM-yyy") + "'");
                 MessageBox.Show("Auction removed", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }

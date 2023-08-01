@@ -12,19 +12,13 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmManageLivestock : Form
     {
-        frmLivestockHome parent;
-        sales sales;
-        livestock livestock;
-        auction auction;
+        sql sql;
         private int BookingId;
         private string tagno;
-        public frmManageLivestock(frmLivestockHome parent, sales sales,livestock livestock,auction auction)
+        public frmManageLivestock(sql sql)
         {
             InitializeComponent();
-            this.parent = parent;
-            this.sales = sales;
-            this.livestock = livestock;
-            this.auction = auction;
+            this.sql = sql;
         }
 
         public frmManageLivestock()
