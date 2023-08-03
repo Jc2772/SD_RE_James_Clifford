@@ -39,8 +39,15 @@ namespace SD_RE_James_Clifford
 
         private void cbxManageLivestock1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<string> type = livestock.getLivestockType(), breed = livestock.getLivestockBreed(), gender = livestock.getLivestockGender(), age = livestock.getLivestockAge(), tag = livestock.getLivestockTagNumber(), timeslot = livestock.GetTimes(), initial_bid = livestock.getinitialBid();
-            List<DateTime> dates = auction.GetAuctionDates();
+            List<string>
+                type = sql.GetStrValues("SELECT Livestock.LivestockType FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'"),
+                breed = sql.GetStrValues("SELECT Livestock.Breed FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'"),
+                gender = sql.GetStrValues("SELECT Livestock.Gender FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'"),
+                age = sql.GetStrValues("SELECT Livestock.Age FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'"),
+                tag = sql.GetStrValues("SELECT TagNo FROM Bookings Where BookingStatus =  'U'"),
+                time = sql.GetStrValues("SELECT TimeSlot From Bookings Where BookingStatus =  'U'"),
+                initial_bid = sql.GetStrValues("SELECT StartingPrice From Bookings Where BookingStatus =  'U'");
+            List<DateTime> dates = sql.GetDateValues("SELECT auctions.AuctionDate FROM (Bookings inner join Auctions on bookings.auctionid = auctions.auctionid) where bookingstatus = 'U'");
             lblManageLivestock2.Text = "";
             int i = cbxManageLivestock1.SelectedIndex;
             lblManageLivestock2.Text += "Livestock"

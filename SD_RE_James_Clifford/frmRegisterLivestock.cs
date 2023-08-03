@@ -184,9 +184,9 @@ namespace SD_RE_James_Clifford
         }
         public void verifytime()
         {
-            List<string> time = sql.GetStrValues("SELECT TimeSlot FROM Bookings where BookingStatus = 'U'");
+            DataSet time = sql.GetAllData("SELECT Timeslot, auctiondate FROM(Bookings inner join Auctions on bookings.auctionid = auctions.auctionid) WHERE BookingStatus = 'U'");
             DateTime today = DateTime.Today;
-            List<DateTime> rmdate = new List<DateTime>();
+            List<DateTime> date = new List<DateTime>();
             for (int i = 0; i < dates.Count; i++)
             {
                
@@ -195,21 +195,12 @@ namespace SD_RE_James_Clifford
                     for (int j = 0; j < times.Count; j++)
                     {
                         cbxRegisterLivestock3.Items.Remove(times[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy"));
-                        rmdate.Add(dates[i]);
-                    }
-                }
-                else
-                {
-                   for(int j = 0; j < time.Count; j++)
-                    {
-                        string timeslot = time[j] + " - " + dates[i].Date.ToString("dd-MMM-yyy");
-                        cbxRegisterLivestock3.Items.Remove(timeslot);
                     }
                 }
             }
-            for(int i = 0; i < rmdate.Count; i++)
+            foreach(DataRow row in time.Tables[0].Rows)
             {
-                dates.Remove(rmdate[i]);
+                cbxRegisterLivestock3.Items.Remove(row[0] + " - " + row[1]);
             }
         }
         public DateTime GetDate()
