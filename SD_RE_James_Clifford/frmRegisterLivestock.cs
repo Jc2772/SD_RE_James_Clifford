@@ -135,7 +135,10 @@ namespace SD_RE_James_Clifford
                         }
                         if (cbxRegisterLivestock3.SelectedIndex > -1 && cbxRegisterLivestock2.SelectedIndex > -1 && cbxRegisterLivestock4.SelectedIndex > -1) {
                             if (age > 0 && bid > 0) {
-                                string query = "INSERT INTO Livestock(TagNo,ownerid,LivestockType,Breed,Age,Gender) VALUES('"
+                                string query;
+                                if (!tagCheck(livestockTagNumber))
+                                {
+                                    query = "INSERT INTO Livestock(TagNo,ownerid,LivestockType,Breed,Age,Gender) VALUES('"
                                     + livestockTagNumber
                                     + "'," + id[cbxRegisterLivestock4.SelectedIndex]
                                     + ",'" + livestockType
@@ -143,7 +146,15 @@ namespace SD_RE_James_Clifford
                                     + "'," + age
                                     + ",'" + livestockGender
                                     + "')"; ;
-                                sql.NonQuery(query);
+                                    sql.NonQuery(query);
+                                }
+                                else
+                                {
+                                    if (isSold(livestockTagNumber))
+                                    {
+                                        query = "UPDATE Livestock Set Age = " + age + ", OwnerId = " + id + "Where TagNo = '" + livestockTagNumber + "'";
+                                    }
+                                }
                                 string idquery = "SELECT AuctionId FROM Auctions where auctiondate = '" + GetDate() + "'";
                                 query = "INSERT INTO Bookings(BookingId, AuctionId, timeslot, OwnerId, StartingPrice, TagNo) Values(" 
                                     + sql.NextBookingId() 
@@ -265,6 +276,30 @@ namespace SD_RE_James_Clifford
             cbxRegisterLivestock2.Text = "";
             cbxRegisterLivestock3.Text = "";
             cbxRegisterLivestock4.Text = "";
+        }
+        public Boolean tagCheck(string tagNumber)
+        {
+            List<string> taglist = sql.GetStrValues("SELECT TagNo FROM Bookings");
+            foreach (string tag in taglist)
+            {
+                if (tagNumber.Equals(tag, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public Boolean isSold(string tagNumber)
+        {
+            List<string> taglist = sql.GetStrValues("SELECT TagNo FROM Bookings Where BookingStatus = 'S'");
+            foreach (string tag in taglist)
+            {
+                if (tagNumber.Equals(tag, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

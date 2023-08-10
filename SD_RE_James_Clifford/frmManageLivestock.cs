@@ -28,8 +28,8 @@ namespace SD_RE_James_Clifford
 
         private void frmManageLivestock_Load(object sender, EventArgs e)
         {
-            List<string> Breed = livestock.getLivestockBreed();
-            List<string> initial_bid = livestock.getinitialBid();
+            List<string> Breed = sql.GetStrValues("SELECT Livestock.Breed FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'");
+            List<string> initial_bid = sql.GetStrValues("SELECT StartingPrice From Bookings Where BookingStatus =  'U'");
             
             for (int i = 0; i < Breed.Count; i++)
             {
@@ -56,9 +56,10 @@ namespace SD_RE_James_Clifford
             + "\ngender: " + gender[i]
             + "\nage: " + age[i]
             + "\ntag: " + tag[i]
-            + "\ntimeslot: " + timeslot[i] + " " + dates[i]
+            + "\ntimeslot: " + time[i] + " " + dates[i]
             + "\ninitial bid: " + initial_bid[i];
-            BookingId = auction.getBookingId(tag[i]);
+            string query = "SELECT BookingId FROM Bookings where TagNo = '" + tag[i] + "'";
+            BookingId = sql.GetIntValue(query);
             tagno = tag[i];
         }
 
@@ -69,7 +70,11 @@ namespace SD_RE_James_Clifford
                 if (cbxManageLivestock1.SelectedIndex > -1) {
                     Double price = Double.Parse(ipdManageLivestock1.Text);
                     if (new frmRegisterLivestock().checkMoney(ipdManageLivestock1.Text)) {
-                        sales.setsales(price, BookingId);
+                        String query = "INSERT INTO Sales(saleid,FinalPrice,BookingId) VALUES ("
+                        + sql.NextSaleId() + ","
+                        + price + ","
+                        + BookingId + ")";
+                        sql.NonQuery(query);
                         MessageBox.Show("Livestock Has Been Sold", "Sold", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         UpdateForm();
                     }
@@ -103,8 +108,8 @@ namespace SD_RE_James_Clifford
             cbxManageLivestock1.SelectedIndex = -1;
             cbxManageLivestock1.Text = "";
             ipdManageLivestock1.Clear();
-            List<string> Breed = livestock.getLivestockBreed();
-            List<string> initial_bid = livestock.getinitialBid();
+            List<string> Breed = sql.GetStrValues("SELECT Livestock.Breed FROM (Bookings inner join Livestock on Bookings.tagNo = Livestock.TagNo) WHERE BookingStatus = 'U'");
+            List<string> initial_bid = sql.GetStrValues("SELECT StartingPrice From Bookings Where BookingStatus =  'U'");
 
             for (int i = 0; i < Breed.Count; i++)
             {
