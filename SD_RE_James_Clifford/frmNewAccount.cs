@@ -171,6 +171,10 @@ namespace SD_RE_James_Clifford
             {
                 MessageBox.Show("Email is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            else if (!County(county))
+            {
+                MessageBox.Show("County is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 if (string.IsNullOrEmpty(Email))
@@ -196,6 +200,17 @@ namespace SD_RE_James_Clifford
                 {
                     MessageBox.Show("invalid data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+        public Boolean County(string value)
+        {
+            List<string> county = new List<string>() { "Antrim", "Armagh", "LondonDerry", "Derry", "Down", "Fermanagh", "Tyrone", "Carlow", "Cavan", "Clare", "Cork", "Donegal", "Dublin", "Galway", "Kerry", "Kildare", "Kilkenny", "Laois", "Leitrim", "Limerick", "Longford", "Louth", "Mayo", "Meath", "Monaghan", "Offaly", "Roscommon", "Sligo", "Tipperary", "Waterford", "Westmeath", "Wexford", "Wicklow" };
+            if (county.Contains(value)){
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         public void resetform()

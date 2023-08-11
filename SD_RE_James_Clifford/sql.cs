@@ -60,7 +60,21 @@ namespace SD_RE_James_Clifford
             connection.Close();
             return list;
         }
-
+        public List<Double> GetDoubleValues(string query)
+        {
+            connection.Open();
+            OracleCommand cmd = new OracleCommand(query, connection);
+            connection.Close();
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            List<Double> list = new List<Double>();
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            foreach (DataRow row in dataset.Tables[0].Rows)
+            {
+                list.Add(Convert.ToDouble(row[0]));
+            }
+            return list;
+        }
         public void NonQuery(string query)
         {
             connection.Open();

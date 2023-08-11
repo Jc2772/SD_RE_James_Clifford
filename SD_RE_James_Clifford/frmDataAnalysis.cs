@@ -14,18 +14,17 @@ namespace SD_RE_James_Clifford
     public partial class frmDataAnalysis : Form
     {
         frmLivestockHome parent;
-        sales sale;
+        sql sql;
         livestock livestock;
         public frmDataAnalysis()
         {
             InitializeComponent();
         }
-        public frmDataAnalysis(frmLivestockHome parent, sales sale, livestock livestock)
+        public frmDataAnalysis(frmLivestockHome parent, sql sql)
         {
             InitializeComponent();
             this.parent = parent;
-            this.livestock = livestock;
-            this.sale = sale;
+            this.sql = sql;
         }
 
         private void btnDataAnalysis_Click(object sender, EventArgs e)
@@ -63,8 +62,11 @@ namespace SD_RE_James_Clifford
             crtDataAnalysis1.Titles.Add("Yearly Revenue");
             Series series1 = crtDataAnalysis1.Series[0];
             series1.ChartType = SeriesChartType.Bar;
-            List<Double> money = sale.getProfits(cbxDataAnalysis2.SelectedItem.ToString());
-            List<DateTime> dates = sale.getProfitDates(cbxDataAnalysis2.SelectedItem.ToString());
+            string query;
+            query = "SELECT sales.FinalPrice * 0.15 From ((Bookings Inner Join Auctions on Bookings.AuctionId = Auctions.AuctionId) Inner Join Sales on Bookings.BookingId = Sales.BookingId) Where EXTRACT(YEAR FROM AuctionDate) = " + cbxDataAnalysis2.SelectedItem.ToString() + "AND BookingStatus = 'S'";
+            List<Double> money = sql.GetDoubleValues(query);
+            query = "SELECT AuctionDate From (Bookings Inner Join Auctions on Bookings.AuctionId = Auctions.AuctionId) Where EXTRACT(YEAR FROM AuctionDate) = " + cbxDataAnalysis2.SelectedItem.ToString() + "AND BookingStatus = 'S'";
+            List<DateTime> dates = sql.GetDateValues(query);
             String[] date = new String[] { "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
             Double[] MonthlyProfits = new Double[] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             for (int i = 0; i < date.Length; i++)
@@ -91,7 +93,8 @@ namespace SD_RE_James_Clifford
             crtDataAnalysis2.Titles.Clear();
             crtDataAnalysis2.Visible = true;
             crtDataAnalysis2.Titles.Add("Livestock Analysis");
-            List<String> Type = livestock.AnalyseLiveStock(cbxDataAnalysis2.SelectedItem.ToString());
+            string query = "SELECT Livestock.LivestockType FROM (Bookings Inner Join Auctions on Bookings.AuctionId = Auctions.AuctionId) inner join Livestock on Bookings.TagNo = Livestock.TagNo Where EXTRACT(YEAR FROM AuctionDate) = " + cbxDataAnalysis2.SelectedItem.ToString() + "AND BookingStatus = 'S'";
+            List<String> Type = sql.GetStrValues(query);
             String[] types = new String[] { "cattle", "sheep", "goat" };
             Series series2 = crtDataAnalysis2.Series[0];
             series2.ChartType = SeriesChartType.Pie;
