@@ -12,13 +12,15 @@ namespace SD_RE_James_Clifford
 {
     public partial class frmManageLivestock : Form
     {
+        frmLivestockHome parent;
         sql sql;
         private int BookingId;
         private string tagno;
-        public frmManageLivestock(sql sql)
+        public frmManageLivestock(sql sql,frmLivestockHome parent)
         {
             InitializeComponent();
             this.sql = sql;
+            this.parent = parent;
         }
 
         public frmManageLivestock()
@@ -56,7 +58,7 @@ namespace SD_RE_James_Clifford
             + "\ngender: " + gender[i]
             + "\nage: " + age[i]
             + "\ntag: " + tag[i]
-            + "\ntimeslot: " + time[i] + " " + dates[i]
+            + "\ntimeslot: " + time[i] + " " + dates[i].ToString("dd-MMM-yyy")
             + "\ninitial bid: " + initial_bid[i];
             string query = "SELECT BookingId FROM Bookings where TagNo = '" + tag[i] + "'";
             BookingId = sql.GetIntValue(query);
@@ -67,16 +69,27 @@ namespace SD_RE_James_Clifford
         {
             try
             {
+                string query;
                 if (cbxManageLivestock1.SelectedIndex > -1) {
                     Double price = Double.Parse(ipdManageLivestock1.Text);
                     if (new frmRegisterLivestock().checkMoney(ipdManageLivestock1.Text)) {
-                        String query = "INSERT INTO Sales(saleid,FinalPrice,BookingId) VALUES ("
-                        + sql.NextSaleId() + ","
-                        + price + ","
-                        + BookingId + ")";
-                        sql.NonQuery(query);
-                        MessageBox.Show("Livestock Has Been Sold", "Sold", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        UpdateForm();
+                        query = "SELECT auctions.AuctionDate FROM (Bookings inner join Auctions on bookings.auctionid = auctions.auctionid) where BookingId = " + BookingId;
+                        DateTime date = sql.GetDateValue(query);
+                        DateTime today = DateTime.Today;
+                        if (DateTime.Compare(date, today) < 0)
+                        {
+                            query = "INSERT INTO Sales(saleid,FinalPrice,BookingId) VALUES ("
+                            + sql.NextSaleId() + ","
+                            + price + ","
+                            + BookingId + ")";
+                            sql.NonQuery(query);
+                            MessageBox.Show("Livestock Has Been Sold", "Sold", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            UpdateForm();
+                        }
+                        else
+                        {
+                            MessageBox.Show("invalid livestock selection", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
                     else
                     {
@@ -90,7 +103,7 @@ namespace SD_RE_James_Clifford
             }
             catch (Exception)
             {
-                MessageBox.Show("invalid price", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
            
@@ -119,10 +132,22 @@ namespace SD_RE_James_Clifford
 
         private void btnManagelivestock3_Click(object sender, EventArgs e)
         {
+            string query;
             if (cbxManageLivestock1.SelectedIndex > -1)
             {
-                livestock.removebooking(tagno,BookingId);
-                MessageBox.Show("Booking Has Been Removed", "Booking removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                query = "SELECT auctions.AuctionDate FROM (Bookings inner join Auctions on bookings.auctionid = auctions.auctionid) where BookingId = " + BookingId;
+                DateTime date = sql.GetDateValue(query);
+                DateTime today = DateTime.Today;
+                if (DateTime.Compare(date, today) > 0)
+                { 
+                    query = "DELETE FROM Bookings where BookingId = " + BookingId;
+                    sql.NonQuery(query);
+                    MessageBox.Show("Booking Has Been Removed", "Booking removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("invalid livestock selection", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {

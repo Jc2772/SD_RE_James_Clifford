@@ -221,7 +221,6 @@ namespace SD_RE_James_Clifford
             string query = "DELETE FROM Bookings where BookingId = " + bookingid;
             OracleCommand cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
-            query = "DELETE FROM Livestock where TagNo = '" + tagno + "'";
             cmd = new OracleCommand(query, connection);
             cmd.ExecuteNonQuery();
             connection.Close();

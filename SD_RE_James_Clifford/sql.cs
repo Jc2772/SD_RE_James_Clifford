@@ -91,12 +91,18 @@ namespace SD_RE_James_Clifford
             connection.Close();
             return id;
         }
-        /*
-        public DateTime GetDateValue()
+        
+        public DateTime GetDateValue(string query)
         {
-
+            connection.Open();
+            OracleCommand cmd = new OracleCommand(query, connection);
+            OracleDataAdapter dataAdapter = new OracleDataAdapter(cmd);
+            DataSet dataset = new DataSet();
+            dataAdapter.Fill(dataset);
+            DateTime status = DateTime.Parse(dataset.Tables[0].Rows[0].ToString());
+            connection.Close();
+            return status;
         }
-         */
         public DataSet GetAllData(string query)
         {
             connection.Open();
