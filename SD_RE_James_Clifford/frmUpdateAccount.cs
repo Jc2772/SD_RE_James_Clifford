@@ -39,7 +39,7 @@ namespace SD_RE_James_Clifford
             Boolean
                 update_check1 = accountOptions.CheckPhone(Phone),
                 update_check2 = accountOptions.CheckEmail(Email); ;
-            if ((update_check1 && update_check2) || (string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Phone)))
+            if (((update_check1 && update_check2) || (string.IsNullOrEmpty(Email) && string.IsNullOrEmpty(Phone))) && County(Address3))
             {
                 MessageBox.Show("Data is is Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
@@ -52,6 +52,18 @@ namespace SD_RE_James_Clifford
             else if (!update_check2)
             {
                 MessageBox.Show("Email is invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public Boolean County(string value)
+        {
+            List<string> county = new List<string>() { "Antrim", "Armagh", "LondonDerry", "Derry", "Down", "Fermanagh", "Tyrone", "Carlow", "Cavan", "Clare", "Cork", "Donegal", "Dublin", "Galway", "Kerry", "Kildare", "Kilkenny", "Laois", "Leitrim", "Limerick", "Longford", "Louth", "Mayo", "Meath", "Monaghan", "Offaly", "Roscommon", "Sligo", "Tipperary", "Waterford", "Westmeath", "Wexford", "Wicklow" };
+            if (county.Contains(value))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

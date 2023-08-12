@@ -128,7 +128,7 @@ namespace SD_RE_James_Clifford
             connection.Close();
             return dataset;
         }
-        // generate id
+        
         public int NextId()
         {
             connection.Open();
